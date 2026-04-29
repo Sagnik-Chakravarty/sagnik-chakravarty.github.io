@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Sagnik Chakravarty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div id="header-container">
+        <nav>
+            <img src="images/logo.png" class="logo" alt="Logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Research Page -->
+    <main id="research-page">
+
+        <!-- Hero -->
+        <section class="research-hero">
+            <p class="research-eyebrow">Research Profile</p>
+            <h1>Survey Methodology, Machine Learning, and Computational Social Science</h1>
+            <p>
+                My research focuses on how data is generated, measured, and modeled in complex social systems.
+                I work at the intersection of survey methodology, NLP, LLMs, and data-centric machine learning,
+                with an emphasis on measurement error, bias, uncertainty, and inference from human-generated data.
+            </p>
+        </section>
+
+        <!-- Current Research -->
+        <section class="research-section">
+            <h2>Current Research</h2>
+            <div class="red-divider"></div>
+
+            <div class="featured-research-card">
+                <div class="featured-text">
+                    <h3>FrameScope: AI Metaphor and Framing Analysis</h3>
+                    <p class="project-meta-small">
+                        LLMs + NLP + Computational Social Science
+                    </p>
+                    <p>
+                        FrameScope studies how artificial intelligence is framed in public discourse across
+                        Reddit, news, and other online sources. The project uses LLM-assisted annotation,
+                        metaphor detection, stance classification, and dashboard-based visualization to analyze
+                        how people understand AI as a tool, threat, replacement, assistant, machine, force, or
+                        social actor.
+                    </p>
+
+                    <div class="project-buttons">
+                        <a href="https://framescope.streamlit.app" target="_blank" class="paper-btn">Website</a>
+                        <a href="https://github.com/Sagnik-Chakravarty/FrameScope" target="_blank" class="paper-btn secondary-paper-btn">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="featured-poster">
+                    <img src="assets/poster/FramescopePoster.png"
+                         alt="FrameScope poster"
+                         onclick="openPosterModal('assets/poster/FramescopePoster.png', 'FrameScope Poster')"
+                         onerror="this.style.display='none'">
+                    <p class="poster-hint">Click poster to enlarge</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Themes -->
+        <section class="research-section">
+            <h2>Research Themes</h2>
+            <div class="red-divider"></div>
+
+            <div class="theme-grid">
+                <div class="theme-card">
+                    <h3>Data Generation & Measurement</h3>
+                    <p>
+                        Total Survey Error, measurement error, nonresponse, sampling frames,
+                        coverage bias, and uncertainty in social data.
+                    </p>
+                </div>
+
+                <div class="theme-card">
+                    <h3>NLP, Framing & Discourse</h3>
+                    <p>
+                        Metaphor detection, stance classification, sentiment analysis,
+                        political discourse, public perception, and LLM-assisted annotation.
+                    </p>
+                </div>
+
+                <div class="theme-card">
+                    <h3>Data-Centric Machine Learning</h3>
+                    <p>
+                        Methods that account for data quality, missingness, bias, uncertainty,
+                        and the structure of data-generating processes.
+                    </p>
+                </div>
+
+                <div class="theme-card">
+                    <h3>Survey + AI Systems</h3>
+                    <p>
+                        Integrating statistical survey methodology with modern ML systems
+                        for more reliable inference from complex human-centered datasets.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Research Projects -->
+        <section class="research-section">
+            <h2>Selected Research Projects</h2>
+            <div class="red-divider"></div>
+
+            <div class="selected-project-grid">
+
+                <div class="selected-project-card">
+                    <h3>ASHA Survey Methods Project</h3>
+                    <p class="project-meta-small">Survey Methodology | Client Project</p>
+                    <p>
+                        Evaluated postcard reminders and survey-mode effects for ASHA survey response improvement.
+                    </p>
+                    <div class="project-buttons">
+                        <a href="assets/papers/ASHAFinalReport.pdf" target="_blank" class="paper-btn">Report</a>
+                        <a href="https://github.com/Sagnik-Chakravarty/ASHA" target="_blank" class="paper-btn secondary-paper-btn">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="selected-project-card">
+                    <h3>Immigration Narratives vs Enforcement Data</h3>
+                    <p class="project-meta-small">TSE + Computational Social Science</p>
+                    <p>
+                        Compared news and Reddit narratives with CBP and ICE administrative enforcement indicators.
+                    </p>
+                    <div class="project-buttons">
+                        <a href="assets/papers/Immigration.pdf" target="_blank" class="paper-btn">Paper</a>
+                        <a href="https://github.com/Sagnik-Chakravarty/Immigration-Narrative-Vs-Enforcement" target="_blank" class="paper-btn secondary-paper-btn">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="selected-project-card">
+                    <h3>GTI Rankings Through Event Data and Media Framing</h3>
+                    <p class="project-meta-small">Machine Learning + Media Framing</p>
+                    <p>
+                        Built a media-aware alternative to the Global Terrorism Index using GTD event data and news framing.
+                    </p>
+                    <div class="project-buttons">
+                        <a href="assets/papers/GTD.pdf" target="_blank" class="paper-btn">Paper</a>
+                        <a href="https://github.com/Sagnik-Chakravarty/GTD" target="_blank" class="paper-btn secondary-paper-btn">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="selected-project-card">
+                    <h3>EV Sentiment Analysis using LLMs</h3>
+                    <p class="project-meta-small">AAPOR 2025 | NLP</p>
+                    <p>
+                        Compared public EV sentiment across Reddit, The New York Times, and LLM-generated responses.
+                    </p>
+                    <div class="project-buttons">
+                        <a href="assets/papers/EVSentimentAnalysisProjectPaper.pdf" target="_blank" class="paper-btn">Paper</a>
+                        <a href="https://github.com/Sagnik-Chakravarty/AAPOR_EV_Project" target="_blank" class="paper-btn secondary-paper-btn">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="selected-project-card">
+                    <h3>Michigan Teen Risk Behavior Sampling Design</h3>
+                    <p class="project-meta-small">Applied Sampling</p>
+                    <p>
+                        Designed a statewide multistage school-based sampling plan for teen smoking and drug-use estimation.
+                    </p>
+                    <div class="project-buttons">
+                        <a href="assets/papers/625Project.pdf" target="_blank" class="paper-btn">Report</a>
+                        <a href="https://github.com/namo507/SURV-625-Project" target="_blank" class="paper-btn secondary-paper-btn">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="selected-project-card">
+                    <h3>Detroit Transportation Insecurity Sampling Design</h3>
+                    <p class="project-meta-small">Area Frame Sampling</p>
+                    <p>
+                        Designed a multistage area-frame survey for transportation insecurity measurement in Detroit.
+                    </p>
+                    <div class="project-buttons">
+                        <a href="assets/papers/MultiStageSampling.pdf" target="_blank" class="paper-btn">Report</a>
+                        <a href="https://github.com/Sagnik-Chakravarty/surv745-area-frame-multistage-survey-design" target="_blank" class="paper-btn secondary-paper-btn">GitHub</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Publications / Presentations -->
+        <section class="research-section">
+            <h2>Publications & Presentations</h2>
+            <div class="red-divider"></div>
+
+            <div class="publication-list">
+
+                <div class="publication-item">
+                    <div>
+                        <h3>Analyzing Public Perceptions and Sentiments of EVs in the Era of Sustainable Transformation</h3>
+                        <p>AAPOR 80th Annual Conference, 2025</p>
+                    </div>
+                    <a href="assets/papers/EVSentimentAnalysisProjectPaper.pdf" target="_blank">Paper →</a>
+                </div>
+
+                <div class="publication-item">
+                    <div>
+                        <h3>An Empirical Evaluation of GTI Rankings Through Event Data and Media Framing</h3>
+                        <p>IISA 2025 Conference</p>
+                    </div>
+                    <a href="assets/papers/GTD.pdf" target="_blank">Paper →</a>
+                </div>
+
+                <div class="publication-item">
+                    <div>
+                        <h3>Topological Data Analysis on DNA and RNA Structures</h3>
+                        <p>NCSET, VIT Chennai, 2023</p>
+                    </div>
+                    <a href="assets/papers/Topological_Data_Analysis.pdf" target="_blank">Paper →</a>
+                </div>
+
+                <div class="publication-item">
+                    <div>
+                        <h3>Comparative Analysis of PageRank and HITS using Citation Network Data</h3>
+                        <p>NCSET, VIT Chennai, 2023</p>
+                    </div>
+                    <a href="assets/papers/PageRank_vs_HIts.pdf" target="_blank">Paper →</a>
+                </div>
+
+                <div class="publication-item">
+                    <div>
+                        <h3>Image Recognition using Factorial Design Experiment</h3>
+                        <p>NCSET, VIT Chennai, 2023</p>
+                    </div>
+                    <a href="assets/papers/Image_Recognition_Factorial_Design .pdf" target="_blank">Paper →</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Lab / Collaboration -->
+        <section class="research-section">
+            <h2>Lab & Collaboration</h2>
+            <div class="red-divider"></div>
+
+            <div class="lab-card">
+                <h3>Computational Approaches to Text and Survey Research</h3>
+                <p>
+                    I currently work as a Research Assistant at the University of Maryland on projects
+                    involving AI discourse, metaphor framing, NLP, LLM-assisted annotation, and survey experiments.
+                    This work connects computational text analysis with survey methodology and public opinion research.
+                </p>
+
+                <div class="project-buttons">
+                    <a href="https://cats-group.github.io/" target="_blank" class="paper-btn">Lab Website</a>
+                    <a href="https://framescope.streamlit.app" target="_blank" class="paper-btn secondary-paper-btn">FrameScope Dashboard</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Philosophy -->
+        <section class="research-section">
+            <h2>Research Philosophy</h2>
+            <div class="red-divider"></div>
+
+            <div class="philosophy-box">
+                <p>
+                    Many failures in machine learning and computational social science are not only model failures;
+                    they are failures to understand the data-generating process. My research focuses on building
+                    methods that treat data quality, measurement, sampling, and uncertainty as central parts of
+                    inference rather than downstream technical details.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Poster Modal -->
+    <div id="poster-modal" class="poster-modal" onclick="closePosterModal()">
+        <span class="poster-close">&times;</span>
+        <img id="poster-modal-img" class="poster-modal-img" src="" alt="Expanded poster">
+    </div>
+
+    <footer id="footer">
+        <p>© 2026 Sagnik Chakravarty</p>
+    </footer>
+
+    <script>
+        function openPosterModal(src, title) {
+            const modal = document.getElementById("poster-modal");
+            const modalImg = document.getElementById("poster-modal-img");
+
+            modal.style.display = "flex";
+            modalImg.src = src;
+            modalImg.alt = title;
+        }
+
+        function closePosterModal() {
+            document.getElementById("poster-modal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
