@@ -2085,18 +2085,7 @@ body {
   display: none;
 }
 
-body {
-  animation: pageFade 0.25s ease-in;
-}
 
-@keyframes pageFade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
 .hero-buttons {
   margin-top: 25px;
