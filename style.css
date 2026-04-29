@@ -1,0 +1,457 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  color: #080808;
+  background: #fff;
+  padding: 0 10%; /* Adds padding on both sides of the body */
+  padding-top: 80px; /* Prevents overlap with fixed header */
+}
+
+/* Header Section */
+#header {
+  width: 100%;
+  height: 100vh;
+  background-image: url("images/Sagnikwb.jpeg");
+  background-size: 450px 500px; /* Custom Size */
+  background-position: right 100px top 200px; /* Custom Position */
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  align-items: center; /* Vertically center the text with the image */
+  padding-right: 50px; /* Add some padding on the right of the image */
+  border-radius: 10px;
+}
+
+/* Header Text Adjustments */
+.header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 30px; /* Add space between the image and text */
+  max-width: 500px; /* Limit width of the text */
+}
+
+.header-text h1 {
+  font-size: 60px;
+  margin: 20px;
+}
+
+/* Apply red color specifically to 'Sagnik' */
+#header-text span:first-of-type {
+  color: #ff004f; /* Red color for 'Sagnik' */
+}
+
+/* Apply blue color to 'Survey Methodology and Data Science' */
+.blue-text {
+  color: #007bff; /* Blue color for 'Survey Methodology and Data Science' */
+}
+
+/* Navbar Section */
+#header-container {
+  position: fixed; /* Keeps the header at the top of the page */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* Ensures it stays on top of other content */
+  background-image: url("images/Header.jpg"); /* Add your image here */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  backdrop-filter: blur(10px); /* Optional blurred effect behind header */
+}
+
+
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Make the nav take full width */
+  justify-content: space-between; /* Spread items across the navbar */
+  padding: 20px 50px;
+}
+
+/* Logo Styling */
+.logo {
+  width: 200px; /* The width of the logo itself */
+  height: auto;
+  padding-left: 100px; /* Adds left padding to shift the logo */
+}
+
+/* Navbar Menu Styling */
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align items to the right */
+}
+
+nav ul li {
+  list-style: none;
+  margin: 10px 20px;
+  font-weight: bold;
+}
+
+nav ul li a {
+  color: #080808;
+  text-decoration: none;
+  font-size: 20px;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background-color: #ff004f; /* Red hover effect for links */
+  position: absolute;
+  left: 0;
+  bottom: -6px; /* Position below text */
+  transition: width 0.5s ease-in-out; /* Smooth hover effect transition */
+}
+
+nav ul li a:hover::after {
+  width: 100%; /* Expands underline on hover */
+}
+
+/* About Section Styling */
+#about {
+  background-color: #fff;
+  padding: 300px 0 100px 0;
+  min-height: 150vh;
+}
+
+#container {
+ display:flex; 
+ align-items: center;
+}
+
+
+/* About Section Styling */
+#about {
+  background-color: #fff;
+  padding: 90px 0 50px;
+  transition: 0.3s ease-in-out;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 2500px;
+  margin: 0 auto;
+}
+
+#row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 70px;
+  width: 100%;
+}
+
+#about-col-1 {
+  flex: 1;
+  flex-basis: 0%; /* Adjusted for better balance */
+  padding-right: 5px; /* Reduced space between image and text */
+}
+
+.about-img {
+  width: 380px;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+#about-col-2 {
+  flex: 1;
+  padding-left: 10px; /* Space between text and image */
+  margin-top: 0; /* Removed top margin to bring text closer to image */
+  max-width: 2000px;
+}
+
+.sub-title {
+  font-size: 40px;
+  font-weight: 600;
+  color: #36393a;
+  margin-bottom: 15px;
+  cursor: pointer; /* Added for clickable subtitle */
+}
+
+#about-col-2 p {
+  font-size: 15px;
+  color: #080808;
+  line-height: 1.8; /* Increased line height for readability */
+  text-align: left;
+  max-width: 2000px; /* Limit line length, so text doesn't stretch too much */
+  margin-top: 0;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#about-col-2 p + p {
+  margin-top: 15px;
+}
+
+#about-col-2 a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+#about-col-2 a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 768px) {
+  #row {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #about-col-1, #about-col-2 {
+      padding: 0;
+  }
+
+  .about-img {
+      width: 80%;
+      max-width: 300px;
+      margin-bottom: 20px;
+  }
+
+  .sub-title {
+      font-size: 36px;
+  }
+}
+
+/* Current Work Section Styling */
+.current-work {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 30px 0 50px 0;
+}
+
+.work-item {
+  padding: 20px;
+  background: #f8f9fa;
+  border-left: 4px solid #ff004f;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.work-item:hover {
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.work-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #080808;
+  margin-bottom: 10px;
+}
+
+.work-item p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.work-item a {
+  font-size: 14px;
+  color: #ff004f;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.work-item a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .current-work {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Tab Title Styling */
+.tab-titles {
+  display: flex;
+  margin: 20px 0 40px;
+  align-items: center;
+}
+
+.tab-links {
+  margin-right: 30px; /* Reduced margin to make it more compact */
+  font-size: 14px; /* Slightly smaller font size */
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  line-height: 1.6;
+}
+
+.tab-links::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background: #b54769; /* Using your maroon color */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease;
+}
+
+.tab-links.active-link::after {
+  width: 50%;
+}
+
+.tab-links:hover::after {
+  width: 100%;
+}
+
+.tab-links.active-link {
+  padding-bottom: 5px;
+}
+
+/* Education and Experience Section Styling */
+.tab-contents ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tab-contents ul li {
+  margin-bottom: 15px; /* Reduced space between items */
+  background: #f8f9fa;
+  padding: 12px; /* Reduced padding */
+  border-left: 4px solid #b54769; /* Maroon color for border */
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.tab-contents ul li:hover {
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tab-contents ul li span {
+  display: block;
+  font-weight: bold;
+  color: #333;
+}
+
+.tab-contents ul li .Date {
+  font-size: 13px; /* Reduced font size */
+  color: #666;
+}
+
+.tab-contents ul li .Program,
+.tab-contents ul li .Position {
+  font-size: 15px;
+  font-weight: bold;
+  color: #b54769; /* Maroon color */
+  margin-top: 5px;
+}
+
+.tab-contents ul li .University,
+.tab-contents ul li .Company {
+  font-size: 14px; /* Reduced font size */
+  font-weight: 500;
+  color: #444;
+}
+
+.tab-contents ul li .GPA {
+  font-size: 13px; /* Reduced font size */
+  color: #666;
+}
+
+/* Hide all content initially */
+.tab-contents {
+  display: none;
+}
+
+/* Show active tab content */
+.tab-contents.active-tab {
+  display: block;
+}
+
+/* Compact Skills Section */
+#Skills ul {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap within the container */
+  gap: 20px; /* Adds space between items */
+  padding: 0;
+  margin: 0;
+}
+
+#Skills ul li {
+  font-size: 14px; /* Adjusted font size for better readability */
+  padding: 10px;
+  background-color: #f7f7f7; /* Light background for better contrast */
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Rounded corners */
+  width: calc(33.33% - 20px); /* Makes each item take up 1/3 of the space, with gap included */
+  box-sizing: border-box; /* Ensures padding and border are included in the width calculation */
+  transition: 0.3s;
+}
+
+#Skills ul li:hover {
+  background-color: #fff; /* Slight background change on hover */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Adds subtle shadow on hover */
+}
+
+#Skills ul li span {
+  display: block;
+  color: #b54769; /* Maroon color for categories */
+  font-weight: bold;
+}
+
+#Skills ul li span:last-child {
+  color: #555; /* Lighter color for the skill text */
+  font-weight: normal;
+}
+
+/* Mobile responsiveness for skills */
+@media (max-width: 768px) {
+  #Skills ul li {
+      width: calc(50% - 20px); /* Reduces to 2 items per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  #Skills ul li {
+      width: 100%; /* Makes it 1 item per row on mobile */
+  }
+}
+
+/* Additional Adjustments for responsiveness */
+@media screen and (max-width: 768px) {
+  nav {
+      flex-direction: column;
+      padding: 15px;
+  }
+  nav ul {
+      flex-direction: column;
+      align-items: center;
+  }
+  nav ul li {
+      margin: 10px 0;
+  }
+  .logo {
+      margin-bottom: 20px;
+  }
+}
+
+/* CV */

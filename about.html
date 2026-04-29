@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Sagnik Chakravarty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div id="header-container">
+        <nav>
+            <img src="images/logo.png" class="logo" alt="Logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- About Section -->
+    <div id="about">
+        <div id="container">
+            <div id="row">
+
+                <!-- Left Image -->
+                <div id="about-col-1">
+                    <img src="images/Sagnikabout.jpeg" alt="Sagnik" class="about-img">
+                </div>
+
+                <!-- Right Content -->
+                <div id="about-col-2">
+
+                    <h1 class="sub-title">About Me</h1>
+
+                    <div id="about-content">
+                        <p>
+                            I am a graduate student at the University of Maryland, College Park in the
+                            Joint Program in Survey Methodology, specializing in Survey and Data Science.
+                            My work focuses on computational social science, survey methodology,
+                            machine learning, and NLP applications for social data.
+                        </p>
+
+                        <p>
+                            My current research centers on data-centric machine learning,
+                            measurement error, sampling, nonresponse, and the use of large language models
+                            to improve survey research and computational social science workflows.
+                        </p>
+
+                        <p>
+                            I am particularly interested in how machine learning systems can incorporate
+                            the realities of data generation — including uncertainty, bias, coverage,
+                            and missingness — into modeling and inference.
+                        </p>
+
+                        <p>
+                            I am actively exploring opportunities in survey research, data science,
+                            machine learning, NLP, and computational social science.
+                        </p>
+                    </div>
+
+                    <!-- Current Work Section -->
+                    <h2 class="sub-title">Current Work</h2>
+
+                    <div class="current-work">
+                      <div class="work-item">
+                        <h3>FrameScope</h3>
+                        <p>LLM-based metaphor and framing analysis of AI discourse using Reddit and news data.</p>
+                        <a href="research.html">View Project →</a>
+                      </div>
+
+                      <div class="work-item">
+                        <h3>ASHA Survey Methods Project</h3>
+                        <p>Analyzing survey mode and follow-up strategies to improve response rates.</p>
+                        <a href="research.html">View Project →</a>
+                      </div>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('Skills', event)">Skills</p>
+                        <p class="tab-links" onclick="opentab('Education', event)">Education</p>
+                        <p class="tab-links" onclick="opentab('Experience', event)">Experience</p>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="tab-contents active-tab" id="Skills">
+                        <ul>
+                            <li><span>Programming</span><br>R, Python, JavaScript, SQL</li>
+                            <li><span>Machine Learning</span><br>PyTorch, TensorFlow, Scikit-learn, Hugging Face</li>
+                            <li><span>NLP</span><br>Sentiment, Stance, Framing, LLM Annotation</li>
+                            <li><span>Survey Methodology</span><br>Sampling, TSE, Nonresponse, Measurement Error</li>
+                            <li><span>Data Tools</span><br>Pandas, dplyr, DuckDB, SQLite</li>
+                            <li><span>Visualization</span><br>ggplot2, Tableau, Power BI</li>
+                            <li><span>Cloud</span><br>AWS, GCP, Azure</li>
+                        </ul>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="tab-contents" id="Education">
+                        <ul>
+                            <li>
+                                <span class="Date">Aug 2024 - May 2026</span>
+                                <span class="Program"><br>MS in Survey and Data Science</span>
+                                <span class="University"><br>University of Maryland, College Park</span>
+                            </li>
+
+                            <li>
+                                <span class="Date">Sept 2022 - July 2024</span>
+                                <span class="Program"><br>MS in Data Science</span>
+                                <span class="University"><br>Vellore Institute of Technology</span>
+                            </li>
+
+                            <li>
+                                <span class="Date">Aug 2018 - July 2021</span>
+                                <span class="Program"><br>BS in Statistics</span>
+                                <span class="University"><br>Amity University</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience -->
+                    <div class="tab-contents" id="Experience">
+                        <ul>
+                            <li>
+                                <span class="Date">2025 - Present</span>
+                                <span class="Position">Research Assistant</span>
+                                <span class="Company">University of Maryland</span>
+                            </li>
+
+                            <li>
+                                <span class="Date">2025</span>
+                                <span class="Position">Teaching Assistant, Sampling I</span>
+                                <span class="Company">JPSM, UMD</span>
+                            </li>
+
+                            <li>
+                                <span class="Date">2023 - 2024</span>
+                                <span class="Position">Data Science Research Intern</span>
+                                <span class="Company">Indian Statistical Institute</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p>© 2026 Sagnik Chakravarty</p>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        function opentab(tabname, event) {
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+
+            for (var i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active-link");
+            }
+
+            for (var j = 0; j < tabcontents.length; j++) {
+                tabcontents[j].classList.remove("active-tab");
+            }
+
+            document.getElementById(tabname).classList.add("active-tab");
+            event.currentTarget.classList.add("active-link");
+        }
+    </script>
+
+</body>
+</html>
