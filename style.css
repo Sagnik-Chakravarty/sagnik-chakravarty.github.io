@@ -67,11 +67,16 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding-left: 30px; /* Add space between the image and text */
-  max-width: 500px; /* Limit width of the text */
+  max-width: 620px; /* Limit width of the text */
+}
+
+#header-text {
+  max-width: 620px;
 }
 
 .header-text h1 {
-  font-size: 60px;
+  font-size: 58px;
+  line-height: 1.2;
   margin: 20px;
 }
 
@@ -87,16 +92,16 @@ body {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .header-text {
     padding-left: 5px;
     max-width: 200px;
   }
 
   .header-text h1 {
-    font-size: 20px;
+    font-size: 27px;
     margin: 4px;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .header-text p {
@@ -227,19 +232,6 @@ nav ul li a::after {
 nav ul li a:hover::after {
   width: 100%; /* Expands underline on hover */
 }
-
-/* About Section Styling */
-#about {
-  background-color: #fff;
-  padding: 300px 0 100px 0;
-  min-height: 150vh;
-}
-
-#container {
- display:flex; 
- align-items: center;
-}
-
 
 /* About Section Styling */
 #about {
@@ -768,59 +760,6 @@ nav ul li a:hover::after {
   .thankyou-buttons {
     flex-direction: column;
   }
-}
-
-#resume-page {
-  display: flex;
-  padding: 140px 40px 40px;
-  gap: 40px;
-}
-
-.resume-sidebar {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.resume-sidebar button {
-  padding: 12px;
-  border: none;
-  background: #f0f0f0;
-  cursor: pointer;
-  font-weight: bold;
-  text-align: left;
-  border-radius: 6px;
-}
-
-.resume-sidebar button:hover {
-  background: #b54769;
-  color: white;
-}
-
-.resume-content {
-  flex: 1;
-  background: #f8f9fa;
-  padding: 30px;
-  border-radius: 10px;
-}
-
-.resume-card {
-  background: white;
-  padding: 20px;
-  margin-bottom: 15px;
-  border-left: 4px solid #b54769;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.resume-card:hover {
-  transform: translateY(-3px);
-}
-
-.resume-download {
-  text-align: center;
-  margin: 40px 0;
 }
 
 #resume-page {
@@ -1565,5 +1504,291 @@ nav ul li a:hover::after {
   .publication-item {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* =========================
+   GLOBAL MOBILE RESPONSIVE FIX
+   Add this at the END of style.css
+========================= */
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Tablet + small laptop */
+@media screen and (max-width: 900px) {
+  body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 16px;
+  }
+
+  .logo {
+    width: 120px;
+    padding-left: 0;
+    margin-bottom: 8px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  nav ul li {
+    margin: 4px 8px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  #header {
+    height: auto;
+    min-height: 75vh;
+    background-size: 260px 310px;
+    background-position: center bottom;
+    padding: 120px 20px 330px;
+  }
+
+  #header-text h1 {
+    font-size: 36px;
+    line-height: 1.25;
+  }
+
+  #header-text p {
+    font-size: 15px;
+  }
+
+  #row,
+  .contact-container,
+  .featured-research-card,
+  .project-detail-layout {
+    flex-direction: column;
+    display: flex;
+  }
+
+  #about-col-1 {
+    position: static;
+    width: 100%;
+    text-align: center;
+  }
+
+  #about-col-2 {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .about-img {
+    width: 75%;
+    max-width: 320px;
+  }
+
+  .current-work,
+  .theme-grid,
+  .selected-project-grid,
+  .course-grid,
+  .resume-card-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #resume-page {
+    flex-direction: column;
+    padding: 135px 10px 40px;
+  }
+
+  .resume-sidebar {
+    position: static;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resume-content {
+    padding: 28px 22px;
+  }
+
+  .welcome-highlights {
+    flex-direction: column;
+  }
+}
+
+/* Phone */
+@media screen and (max-width: 600px) {
+  body {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 115px;
+  }
+
+  #header-container {
+    background-size: cover;
+  }
+
+  nav {
+    padding: 10px 8px;
+  }
+
+  .logo {
+    width: 90px;
+    height: auto;
+    margin-bottom: 5px;
+  }
+
+  nav ul {
+    width: 100%;
+    gap: 4px;
+  }
+
+  nav ul li {
+    margin: 3px 5px;
+  }
+
+  nav ul li a {
+    font-size: 12px;
+  }
+
+  #header {
+    min-height: 78vh;
+    background-size: 190px 230px;
+    background-position: center bottom 35px;
+    padding: 90px 10px 280px;
+  }
+
+  #header-text h1 {
+    font-size: 27px;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  #header-text p {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  #about,
+  #contact,
+  #thankyou,
+  #research-page {
+    padding-top: 135px;
+  }
+
+  .sub-title,
+  .research-section h2 {
+    font-size: 28px;
+  }
+
+  .research-hero {
+    padding: 28px 22px;
+  }
+
+  .research-hero h1 {
+    font-size: 27px;
+  }
+
+  .research-hero p,
+  .contact-left p,
+  .theme-card p,
+  .selected-project-card p,
+  .lab-card p,
+  .philosophy-box p {
+    font-size: 15px;
+  }
+
+  .contact-container {
+    gap: 35px;
+    padding: 0;
+  }
+
+  .contact-right,
+  .thankyou-box,
+  .resume-content,
+  .research-hero,
+  .featured-research-card,
+  .theme-card,
+  .selected-project-card,
+  .lab-card,
+  .philosophy-box {
+    padding: 24px 18px;
+  }
+
+  .resume-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .detail-header h2 {
+    font-size: 24px;
+  }
+
+  .detail-date {
+    white-space: normal;
+  }
+
+  .card-line {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .course-grid span {
+    font-size: 13px;
+  }
+
+  .timeline-project {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .timeline-date {
+    text-align: left;
+    padding-top: 0;
+  }
+
+  .project-timeline::before,
+  .timeline-project::before {
+    display: none;
+  }
+
+  .timeline-row {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-poster img {
+    max-height: 220px;
+  }
+
+  .paper-btn,
+  .contact-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .publication-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .poster-close {
+    top: 12px;
+    right: 22px;
+    font-size: 34px;
   }
 }
