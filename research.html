@@ -140,6 +140,69 @@
             </div>
         </section>
 
+        <!-- Interactive Research Assistant -->
+        <!-- Main improvement: assistant moved before Selected Projects + fixed scripts + smarter demo responses -->
+        <!-- Use your existing full research.html, but replace the assistant section + bottom scripts with this version. -->
+
+        <!-- Interactive Research Assistant -->
+        <section class="research-section" id="research-assistant">
+            <h2>Interactive Research Assistant</h2>
+            <div class="red-divider"></div>
+
+            <div class="assistant-shell">
+                <div class="assistant-left">
+                    <p class="assistant-eyebrow">Ask about my work</p>
+                    <h3>CV + Research Assistant</h3>
+                    <p>
+                        Ask questions about my research projects, resume, methods, tools, papers,
+                        and experience across survey methodology, machine learning, NLP, and LLMs.
+                    </p>
+
+                    <div class="assistant-prompt-grid">
+                        <button onclick="usePrompt('Summarize Sagnik for a data scientist role.')">
+                            Data scientist summary
+                        </button>
+                        <button onclick="usePrompt('What projects involve LLMs and NLP?')">
+                            LLM/NLP projects
+                        </button>
+                        <button onclick="usePrompt('Explain Sagnik’s survey methodology experience.')">
+                            Survey experience
+                        </button>
+                        <button onclick="usePrompt('Which projects are most relevant for research roles?')">
+                            Research fit
+                        </button>
+                    </div>
+                </div>
+
+                <div class="assistant-chat-card">
+                    <div class="assistant-chat-header">
+                        <div>
+                            <h3>SagnikGPT</h3>
+                            <p>Portfolio assistant · demo interface</p>
+                        </div>
+                        <span class="assistant-status">Offline Demo</span>
+                    </div>
+
+                    <div class="assistant-messages" id="assistant-messages">
+                        <div class="assistant-message bot">
+                            Ask me about Sagnik’s research, projects, methods, or experience.
+                            I can summarize his profile, explain projects, or compare work across domains.
+                        </div>
+                    </div>
+
+                    <div class="assistant-input-row">
+                        <input
+                            type="text"
+                            id="assistant-input"
+                            placeholder="Ask about my research, resume, or projects..."
+                            onkeydown="handleAssistantKey(event)"
+                        >
+                        <button id="assistant-send-btn" onclick="sendAssistantMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Selected Research Projects -->
         <section class="research-section">
             <h2>Selected Research Projects</h2>
@@ -319,7 +382,31 @@
         <p>© 2026 Sagnik Chakravarty</p>
     </footer>
 
-    <script>
+    <a href="research.html#research-assistant" class="floating-assistant-cta">
+        Ask SagnikGPT
+    </a>
+   <script src="https://cdn.jsdelivr.net/npm/marked@13.0.2/marked.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+   <script>
+        const SAGNIKGPT_API_URL = "http://127.0.0.1:8000/api/chat";
+        const SAGNIKGPT_TIMEOUT_MS = 120000;
+
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+        });
+
+        function renderAssistantMarkdown(text) {
+            const html = marked.parse(text || "");
+            return DOMPurify.sanitize(html, {
+                USE_PROFILES: { html: true }
+            });
+        }
+
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("show-menu");
+        }
+
         function openPosterModal(src, title) {
             const modal = document.getElementById("poster-modal");
             const modalImg = document.getElementById("poster-modal-img");
@@ -332,14 +419,121 @@
         function closePosterModal() {
             document.getElementById("poster-modal").style.display = "none";
         }
-    </script>
-</script>
 
-    <script>
-        function toggleMenu() {
-            document.getElementById("nav-menu").classList.toggle("show-menu");
+        function usePrompt(promptText) {
+            const input = document.getElementById("assistant-input");
+            input.value = promptText;
+            input.focus();
+        }
+
+        function handleAssistantKey(event) {
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                sendAssistantMessage();
+            }
+        }
+
+        function getSessionId() {
+            let sessionId = localStorage.getItem("sagnikgpt_session_id");
+
+            if (!sessionId) {
+                sessionId = crypto.randomUUID();
+                localStorage.setItem("sagnikgpt_session_id", sessionId);
+            }
+
+            return sessionId;
+        }
+
+        function appendAssistantMessage(text, type = "bot") {
+            const messages = document.getElementById("assistant-messages");
+
+            const message = document.createElement("div");
+            message.className = `assistant-message ${type}`;
+
+            if (type === "bot") {
+                message.innerHTML = renderAssistantMarkdown(text);
+            } else {
+                message.textContent = text;
+            }
+
+            messages.appendChild(message);
+            messages.scrollTop = messages.scrollHeight;
+
+            return message;
+        }
+
+        function sendAssistantMessage() {
+            const input = document.getElementById("assistant-input");
+            const messages = document.getElementById("assistant-messages");
+            const sendButton = document.getElementById("assistant-send-btn");
+            const userText = input.value.trim();
+
+            if (!userText) return;
+
+            appendAssistantMessage(userText, "user");
+
+            input.value = "";
+            sendButton.disabled = true;
+            sendButton.textContent = "Sending";
+
+            const loadingMessage = document.createElement("div");
+            loadingMessage.className = "assistant-message loading";
+            loadingMessage.innerHTML = "Thinking<span class='dots'></span>";
+            messages.appendChild(loadingMessage);
+            messages.scrollTop = messages.scrollHeight;
+
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), SAGNIKGPT_TIMEOUT_MS);
+
+            fetch(SAGNIKGPT_API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    message: userText,
+                    session_id: getSessionId()
+                }),
+                signal: controller.signal
+            })
+            .then(async response => {
+                let data = {};
+
+                try {
+                    data = await response.json();
+                } catch {
+                    throw new Error("Backend returned a non-JSON response.");
+                }
+
+                if (!response.ok) {
+                    throw new Error(data.reply || data.error || "Backend request failed.");
+                }
+
+                return data;
+            })
+            .then(data => {
+                loadingMessage.remove();
+                appendAssistantMessage(data.reply || "No response received.", "bot");
+            })
+            .catch(error => {
+                loadingMessage.remove();
+
+                let errorText = "I could not connect to SagnikGPT right now. Please make sure the backend is running.";
+
+                if (error.name === "AbortError") {
+                    errorText = "SagnikGPT took too long to respond. Please try again.";
+                }
+
+                appendAssistantMessage(errorText, "bot error");
+                console.error("SagnikGPT error:", error);
+            })
+            .finally(() => {
+                clearTimeout(timeout);
+                sendButton.disabled = false;
+                sendButton.textContent = "Send";
+                input.focus();
+            });
         }
     </script>
-
 </body>
 </html>

@@ -1,0 +1,196 @@
+
+Title: FrameScope: A Multimodal Pipeline for Analyzing AI Discourse through Metaphors and Stance
+Motivation:
+Public understanding of AI is shaped by narratives, metaphors, and framing rather than raw facts.
+Methods:
+- LLM-assisted metaphor detection (19 categories)
+- Stance classification (favor, against, neutral)
+- Multimodal data pipeline (news + Reddit)
+Results:
+- Dominant metaphors: helper_tool (~23.6%), weapon_threat (~17.8%), human_replacement (~13.9%)
+- Temporal increase in threat-related metaphors post-2022
+Tools:
+Python, LLM APIs, SQLite, Streamlit
+Conference:
+AAPOR
+
+------------------------------------------------------------
+
+Title: Analyzing Public Perceptions of Electric Vehicles
+Motivation:
+Bridge gap between discourse (news/social) and real-world adoption.
+Methods:
+- Time-series aggregation
+- Z-score standardization
+- Correlation and lag analysis
+Results:
+- Moderate correlation (~0.48) between news sentiment and EV adoption
+- Lag effect: sentiment leads adoption by ~3 months
+Tools:
+R, Python, ggplot2, Streamlit
+Conference:
+AAPOR
+
+------------------------------------------------------------
+
+Title: Stance Detection in Reddit Discourse on Trump–Zelensky Meeting
+Motivation:
+Evaluate ML vs LLM performance in stance classification.
+Methods:
+- SVM, Decision Tree vs LLM (Gemma)
+- 4-class classification
+Results:
+- SVM accuracy: 58%
+- LLM accuracy: 56.5%
+- Severe class imbalance impacts recall
+Tools:
+Python, sklearn, LLM prompting
+Conference:
+Academic Poster
+
+------------------------------------------------------------
+
+Title: Improving Survey Response Rates (ASHA)
+Motivation:
+Improve response rates without bias.
+Methods:
+- Postcard experiment (0,1,2)
+- Mode comparison (Mail vs Web)
+Results:
+- Mail response: ~29.9% vs Web ~21.4%
+- +1.26 pp increase with first postcard
+Tools:
+R, survey methods, causal inference
+Conference:
+AAPOR
+
+------------------------------------------------------------
+
+Title: Player Market Value in European Football
+Motivation:
+Understand determinants of player value.
+Methods:
+- Cross-classified multilevel model
+Results:
+- Playing time increases value by ~42%
+- Peak age: ~26.96 years
+Tools:
+R, mixed models
+Conference:
+Academic
+
+------------------------------------------------------------
+
+Title: GTI Ranking Alternative using ML
+Motivation:
+Improve GTI using media framing.
+Methods:
+- Random forest regression
+Results:
+- Weak correlation (R ~ -0.22) between media framing and GTI
+Tools:
+Python, ML
+Conference:
+Academic
+
+------------------------------------------------------------
+
+Title: Immigration Narratives vs Enforcement
+Motivation:
+Test if narratives reflect enforcement data.
+Methods:
+- Correlation + regression
+Results:
+- Weak correlation (~0.32)
+- Narratives often diverge
+Tools:
+R, time-series
+Conference:
+Academic
+
+------------------------------------------------------------
+
+Title: Two-Stage PPES Sampling Design
+Motivation:
+Efficient statewide survey design
+Methods:
+- Stratified PPS sampling
+Results:
+- DEFF up to 2.32
+- Sample size: 4,224
+Tools:
+R, survey design
+Conference:
+AAPOR
+
+------------------------------------------------------------
+
+Title: Multistage Area Frame Sampling (Detroit)
+Motivation:
+Measure transportation insecurity
+Methods:
+- 3-stage PPS sampling
+Results:
+- Total sample: ~2,154
+- CV ~0.39–0.42
+Tools:
+R
+Conference:
+AAPOR
+
+------------------------------------------------------------
+
+Title: Graph-Based Travel Recommendation
+Motivation:
+Improve route personalization
+Methods:
+- PSO + ANN
+Results:
+- Accuracy up to 99%
+- Precision@10: 88%
+Tools:
+Python, NetworkX
+Conference:
+VIT Thesis
+
+------------------------------------------------------------
+
+Title: PageRank vs HITS
+Motivation:
+Compare ranking algorithms
+Methods:
+- Correlation analysis
+Results:
+- PageRank-HITS hub correlation ~0.968
+Tools:
+Python
+Conference:
+Academic
+
+------------------------------------------------------------
+
+Title: Factorial Design in Image Recognition
+Motivation:
+Optimize CNN hyperparameters
+Methods:
+- 64 factorial configurations
+Results:
+- Best accuracy: 81.2% (DenseNet)
+Tools:
+Python, CNN
+Conference:
+NCSET
+
+------------------------------------------------------------
+
+Title: Topological Data Analysis on DNA/RNA
+Motivation:
+Capture global structure
+Methods:
+- Mapper + persistent homology
+Results:
+- Identified loops and voids in DNA structure
+Tools:
+Python, TDA
+Conference:
+NCSET
