@@ -33,9 +33,7 @@
         <!-- LEFT SIDE -->
         <div class="resume-sidebar">
             <button onclick="showSection('education')">Education</button>
-            <button onclick="showSection('research')">Research Experience</button>
-            <button onclick="showSection('teaching')">Teaching</button>
-            <button onclick="showSection('industry')">Industry</button>
+            <button onclick="showSection('experience')">Experience</button>
             <button onclick="showSection('projects')">Projects</button>
             <button onclick="showSection('skills')">Skills</button>
         </div>
@@ -492,6 +490,32 @@
                     </div>
                 `;
             }
+            if (section === "experience") {
+                content.innerHTML = `
+                    <h2>Experience</h2>
+                    <p class="welcome-intro">Select a category to explore research, teaching, or industry experience.</p>
+                    <div class="red-divider"></div>
+
+                    <div class="resume-card-grid">
+
+                        <div class="resume-card" onclick="showSection('research')">
+                            <h3>Research</h3>
+                            <p>Academic research, labs, and data science research roles</p>
+                        </div>
+
+                        <div class="resume-card" onclick="showSection('teaching')">
+                            <h3>Teaching</h3>
+                            <p>Teaching assistantships and academic instruction</p>
+                        </div>
+
+                        <div class="resume-card" onclick="showSection('industry')">
+                            <h3>Industry</h3>
+                            <p>Applied data science and industry experience</p>
+                        </div>
+
+                    </div>
+                `;
+            }
 
             if (section === "research") {
                 renderCards("research", "Research Experience");
@@ -535,20 +559,24 @@
             const entries = Object.entries(experienceData).filter(([id, item]) => item.section === sectionName);
 
             content.innerHTML = `
+                <button class="back-btn" onclick="showSection('experience')">← Back to Experience</button>
+
                 <h2>${heading}</h2>
                 <p class="welcome-intro">Click an entry to view responsibilities, methods, and outcomes.</p>
                 <div class="red-divider"></div>
 
-                <div class="resume-card-grid">
+                <div class="experience-timeline">
                     ${entries.map(([id, item]) => `
-                        <div class="resume-card" onclick="showExperienceDetail('${id}')">
-                            <div class="card-line">
+                        <div class="experience-timeline-item" onclick="showExperienceDetail('${id}')">
+                            <div class="experience-date">${item.date}</div>
+
+                            <div class="experience-content">
                                 <h3>${item.org}</h3>
-                                <span>${item.date}</span>
-                            </div>
-                            <p><b>${item.title}</b></p>
-                            <div class="tag-row">
-                                ${item.tags.map(tag => `<span>${tag}</span>`).join("")}
+                                <p><b>${item.title}</b></p>
+
+                                <div class="tag-row">
+                                    ${item.tags.map(tag => `<span>${tag}</span>`).join("")}
+                                </div>
                             </div>
                         </div>
                     `).join("")}
