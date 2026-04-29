@@ -122,14 +122,33 @@
                         <button onclick="usePrompt('Summarize Sagnik for a data scientist role.')">
                             Data scientist summary
                         </button>
+
                         <button onclick="usePrompt('What projects involve LLMs and NLP?')">
                             LLM/NLP projects
                         </button>
+
                         <button onclick="usePrompt('Explain Sagnik’s survey methodology experience.')">
                             Survey experience
                         </button>
-                        <button onclick="usePrompt('Which projects are most relevant for research roles?')">
-                            Research fit
+
+                        <button onclick="usePrompt('What is Sagnik’s experience with R, Shiny, and survey data analysis?')">
+                            R + Shiny experience
+                        </button>
+
+                        <button onclick="usePrompt('Summarize Sagnik’s research on political sentiment and public discourse.')">
+                            Political sentiment research
+                        </button>
+
+                        <button onclick="usePrompt('Which projects are most relevant for machine learning roles?')">
+                            ML role fit
+                        </button>
+
+                        <button onclick="usePrompt('Compare Sagnik’s work in survey methodology and machine learning.')">
+                            Survey + ML comparison
+                        </button>
+
+                        <button onclick="usePrompt('What makes Sagnik’s background different from a typical data scientist?')">
+                            Unique profile
                         </button>
                     </div>
                 </div>
@@ -138,7 +157,7 @@
                     <div class="assistant-chat-header">
                         <div>
                             <h3>SagnikGPT</h3>
-                            <p>LLM-powered research assistant trained on my work</p>
+                            <p>Portfolio assistant · live RAG interface</p>
                         </div>
                         <span class="status-badge">
                             <span class="status-dot"></span>
@@ -162,11 +181,53 @@
                         >
                         <button id="assistant-send-btn" onclick="sendAssistantMessage()">Send</button>
                     </div>
+                    <p class="assistant-disclaimer">
+                        Responses are generated from portfolio data and may occasionally be imperfect. Verify key details from source materials.
+                    </p>
                 </div>
             </div>
         </section>
-        
-                <!-- Research Themes -->
+
+        <section class="research-section" id="assistant-architecture">
+            <h2>How SagnikGPT Was Built</h2>
+            <div class="red-divider"></div>
+
+            <div class="architecture-card">
+                <p>
+                    SagnikGPT is a retrieval-augmented portfolio assistant built to answer questions about my
+                    resume, research papers, posters, project notes, and work experience. Instead of relying on
+                    the model’s general knowledge, the system retrieves relevant chunks from my portfolio knowledge
+                    base and uses an LLM to synthesize grounded answers.
+                </p>
+
+                <div class="architecture-grid">
+                    <div class="architecture-step">
+                        <h3>1. Knowledge Base</h3>
+                        <p>Resume, papers, posters, transcripts, and project notes are parsed from PDF, TXT, CSV, and image files.</p>
+                    </div>
+
+                    <div class="architecture-step">
+                        <h3>2. Retrieval Layer</h3>
+                        <p>Documents are chunked, embedded, and stored in a local vector database for semantic search.</p>
+                    </div>
+
+                    <div class="architecture-step">
+                        <h3>3. LLM Backend</h3>
+                        <p>A FastAPI backend retrieves relevant context and sends it to a Groq-hosted Llama model for response generation.</p>
+                    </div>
+
+                    <div class="architecture-step">
+                        <h3>4. Web Interface</h3>
+                        <p>The assistant is embedded directly into this portfolio with markdown rendering, session memory, and source-aware responses.</p>
+                    </div>
+                </div>
+
+                <p class="architecture-stack">
+                    <strong>Tech stack:</strong> HTML/CSS/JavaScript, FastAPI, ChromaDB, Groq, Llama, Python, PDF/CSV/TXT ingestion, OCR-assisted poster parsing.
+                </p>
+            </div>
+        </section>
+              <!-- Research Themes -->
         <section class="research-section">
             <h2>Research Themes</h2>
             <div class="red-divider"></div>
@@ -205,7 +266,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Selected Research Projects -->
         <section class="research-section">
             <h2>Selected Research Projects</h2>
