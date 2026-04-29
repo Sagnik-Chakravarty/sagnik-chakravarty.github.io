@@ -12,7 +12,11 @@ body {
   padding: 0 10%; /* Adds padding on both sides of the body */
   padding-top: 80px; /* Prevents overlap with fixed header */
 }
-
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
 @media screen and (max-width: 768px) {
   body {
     padding: 0 5%;
@@ -2079,4 +2083,17 @@ body {
 
 .contact-icon-links a::after {
   display: none;
+}
+
+body {
+  animation: pageFade 0.25s ease-in;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

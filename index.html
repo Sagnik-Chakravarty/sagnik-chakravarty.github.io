@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sagnik Chakravarty</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="images/logo.png" as="image">
 </head>
 
 <body>
 
     <div id="header-container">
         <nav>
-            <img src="images/logo.png" class="logo" alt="Sagnik logo">
-
+            <a href="index.html" class="logo-link">
+                <img src="images/logo.png" class="logo" alt="Sagnik Chakravarty logo">
+            </a>
             <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">
                 ☰
             </button>
