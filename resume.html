@@ -14,7 +14,10 @@
     <div id="header-container">
         <nav>
             <img src="images/logo.png" class="logo" alt="Logo">
-            <ul>
+
+            <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+            <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="research.html">Research</a></li>
@@ -869,5 +872,10 @@
         <span class="poster-close">&times;</span>
         <img id="poster-modal-img" class="poster-modal-img" src="" alt="Expanded poster">
     </div>
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("show-menu");
+        }
+    </script>
 </body>
 </html>
