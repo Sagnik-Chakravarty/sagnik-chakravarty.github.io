@@ -100,46 +100,6 @@
             </div>
         </section>
 
-        <!-- Research Themes -->
-        <section class="research-section">
-            <h2>Research Themes</h2>
-            <div class="red-divider"></div>
-
-            <div class="theme-grid">
-                <div class="theme-card">
-                    <h3>Data Generation & Measurement</h3>
-                    <p>
-                        Total Survey Error, measurement error, nonresponse, sampling frames,
-                        coverage bias, and uncertainty in social data.
-                    </p>
-                </div>
-
-                <div class="theme-card">
-                    <h3>NLP, Framing & Discourse</h3>
-                    <p>
-                        Metaphor detection, stance classification, sentiment analysis,
-                        political discourse, public perception, and LLM-assisted annotation.
-                    </p>
-                </div>
-
-                <div class="theme-card">
-                    <h3>Data-Centric Machine Learning</h3>
-                    <p>
-                        Methods that account for data quality, missingness, bias, uncertainty,
-                        and the structure of data-generating processes.
-                    </p>
-                </div>
-
-                <div class="theme-card">
-                    <h3>Survey + AI Systems</h3>
-                    <p>
-                        Integrating statistical survey methodology with modern ML systems
-                        for more reliable inference from complex human-centered datasets.
-                    </p>
-                </div>
-            </div>
-        </section>
-
         <!-- Interactive Research Assistant -->
         <!-- Main improvement: assistant moved before Selected Projects + fixed scripts + smarter demo responses -->
         <!-- Use your existing full research.html, but replace the assistant section + bottom scripts with this version. -->
@@ -178,9 +138,12 @@
                     <div class="assistant-chat-header">
                         <div>
                             <h3>SagnikGPT</h3>
-                            <p>Portfolio assistant · demo interface</p>
+                            <p>LLM-powered research assistant trained on my work</p>
                         </div>
-                        <span class="assistant-status">Offline Demo</span>
+                        <span class="status-badge">
+                            <span class="status-dot"></span>
+                            Online
+                        </span>
                     </div>
 
                     <div class="assistant-messages" id="assistant-messages">
@@ -199,6 +162,46 @@
                         >
                         <button id="assistant-send-btn" onclick="sendAssistantMessage()">Send</button>
                     </div>
+                </div>
+            </div>
+        </section>
+        
+                <!-- Research Themes -->
+        <section class="research-section">
+            <h2>Research Themes</h2>
+            <div class="red-divider"></div>
+
+            <div class="theme-grid">
+                <div class="theme-card">
+                    <h3>Data Generation & Measurement</h3>
+                    <p>
+                        Total Survey Error, measurement error, nonresponse, sampling frames,
+                        coverage bias, and uncertainty in social data.
+                    </p>
+                </div>
+
+                <div class="theme-card">
+                    <h3>NLP, Framing & Discourse</h3>
+                    <p>
+                        Metaphor detection, stance classification, sentiment analysis,
+                        political discourse, public perception, and LLM-assisted annotation.
+                    </p>
+                </div>
+
+                <div class="theme-card">
+                    <h3>Data-Centric Machine Learning</h3>
+                    <p>
+                        Methods that account for data quality, missingness, bias, uncertainty,
+                        and the structure of data-generating processes.
+                    </p>
+                </div>
+
+                <div class="theme-card">
+                    <h3>Survey + AI Systems</h3>
+                    <p>
+                        Integrating statistical survey methodology with modern ML systems
+                        for more reliable inference from complex human-centered datasets.
+                    </p>
                 </div>
             </div>
         </section>
@@ -457,7 +460,10 @@
             }
 
             messages.appendChild(message);
-            messages.scrollTop = messages.scrollHeight;
+            messages.scrollTo({
+                top: messages.scrollHeight,
+                behavior: "smooth"
+            });
 
             return message;
         }

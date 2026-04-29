@@ -1,29 +1,18 @@
-# OS files
-.DS_Store
-Thumbs.db
+cat >> .gitignore << 'EOF'
 
-# Editor / IDE
-.vscode/
-.idea/
-
-# Logs
-*.log
-
-# Temporary files
-*.tmp
-*.swp
-
-# Python (in case you experiment locally)
+# Python
+.venv/
 __pycache__/
 *.pyc
-
-# Node (if you ever add build tools)
-node_modules/
-
-# Mac system files
-.AppleDouble
-.LSOverride
-
-# Optional: ignore local drafts
-drafts/
 .env
+
+# Vector DB / local RAG artifacts
+vector_db/
+chroma/
+*.sqlite3
+*.db
+
+# OS/editor
+.DS_Store
+.vscode/
+EOF
