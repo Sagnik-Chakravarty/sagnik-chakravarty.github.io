@@ -10,26 +10,13 @@
 
 <body>
 
-    <!-- Header / Hero ONLY -->
-    <div id="header">
-        <div id="header-text">
-            <p>Graduate Student | University of Maryland, College Park</p>
-            <h1>
-                Hi, I'm <span>Sagnik</span><br>
-                Chakravarty, graduate student in<br>
-                <span class="blue-text">Survey and Data Science<br>(JPSM)</span>
-            </h1>
-
-            
-        </div>
-    </div>
-
-    <!-- Navbar -->
     <div id="header-container">
         <nav>
-            <img src="images/logo.png" class="logo" alt="Logo">
+            <img src="images/logo.png" class="logo" alt="Sagnik logo">
 
-            <button class="hamburger" onclick="toggleMenu()">☰</button>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+                ☰
+            </button>
 
             <ul id="nav-menu">
                 <li><a href="index.html" class="active">Home</a></li>
@@ -41,7 +28,25 @@
         </nav>
     </div>
 
-    <!-- Footer -->
+    <main id="header">
+        <div class="header-row">
+
+            <div id="header-text">
+                <p>Graduate Student | University of Maryland, College Park</p>
+                <h1>
+                    Hi, I'm <span>Sagnik</span><br>
+                    Chakravarty, graduate student in<br>
+                    <span class="blue-text">Survey and Data Science (JPSM)</span>
+                </h1>
+            </div>
+
+            <div class="header-image">
+                <img src="images/Sagnikwb.jpeg" alt="Portrait of Sagnik Chakravarty">
+            </div>
+
+        </div>
+    </main>
+
     <footer id="footer">
         <p>© 2026 Sagnik Chakravarty</p>
     </footer>
@@ -51,5 +56,6 @@
             document.getElementById("nav-menu").classList.toggle("show-menu");
         }
     </script>
+
 </body>
 </html>
