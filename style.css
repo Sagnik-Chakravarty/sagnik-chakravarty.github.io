@@ -78,7 +78,7 @@ nav {
 
 /* Logo Styling */
 .logo {
-  width: 200px; /* The width of the logo itself */
+  width: 220px; /* The width of the logo itself */
   height: auto;
   padding-left: 100px; /* Adds left padding to shift the logo */
 }
@@ -158,6 +158,9 @@ nav ul li a:hover::after {
   flex: 1;
   flex-basis: 0%; /* Adjusted for better balance */
   padding-right: 5px; /* Reduced space between image and text */
+  position: sticky;
+  top: 100px;
+  height: fit-content;
 }
 
 .about-img {
@@ -436,6 +439,22 @@ nav ul li a:hover::after {
   }
 }
 
+/* Footer Styling */
+#footer {
+  background-color: transparent;
+  color: #666;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+  border-top: 1px solid #ddd;
+}
+
+#footer p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 /* Additional Adjustments for responsiveness */
 @media screen and (max-width: 768px) {
   nav {
@@ -455,3 +474,188 @@ nav ul li a:hover::after {
 }
 
 /* CV */
+
+/* Contact Page */
+
+#contact {
+  background-color: #fff;
+  padding: 170px 0 70px 0;
+  min-height: 100vh;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1;
+}
+
+.contact-left p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #080808;
+  margin-bottom: 30px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-links a {
+  text-decoration: none;
+  color: #080808;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  width: fit-content;
+}
+
+.contact-links a::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background-color: #ff004f;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: width 0.4s ease-in-out;
+}
+
+.contact-links a:hover::after {
+  width: 100%;
+}
+
+.contact-right {
+  background: #f8f9fa;
+  padding: 35px;
+  border-radius: 10px;
+  border-left: 4px solid #b54769;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.contact-right h2 {
+  margin-bottom: 20px;
+  color: #36393a;
+}
+
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-right label {
+  font-weight: bold;
+  margin: 12px 0 6px;
+}
+
+.contact-right input,
+.contact-right textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.contact-right textarea {
+  resize: vertical;
+}
+
+.contact-btn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: none;
+  background: #b54769;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-btn:hover {
+  background: #ff004f;
+}
+
+/* Mobile Contact */
+@media screen and (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    padding: 0 25px;
+  }
+
+  #contact {
+    padding-top: 150px;
+  }
+}
+
+/* Thank You Page */
+
+#thankyou {
+  min-height: 100vh;
+  padding: 170px 0 70px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.thankyou-box {
+  max-width: 650px;
+  text-align: center;
+  background: #f8f9fa;
+  padding: 50px;
+  border-radius: 12px;
+  border-left: 4px solid #b54769;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.thankyou-box h1 {
+  font-size: 42px;
+  color: #36393a;
+  margin-bottom: 20px;
+}
+
+.thankyou-box p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.thankyou-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.thankyou-buttons a {
+  text-decoration: none;
+}
+
+.secondary-thankyou-btn {
+  background: #36393a;
+}
+
+.secondary-thankyou-btn:hover {
+  background: #080808;
+}
+
+@media screen and (max-width: 768px) {
+  .thankyou-box {
+    margin: 0 25px;
+    padding: 35px 25px;
+  }
+
+  .thankyou-buttons {
+    flex-direction: column;
+  }
+}

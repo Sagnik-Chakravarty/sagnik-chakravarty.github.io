@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Sagnik Chakravarty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div id="header-container">
+        <nav>
+            <img src="images/logo.png" class="logo" alt="Logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact">
+        <div class="contact-container">
+
+            <!-- LEFT SIDE -->
+            <div class="contact-left">
+                <h1 class="sub-title">Contact</h1>
+
+                <p>
+                    I am open to research collaborations, data science roles, survey methodology opportunities,
+                    and discussions around NLP, LLMs, and computational social science.
+                </p>
+
+                <div class="contact-links">
+                    <a href="mailto:sagnik060260@gmail.com">sagnik060260@gmail.com</a>
+                    <a href="tel:+12406107356">240-610-7356</a>
+                    <a href="https://github.com/Sagnik-Chakravarty" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/sagnik-chakravarty" target="_blank">LinkedIn</a>
+                    <a href="https://scholar.google.com/citations?user=thxuXDwAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE (FORM) -->
+            <div class="contact-right">
+                <h2>Send a Message</h2>
+
+                <form action="https://formspree.io/f/mjgjnpjg" method="POST">
+
+                    <label>Name</label>
+                    <input type="text" name="name" placeholder="Your name" required>
+
+                    <label>Email</label>
+                    <input type="email" name="_replyto" placeholder="Your email" required>
+
+                    <label>Subject</label>
+                    <input type="text" name="subject" placeholder="Subject">
+
+                    <label>Message</label>
+                    <textarea name="message" rows="6" placeholder="Write your message here" required></textarea>
+
+                    <!-- Optional: redirect after submit -->
+                    <input type="hidden" name="_next" value="https://sagnik-chakravarty.github.io/thankyou.html">
+
+                    <button type="submit" class="contact-btn">Send Message</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p>© 2026 Sagnik Chakravarty</p>
+    </footer>
+
+</body>
+</html>
