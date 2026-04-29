@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Sagnik Chakravarty</title>
+    <link rel="stylesheet" href="style.css?v=12">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div id="header-container">
+        <nav>
+            <img src="images/logo.png" class="logo" alt="Logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="resume.html" class="active">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Resume Layout -->
+    <div id="resume-page">
+
+        <!-- LEFT SIDE -->
+        <div class="resume-sidebar">
+            <button onclick="showSection('education')">Education</button>
+            <button onclick="showSection('research')">Research Experience</button>
+            <button onclick="showSection('teaching')">Teaching</button>
+            <button onclick="showSection('industry')">Industry</button>
+            <button onclick="showSection('projects')">Projects</button>
+            <button onclick="showSection('skills')">Skills</button>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="resume-content" id="resume-content">
+            <div class="welcome-section">
+                <h2>Resume Overview</h2>
+
+                <p class="welcome-intro">
+                    This page provides a structured view of my academic background, research experience,
+                    teaching, applied data science work, and research projects across survey methodology,
+                    machine learning, NLP, and computational social science.
+                </p>
+
+                <p>
+                    My work focuses on understanding how data is generated, measured, and modeled, with a particular
+                    emphasis on integrating statistical rigor with modern machine learning approaches. Across my training,
+                    I moved from theoretical statistics to applied data science, and now toward survey methodology and
+                    data-centric AI research.
+                </p>
+
+                <p>
+                    Use the navigation panel on the left to explore education, research experience, teaching, industry work,
+                    projects, and technical skills. Each section expands into detailed entries with methods, tools, and outcomes.
+                </p>
+
+                <div class="welcome-highlights">
+                    <div class="highlight-box">
+                        <h3>Survey Methodology</h3>
+                        <p>Sampling, Total Survey Error, measurement, inference, and survey design</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h3>Machine Learning</h3>
+                        <p>Deep learning, NLP, LLMs, graph learning, and data-centric modeling</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h3>Research Focus</h3>
+                        <p>Computational social science, public discourse, and AI-assisted data analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Download Button -->
+    <div class="resume-download">
+        <a href="assets/resume/Sagnik_Resume_Full.pdf" download class="contact-btn">
+            Download Full Resume
+        </a>
+    </div>
+
+    <!-- JS LOGIC -->
+    <script>
+        const experienceData = {
+            umd_ra: {
+                section: "research",
+                title: "Research Assistant",
+                org: "University of Maryland, College Park",
+                date: "Sept 2025 – Present",
+                tags: ["NLP", "LLMs", "Survey Experiments", "AI Discourse"],
+                details: `
+                    <p>Collected and preprocessed large-scale social media datasets, including Reddit, YouTube, Bluesky, newspapers, magazines, and other public discourse sources to study public conversations around artificial intelligence.</p>
+                    <p>Developed computational models for frame detection, clustering, and LLM-assisted discourse analysis, improving the interpretability of online discourse analysis.</p>
+                    <p>Contributed to survey experiments using nationally representative samples to assess the effects of AI framing on public attitudes, trust, and behavioral intentions.</p>
+                    <p>Collaborated on analysis, interpretation, and preparation of findings for publication and conference submission, integrating political communication theory with computational methods.</p>
+                `
+            },
+
+            gard: {
+                section: "research",
+                title: "Research Assistant",
+                org: "Gard Lab, University of Maryland",
+                date: "Feb 2025 – Sept 2025",
+                tags: ["PsychoPy", "Behavioral Data", "R", "Experiment Pipelines"],
+                details: `
+                    <p>Analyzed psychological survey and behavioral task data using ANOVA, t-tests, and regression models in R.</p>
+                    <p>Automated PsychoPy stimulus workflows from JavaScript and HTML code, improving precision in stimulus presentation, response tracking, and experimental timing.</p>
+                    <p>Developed a data pipeline to process, store, and visualize participant test results, integrating survey responses and behavioral data into an interactive dashboard for feedback and analysis.</p>
+                `
+            },
+
+            strickland: {
+                section: "research",
+                title: "Survey Data Analyst",
+                org: "Strickland Law Firm",
+                date: "Dec 2024 – Feb 2025",
+                tags: ["Sentiment Analysis", "Causal Inference", "Web Scraping", "Topic Modeling"],
+                details: `
+                    <p>Led a team of three to analyze over 2 million data points from Reddit, X, Instagram, Facebook, news sources, and music platforms to measure public sentiment shifts surrounding the YSL RICO Trial.</p>
+                    <p>Used Playwright for large-scale web scraping, NLTK and TextBlob for sentiment analysis, LDA for topic modeling, and DAG-based causal inference using R's dagitty package.</p>
+                    <p>Produced evidence of significant public sentiment shifts linked to social media discourse and influencer-driven narratives.</p>
+                `
+            },
+
+            isi: {
+                section: "research",
+                title: "Data Science Research Intern",
+                org: "Indian Statistical Institute, Kolkata",
+                date: "May 2023 – June 2024",
+                tags: ["GCN", "fMRI", "LSTM", "GRU", "Computer Vision"],
+                details: `
+                    <p>Developed graph convolutional neural networks using fMRI data to detect early-stage Alzheimer's and Parkinson's disease.</p>
+                    <p>Simulated C. elegans locomotion using the NEURON package and implemented LSTM and GRU models to identify neuron-level behavior patterns.</p>
+                    <p>Designed an optical illusion detection pipeline using ConvLSTM, TensorFlow, Nvidia FlowNet2, and OpenCV, preprocessing large-scale video frame data.</p>
+                `
+            },
+
+            clarkson: {
+                section: "research",
+                title: "Research Data Science Intern",
+                org: "Clarkson University",
+                date: "Sept 2023 – Jan 2024",
+                tags: ["Microbiome", "Autoencoders", "DBSCAN", "t-SNE"],
+                details: `
+                    <p>Collaborated remotely with a team to classify microbiomes in the St. Lawrence River using autoencoders for data normalization.</p>
+                    <p>Generated low-dimensional embeddings of microbiome data to improve clustering and classification of microbial communities.</p>
+                    <p>Applied unsupervised learning methods including DBSCAN and t-SNE to detect rare bacterial strains linked to disease.</p>
+                `
+            },
+
+            wondervogel: {
+                section: "industry",
+                title: "Data Analyst Intern",
+                org: "Wondervogel Pvt Ltd",
+                date: "Jan 2024 – Apr 2024",
+                tags: ["GNN", "OSMnx", "NetworkX", "Travel Recommendation", "PSO"],
+                details: `
+                    <p>Led development of a graph neural network-based route recommendation system for Goa, optimizing travel itineraries based on budget, traffic, and user preferences.</p>
+                    <p>Integrated geospatial data from OSMnx and traffic/network data from NetworkX with Particle Swarm Optimization and Graph Convolutional Networks.</p>
+                    <p>Processed historical traffic data and used LSTM models to capture temporal trends, reducing a complex road network to key destinations and routes.</p>
+                `
+            },
+
+            agitech: {
+                section: "industry",
+                title: "Data Analyst Intern",
+                org: "Agitechavids Pvt Ltd",
+                date: "June 2019 – July 2019",
+                tags: ["Recommendation Systems", "A/B Testing", "XGBoost", "Collaborative Filtering"],
+                details: `
+                    <p>Built a grocery recommendation engine using collaborative filtering, KNN-based recommendation methods, matrix factorization, and XGBoost.</p>
+                    <p>Supported data preprocessing and A/B testing workflows to improve personalized recommendations, user engagement, and sales outcomes.</p>
+                `
+            },
+
+            sampling_ta: {
+                section: "teaching",
+                title: "Teaching Assistant, Sampling I",
+                org: "JPSM, University of Maryland",
+                date: "Sept 2025 – Nov 2025",
+                tags: ["Sampling", "Survey Weights", "Variance Estimation", "Design-Based Inference"],
+                details: `
+                    <p>Supported instruction in sampling theory, complex survey designs, stratification, clustering, weighting, variance estimation, and design-based inference.</p>
+                    <p>Graded problem sets and exams and provided targeted explanations on PSU selection, finite population correction, Taylor linearization, and nonresponse adjustment methods.</p>
+                `
+            },
+
+            ethics_ta: {
+                section: "teaching",
+                title: "Teaching Assistant, Ethical Considerations for Data Science Research",
+                org: "JPSM, University of Maryland",
+                date: "Sept 2025",
+                tags: ["Research Ethics", "Privacy", "Responsible AI", "Bias"],
+                details: `
+                    <p>Assisted students in understanding ethical frameworks in data science, including privacy, bias, informed consent, data governance, and responsible AI use.</p>
+                    <p>Graded writing assignments and case analyses with detailed feedback to help students apply ethical reasoning to real-world data scenarios.</p>
+                `
+            }
+        };
+
+        const projectData = {
+            framescope: {
+                date: "2025 – Present",
+                title: "FrameScope: AI Metaphor and Framing Analysis",
+                meta: "LLMs + NLP + Computational Social Science| MASC ALL2026",
+                paper: "",
+                github: "https://github.com/Sagnik-Chakravarty/FrameScope",
+                website: "https://framescope.streamlit.app",
+                poster: "assets/poster/FramescopePoster.png",
+                summary: "LLM-assisted pipeline for metaphor detection, stance, tone, and framing analysis in AI discourse.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>Public discourse about artificial intelligence is shaped by metaphors and frames such as AI as a tool, threat, replacement, child, machine, or force.</p>
+                    <h3>Methods</h3>
+                    <p>Developed an LLM-assisted pipeline for metaphor and frame extraction across Reddit, news, and social data.</p>
+                    <h3>Results</h3>
+                    <p>Built a scalable research pipeline and dashboard infrastructure for analyzing metaphor prevalence, frame shifts, and public positioning toward AI over time.</p>
+                `
+            },
+
+            asha: {
+                date: "2026",
+                title: "Evaluating Survey Response Interventions in ASHA Healthcare Survey",
+                meta: "Client: ASHA | Survey Methodology",
+                paper: "assets/papers/ASHAFinalReport.pdf",
+                github: "https://github.com/Sagnik-Chakravarty/ASHA",
+                website: "",
+                poster: "assets/poster/ASHAPoster.png",
+                summary: "Analyzed postcard reminders and survey mode effects to evaluate response-rate interventions.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>Declining response rates threaten survey inference quality. This project evaluated whether postcard reminders and survey mode choices improved response outcomes for ASHA surveys.</p>
+                    <h3>Methods</h3>
+                    <p>Used policy-level response estimands, conditional probability decomposition, stratified bootstrap uncertainty estimation, mode comparisons, chi-square tests, and logistic regression.</p>
+                    <h3>Results</h3>
+                    <p>The first postcard increased response by about +1.26 percentage points, while the second postcard produced little additional effect.</p>
+                `
+            },
+
+            detroit_sampling: {
+                date: "2026",
+                title: "Multistage Sampling Design for Detroit Transportation Study",
+                meta: "SURV 745 | Area Frame Sampling",
+                paper: "assets/papers/MultiStageSampling.pdf",
+                github: "https://github.com/Sagnik-Chakravarty/surv745-area-frame-multistage-survey-design",
+                website: "",
+                poster: "assets/poster/MultiStageAreaFramePoster.png",
+                summary: "Designed a multistage area-frame sample for Detroit transportation insecurity measurement.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>The project targeted reliable estimates of transportation insecurity among Detroit adults across age domains.</p>
+                    <h3>Methods</h3>
+                    <p>Used census tracts as PSUs, block groups as SSUs, and response-rate-adjusted measures of size for PPS selection.</p>
+                    <h3>Results</h3>
+                    <p>Constructed a multistage design with domain-specific respondent targets, selection probabilities, and design-based weighting procedures.</p>
+                `
+            },
+
+            multistage_michigan: {
+                date: "2025",
+                title: "Multistage Sampling Design for Michigan Teen Risk Behavior Survey",
+                meta: "SURV 625 | Applied Sampling",
+                paper: "assets/papers/625Project.pdf",
+                github: "https://github.com/namo507/SURV-625-Project",
+                website: "",
+                poster: "assets/poster/TwoStagePPeSPoster.png",
+                summary: "Designed a statewide multistage school-based sampling plan for Michigan teen smoking and drug-use estimation.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>Statewide youth risk estimation requires cost-efficient probability sampling while preserving regional representativeness.</p>
+                    <h3>Methods</h3>
+                    <p>Developed a stratified multistage cluster design, computed sample sizes, allocated clusters, and evaluated design effects.</p>
+                    <h3>Results</h3>
+                    <p>Recommended an optimized school-based cluster design balancing cost, precision, and regional representation.</p>
+                `
+            },
+
+            gti: {
+                date: "2025",
+                title: "An Empirical Evaluation of GTI Rankings Through Event Data and Media Framing",
+                meta: "University of Maryland | IISA 2025",
+                paper: "assets/papers/GTD.pdf",
+                github: "https://github.com/Sagnik-Chakravarty/GTD",
+                website: "",
+                poster: "assets/poster/GTDPoster.png",
+                summary: "Built a media-aware alternative to the Global Terrorism Index using GTD event data and news framing.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>The original GTI uses fixed event-based weights and does not account for how violence is framed in global media.</p>
+                    <h3>Methods</h3>
+                    <p>Combined GTD event indicators with supervised news-frame classification and random forest regression.</p>
+                    <h3>Results</h3>
+                    <p>Found discrepancies between GTI rankings and media-aware predicted scores, highlighting how framing can influence perceived terrorism exposure.</p>
+                `
+            },
+
+            immigration: {
+                date: "2025",
+                title: "Narrative Indicators vs Enforcement Data: A Total Survey Error Perspective",
+                meta: "Computational Social Science + Survey Methodology",
+                paper: "assets/papers/Immigration.pdf",
+                github: "https://github.com/Sagnik-Chakravarty/Immigration-Narrative-Vs-Enforcement",
+                website: "",
+                poster: "assets/poster/Immigration_NarrativePoster.png",
+                summary: "Compared immigration narratives from news and social media against CBP and ICE enforcement data.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>Narrative data may not directly measure enforcement reality and should be treated as a noisy measurement process.</p>
+                    <h3>Methods</h3>
+                    <p>Integrated GDELT, Reddit, CBP, and ICE monthly time series; standardized indicators; estimated correlations, lagged associations, divergence measures, and regression models.</p>
+                    <h3>Results</h3>
+                    <p>Found modest contemporaneous association between narrative and enforcement indicators, with evidence that timing and lagged movement matter.</p>
+                `
+            },
+
+            moneyball: {
+                date: "2025",
+                title: "Multilevel Determinants of Player Market Value in Elite European Football",
+                meta: "Hierarchical Modeling | Sports Analytics",
+                paper: "assets/papers/Moneyball.pdf",
+                github: "https://github.com/klinares/Moneyball_FC",
+                website: "",
+                poster: "assets/poster/Moneyballposter.png",
+                summary: "Modeled player market value using cross-classified multilevel models across players, clubs, and time.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>Player valuation models often ignore transfers and cross-classified player-club structures.</p>
+                    <h3>Methods</h3>
+                    <p>Used more than 7,000 player-season observations, crossed random effects, polynomial time trends, and REML estimation.</p>
+                    <h3>Results</h3>
+                    <p>Player-level heterogeneity explained most valuation variance; minutes played had the strongest positive effect on market value.</p>
+                `
+            },
+
+            zelensky: {
+                date: "2025",
+                title: "Social Media Sentiment Dynamics Toward the U.S. in the Context of Zelensky’s White House Visit",
+                meta: "NLP + Computational Social Science",
+                paper: "assets/papers/TrumpZelensky.pdf",
+                github: "https://github.com/Sagnik-Chakravarty/TrumpZelensky",
+                website: "",
+                poster: "assets/poster/TrumpZelenskyPoster.png",
+                summary: "Analyzed Reddit stance and sentiment around U.S.-Ukraine discourse before and after Zelensky’s White House visit.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>Political events can rapidly shift online sentiment and stance toward countries, leaders, and alliances.</p>
+                    <h3>Methods</h3>
+                    <p>Used hand-coded data, SVM, decision trees, Word2Vec features, and LLM few-shot classification for stance detection.</p>
+                    <h3>Results</h3>
+                    <p>Traditional ML struggled with class imbalance, while LLM prompting helped evaluate more nuanced stance categories.</p>
+                `
+            },
+
+            ev: {
+                date: "2024 – 2025",
+                title: "Analyzing Public Sentiment Toward Electric Vehicles using LLMs",
+                meta: "AAPOR 80th Annual Conference",
+                paper: "assets/papers/EVSentimentAnalysisProjectPaper.pdf",
+                github: "https://github.com/Sagnik-Chakravarty/AAPOR_EV_Project",
+                website: "",
+                poster: "assets/poster/EVSentimentAnalysisPoster.png",
+                summary: "Compared EV sentiment across Reddit, The New York Times, and LLM-generated responses.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>Public perception of electric vehicles differs across social media, traditional media, and LLM-generated outputs.</p>
+                    <h3>Methods</h3>
+                    <p>Collected Reddit and New York Times data, applied DistilBERT sentiment analysis, and compared outputs from LLM personas.</p>
+                    <h3>Results</h3>
+                    <p>Identified platform-level divergence in EV sentiment and limitations in using LLMs as proxies for public opinion.</p>
+                `
+            },
+
+            thesis: {
+                date: "2024",
+                title: "Optimal Route Recommendation using GNN and Personalized Travel Modeling",
+                meta: "M.Sc. Thesis | VIT Chennai",
+                paper: "assets/papers/thesis.pdf",
+                github: "",
+                website: "",
+                poster: "assets/poster/masterThesisPoster.png",
+                summary: "Developed GNN and deep-learning models for route optimization and personalized travel recommendation.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>Traditional route systems optimize distance but often ignore user preferences, traffic patterns, and contextual travel behavior.</p>
+                    <h3>Methods</h3>
+                    <p>Used OSMnx, NetworkX, graph neural networks, Particle Swarm Optimization, web-scraped travel data, and self-attention-based neural models.</p>
+                    <h3>Results</h3>
+                    <p>The model achieved 88% Precision@10 and 83% Recall@10 for personalized travel recommendation.</p>
+                `
+            },
+
+            tda: {
+                date: "2023",
+                title: "Topological Data Analysis on DNA and RNA Structures",
+                meta: "NCSET 2023 | VIT Chennai",
+                paper: "assets/papers/Topological_Data_Analysis.pdf",
+                github: "",
+                website: "",
+                poster: "assets/poster/TDAPoster.png",
+                summary: "Applied Mapper and persistent homology to analyze biomolecular structures.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>Traditional DNA/RNA analysis often focuses on sequence-level features while missing global structural patterns.</p>
+                    <h3>Methods</h3>
+                    <p>Used Topological Data Analysis, Mapper, and persistent homology to study structural loops, voids, and irregularities.</p>
+                    <h3>Results</h3>
+                    <p>Demonstrated how TDA can bridge local molecular structure and global topological organization in biomolecular analysis.</p>
+                `
+            },
+
+            pagerank: {
+                date: "2023",
+                title: "Comparative Analysis of PageRank and HITS using Citation Network Data",
+                meta: "NCSET 2023 | Network Analysis",
+                paper: "assets/papers/PageRank_vs_HIts.pdf",
+                github: "",
+                website: "",
+                poster: "assets/poster/PageRankvsHITSPoster.png",
+                summary: "Compared PageRank, HITS, and random-walk behavior on citation networks.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>Ranking algorithms differ in how they define importance, authority, and hub structure.</p>
+                    <h3>Methods</h3>
+                    <p>Implemented PageRank, HITS, and random-walk ranking on synthetic networks and citation-network data.</p>
+                    <h3>Results</h3>
+                    <p>Compared rankings using Spearman correlation and evaluated algorithmic behavior in citation networks.</p>
+                `
+            },
+
+            image_factorial: {
+                date: "2023",
+                title: "Image Recognition using Factorial Design Experiment",
+                meta: "NCSET 2023 | Computer Vision",
+                paper: "assets/papers/Image_Recognition_Factorial_Design .pdf",
+                github: "",
+                website: "",
+                poster: "assets/poster/ImageRecognitionPoster.png",
+                summary: "Used factorial design to evaluate CNN hyperparameters and benchmark deep-learning architectures.",
+                details: `
+                    <h3>Motivation</h3>
+                    <p>Image recognition performance depends heavily on architecture and hyperparameter choices.</p>
+                    <h3>Methods</h3>
+                    <p>Tested CNN hyperparameter combinations and benchmarked CNN, VGGNet, ResNet, and DenseNet-style models.</p>
+                    <h3>Results</h3>
+                    <p>Showed how factorial design can support systematic model tuning and experimental interpretation.</p>
+                `
+            }
+        };
+        function showSection(section) {
+            const content = document.getElementById("resume-content");
+
+            if (section === "education") {
+                content.innerHTML = `
+                    <h2>Education</h2>
+                    <p class="welcome-intro">Click an institution to view full coursework and program details.</p>
+                    <div class="red-divider"></div>
+
+                    <div class="resume-card" onclick="showDetail('umd')">
+                        <div class="card-line">
+                            <h3>University of Maryland, College Park</h3>
+                            <span>Aug 2024 – May 2026</span>
+                        </div>
+                        <p><b>MS in Survey and Data Science</b></p>
+                    </div>
+
+                    <div class="resume-card" onclick="showDetail('vit')">
+                        <div class="card-line">
+                            <h3>Vellore Institute of Technology, Chennai</h3>
+                            <span>Sept 2022 – July 2024</span>
+                        </div>
+                        <p><b>MS in Data Science</b></p>
+                    </div>
+
+                    <div class="resume-card" onclick="showDetail('amity')">
+                        <div class="card-line">
+                            <h3>Amity University, Kolkata</h3>
+                            <span>Aug 2018 – July 2021</span>
+                        </div>
+                        <p><b>BS in Statistics</b></p>
+                    </div>
+                `;
+            }
+
+            if (section === "research") {
+                renderCards("research", "Research Experience");
+            }
+
+            if (section === "teaching") {
+                renderCards("teaching", "Teaching Experience");
+            }
+
+            if (section === "industry") {
+                renderCards("industry", "Industry Experience");
+            }
+
+            if (section === "projects") {
+                showProjects();
+            }
+
+            if (section === "skills") {
+                content.innerHTML = `
+                    <h2>Skills</h2>
+                    <p class="welcome-intro">Technical and methodological skills across programming, machine learning, NLP, survey methodology, and data pipelines.</p>
+                    <div class="red-divider"></div>
+
+                    <div class="course-grid">
+                        <span><b>Programming:</b> Python, R, SQL, JavaScript</span>
+                        <span><b>Machine Learning:</b> PyTorch, TensorFlow, Scikit-learn</span>
+                        <span><b>NLP:</b> Hugging Face, spaCy, NLTK, sentiment analysis, stance detection</span>
+                        <span><b>LLMs:</b> OpenAI API, prompt engineering, LLM-assisted annotation</span>
+                        <span><b>Survey Methods:</b> Sampling, Total Survey Error, weighting, nonresponse</span>
+                        <span><b>Statistics:</b> Regression, multilevel modeling, causal inference, inference</span>
+                        <span><b>Data Pipelines:</b> Pandas, dplyr, DuckDB, SQLite, Playwright</span>
+                        <span><b>Geospatial:</b> Google Earth Engine, GeoPandas, OSMnx, NetworkX</span>
+                        <span><b>Cloud & Tools:</b> Git/GitHub, AWS, GCP, Azure, Quarto, Streamlit</span>
+                    </div>
+                `;
+            }
+        }
+
+        function renderCards(sectionName, heading) {
+            const content = document.getElementById("resume-content");
+            const entries = Object.entries(experienceData).filter(([id, item]) => item.section === sectionName);
+
+            content.innerHTML = `
+                <h2>${heading}</h2>
+                <p class="welcome-intro">Click an entry to view responsibilities, methods, and outcomes.</p>
+                <div class="red-divider"></div>
+
+                <div class="resume-card-grid">
+                    ${entries.map(([id, item]) => `
+                        <div class="resume-card" onclick="showExperienceDetail('${id}')">
+                            <div class="card-line">
+                                <h3>${item.org}</h3>
+                                <span>${item.date}</span>
+                            </div>
+                            <p><b>${item.title}</b></p>
+                            <div class="tag-row">
+                                ${item.tags.map(tag => `<span>${tag}</span>`).join("")}
+                            </div>
+                        </div>
+                    `).join("")}
+                </div>
+            `;
+        }
+
+        function showExperienceDetail(id) {
+            const item = experienceData[id];
+            const content = document.getElementById("resume-content");
+
+            content.innerHTML = `
+                <button class="back-btn" onclick="renderCards('${item.section}', '${sectionTitle(item.section)}')">← Back</button>
+
+                <div class="detail-header">
+                    <div>
+                        <h2>${item.org}</h2>
+                        <p class="detail-subtitle">${item.title}</p>
+                    </div>
+                    <span class="detail-date">${item.date}</span>
+                </div>
+
+                <div class="red-divider"></div>
+
+                <div class="tag-row detail-tags">
+                    ${item.tags.map(tag => `<span>${tag}</span>`).join("")}
+                </div>
+
+                <div class="detail-body">
+                    ${item.details}
+                </div>
+            `;
+        }
+
+        function sectionTitle(section) {
+            if (section === "research") return "Research Experience";
+            if (section === "teaching") return "Teaching Experience";
+            if (section === "industry") return "Industry Experience";
+            return "Experience";
+        }
+        function openPosterModal(src, title) {
+            const modal = document.getElementById("poster-modal");
+            const modalImg = document.getElementById("poster-modal-img");
+
+            modal.style.display = "flex";
+            modalImg.src = src;
+            modalImg.alt = title + " poster";
+        }
+
+        function closePosterModal() {
+            document.getElementById("poster-modal").style.display = "none";
+        }
+
+        function showProjects() {
+            const content = document.getElementById("resume-content");
+
+            const sortedProjects = Object.entries(projectData).sort((a, b) => {
+                const yearA = parseInt(a[1].date.match(/\d{4}/)[0]);
+                const yearB = parseInt(b[1].date.match(/\d{4}/)[0]);
+                return yearB - yearA;
+            });
+
+            content.innerHTML = `
+                <h2>Projects, Papers & Research Work</h2>
+                <p class="welcome-intro">
+                    Selected academic, applied, and research projects organized by timeline.
+                </p>
+
+                <div class="red-divider"></div>
+
+                <div class="project-timeline">
+                    ${sortedProjects.map(([id, project]) => `
+                        <div class="timeline-project" onclick="showProjectDetail('${id}')">
+
+                            <div class="timeline-date">${project.date}</div>
+
+                            <div class="timeline-content">
+                                <div class="timeline-row">
+
+                                    <div class="timeline-text">
+                                        <h3>${project.title}</h3>
+                                        <p class="project-meta-small">${project.meta}</p>
+                                        <p>${project.summary}</p>
+                                    </div>
+
+                                    <div class="timeline-poster">
+                                        <img src="${project.poster}" 
+                                            alt="${project.title} poster"
+                                            class="clickable-poster"
+                                            onclick="event.stopPropagation(); openPosterModal('${project.poster}', '${project.title}')"
+                                            onerror="this.style.display='none'">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    `).join("")}
+                </div>
+            `;
+        }
+
+        function showProjectDetail(id) {
+            const project = projectData[id];
+            const content = document.getElementById("resume-content");
+
+            const paperButton = project.paper
+                ? `<a href="${project.paper}" target="_blank" class="paper-btn">View Paper / Report</a>`
+                : "";
+
+            const githubButton = project.github
+                ? `<a href="${project.github}" target="_blank" class="paper-btn secondary-paper-btn">GitHub</a>`
+                : "";
+
+            const websiteButton = project.website
+                ? `<a href="${project.website}" target="_blank" class="paper-btn secondary-paper-btn">Website</a>`
+                : "";
+
+            content.innerHTML = `
+                <button class="back-btn" onclick="showProjects()">← Back</button>
+
+                <div class="detail-header">
+                    <div>
+                        <h2>${project.title}</h2>
+                        <p class="detail-subtitle">${project.meta}</p>
+                    </div>
+                    <span class="detail-date">${project.date}</span>
+                </div>
+
+                <div class="red-divider"></div>
+
+                <div class="project-detail-layout">
+                    <div class="project-detail-text">
+                        ${project.details}
+
+                        <div class="project-buttons">
+                            ${paperButton}
+                            ${githubButton}
+                            ${websiteButton}
+                        </div>
+                    </div>
+
+                    <div class="project-detail-poster">
+                        <img src="${project.poster}" 
+                            alt="${project.title} poster"
+                            class="clickable-poster"
+                            onclick="openPosterModal('${project.poster}', '${project.title}')"
+                            onerror="this.style.display='none'">
+                        <p class="poster-hint">Click poster to enlarge</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showDetail(item) {
+            const content = document.getElementById("resume-content");
+
+            if (item === "umd") {
+                content.innerHTML = `
+                    <button class="back-btn" onclick="showSection('education')">← Back</button>
+
+                    <div class="detail-header">
+                        <div>
+                            <h2>University of Maryland, College Park</h2>
+                            <p class="detail-subtitle">MS in Survey and Data Science</p>
+                        </div>
+                        <span class="detail-date">Aug 2024 – May 2026</span>
+                    </div>
+
+                    <div class="red-divider"></div>
+
+                    <h3 class="detail-section-title">Coursework</h3>
+                    <div class="course-grid">
+                        <span>SURV615: Statistical Modeling & Machine Learning I</span>
+                        <span>SURV621: Fundamentals of Data Collection I</span>
+                        <span>SURV627: Experimental Design & Causal Inference</span>
+                        <span>SURV727: Fundamentals of Computational Data Display</span>
+                        <span>CMSC848O: Long-Context Language Models</span>
+                        <span>SURV613: Machine Learning for Social Data</span>
+                        <span>SURV616: Statistical Modeling & Machine Learning II</span>
+                        <span>SURV622: Fundamentals of Data Collection II</span>
+                        <span>SURV625: Applied Sampling</span>
+                        <span>STAT600: Probability Theory I</span>
+                        <span>SURV617: Application of Statistical Modeling</span>
+                        <span>SURV720: Total Survey Error I</span>
+                        <span>SURV740: Fundamentals of Inference</span>
+                        <span>SURV721: Total Survey Error II</span>
+                        <span>SURV745: Survey Methods Seminar</span>
+                        <span>SURV701: Practical Tools for Survey Research</span>
+                        <span>SURV772: Analysis of Complex Surveys</span>
+                    </div>
+                `;
+            }
+
+            if (item === "vit") {
+                content.innerHTML = `
+                    <button class="back-btn" onclick="showSection('education')">← Back</button>
+
+                    <div class="detail-header">
+                        <div>
+                            <h2>Vellore Institute of Technology, Chennai</h2>
+                            <p class="detail-subtitle">MS in Data Science</p>
+                        </div>
+                        <span class="detail-date">Sept 2022 – July 2024</span>
+                    </div>
+
+                    <div class="red-divider"></div>
+
+                    <h3 class="detail-section-title">Coursework</h3>
+                    <div class="course-grid">
+                        <span>ENG5003: English for Science and Technology</span>
+                        <span>MAT5010: Foundations of Data Science</span>
+                        <span>MAT5011: Matrix Theory and Linear Algebra</span>
+                        <span>MAT5012: Probability Theory and Distributions</span>
+                        <span>MAT6012: Programming for Data Analysis</span>
+                        <span>RES5001: Research Methodology</span>
+                        <span>SET5001: Science, Engineering and Technology Project I</span>
+                        <span>STS4001: Essentials of Business Etiquettes</span>
+                        <span>ECE6045: Neural Networks and Fuzzy Systems</span>
+                        <span>MAT5013: Statistical Inference</span>
+                        <span>MAT5016: Time Series Analysis and Forecasting</span>
+                        <span>MAT6002: Regression Analysis and Predictive Models</span>
+                        <span>MAT6005: Machine Learning for Data Science</span>
+                        <span>SET5002: Science, Engineering and Technology Project II</span>
+                        <span>STS4002: Preparing for Industry</span>
+                        <span>CSE6060: Statistical Natural Language Processing</span>
+                        <span>MAT5017: Multivariate Data Analysis</span>
+                        <span>MAT6007: Deep Learning</span>
+                        <span>MAT6008: Artificial Intelligence for Data Science</span>
+                        <span>MAT6010: Optimization Techniques</span>
+                        <span>MAT6011: Statistical Quality Control</span>
+                        <span>SET5003: Science, Engineering and Technology Project III</span>
+                        <span>MDT6099: Master's Thesis</span>
+                    </div>
+                `;
+            }
+
+            if (item === "amity") {
+                content.innerHTML = `
+                    <button class="back-btn" onclick="showSection('education')">← Back</button>
+
+                    <div class="detail-header">
+                        <div>
+                            <h2>Amity University, Kolkata</h2>
+                            <p class="detail-subtitle">BS in Statistics</p>
+                        </div>
+                        <span class="detail-date">Aug 2018 – July 2021</span>
+                    </div>
+
+                    <div class="red-divider"></div>
+
+                    <h3 class="detail-section-title">Coursework</h3>
+                    <div class="course-grid compact">
+                        <span>Understanding Self for Effectiveness</span>
+                        <span>English Language Usage Essentials</span>
+                        <span>Environmental Studies</span>
+                        <span>Introduction to French Culture & Language</span>
+                        <span>Mathematics I - Subsidiary</span>
+                        <span>Probability Theory I</span>
+                        <span>Fundamentals of Statistics</span>
+                        <span>Statistics Lab I</span>
+                        <span>Statistical Methodology</span>
+                        <span>Individual Society and Nation</span>
+                        <span>Introduction to Communication Skills</span>
+                        <span>Introduction to Computers and Programming in C</span>
+                        <span>French Grammar I</span>
+                        <span>Mathematics II - Subsidiary</span>
+                        <span>Probability Theory II</span>
+                        <span>Statistics Lab II</span>
+                        <span>Sampling Theory</span>
+                        <span>Real Analysis Theory and Applications</span>
+                        <span>Applied Statistics</span>
+                        <span>Effective Written Communication</span>
+                        <span>Problem Solving and Creative Thinking</span>
+                        <span>Written Expression & Comprehension in French I</span>
+                        <span>Linear Algebra</span>
+                        <span>Research Methodology and Statistics</span>
+                        <span>Statistical Inference I</span>
+                        <span>Linear Model and Applications</span>
+                        <span>Statistics Lab III</span>
+                        <span>Statistical Programming in C</span>
+                        <span>Term Paper</span>
+                        <span>Professional Communication for Recruitment and Employability</span>
+                        <span>Values and Ethics for Personal and Professional Development</span>
+                        <span>Introduction to Econometrics</span>
+                        <span>French Through Communicative Approach</span>
+                        <span>Statistical Inference II</span>
+                        <span>Operations Research Methods and Applications</span>
+                        <span>Data Analysis and Decision Making</span>
+                        <span>Non-Parametric Statistics</span>
+                        <span>Statistics Lab IV</span>
+                        <span>Probability and Statistics</span>
+                        <span>Receptive and Expressive Communication Skills</span>
+                        <span>Group Dynamics and Team Building</span>
+                        <span>Communicative French II</span>
+                        <span>Professional Ethics and Social Responsibility</span>
+                        <span>Numerical Analysis</span>
+                        <span>Stochastic Process</span>
+                        <span>Statistics Lab V</span>
+                        <span>Time Series Analysis</span>
+                        <span>Fundamentals of Biostatistics</span>
+                        <span>Basic SAS for Data Science</span>
+                        <span>In-House Practical Training I</span>
+                        <span>Social Communication</span>
+                        <span>Stress and Coping Strategies</span>
+                        <span>French Written Expression and Comprehension II</span>
+                        <span>Design of Experiment</span>
+                        <span>Statistics Lab VI</span>
+                        <span>Reliability Theory</span>
+                        <span>Quality Control and Applications</span>
+                        <span>Practical Management Science</span>
+                        <span>Introduction to Statistical Consulting</span>
+                        <span>Major Project</span>
+                        <span>Human Values and Community Outreach</span>
+                    </div>
+                `;
+            }
+        }
+    </script>
+    <div id="poster-modal" class="poster-modal" onclick="closePosterModal()">
+        <span class="poster-close">&times;</span>
+        <img id="poster-modal-img" class="poster-modal-img" src="" alt="Expanded poster">
+    </div>
+</body>
+</html>
