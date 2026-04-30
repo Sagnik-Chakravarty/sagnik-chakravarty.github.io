@@ -3200,3 +3200,190 @@ body:has(#contact-page-v2) .home-contact-strip {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================
+   SKILL TO PROJECT MATRIX
+========================= */
+
+.skill-project-matrix-v2 {
+  margin: 26px 0 32px;
+  border: 1px solid #e4dfd9;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.matrix-header-v2,
+.matrix-row-v2 {
+  display: grid;
+  grid-template-columns: 1.05fr 1.25fr 1.25fr 150px;
+  gap: 18px;
+  align-items: center;
+}
+
+.matrix-header-v2 {
+  background: #f7f4ef;
+  color: #36393a;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  padding: 15px 18px;
+  border-bottom: 1px solid #e4dfd9;
+}
+
+.matrix-row-v2 {
+  padding: 18px;
+  border-bottom: 1px solid #e4dfd9;
+  transition: 0.25s ease;
+}
+
+.matrix-row-v2:last-child {
+  border-bottom: none;
+}
+
+.matrix-row-v2:hover {
+  background: #f8f9fa;
+}
+
+.matrix-row-v2 strong {
+  display: block;
+  color: #36393a;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.matrix-row-v2 p {
+  color: #555;
+  font-size: 12.8px;
+  line-height: 1.45;
+}
+
+.matrix-row-v2 div {
+  color: #444;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.matrix-row-v2 button {
+  border: 1px solid #b54769;
+  background: #fff;
+  color: #b54769;
+  border-radius: 999px;
+  padding: 9px 12px;
+  font-size: 12.5px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.25s ease;
+  white-space: nowrap;
+}
+
+.matrix-row-v2 button:hover {
+  color: #ff004f;
+  border-color: #ff004f;
+  transform: translateY(-2px);
+}
+
+/* Works with resume internal scroll layout */
+#resume-content .skill-project-matrix-v2 {
+  max-width: 100%;
+}
+
+/* Responsive */
+@media screen and (max-width: 1050px) {
+  .matrix-header-v2 {
+    display: none;
+  }
+
+  .matrix-row-v2 {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .matrix-row-v2 button {
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .matrix-row-v2 button {
+    width: 100%;
+  }
+}
+
+/* =========================
+   30-SECOND RECRUITER SUMMARY
+========================= */
+
+.recruiter-summary-card-v2 {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 18px;
+  background: #f8f9fa;
+  border: 1px solid #e4dfd9;
+  border-left: 5px solid #b54769;
+  border-radius: 18px;
+  padding: 24px;
+  margin: 24px 0 30px;
+}
+
+.recruiter-summary-icon-v2 {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e4dfd9;
+  color: #b54769;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+}
+
+.recruiter-summary-card-v2 h3 {
+  color: #36393a;
+  font-size: 24px;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.recruiter-summary-card-v2 p {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.recruiter-summary-actions-v2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.recruiter-summary-actions-v2 button {
+  border: 1px solid #b54769;
+  background: #fff;
+  color: #b54769;
+  border-radius: 999px;
+  padding: 9px 13px;
+  font-size: 12.5px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.recruiter-summary-actions-v2 button:hover {
+  color: #ff004f;
+  border-color: #ff004f;
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 700px) {
+  .recruiter-summary-card-v2 {
+    grid-template-columns: 1fr;
+  }
+
+  .recruiter-summary-actions-v2 button {
+    width: 100%;
+  }
+}

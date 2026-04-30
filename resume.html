@@ -861,6 +861,36 @@
                             Ask summary
                         </button>
                     </div>
+                    <div class="recruiter-summary-card-v2">
+                        <div class="recruiter-summary-icon-v2">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <div>
+                            <p class="section-eyebrow">30-second recruiter summary</p>
+                            <h3>Survey-trained data scientist with NLP, LLM, and research-system experience.</h3>
+                            <p>
+                                I combine survey methodology, machine learning, NLP, and computational social science. My strongest work includes
+                                FrameScope, a live LLM-assisted AI discourse dashboard; ASHA survey response-rate analysis; EV sentiment analysis
+                                presented at AAPOR; GTI/media-framing research presented at IISA; and multistage sampling designs for applied
+                                survey problems.
+                            </p>
+
+                            <div class="recruiter-summary-actions-v2">
+                                <button onclick="askSagnikGPT('Give a 30-second recruiter summary of Sagnik. Highlight his strongest evidence for data science, survey methodology, NLP, LLM systems, and research roles.')">
+                                    Ask SagnikGPT for recruiter summary →
+                                </button>
+
+                                <button onclick="askSagnikGPT('Evaluate Sagnik for a data scientist role. Be specific about strengths, project evidence, tools, and possible gaps.')">
+                                    Evaluate for data scientist →
+                                </button>
+
+                                <button onclick="askSagnikGPT('Evaluate Sagnik for a survey methodologist or survey data scientist role. Use ASHA, Detroit sampling, Michigan sampling, coursework, and TA experience.')">
+                                    Evaluate for survey role →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="resume-overview-grid-v2">
                         <article onclick="showSection('education')">
@@ -1284,6 +1314,86 @@
                 </div>
 
                 <div class="red-divider"></div>
+                <div class="skill-project-matrix-v2">
+                    <div class="matrix-header-v2">
+                        <span>Skill Area</span>
+                        <span>Project Evidence</span>
+                        <span>Methods / Tools</span>
+                        <span>Action</span>
+                    </div>
+
+                    <div class="matrix-row-v2">
+                        <div>
+                            <strong>Survey Methodology</strong>
+                            <p>Sampling, response rates, TSE, weighting, inference</p>
+                        </div>
+                        <div>ASHA · Detroit Sampling · Michigan Sampling · Sampling I TA</div>
+                        <div>Bootstrap · PPS · multistage sampling · response-rate estimands</div>
+                        <button onclick="askSagnikGPT('Give evidence that Sagnik is strong in survey methodology. Use ASHA, Detroit sampling, Michigan sampling, Sampling I TA, coursework, response rates, weighting, and Total Survey Error.')">
+                            Ask evidence →
+                        </button>
+                    </div>
+
+                    <div class="matrix-row-v2">
+                        <div>
+                            <strong>NLP / LLM Systems</strong>
+                            <p>Text analysis, annotation, retrieval, stance, framing</p>
+                        </div>
+                        <div>FrameScope · EV Sentiment · Trump-Zelensky · SagnikGPT</div>
+                        <div>LLM annotation · metaphor detection · sentiment · stance · RAG</div>
+                        <button onclick="askSagnikGPT('Give evidence that Sagnik is strong in NLP and LLM systems. Use FrameScope, EV sentiment, Trump-Zelensky, SagnikGPT, metaphor detection, stance classification, sentiment, and retrieval-augmented generation.')">
+                            Ask evidence →
+                        </button>
+                    </div>
+
+                    <div class="matrix-row-v2">
+                        <div>
+                            <strong>Machine Learning</strong>
+                            <p>Predictive modeling, graph learning, deep learning, evaluation</p>
+                        </div>
+                        <div>ISI · GNN Thesis · Moneyball · GTI · Image Recognition</div>
+                        <div>GNN · GCN · RF · CNN · multilevel models · model evaluation</div>
+                        <button onclick="askSagnikGPT('Give evidence that Sagnik is strong in machine learning. Use ISI, GNN thesis, Moneyball, GTI, image recognition, graph learning, deep learning, and model evaluation.')">
+                            Ask evidence →
+                        </button>
+                    </div>
+
+                    <div class="matrix-row-v2">
+                        <div>
+                            <strong>Computational Social Science</strong>
+                            <p>Public discourse, narratives, political/social text data</p>
+                        </div>
+                        <div>FrameScope · Immigration · EV Sentiment · GTI · Trump-Zelensky</div>
+                        <div>Reddit · GDELT · NYT · framing · sentiment · narrative indicators</div>
+                        <button onclick="askSagnikGPT('Give evidence that Sagnik is strong in computational social science. Use FrameScope, immigration narratives, EV sentiment, GTI, Trump-Zelensky, Reddit, GDELT, and news data.')">
+                            Ask evidence →
+                        </button>
+                    </div>
+
+                    <div class="matrix-row-v2">
+                        <div>
+                            <strong>Data Engineering</strong>
+                            <p>End-to-end pipelines, APIs, scraping, dashboards, databases</p>
+                        </div>
+                        <div>FrameScope · SagnikGPT · Strickland · ASHA · Dashboards</div>
+                        <div>Python · R · SQL · Streamlit · FastAPI · scraping · databases</div>
+                        <button onclick="askSagnikGPT('Give evidence that Sagnik is strong in data engineering. Use FrameScope, SagnikGPT, Strickland, ASHA, Python, R, SQL, Streamlit, FastAPI, scraping, and database workflows.')">
+                            Ask evidence →
+                        </button>
+                    </div>
+
+                    <div class="matrix-row-v2">
+                        <div>
+                            <strong>Statistical Modeling</strong>
+                            <p>Regression, uncertainty, experiments, hierarchical models</p>
+                        </div>
+                        <div>ASHA · Moneyball · Gard Lab · EV Sentiment · UMD coursework</div>
+                        <div>Regression · ANOVA · bootstrap · mixed models · causal inference</div>
+                        <button onclick="askSagnikGPT('Give evidence that Sagnik is strong in statistical modeling. Use ASHA, Moneyball, Gard Lab, EV sentiment, coursework, regression, ANOVA, bootstrap uncertainty, mixed models, and causal inference.')">
+                            Ask evidence →
+                        </button>
+                    </div>
+                </div>
 
                 <div class="resume-skill-grid-v2">
                     ${skillData.map(skill => `
