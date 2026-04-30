@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>About | Sagnik Chakravarty</title>
+
+    <meta name="description" content="About Sagnik Chakravarty – Graduate student at UMD JPSM working across survey methodology, machine learning, NLP, LLMs, and computational social science.">
+
     <link rel="stylesheet" href="style.css">
     <link rel="preload" href="style.css" as="style">
-    <link rel="preload" href="images/logo.png" as="image">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
+    <!-- NAVBAR -->
     <div id="header-container">
         <nav>
-            <a href="index.html" class="logo-link">
-                <img src="images/logo.png" class="logo" alt="Sagnik Chakravarty logo">
+            <a href="index.html" class="text-logo" aria-label="Sagnik Chakravarty home">
+                Sagnik Chakravarty
             </a>
 
-            <button class="hamburger" onclick="toggleMenu()">☰</button>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+                ☰
+            </button>
 
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -31,165 +40,385 @@
         </nav>
     </div>
 
-    <!-- About Section -->
-    <div id="about">
-        <div id="container">
-            <div id="row">
+    <!-- ABOUT PAGE -->
+    <main id="about-page" class="about-page-shell">
 
-                <!-- Left Image -->
-                <div id="about-col-1">
-                    <img src="images/Sagnikabout.jpeg" alt="Sagnik" class="about-img">
-                </div>
+        <!-- HERO -->
+        <section class="about-hero">
+            <div class="about-hero-text">
+                <p class="section-eyebrow">About Me</p>
 
-                <!-- Right Content -->
-                <div id="about-col-2">
+                <h1>
+                    I study how data is generated, measured, and modeled.
+                </h1>
 
-                    <h1 class="sub-title">About Me</h1>
+                <p class="about-lead">
+                    I am a graduate student in the Joint Program in Survey Methodology at the University of Maryland,
+                    College Park. My work sits at the intersection of survey methodology, machine learning, NLP,
+                    LLM-assisted annotation, and computational social science.
+                </p>
 
-                    <div id="about-content">
-                        <p>
-                            Hi! My name is Sagnik. I am a graduate student in the Joint Program in Survey Methodology (JPSM) at the University of Maryland, College Park. I currently work as a research assistant in the CLIP/CATS lab with 
-                            <a href="https://juliamendelsohn.github.io/" target="_blank">Julia Mendelsohn</a>, where I study how people talk about artificial intelligence using computational methods.
-                        </p>
+                <div class="about-hero-actions">
+                    <a href="research.html" class="paper-btn">
+                        <i class="fa-solid fa-folder-open"></i>
+                        View Research
+                    </a>
 
-                        <p>
-                            My research interests lie at the intersection of survey methodology, machine learning, and computational social science. I work on problems related to measurement error, sampling, nonresponse, and the use of large language models for tasks such as annotation, framing analysis, and survey-based inference.
-                        </p>
+                    <a href="resume.html" class="paper-btn secondary-paper-btn">
+                        <i class="fa-solid fa-file-lines"></i>
+                        View Resume
+                    </a>
 
-                        <p>
-                            More broadly, I am interested in how machine learning systems can better account for how data is actually generated, including issues like bias, uncertainty, coverage, and missingness.
-                        </p>
-
-                        <p>
-                            I received my MS in Data Science from Vellore Institute of Technology and my BS in Statistics from Amity University, Kolkata. I have also worked as a data science research intern at the Indian Statistical Institute.
-                        </p>
-                    </div>
-
-                    <!-- Current Work Section -->
-                    <h2 class="sub-title">Current Work</h2>
-
-                    <div class="current-work">
-                      <div class="work-item">
-                        <h3>FrameScope</h3>
-                        <p>LLM-based metaphor and framing analysis of AI discourse using Reddit and news data.</p>
-                        <a href="research.html">View Project →</a>
-                      </div>
-
-                      <div class="work-item">
-                        <h3>ASHA Survey Methods Project</h3>
-                        <p>Analyzing survey mode and follow-up strategies to improve response rates.</p>
-                        <a href="research.html">View Project →</a>
-                      </div>
-                    </div>
-
-                    <!-- Tabs -->
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('Skills', event)">Skills</p>
-                        <p class="tab-links" onclick="opentab('Education', event)">Education</p>
-                        <p class="tab-links" onclick="opentab('Experience', event)">Experience</p>
-                    </div>
-
-                    <!-- Skills -->
-                    <div class="tab-contents active-tab" id="Skills">
-                        <ul>
-                            <li><span>Programming</span><br>R, Python, JavaScript, SQL</li>
-                            <li><span>Machine Learning</span><br>PyTorch, TensorFlow, Scikit-learn, Hugging Face</li>
-                            <li><span>NLP</span><br>Sentiment, Stance, Framing, LLM Annotation</li>
-                            <li><span>Survey Methodology</span><br>Sampling, TSE, Nonresponse, Measurement Error</li>
-                            <li><span>Data Tools</span><br>Pandas, dplyr, DuckDB, SQLite</li>
-                            <li><span>Visualization</span><br>ggplot2, Tableau, Power BI</li>
-                            <li><span>Cloud</span><br>AWS, GCP, Azure</li>
-                        </ul>
-                    </div>
-
-                    <!-- Education -->
-                    <div class="tab-contents" id="Education">
-                        <ul>
-                            <li>
-                                <span class="Date">Aug 2024 - May 2026</span>
-                                <span class="Program"><br>MS in Survey and Data Science</span>
-                                <span class="University"><br>University of Maryland, College Park</span>
-                            </li>
-
-                            <li>
-                                <span class="Date">Sept 2022 - July 2024</span>
-                                <span class="Program"><br>MS in Data Science</span>
-                                <span class="University"><br>Vellore Institute of Technology</span>
-                            </li>
-
-                            <li>
-                                <span class="Date">Aug 2018 - July 2021</span>
-                                <span class="Program"><br>BS in Statistics</span>
-                                <span class="University"><br>Amity University</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Experience -->
-                    <div class="tab-contents" id="Experience">
-                        <ul>
-                        <li>
-                            <span class="Date">2025 – Present</span>
-                            <span class="Position">Research Assistant</span>
-                            <span class="Company">CLIP LAB, University of Maryland</span>
-                        </li>
-
-                        <li>
-                            <span class="Date">2025</span>
-                            <span class="Position">Teaching Assistant, Sampling I</span>
-                            <span class="Company">JPSM, UMD</span>
-                        </li>
-
-                        <li>
-                            <span class="Date">2023 – 2024</span>
-                            <span class="Position">Data Science Research Intern</span>
-                            <span class="Company">Indian Statistical Institute</span>
-                        </li>
-
-                        <li>
-                            <span class="Date">2024</span>
-                            <span class="Position">Survey Data Analyst</span>
-                            <span class="Company">Strickland Law Firm</span>
-                        </li>
-                    </ul>
-                    </div>
-
+                    <a href="research.html#research-assistant" class="paper-btn secondary-paper-btn">
+                        <i class="fa-solid fa-message"></i>
+                        Ask SagnikGPT
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Footer -->
-    <footer id="footer">
-        <p>© 2026 Sagnik Chakravarty</p>
-    </footer>
+            <div class="about-hero-image-card">
+                <img src="images/Sagnikabout.jpeg" alt="Sagnik Chakravarty">
+                <div class="about-image-caption">
+                    <span>Current Focus</span>
+                    <p>Survey Methodology × NLP × LLM-assisted Social Data Analysis</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- JS -->
+        <!-- PROFILE SUMMARY -->
+        <section class="about-section about-summary-grid">
+
+            <article class="about-narrative-card">
+                <p class="section-eyebrow">Research Identity</p>
+                <h2>From statistics to data science to survey methodology</h2>
+
+                <p>
+                    My academic path began in statistics, moved through applied data science, and now centers on
+                    survey methodology and data-centric AI. Across these stages, the core question has stayed the same:
+                    how do we make reliable inferences from imperfect, human-generated data?
+                </p>
+
+                <p>
+                    At UMD, I work as a research assistant in the CLIP/CATS research environment with
+                    <a href="https://juliamendelsohn.github.io/" target="_blank">Julia Mendelsohn</a>,
+                    studying how people talk about artificial intelligence using computational text methods.
+                    This includes metaphor detection, framing analysis, stance classification, and LLM-assisted annotation.
+                </p>
+
+                <p>
+                    I am especially interested in the idea that many machine learning failures are not simply model failures.
+                    They are often failures to understand data generation, measurement error, coverage, nonresponse,
+                    sampling, and uncertainty.
+                </p>
+            </article>
+
+            <div class="about-highlight-stack">
+
+                <article class="about-highlight-card">
+                    <div class="about-highlight-icon">
+                        <i class="fa-solid fa-square-poll-vertical"></i>
+                    </div>
+                    <div>
+                        <h3>Survey Methodology</h3>
+                        <p>Sampling, Total Survey Error, nonresponse, measurement, weighting, and design-based inference.</p>
+                    </div>
+                </article>
+
+                <article class="about-highlight-card">
+                    <div class="about-highlight-icon">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <div>
+                        <h3>NLP & Framing</h3>
+                        <p>Metaphor detection, stance, sentiment, media narratives, and public discourse measurement.</p>
+                    </div>
+                </article>
+
+                <article class="about-highlight-card">
+                    <div class="about-highlight-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div>
+                        <h3>LLM-Assisted Research</h3>
+                        <p>Annotation pipelines, retrieval-augmented assistants, and computational social science workflows.</p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- CURRENT WORK -->
+        <section class="about-section">
+            <div class="home-section-heading split-heading">
+                <div>
+                    <p class="section-eyebrow">Current Work</p>
+                    <h2>Projects I am actively building around</h2>
+                    <p>
+                        These projects summarize the direction of my current research profile:
+                        AI discourse, survey response behavior, and measurement-aware machine learning.
+                    </p>
+                </div>
+
+                <a href="research.html" class="section-text-link">View all projects →</a>
+            </div>
+
+            <div class="about-current-work-grid">
+
+                <article class="about-work-card">
+                    <div class="work-card-top">
+                        <div class="work-icon framescope-work-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <span>LLMs · NLP · CSS</span>
+                    </div>
+
+                    <h3>FrameScope</h3>
+                    <p>
+                        LLM-assisted metaphor and framing analysis of AI discourse using Reddit, news,
+                        and interactive dashboard infrastructure.
+                    </p>
+
+                    <div class="compact-link-row">
+                        <a href="https://framescope.streamlit.app/reddit" target="_blank">Dashboard →</a>
+                        <a href="https://github.com/Sagnik-Chakravarty/FrameScope" target="_blank">GitHub →</a>
+                    </div>
+                </article>
+
+                <article class="about-work-card">
+                    <div class="work-card-top">
+                        <div class="work-icon asha-work-icon">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                        </div>
+                        <span>Survey Methods · Client Project</span>
+                    </div>
+
+                    <h3>ASHA Survey Methods Project</h3>
+                    <p>
+                        Evaluated postcard reminders and survey mode effects for ASHA survey response improvement
+                        using response-rate estimands and bootstrap uncertainty.
+                    </p>
+
+                    <div class="compact-link-row">
+                        <a href="assets/papers/ASHAFinalReport.pdf" target="_blank">Report →</a>
+                        <a href="research.html">Details →</a>
+                    </div>
+                </article>
+
+                <article class="about-work-card">
+                    <div class="work-card-top">
+                        <div class="work-icon ai-survey-work-icon">
+                            <i class="fa-solid fa-bridge"></i>
+                        </div>
+                        <span>Research Direction</span>
+                    </div>
+
+                    <h3>Survey + AI Systems</h3>
+                    <p>
+                        Building a research profile around data-centric AI systems that account for sampling,
+                        measurement, bias, uncertainty, and human-centered data generation.
+                    </p>
+
+                    <div class="compact-link-row">
+                        <a href="research.html#research-assistant">Ask SagnikGPT →</a>
+                        <a href="resume.html">Resume →</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- TABS / BACKGROUND -->
+        <section class="about-section about-tabs-section">
+
+            <div class="home-section-heading">
+                <p class="section-eyebrow">Background</p>
+                <h2>Skills, education, and experience</h2>
+                <p>
+                    A compact overview of the technical and methodological background behind my research work.
+                </p>
+            </div>
+
+            <div class="about-tabs-card">
+
+                <div class="tab-titles about-tab-titles">
+                    <button class="tab-links active-link" onclick="opentab('Skills', event)">
+                        <i class="fa-solid fa-toolbox"></i>
+                        Skills
+                    </button>
+
+                    <button class="tab-links" onclick="opentab('Education', event)">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        Education
+                    </button>
+
+                    <button class="tab-links" onclick="opentab('Experience', event)">
+                        <i class="fa-solid fa-briefcase"></i>
+                        Experience
+                    </button>
+                </div>
+
+                <!-- SKILLS -->
+                <div class="tab-contents active-tab" id="Skills">
+                    <div class="about-skill-grid">
+
+                        <div class="about-skill-card">
+                            <i class="fa-solid fa-code"></i>
+                            <h3>Programming</h3>
+                            <p>Python, R, JavaScript, SQL</p>
+                        </div>
+
+                        <div class="about-skill-card">
+                            <i class="fa-solid fa-brain"></i>
+                            <h3>Machine Learning</h3>
+                            <p>PyTorch, TensorFlow, Scikit-learn, Hugging Face</p>
+                        </div>
+
+                        <div class="about-skill-card">
+                            <i class="fa-solid fa-comments"></i>
+                            <h3>NLP</h3>
+                            <p>Sentiment, stance, framing, LLM annotation</p>
+                        </div>
+
+                        <div class="about-skill-card">
+                            <i class="fa-solid fa-square-poll-vertical"></i>
+                            <h3>Survey Methods</h3>
+                            <p>Sampling, TSE, nonresponse, measurement error</p>
+                        </div>
+
+                        <div class="about-skill-card">
+                            <i class="fa-solid fa-database"></i>
+                            <h3>Data Tools</h3>
+                            <p>Pandas, dplyr, DuckDB, SQLite</p>
+                        </div>
+
+                        <div class="about-skill-card">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <h3>Visualization</h3>
+                            <p>ggplot2, Tableau, Power BI, Streamlit</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- EDUCATION -->
+                <div class="tab-contents" id="Education">
+                    <div class="about-timeline">
+
+                        <article class="about-timeline-item">
+                            <span>Aug 2024 – May 2026</span>
+                            <h3>University of Maryland, College Park</h3>
+                            <p>MS in Survey and Data Science</p>
+                        </article>
+
+                        <article class="about-timeline-item">
+                            <span>Sept 2022 – July 2024</span>
+                            <h3>Vellore Institute of Technology, Chennai</h3>
+                            <p>MS in Data Science</p>
+                        </article>
+
+                        <article class="about-timeline-item">
+                            <span>Aug 2018 – July 2021</span>
+                            <h3>Amity University, Kolkata</h3>
+                            <p>BS in Statistics</p>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- EXPERIENCE -->
+                <div class="tab-contents" id="Experience">
+                    <div class="about-timeline">
+
+                        <article class="about-timeline-item">
+                            <span>2025 – Present</span>
+                            <h3>Research Assistant</h3>
+                            <p>CLIP/CATS Lab, University of Maryland</p>
+                        </article>
+
+                        <article class="about-timeline-item">
+                            <span>2025</span>
+                            <h3>Teaching Assistant, Sampling I</h3>
+                            <p>JPSM, University of Maryland</p>
+                        </article>
+
+                        <article class="about-timeline-item">
+                            <span>2023 – 2024</span>
+                            <h3>Data Science Research Intern</h3>
+                            <p>Indian Statistical Institute</p>
+                        </article>
+
+                        <article class="about-timeline-item">
+                            <span>2024</span>
+                            <h3>Survey Data Analyst</h3>
+                            <p>Strickland Law Firm</p>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PHILOSOPHY STRIP -->
+        <section class="about-philosophy-strip">
+            <div>
+                <p class="section-eyebrow">Research Philosophy</p>
+                <h2>Better models require better understanding of data generation.</h2>
+                <p>
+                    I want to build methods and systems that do not treat data as a fixed input.
+                    Instead, my work asks how measurement, coverage, sampling, nonresponse, missingness,
+                    annotation, and human behavior shape the data before any model sees it.
+                </p>
+            </div>
+
+            <a href="research.html" class="paper-btn">Explore Research</a>
+        </section>
+
+    </main>
+
+    <!-- CONTACT ICONS -->
+    <section class="home-contact-strip" aria-label="Contact links">
+        <a href="mailto:sagnikch@umd.edu" aria-label="Email Sagnik">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <a href="https://github.com/Sagnik-Chakravarty" target="_blank" aria-label="GitHub profile">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/sagnik-chakravarty" target="_blank" aria-label="LinkedIn profile">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+    </section>
+
+    
+
+    <a href="research.html#research-assistant" class="floating-assistant-cta">
+        Ask SagnikGPT
+    </a>
+
     <script>
         function opentab(tabname, event) {
-            var tablinks = document.getElementsByClassName("tab-links");
-            var tabcontents = document.getElementsByClassName("tab-contents");
+            const tablinks = document.getElementsByClassName("tab-links");
+            const tabcontents = document.getElementsByClassName("tab-contents");
 
-            for (var i = 0; i < tablinks.length; i++) {
+            for (let i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active-link");
             }
 
-            for (var j = 0; j < tabcontents.length; j++) {
+            for (let j = 0; j < tabcontents.length; j++) {
                 tabcontents[j].classList.remove("active-tab");
             }
 
             document.getElementById(tabname).classList.add("active-tab");
             event.currentTarget.classList.add("active-link");
         }
+
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("show-menu");
+        }
     </script>
 
-        <script>
-            function toggleMenu() {
-                document.getElementById("nav-menu").classList.toggle("show-menu");
-            }
-        </script>
-    <a href="research.html#research-assistant" class="floating-assistant-cta">
-        Ask SagnikGPT
-    </a>
 </body>
- </html>
+</html>

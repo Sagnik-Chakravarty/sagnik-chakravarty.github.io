@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Contact | Sagnik Chakravarty</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <meta name="description" content="Contact Sagnik Chakravarty for research collaborations, survey methodology, data science, NLP, LLMs, and computational social science opportunities.">
+
+    <link rel="stylesheet" href="style.css?v=40">
     <link rel="preload" href="style.css" as="style">
-    <link rel="preload" href="images/logo.png" as="image">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
+    <!-- NAVBAR -->
     <div id="header-container">
         <nav>
-            <a href="index.html" class="logo-link">
-                <img src="images/logo.png" class="logo" alt="Sagnik Chakravarty logo">
+            <a href="index.html" class="text-logo" aria-label="Sagnik Chakravarty home">
+                Sagnik Chakravarty
             </a>
-            <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+                ☰
+            </button>
 
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -31,102 +40,256 @@
         </nav>
     </div>
 
-    <!-- Contact Section -->
-    <div id="contact">
-        <div class="contact-container">
+    <!-- CONTACT PAGE -->
+    <main id="contact-page-v2" class="contact-page-shell-v2">
 
-            <!-- LEFT SIDE -->
-            <div class="contact-left">
-                <h1 class="sub-title">Contact</h1>
+        <!-- HERO -->
+        <section class="contact-hero-v2">
+            <div class="contact-hero-text-v2">
+                <p class="section-eyebrow">Contact</p>
 
-                <p>
+                <h1>Let’s connect about research, data, surveys, and AI systems.</h1>
+
+                <p class="contact-lead-v2">
                     I am open to research collaborations, data science roles, survey methodology opportunities,
-                    and discussions around NLP, LLMs, and computational social science.
+                    and conversations around NLP, LLM-assisted research, computational social science,
+                    public discourse analysis, and measurement-aware machine learning.
                 </p>
 
-                <div class="contact-links contact-icon-links">
-                    <a href="mailto:sagnik060260@gmail.com">
+                <div class="contact-hero-actions-v2">
+                    <a href="mailto:sagnikch@umd.edu" class="paper-btn">
                         <i class="fa-solid fa-envelope"></i>
-                        <span>sagnik060260@gmail.com</span>
-                    </a>
-                    <a href="mailto:sagnikch@umd.edu">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>sagnikch@umd.edu</span>
+                        Email Me
                     </a>
 
-                    <a href="tel:+12406107356">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>240-610-7356</span>
-                    </a>
-
-                    <a href="https://scholar.google.com/citations?user=thxuXDwAAAAJ&hl=en" target="_blank">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <span>Google Scholar</span>
-                    </a>
-
-                    <a href="https://github.com/Sagnik-Chakravarty" target="_blank">
-                        <i class="fa-brands fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/sagnik-chakravarty" target="_blank">
-                        <i class="fa-brands fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-
-                    <a href="https://orcid.org/0009-0009-7996-6468" target="_blank">
-                        <i class="fa-brands fa-orcid"></i>
-                        <span>ORCID</span>
-                    </a>
-
-                    <a href="assets/resume/Sagnik_Resume_Full.pdf" target="_blank">
+                    <a href="assets/resume/Sagnik_Resume_Full.pdf" target="_blank" class="paper-btn secondary-paper-btn">
                         <i class="fa-solid fa-file-lines"></i>
-                        <span>Curriculum Vitae</span>
+                        View CV
+                    </a>
+
+                    <a href="research.html#research-assistant" class="paper-btn secondary-paper-btn">
+                        <i class="fa-solid fa-message"></i>
+                        Ask SagnikGPT
                     </a>
                 </div>
             </div>
 
-            <!-- RIGHT SIDE (FORM) -->
-            <div class="contact-right">
-                <h2>Send a Message</h2>
+            <aside class="contact-hero-card-v2">
+                <span>Best for</span>
 
-                <form action="https://formspree.io/f/mjgjnpjg" method="POST">
+                <div class="contact-intent-grid-v2">
+                    <div>
+                        <i class="fa-solid fa-microscope"></i>
+                        <p>Research collaboration</p>
+                    </div>
 
-                    <label>Name</label>
-                    <input type="text" name="name" placeholder="Your name" required>
+                    <div>
+                        <i class="fa-solid fa-square-poll-vertical"></i>
+                        <p>Survey methodology</p>
+                    </div>
 
-                    <label>Email</label>
-                    <input type="email" name="_replyto" placeholder="Your email" required>
+                    <div>
+                        <i class="fa-solid fa-brain"></i>
+                        <p>ML / NLP / LLM work</p>
+                    </div>
 
-                    <label>Subject</label>
-                    <input type="text" name="subject" placeholder="Subject">
+                    <div>
+                        <i class="fa-solid fa-briefcase"></i>
+                        <p>Full-time roles</p>
+                    </div>
+                </div>
+            </aside>
+        </section>
 
-                    <label>Message</label>
-                    <textarea name="message" rows="6" placeholder="Write your message here" required></textarea>
+        <!-- CONTACT BODY -->
+        <section class="contact-main-grid-v2">
 
-                    <!-- Optional: redirect after submit -->
-                    <input type="hidden" name="_next" value="https://sagnik-chakravarty.github.io/thankyou.html">
+            <!-- CONTACT LINKS -->
+            <div class="contact-directory-card-v2">
+                <div class="home-section-heading">
+                    <p class="section-eyebrow">Directory</p>
+                    <h2>Contact Information</h2>
+                    <p>
+                        The fastest way to reach me is by email. You can also find my research,
+                        code, professional profile, and identifiers below.
+                    </p>
+                </div>
 
-                    <button type="submit" class="contact-btn">Send Message</button>
-                </form>
+                <div class="contact-link-grid-v2">
 
+                    <a href="mailto:sagnikch@umd.edu">
+                        <div class="contact-link-icon-v2">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <span>University Email</span>
+                            <strong>sagnikch@umd.edu</strong>
+                        </div>
+                    </a>
+
+                    <a href="mailto:sagnik060260@gmail.com">
+                        <div class="contact-link-icon-v2">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                        </div>
+                        <div>
+                            <span>Personal Email</span>
+                            <strong>sagnik060260@gmail.com</strong>
+                        </div>
+                    </a>
+
+                    <a href="tel:+12406107356">
+                        <div class="contact-link-icon-v2">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <span>Phone</span>
+                            <strong>240-610-7356</strong>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Sagnik-Chakravarty" target="_blank">
+                        <div class="contact-link-icon-v2">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <div>
+                            <span>Code</span>
+                            <strong>GitHub</strong>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/sagnik-chakravarty" target="_blank">
+                        <div class="contact-link-icon-v2">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <span>Professional Profile</span>
+                            <strong>LinkedIn</strong>
+                        </div>
+                    </a>
+
+                    <a href="https://scholar.google.com/citations?user=thxuXDwAAAAJ&hl=en" target="_blank">
+                        <div class="contact-link-icon-v2">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <span>Research</span>
+                            <strong>Google Scholar</strong>
+                        </div>
+                    </a>
+
+                    <a href="https://orcid.org/0009-0009-7996-6468" target="_blank">
+                        <div class="contact-link-icon-v2">
+                            <i class="fa-brands fa-orcid"></i>
+                        </div>
+                        <div>
+                            <span>Research Identifier</span>
+                            <strong>ORCID</strong>
+                        </div>
+                    </a>
+
+                    <a href="assets/resume/Sagnik_Resume_Full.pdf" target="_blank">
+                        <div class="contact-link-icon-v2">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+                        <div>
+                            <span>Document</span>
+                            <strong>Curriculum Vitae</strong>
+                        </div>
+                    </a>
+
+                </div>
             </div>
 
-        </div>
-    </div>
+            <!-- MESSAGE FORM -->
+            <div class="contact-form-card-v2">
+                <div class="home-section-heading">
+                    <p class="section-eyebrow">Message</p>
+                    <h2>Send a Message</h2>
+                    <p>
+                        Use this form for collaborations, roles, research discussions, or quick professional contact.
+                    </p>
+                </div>
 
-    <!-- Footer -->
+                <form action="https://formspree.io/f/mjgjnpjg" method="POST" class="contact-form-v2">
+
+                    <div class="form-field-v2">
+                        <label for="name">Name</label>
+                        <input id="name" type="text" name="name" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-field-v2">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="_replyto" placeholder="your.email@example.com" required>
+                    </div>
+
+                    <div class="form-field-v2">
+                        <label for="subject">Subject</label>
+                        <input id="subject" type="text" name="subject" placeholder="Research collaboration, role inquiry, question, etc.">
+                    </div>
+
+                    <div class="form-field-v2">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="7" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <input type="hidden" name="_next" value="https://sagnik-chakravarty.github.io/thankyou.html">
+
+                    <button type="submit" class="contact-submit-v2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+        </section>
+
+        <!-- CTA STRIP -->
+        <section class="contact-bottom-cta-v2">
+            <div>
+                <p class="section-eyebrow">Not sure what to ask?</p>
+                <h2>Use SagnikGPT to explore my profile first.</h2>
+                <p>
+                    You can ask about my research fit, technical skills, project metrics, coursework,
+                    papers, posters, or how my background maps to a role.
+                </p>
+            </div>
+
+            <a href="research.html#research-assistant" class="paper-btn">
+                <i class="fa-solid fa-message"></i>
+                Ask SagnikGPT
+            </a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER CONTACT ICONS -->
+    <section class="home-contact-strip" aria-label="Contact links">
+        <a href="mailto:sagnikch@umd.edu" aria-label="Email Sagnik">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <a href="https://github.com/Sagnik-Chakravarty" target="_blank" aria-label="GitHub profile">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/sagnik-chakravarty" target="_blank" aria-label="LinkedIn profile">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+    </section>
+
     <footer id="footer">
         <p>© 2026 Sagnik Chakravarty</p>
     </footer>
+
+    <a href="research.html#research-assistant" class="floating-assistant-cta">
+        Ask SagnikGPT
+    </a>
 
     <script>
         function toggleMenu() {
             document.getElementById("nav-menu").classList.toggle("show-menu");
         }
     </script>
-    <a href="research.html#research-assistant" class="floating-assistant-cta">
-        Ask SagnikGPT
-    </a>
+
 </body>
 </html>

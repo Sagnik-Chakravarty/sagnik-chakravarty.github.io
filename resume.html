@@ -4,21 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Resume | Sagnik Chakravarty</title>
-    <link rel="stylesheet" href="style.css?v=12">
+
+    <meta name="description" content="Interactive resume for Sagnik Chakravarty: survey methodology, machine learning, NLP, LLMs, computational social science, and data science research.">
+
+    <link rel="stylesheet" href="style.css?v=20">
     <link rel="preload" href="style.css" as="style">
-    <link rel="preload" href="images/logo.png" as="image">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
+    <!-- NAVBAR -->
     <div id="header-container">
         <nav>
-            <a href="index.html" class="logo-link">
-                <img src="images/logo.png" class="logo" alt="Sagnik Chakravarty logo">
+            <a href="index.html" class="text-logo" aria-label="Sagnik Chakravarty home">
+                Sagnik Chakravarty
             </a>
-            <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</button>
 
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -30,81 +38,265 @@
         </nav>
     </div>
 
-    <!-- Resume Layout -->
-    <div id="resume-page">
+    <!-- RESUME PAGE -->
+    <main id="resume-page-v2" class="resume-page-shell-v2">
 
-        <!-- LEFT SIDE -->
-        <div class="resume-sidebar">
-            <button onclick="showSection('education')">Education</button>
-            <button onclick="showSection('experience')">Experience</button>
-            <button onclick="showSection('projects')">Projects</button>
-            <button onclick="showSection('skills')">Skills</button>
+        <!-- HERO -->
+        <section class="resume-hero-v2">
+            <div>
+                <p class="section-eyebrow">Interactive Resume</p>
+                <h1>Research, survey methodology, and machine learning profile.</h1>
 
-            <!-- NEW BUTTON -->
-            <a href="assets/resume/Sagnik_Resume_Full.pdf" download class="download-btn">
-                ⬇ Download CV
-            </a>
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="resume-content" id="resume-content">
-            <div class="welcome-section">
-                <h2>Resume Overview</h2>
-
-                <p class="welcome-intro">
-                    This page provides a structured view of my academic background, research experience,
-                    teaching, applied data science work, and research projects across survey methodology,
-                    machine learning, NLP, and computational social science.
+                <p class="resume-lead-v2">
+                    A structured, recruiter-readable version of my academic background, research experience,
+                    teaching, industry work, technical skills, and project outcomes across survey methodology,
+                    NLP, LLM systems, machine learning, and computational social science.
                 </p>
+            </div>
 
-                <p>
-                    My work focuses on understanding how data is generated, measured, and modeled, with a particular
-                    emphasis on integrating statistical rigor with modern machine learning approaches. Across my training,
-                    I moved from theoretical statistics to applied data science, and now toward survey methodology and
-                    data-centric AI research.
-                </p>
-
-                <p>
-                    Use the navigation panel on the left to explore education, research experience, teaching, industry work,
-                    projects, and technical skills. Each section expands into detailed entries with methods, tools, and outcomes.
-                </p>
-
-                <div class="welcome-highlights">
-                    <div class="highlight-box">
-                        <h3>Survey Methodology</h3>
-                        <p>Sampling, Total Survey Error, measurement, inference, and survey design</p>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h3>Machine Learning</h3>
-                        <p>Deep learning, NLP, LLMs, graph learning, and data-centric modeling</p>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h3>Research Focus</h3>
-                        <p>Computational social science, public discourse, and AI-assisted data analysis</p>
-                    </div>
+            <div class="resume-hero-side-card">
+                <span>Quick Summary</span>
+                <div class="resume-hero-kpis">
+                    <div><strong>2</strong><p>Master’s programs</p></div>
+                    <div><strong>10+</strong><p>Research projects</p></div>
+                    <div><strong>5+</strong><p>Research domains</p></div>
+                    <div><strong>Live</strong><p>SagnikGPT</p></div>
                 </div>
             </div>
-        </div>
+        </section>
 
+        <!-- TOP TAB BAR -->
+        <section class="resume-top-controls">
+            <div class="resume-tab-row">
+                <button class="resume-tab active" id="tab-overview" onclick="showSection('overview')">
+                    <i class="fa-solid fa-house"></i>
+                    Overview
+                </button>
+
+                <button class="resume-tab" id="tab-education" onclick="showSection('education')">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Education
+                </button>
+
+                <button class="resume-tab" id="tab-experience" onclick="showSection('experience')">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Experience
+                </button>
+
+                <button class="resume-tab" id="tab-projects" onclick="showSection('projects')">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    Projects
+                </button>
+
+                <button class="resume-tab" id="tab-skills" onclick="showSection('skills')">
+                    <i class="fa-solid fa-toolbox"></i>
+                    Skills
+                </button>
+            </div>
+
+            <a href="assets/resume/Sagnik_Resume_Full.pdf" target="_blank" class="resume-download-main">
+                <i class="fa-solid fa-download"></i>
+                Download CV
+            </a>
+        </section>
+
+        <!-- DYNAMIC CONTENT -->
+        <section class="resume-dynamic-panel">
+            <div id="resume-content"></div>
+        </section>
+
+    </main>
+
+    <!-- POSTER MODAL -->
+    <div id="poster-modal" class="poster-modal" onclick="closePosterModal()">
+        <span class="poster-close">&times;</span>
+        <img id="poster-modal-img" class="poster-modal-img" src="" alt="Expanded poster">
     </div>
 
+    <!-- CONTACT ICONS -->
+    <section class="home-contact-strip" aria-label="Contact links">
+        <a href="mailto:sagnikch@umd.edu" aria-label="Email Sagnik">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
 
-    <!-- JS LOGIC -->
+        <a href="https://github.com/Sagnik-Chakravarty" target="_blank" aria-label="GitHub profile">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/sagnik-chakravarty" target="_blank" aria-label="LinkedIn profile">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+    </section>
+
+    <footer id="footer">
+        <p>© 2026 Sagnik Chakravarty</p>
+    </footer>
+
+    <a href="research.html#research-assistant" class="floating-assistant-cta">
+        Ask SagnikGPT
+    </a>
+
     <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("show-menu");
+        }
+
+        function askSagnikGPT(question) {
+            sessionStorage.setItem("sagnikgpt_query", question);
+            window.location.href = "research.html#research-assistant";
+        }
+
+        function openPosterModal(src, title) {
+            const modal = document.getElementById("poster-modal");
+            const modalImg = document.getElementById("poster-modal-img");
+
+            if (!modal || !modalImg) return;
+
+            modal.style.display = "flex";
+            modalImg.src = src;
+            modalImg.alt = title + " poster";
+        }
+
+        function closePosterModal() {
+            const modal = document.getElementById("poster-modal");
+            if (modal) modal.style.display = "none";
+        }
+
+        function setActiveTab(section) {
+            document.querySelectorAll(".resume-tab").forEach(btn => btn.classList.remove("active"));
+
+            const tab = document.getElementById(`tab-${section}`);
+            if (tab) tab.classList.add("active");
+        }
+
+        const educationData = {
+            umd: {
+                institution: "University of Maryland, College Park",
+                degree: "MS in Survey and Data Science",
+                date: "Aug 2024 – May 2026",
+                focus: "Survey methodology, total survey error, applied sampling, inference, machine learning, and computational social science.",
+                metrics: [
+                    ["JPSM", "Survey and Data Science track"],
+                    ["STAT600", "Measure-theoretic probability"],
+                    ["SURV772", "Complex survey analysis"],
+                    ["CMSC848O", "Long-context language models"]
+                ],
+                courses: [
+                    "SURV615: Statistical Modeling & Machine Learning I",
+                    "SURV621: Fundamentals of Data Collection I",
+                    "SURV627: Experimental Design & Causal Inference",
+                    "SURV727: Fundamentals of Computational Data Display",
+                    "CMSC848O: Long-Context Language Models",
+                    "SURV613: Machine Learning for Social Data",
+                    "SURV616: Statistical Modeling & Machine Learning II",
+                    "SURV622: Fundamentals of Data Collection II",
+                    "SURV625: Applied Sampling",
+                    "STAT600: Probability Theory I",
+                    "SURV617: Application of Statistical Modeling",
+                    "SURV720: Total Survey Error I",
+                    "SURV740: Fundamentals of Inference",
+                    "SURV721: Total Survey Error II",
+                    "SURV745: Survey Methods Seminar",
+                    "SURV701: Practical Tools for Survey Research",
+                    "SURV772: Analysis of Complex Surveys"
+                ]
+            },
+
+            vit: {
+                institution: "Vellore Institute of Technology, Chennai",
+                degree: "MS in Data Science",
+                date: "Sept 2022 – July 2024",
+                focus: "Data science, machine learning, deep learning, NLP, optimization, statistical inference, and thesis research.",
+                metrics: [
+                    ["MS", "Data Science"],
+                    ["Thesis", "GNN route recommendation"],
+                    ["NCSET", "Conference research output"],
+                    ["Deep Learning", "Modeling + optimization"]
+                ],
+                courses: [
+                    "MAT5010: Foundations of Data Science",
+                    "MAT5011: Matrix Theory and Linear Algebra",
+                    "MAT5012: Probability Theory and Distributions",
+                    "MAT6012: Programming for Data Analysis",
+                    "RES5001: Research Methodology",
+                    "ECE6045: Neural Networks and Fuzzy Systems",
+                    "MAT5013: Statistical Inference",
+                    "MAT5016: Time Series Analysis and Forecasting",
+                    "MAT6002: Regression Analysis and Predictive Models",
+                    "MAT6005: Machine Learning for Data Science",
+                    "CSE6060: Statistical Natural Language Processing",
+                    "MAT5017: Multivariate Data Analysis",
+                    "MAT6007: Deep Learning",
+                    "MAT6008: Artificial Intelligence for Data Science",
+                    "MAT6010: Optimization Techniques",
+                    "MAT6011: Statistical Quality Control",
+                    "MDT6099: Master's Thesis"
+                ]
+            },
+
+            amity: {
+                institution: "Amity University, Kolkata",
+                degree: "BS in Statistics",
+                date: "Aug 2018 – July 2021",
+                focus: "Statistics, probability, inference, sampling, stochastic processes, time series, operations research, and statistical consulting.",
+                metrics: [
+                    ["Statistics", "Undergraduate foundation"],
+                    ["Sampling", "Survey/statistical design"],
+                    ["Stochastic", "Processes + probability"],
+                    ["DOE", "Experimental design"]
+                ],
+                courses: [
+                    "Probability Theory I",
+                    "Probability Theory II",
+                    "Fundamentals of Statistics",
+                    "Statistical Methodology",
+                    "Sampling Theory",
+                    "Real Analysis Theory and Applications",
+                    "Applied Statistics",
+                    "Linear Algebra",
+                    "Research Methodology and Statistics",
+                    "Statistical Inference I",
+                    "Statistical Inference II",
+                    "Linear Model and Applications",
+                    "Statistical Programming in C",
+                    "Introduction to Econometrics",
+                    "Operations Research Methods and Applications",
+                    "Data Analysis and Decision Making",
+                    "Non-Parametric Statistics",
+                    "Stochastic Process",
+                    "Time Series Analysis",
+                    "Fundamentals of Biostatistics",
+                    "Basic SAS for Data Science",
+                    "Design of Experiment",
+                    "Reliability Theory",
+                    "Quality Control and Applications",
+                    "Introduction to Statistical Consulting",
+                    "Major Project"
+                ]
+            }
+        };
+
         const experienceData = {
             umd_ra: {
                 section: "research",
                 title: "Research Assistant",
                 org: "University of Maryland, College Park",
                 date: "Sept 2025 – Present",
+                icon: "fa-comments",
                 tags: ["NLP", "LLMs", "Survey Experiments", "AI Discourse"],
+                metrics: [
+                    ["AI Discourse", "Reddit, news, Bluesky, YouTube"],
+                    ["LLM", "Metaphor + stance annotation"],
+                    ["Survey Experiments", "Framing and public attitudes"],
+                    ["Output", "Dashboard + conference pipeline"]
+                ],
+                result: "Built and maintained computational workflows for analyzing AI discourse through metaphors, frames, stance, and tone.",
+                question: "Explain Sagnik’s UMD research assistant role. Include AI discourse, FrameScope, Reddit/news data, LLM annotation, survey experiments, and research outputs.",
                 details: `
-                    <p>Collected and preprocessed large-scale social media datasets, including Reddit, YouTube, Bluesky, newspapers, magazines, and other public discourse sources to study public conversations around artificial intelligence.</p>
-                    <p>Developed computational models for frame detection, clustering, and LLM-assisted discourse analysis, improving the interpretability of online discourse analysis.</p>
-                    <p>Contributed to survey experiments using nationally representative samples to assess the effects of AI framing on public attitudes, trust, and behavioral intentions.</p>
-                    <p>Collaborated on analysis, interpretation, and preparation of findings for publication and conference submission, integrating political communication theory with computational methods.</p>
+                    <p>Collected, structured, and analyzed large-scale public discourse data across Reddit, YouTube, Bluesky, newspapers, magazines, and related media sources.</p>
+                    <p>Developed LLM-assisted workflows for metaphor extraction, stance classification, tone measurement, and framing analysis.</p>
+                    <p>Integrated computational social science methods with survey-experimental work on AI framing, trust, and public attitudes.</p>
+                    <p>Contributed to publication and conference-oriented research by connecting political communication theory with scalable NLP workflows.</p>
                 `
             },
 
@@ -113,11 +305,20 @@
                 title: "Research Assistant",
                 org: "Gard Lab, University of Maryland",
                 date: "Feb 2025 – Sept 2025",
+                icon: "fa-flask",
                 tags: ["PsychoPy", "Behavioral Data", "R", "Experiment Pipelines"],
+                metrics: [
+                    ["PsychoPy", "Stimulus workflow automation"],
+                    ["R", "ANOVA, t-tests, regression"],
+                    ["Dashboard", "Participant results workflow"],
+                    ["Behavioral Data", "Survey + task integration"]
+                ],
+                result: "Improved experimental workflow reliability by automating stimulus and data-processing procedures.",
+                question: "Explain Sagnik’s Gard Lab role. Include PsychoPy, behavioral task data, R analysis, stimulus automation, and dashboard workflows.",
                 details: `
                     <p>Analyzed psychological survey and behavioral task data using ANOVA, t-tests, and regression models in R.</p>
-                    <p>Automated PsychoPy stimulus workflows from JavaScript and HTML code, improving precision in stimulus presentation, response tracking, and experimental timing.</p>
-                    <p>Developed a data pipeline to process, store, and visualize participant test results, integrating survey responses and behavioral data into an interactive dashboard for feedback and analysis.</p>
+                    <p>Automated PsychoPy stimulus workflows from JavaScript and HTML code, improving precision in stimulus presentation, response tracking, and timing.</p>
+                    <p>Developed a pipeline to process, store, and visualize participant test results across survey and behavioral data sources.</p>
                 `
             },
 
@@ -126,11 +327,20 @@
                 title: "Survey Data Analyst",
                 org: "Strickland Law Firm",
                 date: "Dec 2024 – Feb 2025",
+                icon: "fa-scale-balanced",
                 tags: ["Sentiment Analysis", "Causal Inference", "Web Scraping", "Topic Modeling"],
+                metrics: [
+                    ["2M+", "Public discourse data points"],
+                    ["3-person team", "Analysis lead"],
+                    ["LDA", "Topic modeling"],
+                    ["DAGs", "Causal framing"]
+                ],
+                result: "Produced evidence of measurable public sentiment shifts linked to social media discourse and influencer-driven narratives.",
+                question: "Explain Sagnik’s Strickland Law Firm project. Include 2M+ data points, sentiment analysis, topic modeling, causal inference, and public narrative analysis.",
                 details: `
-                    <p>Led a team of three to analyze over 2 million data points from Reddit, X, Instagram, Facebook, news sources, and music platforms to measure public sentiment shifts surrounding the YSL RICO Trial.</p>
-                    <p>Used Playwright for large-scale web scraping, NLTK and TextBlob for sentiment analysis, LDA for topic modeling, and DAG-based causal inference using R's dagitty package.</p>
-                    <p>Produced evidence of significant public sentiment shifts linked to social media discourse and influencer-driven narratives.</p>
+                    <p>Led a team of three to analyze over 2 million data points from Reddit, X, Instagram, Facebook, news sources, and music platforms.</p>
+                    <p>Used Playwright for web scraping, NLTK/TextBlob for sentiment analysis, LDA for topic modeling, and DAG-based causal reasoning with R's dagitty package.</p>
+                    <p>Delivered analysis connecting discourse patterns with public sentiment shifts surrounding the YSL RICO Trial.</p>
                 `
             },
 
@@ -139,11 +349,20 @@
                 title: "Data Science Research Intern",
                 org: "Indian Statistical Institute, Kolkata",
                 date: "May 2023 – June 2024",
+                icon: "fa-brain",
                 tags: ["GCN", "fMRI", "LSTM", "GRU", "Computer Vision"],
+                metrics: [
+                    ["GCN", "fMRI disease detection"],
+                    ["LSTM/GRU", "Neural behavior modeling"],
+                    ["ConvLSTM", "Video sequence analysis"],
+                    ["FlowNet2", "Optical-flow preprocessing"]
+                ],
+                result: "Built early machine-learning research depth across graph learning, neural modeling, and computer vision.",
+                question: "Explain Sagnik’s Indian Statistical Institute research internship. Include GCNs on fMRI, C. elegans modeling, LSTM/GRU, ConvLSTM, FlowNet2, and research depth.",
                 details: `
                     <p>Developed graph convolutional neural networks using fMRI data to detect early-stage Alzheimer's and Parkinson's disease.</p>
                     <p>Simulated C. elegans locomotion using the NEURON package and implemented LSTM and GRU models to identify neuron-level behavior patterns.</p>
-                    <p>Designed an optical illusion detection pipeline using ConvLSTM, TensorFlow, Nvidia FlowNet2, and OpenCV, preprocessing large-scale video frame data.</p>
+                    <p>Designed an optical illusion detection pipeline using ConvLSTM, TensorFlow, Nvidia FlowNet2, and OpenCV.</p>
                 `
             },
 
@@ -152,11 +371,20 @@
                 title: "Research Data Science Intern",
                 org: "Clarkson University",
                 date: "Sept 2023 – Jan 2024",
+                icon: "fa-bacteria",
                 tags: ["Microbiome", "Autoencoders", "DBSCAN", "t-SNE"],
+                metrics: [
+                    ["Autoencoders", "Normalization"],
+                    ["t-SNE", "Low-dimensional embeddings"],
+                    ["DBSCAN", "Unsupervised clustering"],
+                    ["Microbiome", "Rare strain detection"]
+                ],
+                result: "Applied unsupervised learning and representation learning to microbiome structure discovery.",
+                question: "Explain Sagnik’s Clarkson University microbiome research. Include autoencoders, t-SNE, DBSCAN, rare bacterial strain detection, and unsupervised learning.",
                 details: `
                     <p>Collaborated remotely with a team to classify microbiomes in the St. Lawrence River using autoencoders for data normalization.</p>
-                    <p>Generated low-dimensional embeddings of microbiome data to improve clustering and classification of microbial communities.</p>
-                    <p>Applied unsupervised learning methods including DBSCAN and t-SNE to detect rare bacterial strains linked to disease.</p>
+                    <p>Generated low-dimensional embeddings to support clustering and classification of microbial communities.</p>
+                    <p>Applied DBSCAN and t-SNE to detect rare bacterial strains linked to disease.</p>
                 `
             },
 
@@ -165,11 +393,20 @@
                 title: "Data Analyst Intern",
                 org: "Wondervogel Pvt Ltd",
                 date: "Jan 2024 – Apr 2024",
+                icon: "fa-route",
                 tags: ["GNN", "OSMnx", "NetworkX", "Travel Recommendation", "PSO"],
+                metrics: [
+                    ["88%", "Precision@10"],
+                    ["83%", "Recall@10"],
+                    ["22%", "Fuel-consumption reduction"],
+                    ["18%", "Travel-time reduction"]
+                ],
+                result: "Developed graph-based route recommendation workflows combining travel preferences, road-network data, and optimization.",
+                question: "Explain Sagnik’s Wondervogel route recommendation work. Include GNN, OSMnx, NetworkX, PSO, Precision@10, Recall@10, and business impact.",
                 details: `
-                    <p>Led development of a graph neural network-based route recommendation system for Goa, optimizing travel itineraries based on budget, traffic, and user preferences.</p>
-                    <p>Integrated geospatial data from OSMnx and traffic/network data from NetworkX with Particle Swarm Optimization and Graph Convolutional Networks.</p>
-                    <p>Processed historical traffic data and used LSTM models to capture temporal trends, reducing a complex road network to key destinations and routes.</p>
+                    <p>Led development of a graph neural network-based route recommendation system for Goa, optimizing itineraries based on budget, traffic, and user preferences.</p>
+                    <p>Integrated OSMnx and NetworkX road-network data with Particle Swarm Optimization and graph neural network modeling.</p>
+                    <p>Processed historical traffic data and used sequence models to capture temporal trends in route behavior.</p>
                 `
             },
 
@@ -178,10 +415,19 @@
                 title: "Data Analyst Intern",
                 org: "Agitechavids Pvt Ltd",
                 date: "June 2019 – July 2019",
+                icon: "fa-cart-shopping",
                 tags: ["Recommendation Systems", "A/B Testing", "XGBoost", "Collaborative Filtering"],
+                metrics: [
+                    ["KNN", "Similarity-based recommender"],
+                    ["XGBoost", "Predictive modeling"],
+                    ["A/B Testing", "Recommendation evaluation"],
+                    ["Retail", "Grocery personalization"]
+                ],
+                result: "Built early applied recommendation-system experience in retail personalization.",
+                question: "Explain Sagnik’s Agitechavids internship. Include grocery recommendation systems, collaborative filtering, KNN, XGBoost, and A/B testing.",
                 details: `
-                    <p>Built a grocery recommendation engine using collaborative filtering, KNN-based recommendation methods, matrix factorization, and XGBoost.</p>
-                    <p>Supported data preprocessing and A/B testing workflows to improve personalized recommendations, user engagement, and sales outcomes.</p>
+                    <p>Built a grocery recommendation engine using collaborative filtering, KNN-based recommendations, matrix factorization, and XGBoost.</p>
+                    <p>Supported preprocessing and A/B testing workflows for personalized recommendations and engagement analysis.</p>
                 `
             },
 
@@ -190,10 +436,19 @@
                 title: "Teaching Assistant, Sampling I",
                 org: "JPSM, University of Maryland",
                 date: "Sept 2025 – Nov 2025",
+                icon: "fa-chalkboard-user",
                 tags: ["Sampling", "Survey Weights", "Variance Estimation", "Design-Based Inference"],
+                metrics: [
+                    ["PSUs", "Cluster sampling support"],
+                    ["Weights", "Design/nonresponse adjustment"],
+                    ["Variance", "Taylor + replication intuition"],
+                    ["Inference", "Design-based reasoning"]
+                ],
+                result: "Supported graduate-level instruction in sampling theory and design-based survey inference.",
+                question: "Explain Sagnik’s TA role for Sampling I. Include PSU selection, survey weights, variance estimation, clustering, stratification, and design-based inference.",
                 details: `
                     <p>Supported instruction in sampling theory, complex survey designs, stratification, clustering, weighting, variance estimation, and design-based inference.</p>
-                    <p>Graded problem sets and exams and provided targeted explanations on PSU selection, finite population correction, Taylor linearization, and nonresponse adjustment methods.</p>
+                    <p>Graded problem sets and exams and provided targeted explanations on PSU selection, finite population correction, Taylor linearization, and nonresponse adjustment.</p>
                 `
             },
 
@@ -202,10 +457,19 @@
                 title: "Teaching Assistant, Ethical Considerations for Data Science Research",
                 org: "JPSM, University of Maryland",
                 date: "Sept 2025",
+                icon: "fa-shield-halved",
                 tags: ["Research Ethics", "Privacy", "Responsible AI", "Bias"],
+                metrics: [
+                    ["Privacy", "Data governance"],
+                    ["Bias", "Responsible AI"],
+                    ["Consent", "Ethical research design"],
+                    ["Feedback", "Case analysis grading"]
+                ],
+                result: "Supported applied ethics instruction for data science and research contexts.",
+                question: "Explain Sagnik’s TA role in Ethical Considerations for Data Science Research. Include privacy, bias, informed consent, responsible AI, and data governance.",
                 details: `
-                    <p>Assisted students in understanding ethical frameworks in data science, including privacy, bias, informed consent, data governance, and responsible AI use.</p>
-                    <p>Graded writing assignments and case analyses with detailed feedback to help students apply ethical reasoning to real-world data scenarios.</p>
+                    <p>Assisted students in applying ethical frameworks to privacy, bias, informed consent, data governance, and responsible AI.</p>
+                    <p>Graded writing assignments and case analyses with detailed feedback on real-world data science scenarios.</p>
                 `
             }
         };
@@ -214,373 +478,595 @@
             framescope: {
                 date: "2025 – Present",
                 title: "FrameScope: AI Metaphor and Framing Analysis",
-                meta: "LLMs + NLP + Computational Social Science| MASC ALL2026",
+                meta: "LLMs · NLP · Computational Social Science · MASC ALL",
                 paper: "",
                 github: "https://github.com/Sagnik-Chakravarty/FrameScope",
                 website: "https://framescope.streamlit.app",
                 poster: "assets/poster/FramescopePoster.png",
-                summary: "LLM-assisted pipeline for metaphor detection, stance, tone, and framing analysis in AI discourse.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>Public discourse about artificial intelligence is shaped by metaphors and frames such as AI as a tool, threat, replacement, child, machine, or force.</p>
-                    <h3>Methods</h3>
-                    <p>Developed an LLM-assisted pipeline for metaphor and frame extraction across Reddit, news, and social data.</p>
-                    <h3>Results</h3>
-                    <p>Built a scalable research pipeline and dashboard infrastructure for analyzing metaphor prevalence, frame shifts, and public positioning toward AI over time.</p>
-                `
+                metrics: [
+                    ["19", "AI metaphor categories"],
+                    ["Stance", "Favor / against / neutral labels"],
+                    ["Tone", "Discourse-level affect signal"],
+                    ["Live", "Streamlit dashboard"]
+                ],
+                summary: "A live LLM-assisted system for metaphor, stance, tone, and framing analysis in AI discourse.",
+                objective: "Build an interpretable pipeline for measuring how AI is framed in public discourse.",
+                abstract: "FrameScope studies AI discourse by extracting metaphor categories, stance, tone, and framing signals from social and media data, then exposing the outputs through a live dashboard.",
+                motivation: "Public discussions of AI are shaped by recurring metaphors such as tool, threat, replacement, machine, child, or force. These frames affect how people reason about risk, agency, trust, and policy.",
+                methods: "LLM-assisted annotation, metaphor category coding, stance classification, tone estimation, dashboarding, and social/media data processing.",
+                results: "Produced a recruiter-visible research system rather than a static analysis artifact: GitHub repository, live dashboard, and reusable annotation pipeline.",
+                insight: "Demonstrates applied NLP engineering, computational social science, and research-product development.",
+                question: "Explain FrameScope. Include objective, metaphor categories, LLM annotation, stance/tone/framing analysis, dashboard, GitHub, and why it demonstrates Sagnik’s NLP capability."
             },
 
             asha: {
                 date: "2026",
                 title: "Evaluating Survey Response Interventions in ASHA Healthcare Survey",
-                meta: "Client: ASHA | Survey Methodology",
+                meta: "Client Project · Survey Methodology · Response Rates",
                 paper: "assets/papers/ASHAFinalReport.pdf",
                 github: "https://github.com/Sagnik-Chakravarty/ASHA",
                 website: "",
                 poster: "assets/poster/ASHAPoster.png",
-                summary: "Analyzed postcard reminders and survey mode effects to evaluate response-rate interventions.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>Declining response rates threaten survey inference quality. This project evaluated whether postcard reminders and survey mode choices improved response outcomes for ASHA surveys.</p>
-                    <h3>Methods</h3>
-                    <p>Used policy-level response estimands, conditional probability decomposition, stratified bootstrap uncertainty estimation, mode comparisons, chi-square tests, and logistic regression.</p>
-                    <h3>Results</h3>
-                    <p>The first postcard increased response by about +1.26 percentage points, while the second postcard produced little additional effect.</p>
-                `
+                metrics: [
+                    ["15,000", "ASHA-certified SLP sample"],
+                    ["9,947", "Web-survey cases"],
+                    ["+1.26 pp", "First postcard gain"],
+                    ["+0.19 pp", "Second postcard gain"]
+                ],
+                summary: "Analyzed postcard reminders and mode effects to evaluate operational response-rate interventions.",
+                objective: "Estimate whether postcard reminders and survey mode decisions improve response behavior in ASHA surveys.",
+                abstract: "The project evaluated a 2025 healthcare postcard reminder experiment and 2024/2025 mode effects using policy estimands, bootstrap inference, subgroup response comparisons, and logistic models.",
+                motivation: "Declining response rates threaten survey inference quality. Naively comparing postcard groups is biased because later postcards are sent only to nonresponders.",
+                methods: "Policy-level response estimands, conditional probability decomposition, stratified bootstrap with 2,000 resamples, chi-square tests, logistic regression, subgroup mode comparison.",
+                results: "The first postcard produced a modest but meaningful increase in response; the second postcard added little incremental benefit.",
+                insight: "Operational recommendation: prioritize the first postcard; repeated postcard follow-up appears weak and potentially not cost-effective.",
+                question: "Explain the ASHA survey methods project. Include sample size, eligible sample, web cases, postcard experiment, policy estimands, bootstrap inference, mode effects, and final recommendation."
             },
 
             detroit_sampling: {
                 date: "2026",
                 title: "Multistage Sampling Design for Detroit Transportation Study",
-                meta: "SURV 745 | Area Frame Sampling",
+                meta: "SURV 745 · Area Frame Sampling · PPS",
                 paper: "assets/papers/MultiStageSampling.pdf",
                 github: "https://github.com/Sagnik-Chakravarty/surv745-area-frame-multistage-survey-design",
                 website: "",
                 poster: "assets/poster/MultiStageAreaFramePoster.png",
-                summary: "Designed a multistage area-frame sample for Detroit transportation insecurity measurement.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>The project targeted reliable estimates of transportation insecurity among Detroit adults across age domains.</p>
-                    <h3>Methods</h3>
-                    <p>Used census tracts as PSUs, block groups as SSUs, and response-rate-adjusted measures of size for PPS selection.</p>
-                    <h3>Results</h3>
-                    <p>Constructed a multistage design with domain-specific respondent targets, selection probabilities, and design-based weighting procedures.</p>
-                `
+                metrics: [
+                    ["1,000", "Target completed interviews"],
+                    ["2,154", "Selected sample after response adjustment"],
+                    ["40", "Selected census-tract PSUs"],
+                    ["612", "Block groups in frame"]
+                ],
+                summary: "Designed a multistage area-frame survey for measuring transportation insecurity among Detroit adults.",
+                objective: "Create a probability sample design capable of estimating transportation insecurity across adult age domains.",
+                abstract: "The design uses census tracts as PSUs, block groups as SSUs, and persons as final sampling units, with domain targets and response-rate inflation.",
+                motivation: "Transportation insecurity is unevenly distributed, requiring a design that accounts for geography, age domains, cost, and response heterogeneity.",
+                methods: "Multistage area-frame sampling, PPS logic, tract/block group frame construction, response-rate inflation, domain allocation, inclusion probability and weighting logic.",
+                results: "Produced an implementable multistage design with selected PSUs, block group frame, target completes, and weighting structure.",
+                insight: "Shows applied survey design ability: translating a policy measurement problem into a probability sampling plan.",
+                question: "Explain the Detroit transportation sampling design. Include objective, target completes, selected sample, PSUs, SSUs, PPS, response-rate adjustment, and weighting."
             },
 
             multistage_michigan: {
                 date: "2025",
                 title: "Multistage Sampling Design for Michigan Teen Risk Behavior Survey",
-                meta: "SURV 625 | Applied Sampling",
+                meta: "SURV 625 · Applied Sampling",
                 paper: "assets/papers/625Project.pdf",
                 github: "https://github.com/namo507/SURV-625-Project",
                 website: "",
                 poster: "assets/poster/TwoStagePPeSPoster.png",
+                metrics: [
+                    ["Multistage", "School-based cluster design"],
+                    ["PPS", "Size-based selection logic"],
+                    ["Teen Risk", "Smoking/drug-use estimation"],
+                    ["Design Effects", "Cluster precision planning"]
+                ],
                 summary: "Designed a statewide multistage school-based sampling plan for Michigan teen smoking and drug-use estimation.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>Statewide youth risk estimation requires cost-efficient probability sampling while preserving regional representativeness.</p>
-                    <h3>Methods</h3>
-                    <p>Developed a stratified multistage cluster design, computed sample sizes, allocated clusters, and evaluated design effects.</p>
-                    <h3>Results</h3>
-                    <p>Recommended an optimized school-based cluster design balancing cost, precision, and regional representation.</p>
-                `
+                objective: "Estimate teen risk behaviors using a cost-efficient school-based probability design.",
+                abstract: "This applied sampling project developed a stratified multistage school-based design with cluster allocation, design effect reasoning, and representativeness goals.",
+                motivation: "Youth risk surveys require efficient school-based sampling while preserving regional and subgroup representation.",
+                methods: "Stratification, multistage cluster design, PPS logic, sample allocation, design effect assessment, and survey operations planning.",
+                results: "Recommended a practical sample design balancing cost, precision, and statewide representativeness.",
+                insight: "Demonstrates core sampling training: designing from target population to frame, stages, allocation, and inference.",
+                question: "Explain the Michigan teen risk behavior sampling project. Include stratification, multistage cluster design, PPS, design effects, and what it shows about Sagnik’s sampling training."
             },
 
             gti: {
                 date: "2025",
-                title: "An Empirical Evaluation of GTI Rankings Through Event Data and Media Framing",
-                meta: "University of Maryland | IISA 2025",
+                title: "Empirical Evaluation of GTI Rankings Through Event Data and Media Framing",
+                meta: "IISA 2025 · Machine Learning · Media Framing",
                 paper: "assets/papers/GTD.pdf",
                 github: "https://github.com/Sagnik-Chakravarty/GTD",
                 website: "",
                 poster: "assets/poster/GTDPoster.png",
-                summary: "Built a media-aware alternative to the Global Terrorism Index using GTD event data and news framing.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>The original GTI uses fixed event-based weights and does not account for how violence is framed in global media.</p>
-                    <h3>Methods</h3>
-                    <p>Combined GTD event indicators with supervised news-frame classification and random forest regression.</p>
-                    <h3>Results</h3>
-                    <p>Found discrepancies between GTI rankings and media-aware predicted scores, highlighting how framing can influence perceived terrorism exposure.</p>
-                `
+                metrics: [
+                    ["200K+", "GTD terrorist incidents"],
+                    ["1970–2020", "Historical event period"],
+                    ["1,000", "Manually labeled news articles"],
+                    ["5", "Framing categories"]
+                ],
+                summary: "Built a media-aware alternative to GTI-style terrorism ranking using event severity and framing features.",
+                objective: "Evaluate whether a machine-learned terrorism index can incorporate both event-level severity and media framing.",
+                abstract: "The project integrates Global Terrorism Database features with supervised media-frame classification and random forest regression to construct an interpretable GTI-like score.",
+                motivation: "Fixed-weight terrorism indices may overstate or understate country risk when they ignore media framing and contextual severity.",
+                methods: "GTD feature extraction, news scraping, supervised framing classification, country-level framing ratios, random forest regression, residual/rank-difference analysis.",
+                results: "The model mirrored conflict-heavy countries but identified important discrepancies where fixed GTI scores appeared inflated or suppressed.",
+                insight: "Policy insight: terrorism exposure indices can become more interpretable and bias-aware by incorporating event severity and media framing.",
+                question: "Explain the GTI/IISA project. Include objective, GTD data, framing labels, random forest model, country ranking discrepancies, and policy insight."
             },
 
             immigration: {
                 date: "2025",
                 title: "Narrative Indicators vs Enforcement Data: A Total Survey Error Perspective",
-                meta: "Computational Social Science + Survey Methodology",
+                meta: "Computational Social Science · Survey Methodology",
                 paper: "assets/papers/Immigration.pdf",
                 github: "https://github.com/Sagnik-Chakravarty/Immigration-Narrative-Vs-Enforcement",
                 website: "",
                 poster: "assets/poster/Immigration_NarrativePoster.png",
-                summary: "Compared immigration narratives from news and social media against CBP and ICE enforcement data.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>Narrative data may not directly measure enforcement reality and should be treated as a noisy measurement process.</p>
-                    <h3>Methods</h3>
-                    <p>Integrated GDELT, Reddit, CBP, and ICE monthly time series; standardized indicators; estimated correlations, lagged associations, divergence measures, and regression models.</p>
-                    <h3>Results</h3>
-                    <p>Found modest contemporaneous association between narrative and enforcement indicators, with evidence that timing and lagged movement matter.</p>
-                `
+                metrics: [
+                    ["Monthly", "Aligned time series"],
+                    ["GDELT", "News narrative signal"],
+                    ["Reddit", "Social narrative signal"],
+                    ["CBP + ICE", "Administrative enforcement series"]
+                ],
+                summary: "Compared immigration narratives from media/social data with administrative enforcement indicators.",
+                objective: "Assess whether narrative indicators track or diverge from administrative immigration enforcement data.",
+                abstract: "The project treats narrative data as a measurement process and compares GDELT/news and Reddit indicators against CBP and ICE enforcement series.",
+                motivation: "Media and social narratives are often used as proxies for real-world events, but they may contain coverage, tone, selection, and timing errors.",
+                methods: "Monthly aggregation, standardization, time-series alignment, correlations, lagged comparison, regression overlays, and Total Survey Error framing.",
+                results: "Narrative indicators showed partial association with enforcement data but also meaningful divergence and timing differences.",
+                insight: "Narratives should be treated as noisy measurements, not direct substitutes for administrative records.",
+                question: "Explain the immigration narratives project. Include Total Survey Error framing, GDELT, Reddit, CBP, ICE, monthly time series, and measurement insight."
             },
 
             moneyball: {
                 date: "2025",
                 title: "Multilevel Determinants of Player Market Value in Elite European Football",
-                meta: "Hierarchical Modeling | Sports Analytics",
+                meta: "Sports Analytics · Hierarchical Modeling",
                 paper: "assets/papers/Moneyball.pdf",
                 github: "https://github.com/klinares/Moneyball_FC",
                 website: "",
                 poster: "assets/poster/Moneyballposter.png",
-                summary: "Modeled player market value using cross-classified multilevel models across players, clubs, and time.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>Player valuation models often ignore transfers and cross-classified player-club structures.</p>
-                    <h3>Methods</h3>
-                    <p>Used more than 7,000 player-season observations, crossed random effects, polynomial time trends, and REML estimation.</p>
-                    <h3>Results</h3>
-                    <p>Player-level heterogeneity explained most valuation variance; minutes played had the strongest positive effect on market value.</p>
-                `
+                metrics: [
+                    ["7,023", "Player-season observations"],
+                    ["2,159", "Unique players"],
+                    ["21", "Elite European clubs"],
+                    ["78%", "Player-level variance share"]
+                ],
+                summary: "Modeled football player market value using cross-classified multilevel models.",
+                objective: "Estimate how player characteristics, team context, time, and transfers shape market valuation.",
+                abstract: "The project used player-season data and hierarchical modeling to account for repeated observations, club contexts, transfers, and player-level heterogeneity.",
+                motivation: "Many player valuation models ignore crossed player-club structures and the fact that players transfer across teams over time.",
+                methods: "Cross-classified multilevel modeling, REML estimation, polynomial time trends, player and club random effects, market value modeling.",
+                results: "Player-level heterogeneity explained most valuation variance; minutes played emerged as a strong positive valuation signal.",
+                insight: "Sports valuation models require hierarchical structure; player quality dominates but team and time context still matter.",
+                question: "Explain the Moneyball football valuation project. Include multilevel modeling, player-season data, crossed effects, transfers, variance share, and final finding."
             },
 
             zelensky: {
                 date: "2025",
-                title: "Social Media Sentiment Dynamics Toward the U.S. in the Context of Zelensky’s White House Visit",
-                meta: "NLP + Computational Social Science",
+                title: "Social Media Sentiment Dynamics Toward the U.S. after Zelensky’s White House Visit",
+                meta: "NLP · Computational Social Science",
                 paper: "assets/papers/TrumpZelensky.pdf",
                 github: "https://github.com/Sagnik-Chakravarty/TrumpZelensky",
                 website: "",
                 poster: "assets/poster/TrumpZelenskyPoster.png",
-                summary: "Analyzed Reddit stance and sentiment around U.S.-Ukraine discourse before and after Zelensky’s White House visit.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>Political events can rapidly shift online sentiment and stance toward countries, leaders, and alliances.</p>
-                    <h3>Methods</h3>
-                    <p>Used hand-coded data, SVM, decision trees, Word2Vec features, and LLM few-shot classification for stance detection.</p>
-                    <h3>Results</h3>
-                    <p>Traditional ML struggled with class imbalance, while LLM prompting helped evaluate more nuanced stance categories.</p>
-                `
+                metrics: [
+                    ["Event Window", "Before/after comparison"],
+                    ["SVM", "Traditional ML baseline"],
+                    ["Word2Vec", "Text representation"],
+                    ["LLM", "Few-shot stance evaluation"]
+                ],
+                summary: "Analyzed stance and sentiment around U.S.-Ukraine discourse before and after a political event.",
+                objective: "Measure how a major political event shifted social media sentiment and stance toward the U.S. and Ukraine.",
+                abstract: "The project compared traditional machine-learning classifiers and LLM-based classification for event-centered political stance detection.",
+                motivation: "Political discourse shifts rapidly after visible diplomatic events, but stance categories can be subtle and imbalanced.",
+                methods: "Event-window analysis, hand coding, SVM, decision trees, Word2Vec features, and LLM few-shot stance evaluation.",
+                results: "Traditional ML struggled with class imbalance; LLM prompting provided better qualitative leverage for nuanced stance categories.",
+                insight: "Hybrid NLP evaluation is valuable when political labels are sparse, ambiguous, and context-sensitive.",
+                question: "Explain the Trump-Zelensky sentiment project. Include event-window design, stance detection, SVM, Word2Vec, LLM prompting, and final takeaway."
             },
 
             ev: {
                 date: "2024 – 2025",
                 title: "Analyzing Public Sentiment Toward Electric Vehicles using LLMs",
-                meta: "AAPOR 80th Annual Conference",
+                meta: "AAPOR 2025 · NLP · Public Opinion",
                 paper: "assets/papers/EVSentimentAnalysisProjectPaper.pdf",
                 github: "https://github.com/Sagnik-Chakravarty/AAPOR_EV_Project",
                 website: "",
                 poster: "assets/poster/EVSentimentAnalysisPoster.png",
+                metrics: [
+                    ["550K+", "Reddit comments analyzed"],
+                    ["40", "Unique NYT EV articles"],
+                    ["F=28.43", "Platform sentiment ANOVA"],
+                    ["η²=.094", "Platform-explained variance"]
+                ],
                 summary: "Compared EV sentiment across Reddit, The New York Times, and LLM-generated responses.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>Public perception of electric vehicles differs across social media, traditional media, and LLM-generated outputs.</p>
-                    <h3>Methods</h3>
-                    <p>Collected Reddit and New York Times data, applied DistilBERT sentiment analysis, and compared outputs from LLM personas.</p>
-                    <h3>Results</h3>
-                    <p>Identified platform-level divergence in EV sentiment and limitations in using LLMs as proxies for public opinion.</p>
-                `
+                objective: "Evaluate whether LLM-generated responses approximate public and media sentiment about electric vehicles.",
+                abstract: "The project collected Reddit and New York Times EV discourse, applied sentiment modeling, and compared observed sentiment to LLM-generated persona outputs.",
+                motivation: "LLMs are sometimes treated as proxies for public opinion, but their outputs may diverge from actual social/media discourse.",
+                methods: "Reddit and NYT collection, DistilBERT sentiment analysis, LLM persona prompting, ANOVA, effect-size comparison.",
+                results: "NYT and Reddit sentiment skewed negative, while LLM responses were much more positive.",
+                insight: "LLMs should not be used as public-opinion proxies without validation against real human-generated discourse.",
+                question: "Explain the EV sentiment project. Include Reddit, NYT, LLM personas, DistilBERT, ANOVA, effect size, and why LLMs are not direct public-opinion proxies."
             },
 
             thesis: {
                 date: "2024",
                 title: "Optimal Route Recommendation using GNN and Personalized Travel Modeling",
-                meta: "M.Sc. Thesis | VIT Chennai",
+                meta: "MS Thesis · Graph ML · Route Optimization",
                 paper: "assets/papers/thesis.pdf",
                 github: "",
                 website: "",
                 poster: "assets/poster/masterThesisPoster.png",
-                summary: "Developed GNN and deep-learning models for route optimization and personalized travel recommendation.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>Traditional route systems optimize distance but often ignore user preferences, traffic patterns, and contextual travel behavior.</p>
-                    <h3>Methods</h3>
-                    <p>Used OSMnx, NetworkX, graph neural networks, Particle Swarm Optimization, web-scraped travel data, and self-attention-based neural models.</p>
-                    <h3>Results</h3>
-                    <p>The model achieved 88% Precision@10 and 83% Recall@10 for personalized travel recommendation.</p>
-                `
+                metrics: [
+                    ["88%", "Precision@10"],
+                    ["83%", "Recall@10"],
+                    ["50", "Goa destination nodes"],
+                    ["82", "Reduced route network"]
+                ],
+                summary: "Developed graph-learning and optimization methods for personalized travel recommendation.",
+                objective: "Build a personalized route recommendation framework that accounts for preferences, traffic, and travel constraints.",
+                abstract: "The thesis combined graph neural networks, OSMnx/NetworkX road graphs, and Particle Swarm Optimization for route recommendation in Goa.",
+                motivation: "Traditional routing tools optimize distance or time, but often ignore personalized tourist preferences and contextual travel behavior.",
+                methods: "OSMnx, NetworkX, GNNs, self-attention models, Particle Swarm Optimization, web-scraped travel data, and route scoring.",
+                results: "The system achieved 88% Precision@10 and 83% Recall@10 for personalized route recommendation.",
+                insight: "Demonstrates end-to-end applied ML engineering: graph construction, neural ranking, and optimization.",
+                question: "Explain Sagnik’s GNN route recommendation thesis. Include objective, graph construction, OSMnx, NetworkX, GNN, PSO, Precision@10, Recall@10, and business impact."
             },
 
             tda: {
                 date: "2023",
                 title: "Topological Data Analysis on DNA and RNA Structures",
-                meta: "NCSET 2023 | VIT Chennai",
+                meta: "NCSET · Mathematical Data Analysis",
                 paper: "assets/papers/Topological_Data_Analysis.pdf",
                 github: "",
                 website: "",
                 poster: "assets/poster/TDAPoster.png",
-                summary: "Applied Mapper and persistent homology to analyze biomolecular structures.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>Traditional DNA/RNA analysis often focuses on sequence-level features while missing global structural patterns.</p>
-                    <h3>Methods</h3>
-                    <p>Used Topological Data Analysis, Mapper, and persistent homology to study structural loops, voids, and irregularities.</p>
-                    <h3>Results</h3>
-                    <p>Demonstrated how TDA can bridge local molecular structure and global topological organization in biomolecular analysis.</p>
-                `
+                metrics: [
+                    ["Mapper", "Topology-based mapping"],
+                    ["Homology", "Loop/void detection"],
+                    ["DNA/RNA", "Biomolecular structure domain"],
+                    ["NCSET", "Conference output"]
+                ],
+                summary: "Applied topological data analysis to biomolecular structure representation.",
+                objective: "Use topology to identify global structural patterns in DNA/RNA data.",
+                abstract: "The project used Mapper and persistent homology to study structural patterns, loops, voids, and irregularities in biomolecular data.",
+                motivation: "Sequence-level analysis can miss global structural information in biomolecules.",
+                methods: "Topological Data Analysis, Mapper, persistent homology, structural feature interpretation.",
+                results: "Demonstrated how topology can support molecular structure analysis by bridging local and global patterns.",
+                insight: "Shows mathematical breadth and early research training in nonstandard data representation.",
+                question: "Explain the TDA DNA/RNA project. Include Mapper, persistent homology, biological structure analysis, and what it shows about Sagnik’s mathematical ML background."
             },
 
             pagerank: {
                 date: "2023",
                 title: "Comparative Analysis of PageRank and HITS using Citation Network Data",
-                meta: "NCSET 2023 | Network Analysis",
+                meta: "NCSET · Network Analysis",
                 paper: "assets/papers/PageRank_vs_HIts.pdf",
                 github: "",
                 website: "",
                 poster: "assets/poster/PageRankvsHITSPoster.png",
-                summary: "Compared PageRank, HITS, and random-walk behavior on citation networks.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>Ranking algorithms differ in how they define importance, authority, and hub structure.</p>
-                    <h3>Methods</h3>
-                    <p>Implemented PageRank, HITS, and random-walk ranking on synthetic networks and citation-network data.</p>
-                    <h3>Results</h3>
-                    <p>Compared rankings using Spearman correlation and evaluated algorithmic behavior in citation networks.</p>
-                `
+                metrics: [
+                    ["23.3K+", "Citation-network nodes"],
+                    ["28.1K", "Real network application size"],
+                    ["0.85", "PageRank damping factor"],
+                    ["Spearman", "Ranking comparison statistic"]
+                ],
+                summary: "Compared PageRank, HITS, and random-walk ranking behavior on citation networks.",
+                objective: "Evaluate how graph-ranking algorithms differ in identifying influence and authority.",
+                abstract: "The project implemented and compared ranking algorithms on synthetic and real citation-network data.",
+                motivation: "Network ranking depends strongly on how algorithms define importance, authority, and hub structure.",
+                methods: "PageRank, HITS, random walk, citation-network construction, Spearman rank correlation.",
+                results: "Compared algorithmic behavior and ranking stability across network settings.",
+                insight: "Shows graph-algorithm knowledge and evaluation of ranking outputs.",
+                question: "Explain the PageRank vs HITS project. Include citation networks, PageRank, HITS, damping factor, Spearman comparison, and final takeaway."
             },
 
             image_factorial: {
                 date: "2023",
                 title: "Image Recognition using Factorial Design Experiment",
-                meta: "NCSET 2023 | Computer Vision",
+                meta: "NCSET · Computer Vision · Experimental Design",
                 paper: "assets/papers/Image_Recognition_Factorial_Design .pdf",
                 github: "",
                 website: "",
                 poster: "assets/poster/ImageRecognitionPoster.png",
-                summary: "Used factorial design to evaluate CNN hyperparameters and benchmark deep-learning architectures.",
-                details: `
-                    <h3>Motivation</h3>
-                    <p>Image recognition performance depends heavily on architecture and hyperparameter choices.</p>
-                    <h3>Methods</h3>
-                    <p>Tested CNN hyperparameter combinations and benchmarked CNN, VGGNet, ResNet, and DenseNet-style models.</p>
-                    <h3>Results</h3>
-                    <p>Showed how factorial design can support systematic model tuning and experimental interpretation.</p>
-                `
+                metrics: [
+                    ["60,000", "CIFAR-10 images"],
+                    ["50,000", "Training images"],
+                    ["10,000", "Test images"],
+                    ["10", "Image classes"]
+                ],
+                summary: "Used factorial design to evaluate CNN architecture and hyperparameter behavior.",
+                objective: "Use experimental design to systematically compare computer-vision model settings.",
+                abstract: "The project tested CNN-style architectures and hyperparameter combinations using factorial design logic on CIFAR-10.",
+                motivation: "Deep-learning performance depends heavily on architecture and hyperparameter choices, which require systematic evaluation.",
+                methods: "CNNs, VGG/ResNet-style comparisons, CIFAR-10, hyperparameter combinations, factorial design.",
+                results: "Showed how factorial design can make model tuning more interpretable and structured.",
+                insight: "Combines experimental design with computer-vision model evaluation.",
+                question: "Explain the image recognition factorial design project. Include CIFAR-10, CNN/VGG/ResNet comparison, factorial design, and model-evaluation takeaway."
             }
         };
+
+        const skillData = [
+            {
+                title: "Survey Methodology",
+                icon: "fa-square-poll-vertical",
+                description: "Sampling, TSE, response rates, weighting, nonresponse, survey design, and complex survey inference.",
+                evidence: ["ASHA", "Detroit Sampling", "Michigan Sampling", "Sampling I TA"],
+                question: "How is Sagnik capable in survey methodology? Use ASHA, Detroit sampling, Michigan sampling, TSE, weighting, response rates, and coursework as evidence."
+            },
+            {
+                title: "NLP & LLM Systems",
+                icon: "fa-comments",
+                description: "Metaphor detection, stance, sentiment, LLM annotation, prompt design, and retrieval-augmented assistants.",
+                evidence: ["FrameScope", "EV Sentiment", "Trump-Zelensky", "SagnikGPT"],
+                question: "How is Sagnik capable in NLP and LLM systems? Use FrameScope, EV sentiment, stance classification, metaphor detection, and SagnikGPT as evidence."
+            },
+            {
+                title: "Machine Learning",
+                icon: "fa-brain",
+                description: "Graph learning, deep learning, classification, model comparison, multilevel modeling, and evaluation.",
+                evidence: ["ISI", "GNN Thesis", "Moneyball", "GTI", "Image Recognition"],
+                question: "How is Sagnik capable in machine learning? Use ISI, GNN thesis, Moneyball, GTI, image recognition, and model evaluation as evidence."
+            },
+            {
+                title: "Data Engineering",
+                icon: "fa-code-branch",
+                description: "Python, R, SQL, APIs, scraping, DuckDB/SQLite, dashboards, GitHub, and reproducible workflows.",
+                evidence: ["FrameScope", "ASHA", "Strickland", "Streamlit"],
+                question: "How is Sagnik capable in data engineering? Use Python, R, SQL, APIs, scraping, dashboards, databases, and reproducible workflows as evidence."
+            },
+            {
+                title: "Computational Social Science",
+                icon: "fa-people-group",
+                description: "Public discourse, news/social media, AI framing, immigration narratives, EV sentiment, and public opinion.",
+                evidence: ["FrameScope", "Immigration", "EV", "GTI"],
+                question: "How is Sagnik capable in computational social science? Use immigration narratives, EV sentiment, AI discourse, Reddit/news data, and survey experiments as evidence."
+            },
+            {
+                title: "Statistical Modeling",
+                icon: "fa-chart-line",
+                description: "Regression, ANOVA, multilevel models, bootstrap uncertainty, causal inference, and survey inference.",
+                evidence: ["ASHA", "Moneyball", "Gard Lab", "STAT600"],
+                question: "How is Sagnik capable in statistical modeling? Use regression, multilevel models, causal inference, bootstrap uncertainty, and survey inference examples."
+            }
+        ];
+
         function showSection(section) {
-            const content = document.getElementById("resume-content");
+            setActiveTab(section);
 
-            if (section === "education") {
-                content.innerHTML = `
-                    <h2>Education</h2>
-                    <p class="welcome-intro">Click an institution to view full coursework and program details.</p>
-                    <div class="red-divider"></div>
-
-                    <div class="resume-card" onclick="showDetail('umd')">
-                        <div class="card-line">
-                            <h3>University of Maryland, College Park</h3>
-                            <span>Aug 2024 – May 2026</span>
-                        </div>
-                        <p><b>MS in Survey and Data Science</b></p>
-                    </div>
-
-                    <div class="resume-card" onclick="showDetail('vit')">
-                        <div class="card-line">
-                            <h3>Vellore Institute of Technology, Chennai</h3>
-                            <span>Sept 2022 – July 2024</span>
-                        </div>
-                        <p><b>MS in Data Science</b></p>
-                    </div>
-
-                    <div class="resume-card" onclick="showDetail('amity')">
-                        <div class="card-line">
-                            <h3>Amity University, Kolkata</h3>
-                            <span>Aug 2018 – July 2021</span>
-                        </div>
-                        <p><b>BS in Statistics</b></p>
-                    </div>
-                `;
-            }
-            if (section === "experience") {
-                content.innerHTML = `
-                    <h2>Experience</h2>
-                    <p class="welcome-intro">Select a category to explore research, teaching, or industry experience.</p>
-                    <div class="red-divider"></div>
-
-                    <div class="resume-card-grid">
-
-                        <div class="resume-card" onclick="showSection('research')">
-                            <h3>Research</h3>
-                            <p>Academic research, labs, and data science research roles</p>
-                        </div>
-
-                        <div class="resume-card" onclick="showSection('teaching')">
-                            <h3>Teaching</h3>
-                            <p>Teaching assistantships and academic instruction</p>
-                        </div>
-
-                        <div class="resume-card" onclick="showSection('industry')">
-                            <h3>Industry</h3>
-                            <p>Applied data science and industry experience</p>
-                        </div>
-
-                    </div>
-                `;
-            }
-
-            if (section === "research") {
-                renderCards("research", "Research Experience");
-            }
-
-            if (section === "teaching") {
-                renderCards("teaching", "Teaching Experience");
-            }
-
-            if (section === "industry") {
-                renderCards("industry", "Industry Experience");
-            }
-
-            if (section === "projects") {
-                showProjects();
-            }
-
-            if (section === "skills") {
-                content.innerHTML = `
-                    <h2>Skills</h2>
-                    <p class="welcome-intro">Technical and methodological skills across programming, machine learning, NLP, survey methodology, and data pipelines.</p>
-                    <div class="red-divider"></div>
-
-                    <div class="course-grid">
-                        <span><b>Programming:</b> Python, R, SQL, JavaScript</span>
-                        <span><b>Machine Learning:</b> PyTorch, TensorFlow, Scikit-learn</span>
-                        <span><b>NLP:</b> Hugging Face, spaCy, NLTK, sentiment analysis, stance detection</span>
-                        <span><b>LLMs:</b> OpenAI API, prompt engineering, LLM-assisted annotation</span>
-                        <span><b>Survey Methods:</b> Sampling, Total Survey Error, weighting, nonresponse</span>
-                        <span><b>Statistics:</b> Regression, multilevel modeling, causal inference, inference</span>
-                        <span><b>Data Pipelines:</b> Pandas, dplyr, DuckDB, SQLite, Playwright</span>
-                        <span><b>Geospatial:</b> Google Earth Engine, GeoPandas, OSMnx, NetworkX</span>
-                        <span><b>Cloud & Tools:</b> Git/GitHub, AWS, GCP, Azure, Quarto, Streamlit</span>
-                    </div>
-                `;
-            }
+            if (section === "overview") showOverview();
+            if (section === "education") showEducation();
+            if (section === "experience") showExperienceLanding();
+            if (section === "projects") showProjects();
+            if (section === "skills") showSkills();
         }
 
-        function renderCards(sectionName, heading) {
+        function showOverview() {
+            const content = document.getElementById("resume-content");
+
+            content.innerHTML = `
+                <div class="resume-welcome-screen">
+                    <div class="resume-section-header-v2">
+                        <div>
+                            <p class="section-eyebrow">Welcome</p>
+                            <h2>Resume Overview</h2>
+                            <p class="welcome-intro">
+                                Select a section above to open a full timeline or evidence grid. Each card can be expanded,
+                                and most entries are connected to SagnikGPT for recruiter-style follow-up questions.
+                            </p>
+                        </div>
+
+                        <button class="resume-ask-inline" onclick="askSagnikGPT('Summarize Sagnik’s resume for a recruiter. Highlight education, research experience, skills, strongest projects, and measurable outcomes.')">
+                            <i class="fa-solid fa-message"></i>
+                            Ask summary
+                        </button>
+                    </div>
+
+                    <div class="resume-overview-grid-v2">
+                        <article onclick="showSection('education')">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <h3>Education</h3>
+                            <p>UMD JPSM, VIT Data Science, Amity Statistics, and full clickable coursework.</p>
+                            <span>Open education →</span>
+                        </article>
+
+                        <article onclick="showSection('experience')">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <h3>Experience</h3>
+                            <p>Research, teaching, and industry experience in survey methods, NLP, ML, and data pipelines.</p>
+                            <span>Open experience →</span>
+                        </article>
+
+                        <article onclick="showSection('projects')">
+                            <i class="fa-solid fa-diagram-project"></i>
+                            <h3>Projects</h3>
+                            <p>Papers, posters, reports, metrics, results, GitHub links, and SagnikGPT prompts.</p>
+                            <span>Open projects →</span>
+                        </article>
+
+                        <article onclick="showSection('skills')">
+                            <i class="fa-solid fa-toolbox"></i>
+                            <h3>Skills</h3>
+                            <p>Skills organized by evidence: survey methods, NLP/LLMs, ML, data engineering, and CSS.</p>
+                            <span>Open skills →</span>
+                        </article>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showEducation() {
+            const content = document.getElementById("resume-content");
+
+            content.innerHTML = `
+                <div class="resume-section-header-v2">
+                    <div>
+                        <p class="section-eyebrow">Education Timeline</p>
+                        <h2>Academic Background</h2>
+                        <p class="welcome-intro">
+                            Click an institution to open coursework. Click any course to ask SagnikGPT how that subject supports my profile.
+                        </p>
+                    </div>
+
+                    <button class="resume-ask-inline" onclick="askSagnikGPT('Explain Sagnik’s academic trajectory from Statistics to Data Science to Survey and Data Science. Connect coursework to his research profile.')">
+                        <i class="fa-solid fa-message"></i>
+                        Ask academic trajectory
+                    </button>
+                </div>
+
+                <div class="red-divider"></div>
+
+                <div class="resume-timeline-v2">
+                    ${Object.entries(educationData).map(([id, edu]) => `
+                        <article class="resume-timeline-item-v2" onclick="showEducationDetail('${id}')">
+                            <div class="resume-time-v2">${edu.date}</div>
+                            <div class="resume-timeline-card-v2">
+                                <div class="timeline-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div>
+                                    <h3>${edu.institution}</h3>
+                                    <p class="project-meta-small">${edu.degree}</p>
+                                    <p>${edu.focus}</p>
+                                    <div class="resume-mini-metric-grid-v2">
+                                        ${edu.metrics.map(m => `<div><strong>${m[0]}</strong><span>${m[1]}</span></div>`).join("")}
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    `).join("")}
+                </div>
+            `;
+        }
+
+        function showEducationDetail(id) {
+            const edu = educationData[id];
+            const content = document.getElementById("resume-content");
+
+            content.innerHTML = `
+                <button class="back-btn-v2" onclick="showEducation()">← Back to Education</button>
+
+                <div class="detail-header-v2">
+                    <div>
+                        <p class="section-eyebrow">Education Detail</p>
+                        <h2>${edu.institution}</h2>
+                        <p class="detail-subtitle">${edu.degree}</p>
+                    </div>
+                    <span class="detail-date">${edu.date}</span>
+                </div>
+
+                <div class="red-divider"></div>
+
+                <div class="resume-detail-metrics-v2">
+                    ${edu.metrics.map(m => `<div><strong>${m[0]}</strong><span>${m[1]}</span></div>`).join("")}
+                </div>
+
+                <div class="resume-result-box-v2">
+                    <strong>Academic focus:</strong> ${edu.focus}
+                </div>
+
+                <div class="resume-section-header-v2 course-header-row">
+                    <div>
+                        <h3>Coursework</h3>
+                        <p>Click a subject to ask SagnikGPT how it connects to my training and research profile.</p>
+                    </div>
+
+                    <button class="resume-ask-inline" onclick="askSagnikGPT('How did Sagnik perform academically at ${edu.institution}? Explain how his coursework in ${edu.degree} supports his research and job profile.')">
+                        Ask about this degree →
+                    </button>
+                </div>
+
+                <div class="course-grid-v2">
+                    ${edu.courses.map(course => `
+                        <button onclick="askSagnikGPT('How did Sagnik use or benefit from the course: ${course.replace(/'/g, "\\'")} at ${edu.institution}? Connect it to his research, projects, and technical profile.')">
+                            ${course}
+                        </button>
+                    `).join("")}
+                </div>
+            `;
+        }
+
+        function showExperienceLanding() {
+            const content = document.getElementById("resume-content");
+
+            content.innerHTML = `
+                <div class="resume-section-header-v2">
+                    <div>
+                        <p class="section-eyebrow">Experience</p>
+                        <h2>Research, Teaching, and Industry</h2>
+                        <p class="welcome-intro">Choose a category to open a timeline. Each entry expands into responsibilities, methods, metrics, and end results.</p>
+                    </div>
+
+                    <button class="resume-ask-inline" onclick="askSagnikGPT('Summarize Sagnik’s experience across research, teaching, and industry. Highlight evidence and role fit.')">
+                        <i class="fa-solid fa-message"></i>
+                        Ask experience summary
+                    </button>
+                </div>
+
+                <div class="red-divider"></div>
+
+                <div class="resume-overview-grid-v2 three">
+                    <article onclick="renderExperienceTimeline('research', 'Research Experience')">
+                        <i class="fa-solid fa-microscope"></i>
+                        <h3>Research</h3>
+                        <p>Academic research roles across AI discourse, behavioral data, legal/social sentiment, biomedical ML, and microbiome learning.</p>
+                        <span>Open research timeline →</span>
+                    </article>
+
+                    <article onclick="renderExperienceTimeline('teaching', 'Teaching Experience')">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <h3>Teaching</h3>
+                        <p>Sampling I and data ethics teaching support, with emphasis on design-based inference and responsible data science.</p>
+                        <span>Open teaching timeline →</span>
+                    </article>
+
+                    <article onclick="renderExperienceTimeline('industry', 'Industry Experience')">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <h3>Industry</h3>
+                        <p>Applied data science internships in travel recommendation, graph learning, and retail recommendation systems.</p>
+                        <span>Open industry timeline →</span>
+                    </article>
+                </div>
+            `;
+        }
+
+        function renderExperienceTimeline(sectionName, heading) {
             const content = document.getElementById("resume-content");
             const entries = Object.entries(experienceData).filter(([id, item]) => item.section === sectionName);
 
             content.innerHTML = `
-                <button class="back-btn" onclick="showSection('experience')">← Back to Experience</button>
+                <button class="back-btn-v2" onclick="showExperienceLanding()">← Back to Experience</button>
 
-                <h2>${heading}</h2>
-                <p class="welcome-intro">Click an entry to view responsibilities, methods, and outcomes.</p>
+                <div class="resume-section-header-v2">
+                    <div>
+                        <p class="section-eyebrow">Experience Timeline</p>
+                        <h2>${heading}</h2>
+                        <p class="welcome-intro">Click any entry to view detailed responsibilities, methods, metrics, and SagnikGPT prompt.</p>
+                    </div>
+
+                    <button class="resume-ask-inline" onclick="askSagnikGPT('Summarize Sagnik’s ${heading}. Give specific evidence, methods, metrics, and role fit.')">
+                        Ask about ${heading} →
+                    </button>
+                </div>
+
                 <div class="red-divider"></div>
 
-                <div class="experience-timeline">
+                <div class="resume-timeline-v2">
                     ${entries.map(([id, item]) => `
-                        <div class="experience-timeline-item" onclick="showExperienceDetail('${id}')">
-                            <div class="experience-date">${item.date}</div>
-
-                            <div class="experience-content">
-                                <h3>${item.org}</h3>
-                                <p><b>${item.title}</b></p>
-
-                                <div class="tag-row">
-                                    ${item.tags.map(tag => `<span>${tag}</span>`).join("")}
+                        <article class="resume-timeline-item-v2" onclick="showExperienceDetail('${id}')">
+                            <div class="resume-time-v2">${item.date}</div>
+                            <div class="resume-timeline-card-v2">
+                                <div class="timeline-card-icon"><i class="fa-solid ${item.icon}"></i></div>
+                                <div>
+                                    <h3>${item.org}</h3>
+                                    <p class="project-meta-small">${item.title}</p>
+                                    <p>${item.result}</p>
+                                    <div class="tag-row-v2">
+                                        ${item.tags.map(tag => `<span>${tag}</span>`).join("")}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     `).join("")}
                 </div>
             `;
@@ -591,10 +1077,11 @@
             const content = document.getElementById("resume-content");
 
             content.innerHTML = `
-                <button class="back-btn" onclick="renderCards('${item.section}', '${sectionTitle(item.section)}')">← Back</button>
+                <button class="back-btn-v2" onclick="renderExperienceTimeline('${item.section}', '${sectionTitle(item.section)}')">← Back</button>
 
-                <div class="detail-header">
+                <div class="detail-header-v2">
                     <div>
+                        <p class="section-eyebrow">Experience Detail</p>
                         <h2>${item.org}</h2>
                         <p class="detail-subtitle">${item.title}</p>
                     </div>
@@ -603,12 +1090,26 @@
 
                 <div class="red-divider"></div>
 
-                <div class="tag-row detail-tags">
+                <div class="tag-row-v2 detail-tags">
                     ${item.tags.map(tag => `<span>${tag}</span>`).join("")}
                 </div>
 
-                <div class="detail-body">
+                <div class="resume-detail-metrics-v2">
+                    ${item.metrics.map(m => `<div><strong>${m[0]}</strong><span>${m[1]}</span></div>`).join("")}
+                </div>
+
+                <div class="resume-result-box-v2">
+                    <strong>End result:</strong> ${item.result}
+                </div>
+
+                <div class="detail-body-v2">
                     ${item.details}
+                </div>
+
+                <div class="project-buttons-v2">
+                    <button class="paper-btn secondary-paper-btn" onclick="askSagnikGPT('${item.question}')">
+                        Ask SagnikGPT about this role
+                    </button>
                 </div>
             `;
         }
@@ -619,63 +1120,57 @@
             if (section === "industry") return "Industry Experience";
             return "Experience";
         }
-        function openPosterModal(src, title) {
-            const modal = document.getElementById("poster-modal");
-            const modalImg = document.getElementById("poster-modal-img");
-
-            modal.style.display = "flex";
-            modalImg.src = src;
-            modalImg.alt = title + " poster";
-        }
-
-        function closePosterModal() {
-            document.getElementById("poster-modal").style.display = "none";
-        }
 
         function showProjects() {
             const content = document.getElementById("resume-content");
 
             const sortedProjects = Object.entries(projectData).sort((a, b) => {
-                const yearA = parseInt(a[1].date.match(/\d{4}/)[0]);
-                const yearB = parseInt(b[1].date.match(/\d{4}/)[0]);
+                const yearA = parseInt(a[1].date.match(/\d{4}/)?.[0] || "0");
+                const yearB = parseInt(b[1].date.match(/\d{4}/)?.[0] || "0");
                 return yearB - yearA;
             });
 
             content.innerHTML = `
-                <h2>Projects, Papers & Research Work</h2>
-                <p class="welcome-intro">
-                    Selected academic, applied, and research projects organized by timeline.
-                </p>
+                <div class="resume-section-header-v2">
+                    <div>
+                        <p class="section-eyebrow">Projects Timeline</p>
+                        <h2>Projects, Papers, Reports, and Posters</h2>
+                        <p class="welcome-intro">
+                            Click a project to open objective, abstract, motivation, methods, results, metrics, paper/report, poster, GitHub, and SagnikGPT prompt.
+                        </p>
+                    </div>
+
+                    <button class="resume-ask-inline" onclick="askSagnikGPT('Which of Sagnik’s projects are strongest for data science, NLP, survey methodology, and ML roles? Rank them using metrics and outcomes.')">
+                        <i class="fa-solid fa-message"></i>
+                        Ask project fit
+                    </button>
+                </div>
 
                 <div class="red-divider"></div>
 
-                <div class="project-timeline">
+                <div class="resume-timeline-v2">
                     ${sortedProjects.map(([id, project]) => `
-                        <div class="timeline-project" onclick="showProjectDetail('${id}')">
+                        <article class="resume-timeline-item-v2" onclick="showProjectDetail('${id}')">
+                            <div class="resume-time-v2">${project.date}</div>
 
-                            <div class="timeline-date">${project.date}</div>
+                            <div class="resume-timeline-card-v2 project-card-wide">
+                                <div class="timeline-card-icon"><i class="fa-solid fa-diagram-project"></i></div>
 
-                            <div class="timeline-content">
-                                <div class="timeline-row">
+                                <div class="timeline-project-text">
+                                    <h3>${project.title}</h3>
+                                    <p class="project-meta-small">${project.meta}</p>
+                                    <p>${project.summary}</p>
 
-                                    <div class="timeline-text">
-                                        <h3>${project.title}</h3>
-                                        <p class="project-meta-small">${project.meta}</p>
-                                        <p>${project.summary}</p>
+                                    <div class="resume-mini-metric-grid-v2">
+                                        ${project.metrics.map(m => `<div><strong>${m[0]}</strong><span>${m[1]}</span></div>`).join("")}
                                     </div>
+                                </div>
 
-                                    <div class="timeline-poster">
-                                        <img src="${project.poster}" 
-                                            alt="${project.title} poster"
-                                            class="clickable-poster"
-                                            onclick="event.stopPropagation(); openPosterModal('${project.poster}', '${project.title}')"
-                                            onerror="this.style.display='none'">
-                                    </div>
-
+                                <div class="timeline-project-poster">
+                                    <img src="${project.poster}" alt="${project.title} poster" onerror="this.style.display='none'" onclick="event.stopPropagation(); openPosterModal('${project.poster}', '${project.title}')">
                                 </div>
                             </div>
-
-                        </div>
+                        </article>
                     `).join("")}
                 </div>
             `;
@@ -686,7 +1181,7 @@
             const content = document.getElementById("resume-content");
 
             const paperButton = project.paper
-                ? `<a href="${project.paper}" target="_blank" class="paper-btn">View Paper / Report</a>`
+                ? `<a href="${project.paper}" target="_blank" class="paper-btn">Paper / Report</a>`
                 : "";
 
             const githubButton = project.github
@@ -697,11 +1192,16 @@
                 ? `<a href="${project.website}" target="_blank" class="paper-btn secondary-paper-btn">Website</a>`
                 : "";
 
-            content.innerHTML = `
-                <button class="back-btn" onclick="showProjects()">← Back</button>
+            const posterButton = project.poster
+                ? `<button class="paper-btn secondary-paper-btn" onclick="openPosterModal('${project.poster}', '${project.title}')">Poster</button>`
+                : "";
 
-                <div class="detail-header">
+            content.innerHTML = `
+                <button class="back-btn-v2" onclick="showProjects()">← Back to Projects</button>
+
+                <div class="detail-header-v2">
                     <div>
+                        <p class="section-eyebrow">Project Detail</p>
                         <h2>${project.title}</h2>
                         <p class="detail-subtitle">${project.meta}</p>
                     </div>
@@ -710,205 +1210,101 @@
 
                 <div class="red-divider"></div>
 
-                <div class="project-detail-layout">
-                    <div class="project-detail-text">
-                        ${project.details}
+                <div class="project-detail-layout-v2">
+                    <div class="project-detail-text-v2">
 
-                        <div class="project-buttons">
+                        <div class="resume-detail-metrics-v2">
+                            ${project.metrics.map(m => `<div><strong>${m[0]}</strong><span>${m[1]}</span></div>`).join("")}
+                        </div>
+
+                        <div class="project-writing-grid">
+                            <section>
+                                <h3>Objective</h3>
+                                <p>${project.objective}</p>
+                            </section>
+
+                            <section>
+                                <h3>Abstract</h3>
+                                <p>${project.abstract}</p>
+                            </section>
+
+                            <section>
+                                <h3>Motivation</h3>
+                                <p>${project.motivation}</p>
+                            </section>
+
+                            <section>
+                                <h3>Methods</h3>
+                                <p>${project.methods}</p>
+                            </section>
+
+                            <section>
+                                <h3>End Results</h3>
+                                <p>${project.results}</p>
+                            </section>
+
+                            <section>
+                                <h3>Research / Business Insight</h3>
+                                <p>${project.insight}</p>
+                            </section>
+                        </div>
+
+                        <div class="project-buttons-v2">
                             ${paperButton}
                             ${githubButton}
                             ${websiteButton}
+                            ${posterButton}
+                            <button class="paper-btn secondary-paper-btn" onclick="askSagnikGPT('${project.question}')">Ask SagnikGPT</button>
                         </div>
                     </div>
 
-                    <div class="project-detail-poster">
-                        <img src="${project.poster}" 
-                            alt="${project.title} poster"
-                            class="clickable-poster"
-                            onclick="openPosterModal('${project.poster}', '${project.title}')"
-                            onerror="this.style.display='none'">
-                        <p class="poster-hint">Click poster to enlarge</p>
-                    </div>
+                    <aside class="project-detail-poster-v2">
+                        <img src="${project.poster}" alt="${project.title} poster" onclick="openPosterModal('${project.poster}', '${project.title}')" onerror="this.style.display='none'">
+                        <p>Click poster to enlarge</p>
+                    </aside>
                 </div>
             `;
         }
 
-        function showDetail(item) {
+        function showSkills() {
             const content = document.getElementById("resume-content");
 
-            if (item === "umd") {
-                content.innerHTML = `
-                    <button class="back-btn" onclick="showSection('education')">← Back</button>
-
-                    <div class="detail-header">
-                        <div>
-                            <h2>University of Maryland, College Park</h2>
-                            <p class="detail-subtitle">MS in Survey and Data Science</p>
-                        </div>
-                        <span class="detail-date">Aug 2024 – May 2026</span>
+            content.innerHTML = `
+                <div class="resume-section-header-v2">
+                    <div>
+                        <p class="section-eyebrow">Skills</p>
+                        <h2>Skills with Evidence</h2>
+                        <p class="welcome-intro">
+                            Each skill block is connected to project, coursework, or experience evidence. Click any skill to ask SagnikGPT for a recruiter-style explanation.
+                        </p>
                     </div>
 
-                    <div class="red-divider"></div>
+                    <button class="resume-ask-inline" onclick="askSagnikGPT('Summarize Sagnik’s strongest skills with evidence from projects, coursework, research experience, and metrics.')">
+                        <i class="fa-solid fa-message"></i>
+                        Ask skill summary
+                    </button>
+                </div>
 
-                    <h3 class="detail-section-title">Coursework</h3>
-                    <div class="course-grid">
-                        <span>SURV615: Statistical Modeling & Machine Learning I</span>
-                        <span>SURV621: Fundamentals of Data Collection I</span>
-                        <span>SURV627: Experimental Design & Causal Inference</span>
-                        <span>SURV727: Fundamentals of Computational Data Display</span>
-                        <span>CMSC848O: Long-Context Language Models</span>
-                        <span>SURV613: Machine Learning for Social Data</span>
-                        <span>SURV616: Statistical Modeling & Machine Learning II</span>
-                        <span>SURV622: Fundamentals of Data Collection II</span>
-                        <span>SURV625: Applied Sampling</span>
-                        <span>STAT600: Probability Theory I</span>
-                        <span>SURV617: Application of Statistical Modeling</span>
-                        <span>SURV720: Total Survey Error I</span>
-                        <span>SURV740: Fundamentals of Inference</span>
-                        <span>SURV721: Total Survey Error II</span>
-                        <span>SURV745: Survey Methods Seminar</span>
-                        <span>SURV701: Practical Tools for Survey Research</span>
-                        <span>SURV772: Analysis of Complex Surveys</span>
-                    </div>
-                `;
-            }
+                <div class="red-divider"></div>
 
-            if (item === "vit") {
-                content.innerHTML = `
-                    <button class="back-btn" onclick="showSection('education')">← Back</button>
-
-                    <div class="detail-header">
-                        <div>
-                            <h2>Vellore Institute of Technology, Chennai</h2>
-                            <p class="detail-subtitle">MS in Data Science</p>
-                        </div>
-                        <span class="detail-date">Sept 2022 – July 2024</span>
-                    </div>
-
-                    <div class="red-divider"></div>
-
-                    <h3 class="detail-section-title">Coursework</h3>
-                    <div class="course-grid">
-                        <span>ENG5003: English for Science and Technology</span>
-                        <span>MAT5010: Foundations of Data Science</span>
-                        <span>MAT5011: Matrix Theory and Linear Algebra</span>
-                        <span>MAT5012: Probability Theory and Distributions</span>
-                        <span>MAT6012: Programming for Data Analysis</span>
-                        <span>RES5001: Research Methodology</span>
-                        <span>SET5001: Science, Engineering and Technology Project I</span>
-                        <span>STS4001: Essentials of Business Etiquettes</span>
-                        <span>ECE6045: Neural Networks and Fuzzy Systems</span>
-                        <span>MAT5013: Statistical Inference</span>
-                        <span>MAT5016: Time Series Analysis and Forecasting</span>
-                        <span>MAT6002: Regression Analysis and Predictive Models</span>
-                        <span>MAT6005: Machine Learning for Data Science</span>
-                        <span>SET5002: Science, Engineering and Technology Project II</span>
-                        <span>STS4002: Preparing for Industry</span>
-                        <span>CSE6060: Statistical Natural Language Processing</span>
-                        <span>MAT5017: Multivariate Data Analysis</span>
-                        <span>MAT6007: Deep Learning</span>
-                        <span>MAT6008: Artificial Intelligence for Data Science</span>
-                        <span>MAT6010: Optimization Techniques</span>
-                        <span>MAT6011: Statistical Quality Control</span>
-                        <span>SET5003: Science, Engineering and Technology Project III</span>
-                        <span>MDT6099: Master's Thesis</span>
-                    </div>
-                `;
-            }
-
-            if (item === "amity") {
-                content.innerHTML = `
-                    <button class="back-btn" onclick="showSection('education')">← Back</button>
-
-                    <div class="detail-header">
-                        <div>
-                            <h2>Amity University, Kolkata</h2>
-                            <p class="detail-subtitle">BS in Statistics</p>
-                        </div>
-                        <span class="detail-date">Aug 2018 – July 2021</span>
-                    </div>
-
-                    <div class="red-divider"></div>
-
-                    <h3 class="detail-section-title">Coursework</h3>
-                    <div class="course-grid compact">
-                        <span>Understanding Self for Effectiveness</span>
-                        <span>English Language Usage Essentials</span>
-                        <span>Environmental Studies</span>
-                        <span>Introduction to French Culture & Language</span>
-                        <span>Mathematics I - Subsidiary</span>
-                        <span>Probability Theory I</span>
-                        <span>Fundamentals of Statistics</span>
-                        <span>Statistics Lab I</span>
-                        <span>Statistical Methodology</span>
-                        <span>Individual Society and Nation</span>
-                        <span>Introduction to Communication Skills</span>
-                        <span>Introduction to Computers and Programming in C</span>
-                        <span>French Grammar I</span>
-                        <span>Mathematics II - Subsidiary</span>
-                        <span>Probability Theory II</span>
-                        <span>Statistics Lab II</span>
-                        <span>Sampling Theory</span>
-                        <span>Real Analysis Theory and Applications</span>
-                        <span>Applied Statistics</span>
-                        <span>Effective Written Communication</span>
-                        <span>Problem Solving and Creative Thinking</span>
-                        <span>Written Expression & Comprehension in French I</span>
-                        <span>Linear Algebra</span>
-                        <span>Research Methodology and Statistics</span>
-                        <span>Statistical Inference I</span>
-                        <span>Linear Model and Applications</span>
-                        <span>Statistics Lab III</span>
-                        <span>Statistical Programming in C</span>
-                        <span>Term Paper</span>
-                        <span>Professional Communication for Recruitment and Employability</span>
-                        <span>Values and Ethics for Personal and Professional Development</span>
-                        <span>Introduction to Econometrics</span>
-                        <span>French Through Communicative Approach</span>
-                        <span>Statistical Inference II</span>
-                        <span>Operations Research Methods and Applications</span>
-                        <span>Data Analysis and Decision Making</span>
-                        <span>Non-Parametric Statistics</span>
-                        <span>Statistics Lab IV</span>
-                        <span>Probability and Statistics</span>
-                        <span>Receptive and Expressive Communication Skills</span>
-                        <span>Group Dynamics and Team Building</span>
-                        <span>Communicative French II</span>
-                        <span>Professional Ethics and Social Responsibility</span>
-                        <span>Numerical Analysis</span>
-                        <span>Stochastic Process</span>
-                        <span>Statistics Lab V</span>
-                        <span>Time Series Analysis</span>
-                        <span>Fundamentals of Biostatistics</span>
-                        <span>Basic SAS for Data Science</span>
-                        <span>In-House Practical Training I</span>
-                        <span>Social Communication</span>
-                        <span>Stress and Coping Strategies</span>
-                        <span>French Written Expression and Comprehension II</span>
-                        <span>Design of Experiment</span>
-                        <span>Statistics Lab VI</span>
-                        <span>Reliability Theory</span>
-                        <span>Quality Control and Applications</span>
-                        <span>Practical Management Science</span>
-                        <span>Introduction to Statistical Consulting</span>
-                        <span>Major Project</span>
-                        <span>Human Values and Community Outreach</span>
-                    </div>
-                `;
-            }
+                <div class="resume-skill-grid-v2">
+                    ${skillData.map(skill => `
+                        <article onclick="askSagnikGPT('${skill.question}')">
+                            <i class="fa-solid ${skill.icon}"></i>
+                            <h3>${skill.title}</h3>
+                            <p>${skill.description}</p>
+                            <div class="tag-row-v2">
+                                ${skill.evidence.map(e => `<span>${e}</span>`).join("")}
+                            </div>
+                            <em>Ask SagnikGPT for evidence →</em>
+                        </article>
+                    `).join("")}
+                </div>
+            `;
         }
+
+        document.addEventListener("DOMContentLoaded", showOverview);
     </script>
-    <div id="poster-modal" class="poster-modal" onclick="closePosterModal()">
-        <span class="poster-close">&times;</span>
-        <img id="poster-modal-img" class="poster-modal-img" src="" alt="Expanded poster">
-    </div>
-    <script>
-        function toggleMenu() {
-            document.getElementById("nav-menu").classList.toggle("show-menu");
-        }
-    </script>
-    <a href="research.html#research-assistant" class="floating-assistant-cta">
-        Ask SagnikGPT
-    </a>
+
 </body>
 </html>
