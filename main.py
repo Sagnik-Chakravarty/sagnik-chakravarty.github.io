@@ -42,7 +42,7 @@ RETRIEVAL_CANDIDATES = int(os.getenv("RETRIEVAL_CANDIDATES", "12"))
 FINAL_CONTEXT_CHUNKS = int(os.getenv("FINAL_CONTEXT_CHUNKS", "6"))
 MAX_HISTORY_MESSAGES = int(os.getenv("MAX_HISTORY_MESSAGES", "4"))
 
-EXCLUDE_TRANSCRIPTS = os.getenv("EXCLUDE_TRANSCRIPTS", "true").lower() == "true"
+EXCLUDE_TRANSCRIPTS = os.getenv("EXCLUDE_TRANSCRIPTS", "true").lower() == "false"
 
 chroma_client = chromadb.PersistentClient(path=DB_DIR)
 collection = chroma_client.get_or_create_collection(name=COLLECTION_NAME)
@@ -224,7 +224,6 @@ def search_web_tavily(query: str, intent: str, max_results: int = 5) -> Tuple[st
         ]
 
     payload = {
-        "api_key": TAVILY_API_KEY,
         "query": web_query,
         "search_depth": "basic",
         "max_results": max_results,
@@ -235,9 +234,18 @@ def search_web_tavily(query: str, intent: str, max_results: int = 5) -> Tuple[st
     if include_domains:
         payload["include_domains"] = include_domains
 
+    headers = {
+        "Content-Type": "application/json",
+    }
+
+    # Prefer Authorization header for API key (Bearer) — Tavily expects this.
+    if TAVILY_API_KEY:
+        headers["Authorization"] = f"Bearer {TAVILY_API_KEY}"
+
     response = requests.post(
         "https://api.tavily.com/search",
         json=payload,
+        headers=headers,
         timeout=30,
     )
 
@@ -246,7 +254,11 @@ def search_web_tavily(query: str, intent: str, max_results: int = 5) -> Tuple[st
     except requests.exceptions.HTTPError as e:
         print("Tavily search error:")
         print("Status:", response.status_code)
-        print("Response:", response.text[:1000])
+        print("Response:", response.text[:2000])
+
+        if response.status_code == 401:
+            print("Tavily returned 401 Unauthorized. Check TAVILY_API_KEY and permissions.")
+
         raise e
 
     data = response.json()
@@ -724,6 +736,22 @@ def chat(req: ChatRequest):
             sources=sources,
             web_intent=web_intent,
         )
+
+        def auto_link_file_paths(text: str) -> str:
+            if not text:
+                return text
+
+            # Match common file paths with extensions and not already inside markdown/link syntax.
+            pattern = r"(?<!\(|\])\b([A-Za-z0-9_\-\/\.]+?\.(?:pdf|html|txt|md|png|jpg|jpeg|csv))\b"
+
+            def _repl(m):
+                path = m.group(1)
+                return f"[{path}]({path})"
+
+            return re.sub(pattern, _repl, text, flags=re.IGNORECASE)
+
+        # Convert plaintext file paths in the LLM reply to markdown links.
+        reply = auto_link_file_paths(reply)
 
         source_markdown = format_sources_markdown(sources)
 

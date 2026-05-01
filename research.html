@@ -714,8 +714,18 @@
             gfm: true,
         });
 
+        function autoLinkFilePaths(text) {
+            if (!text) return text;
+
+            // Match common file paths with extensions and convert to HTML anchors.
+            // Covers: pdf, html, txt, md, png, jpg, jpeg, csv
+            return text.replace(/\b([\w\.\/\-]+?\.(?:pdf|html|txt|md|png|jpg|jpeg|csv))\b/gi,
+                '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+        }
+
         function renderAssistantMarkdown(text) {
-            const html = marked.parse(text || "");
+            const processed = autoLinkFilePaths(text || "");
+            const html = marked.parse(processed);
             return DOMPurify.sanitize(html, {
                 USE_PROFILES: { html: true }
             });
