@@ -41,8 +41,8 @@ BATCH_SIZE = int(os.getenv("CHROMA_BATCH_SIZE", "64"))
 # Keep false on Render unless tesseract is installed.
 ENABLE_IMAGE_OCR = os.getenv("ENABLE_IMAGE_OCR", "false").lower() == "true"
 
-# Do not ingest transcripts until all transcripts are added and verified.
-INCLUDE_TRANSCRIPTS = os.getenv("INCLUDE_TRANSCRIPTS", "false").lower() == "true"
+# Do not ingest transcript files until all transcript files are added and verified.
+INCLUDE_TRANSCRIPT = os.getenv("INCLUDE_TRANSCRIPT", "false").lower() == "true"
 
 chroma_client = chromadb.PersistentClient(path=DB_DIR)
 collection = chroma_client.get_or_create_collection(name=COLLECTION_NAME)
@@ -512,9 +512,10 @@ def ingest():
         "website",
         "evidence",
         "courses",
+        "Syllabus",
     ]
 
-    if INCLUDE_TRANSCRIPTS:
+    if INCLUDE_TRANSCRIPT:
         folders.append("transcript")
 
     files = []
@@ -539,14 +540,14 @@ def ingest():
     print("Embedding provider: huggingface")
     print("Embedding model:", HF_EMBEDDING_MODEL)
     print("HF embedding URL:", HF_EMBEDDING_URL)
-    print("Including transcripts:", INCLUDE_TRANSCRIPTS)
+    print("Including transcript:", INCLUDE_TRANSCRIPT)
     print("Image OCR enabled:", ENABLE_IMAGE_OCR)
 
     for path in sorted(set(files)):
         if path.is_dir():
             continue
 
-        if not INCLUDE_TRANSCRIPTS and "transcript" in path.as_posix().lower():
+        if not INCLUDE_TRANSCRIPT and "transcript" in path.as_posix().lower():
             print(f"Skipping transcript file: {path}")
             continue
 

@@ -866,7 +866,34 @@
             })
             .then(data => {
                 loadingMessage.remove();
-                appendAssistantMessage(data.reply || "No response received.", "bot");
+
+                const botMessageElem = appendAssistantMessage(data.reply || "No response received.", "bot");
+
+                // If the backend returned a separate source_markdown, show it in a collapsible panel
+                if (data.source_markdown) {
+                    try {
+                        const details = document.createElement("details");
+                        details.className = "assistant-sources";
+
+                        const summary = document.createElement("summary");
+                        summary.textContent = "References";
+                        details.appendChild(summary);
+
+                        const content = document.createElement("div");
+                        content.className = "assistant-sources-content";
+                        content.innerHTML = renderAssistantMarkdown(data.source_markdown);
+                        details.appendChild(content);
+
+                        messages.appendChild(details);
+                        messages.scrollTo({ top: messages.scrollHeight, behavior: "smooth" });
+                    } catch (e) {
+                        // Fallback: append the raw markdown as plain text
+                        const fallback = document.createElement("div");
+                        fallback.className = "assistant-message bot";
+                        fallback.textContent = "References available (failed to render).";
+                        messages.appendChild(fallback);
+                    }
+                }
             })
             .catch(error => {
                 loadingMessage.remove();

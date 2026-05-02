@@ -30,10 +30,6 @@ HF_EMBEDDING_URL = (
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
-# Controlled web search
-ENABLE_WEB_SEARCH = os.getenv("ENABLE_WEB_SEARCH", "false").lower() == "true"
-TAVILY_API_KEY = os.getenv("TAVILY_API_KEY") or os.getenv("TAVILY_KEY")
-
 WEBSITE_BASE_URL = os.getenv("WEBSITE_BASE_URL", "https://sagnik-chakravarty.github.io")
 GITHUB_USERNAME = os.getenv("GITHUB_USERNAME", "Sagnik-Chakravarty")
 
@@ -42,7 +38,7 @@ RETRIEVAL_CANDIDATES = int(os.getenv("RETRIEVAL_CANDIDATES", "12"))
 FINAL_CONTEXT_CHUNKS = int(os.getenv("FINAL_CONTEXT_CHUNKS", "6"))
 MAX_HISTORY_MESSAGES = int(os.getenv("MAX_HISTORY_MESSAGES", "4"))
 
-EXCLUDE_TRANSCRIPTS = os.getenv("EXCLUDE_TRANSCRIPTS", "true").lower() == "false"
+EXCLUDE_TRANSCRIPT = os.getenv("EXCLUDE_TRANSCRIPT", "true").lower() == "false"
 
 chroma_client = chromadb.PersistentClient(path=DB_DIR)
 collection = chroma_client.get_or_create_collection(name=COLLECTION_NAME)
@@ -56,6 +52,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 CHAT_HISTORY: Dict[str, List[dict]] = {}
 
@@ -119,24 +116,7 @@ QUERY_EXPANSIONS = {
 }
 
 
-COURSE_WEB_TERMS = [
-    "course", "courses", "class", "classes", "syllabus", "catalog",
-    "curriculum", "credits", "instructor", "professor", "prerequisite",
-    "prerequisites", "topics covered", "course description", "umd course",
-    "jpsm", "cmsc", "surv", "stat",
-]
 
-REPO_WEB_TERMS = [
-    "github", "repo", "repository", "codebase", "source code", "readme",
-    "embedded link", "project link", "framescope repo", "search repo",
-]
-
-WEBSITE_WEB_TERMS = [
-    "website", "site", "webpage", "home page", "homepage", "research page",
-    "resume page", "about page", "contact page", "publication page",
-    "publications page", "where can i find", "point me to", "link to",
-    "page for",
-]
 
 
 def normalize_text(text: str) -> str:
@@ -170,136 +150,7 @@ def expand_query(query: str) -> str:
     return f"{query}\n\nRelated portfolio search terms:\n" + "\n".join(additions)
 
 
-def detect_web_intent(query: str) -> str:
-    q = query.lower()
 
-    if any(term in q for term in COURSE_WEB_TERMS):
-        return "course"
-
-    if any(term in q for term in REPO_WEB_TERMS):
-        return "repo"
-
-    if any(term in q for term in WEBSITE_WEB_TERMS):
-        return "website"
-
-    if re.search(r"\b(SURV|CMSC|STAT|INST|DATA)\s?\d{3}[A-Z]?\b", query, flags=re.IGNORECASE):
-        return "course"
-
-    return "none"
-
-
-def build_web_query(query: str, intent: str) -> str:
-    if intent == "course":
-        return f"{query} University of Maryland course catalog syllabus JPSM SURV CMSC STAT"
-
-    if intent == "repo":
-        return f"{query} site:github.com/{GITHUB_USERNAME}"
-
-    if intent == "website":
-        clean_base = WEBSITE_BASE_URL.replace("https://", "").replace("http://", "").rstrip("/")
-        return f"{query} site:{clean_base}"
-
-    return query
-
-
-def search_web_tavily(query: str, intent: str, max_results: int = 5) -> Tuple[str, List[dict]]:
-    if not ENABLE_WEB_SEARCH or not TAVILY_API_KEY or intent == "none":
-        return "", []
-
-    web_query = build_web_query(query, intent)
-
-    include_domains = []
-    if intent == "repo":
-        include_domains = ["github.com"]
-    elif intent == "website":
-        include_domains = [
-            WEBSITE_BASE_URL.replace("https://", "").replace("http://", "").rstrip("/")
-        ]
-    elif intent == "course":
-        include_domains = [
-            "umd.edu",
-            "jpsm.umd.edu",
-            "academiccatalog.umd.edu",
-            "app.testudo.umd.edu",
-        ]
-
-    payload = {
-        "query": web_query,
-        "search_depth": "basic",
-        "max_results": max_results,
-        "include_answer": False,
-        "include_raw_content": False,
-    }
-
-    if include_domains:
-        payload["include_domains"] = include_domains
-
-    headers = {
-        "Content-Type": "application/json",
-    }
-
-    # Prefer Authorization header for API key (Bearer) — Tavily expects this.
-    if TAVILY_API_KEY:
-        headers["Authorization"] = f"Bearer {TAVILY_API_KEY}"
-
-    response = requests.post(
-        "https://api.tavily.com/search",
-        json=payload,
-        headers=headers,
-        timeout=30,
-    )
-
-    try:
-        response.raise_for_status()
-    except requests.exceptions.HTTPError as e:
-        print("Tavily search error:")
-        print("Status:", response.status_code)
-        print("Response:", response.text[:2000])
-
-        if response.status_code == 401:
-            print("Tavily returned 401 Unauthorized. Check TAVILY_API_KEY and permissions.")
-
-        raise e
-
-    data = response.json()
-    results = data.get("results", [])
-
-    context_blocks = []
-    sources = []
-
-    for i, item in enumerate(results, start=1):
-        title = item.get("title", "Untitled")
-        url = item.get("url", "")
-        content = normalize_text(item.get("content", ""))
-
-        if not content:
-            continue
-
-        citation = f"[W{i}]"
-
-        context_blocks.append(
-            f"Citation: {citation}\n"
-            f"Source Type: Web\n"
-            f"Web Intent: {intent}\n"
-            f"Title: {title}\n"
-            f"URL: {url}\n"
-            f"Content:\n{content}"
-        )
-
-        sources.append(
-            {
-                "citation": citation,
-                "source": url,
-                "folder": "web",
-                "chunk_index": title,
-                "project": "",
-                "skill_area": "",
-                "doc_type": f"web_{intent}",
-                "web_intent": intent,
-            }
-        )
-
-    return "\n\n---\n\n".join(context_blocks), sources
 
 
 def mean_pool_embedding(output):
@@ -368,7 +219,7 @@ def embed_query(query: str):
 
 
 def is_transcript_source(metadata: dict) -> bool:
-    if not EXCLUDE_TRANSCRIPTS:
+    if not EXCLUDE_TRANSCRIPT:
         return False
 
     searchable = " ".join(
@@ -526,24 +377,9 @@ def retrieve_context(query: str) -> Tuple[str, List[dict]]:
     return "\n\n---\n\n".join(context_blocks), sources
 
 
-def build_combined_context(query: str) -> Tuple[str, List[dict], str]:
+def build_combined_context(query: str) -> Tuple[str, List[dict]]:
     portfolio_context, portfolio_sources = retrieve_context(query)
-
-    web_intent = detect_web_intent(query)
-    web_context, web_sources = search_web_tavily(query, web_intent)
-
-    if web_context:
-        combined_context = (
-            f"PORTFOLIO CONTEXT:\n{portfolio_context}\n\n"
-            f"---\n\n"
-            f"CONTROLLED WEB CONTEXT ({web_intent}):\n{web_context}"
-        )
-    else:
-        combined_context = portfolio_context
-
-    combined_sources = portfolio_sources + web_sources
-
-    return combined_context, combined_sources, web_intent
+    return portfolio_context, portfolio_sources
 
 
 def truncate_context(context: str, max_chars: int = MAX_CONTEXT_CHARS):
@@ -606,24 +442,17 @@ def build_system_prompt():
 
 Your job is to answer recruiter, academic, collaborator, and project-evaluation questions using retrieved portfolio evidence.
 
-You may also receive controlled web context, but web context is allowed only for:
-1. Course, syllabus, catalog, and curriculum questions.
-2. Sagnik's GitHub repositories or embedded project links.
-3. Sagnik's own website pages.
-
 Important evidence rule:
 - Transcript evidence is currently excluded because the transcript set is incomplete.
 
 Rules:
-- Use only the provided portfolio context, controlled web context, and prior chat history.
-- Clearly distinguish portfolio evidence from web evidence when both are used.
-- Do not use web evidence for generic current events, generic job-market advice, or unrelated browsing.
+- Use only the provided portfolio context and prior chat history.
 - Synthesize across sources instead of summarizing one chunk mechanically.
 - Prefer concrete evidence: project names, methods, tools, metrics, outputs, and results.
 - When asked about role fit, organize the answer into strengths, evidence, possible gaps, and best projects to mention.
 - When asked about a project, include motivation, methods, tools, results, and relevance if the context supports it.
 - When asked where something is on Sagnik's website, point to the most relevant page or URL from the context.
-- Use portfolio citations like [1], [2] and web citations like [W1], [W2].
+- Use portfolio citations like [1], [2].
 - Do not invent missing facts. If evidence is missing, say what is missing.
 - Be professional, concise, and direct."""
     }
@@ -634,7 +463,6 @@ def ask_llm(
     context: str,
     history: List[dict],
     sources: List[dict],
-    web_intent: str,
 ):
     if not GROQ_API_KEY:
         raise ValueError("GROQ_API_KEY is not set in environment variables")
@@ -664,9 +492,6 @@ def ask_llm(
         "content": f"""
 Retrieved context:
 {context}
-
-Web intent detected:
-{web_intent}
 
 Citation key:
 {citation_key}
@@ -716,16 +541,15 @@ def chat(req: ChatRequest):
                 "collection_count": get_collection_count(),
             }
 
-        context, sources, web_intent = build_combined_context(user_message)
+        context, sources = build_combined_context(user_message)
         context = truncate_context(context)
 
         print("Expanded query:", expand_query(user_message))
-        print("Web intent:", web_intent)
         print("Context length:", len(context))
         print("Sources retrieved:", len(sources))
         print("Collection count:", get_collection_count())
         print("Embedding provider: huggingface")
-        print("Transcripts excluded:", EXCLUDE_TRANSCRIPTS)
+        print("Transcript excluded:", EXCLUDE_TRANSCRIPT)
 
         history = get_history(req.session_id)
 
@@ -734,7 +558,6 @@ def chat(req: ChatRequest):
             context=context,
             history=history,
             sources=sources,
-            web_intent=web_intent,
         )
 
         def auto_link_file_paths(text: str) -> str:
@@ -755,26 +578,24 @@ def chat(req: ChatRequest):
 
         source_markdown = format_sources_markdown(sources)
 
-        if source_markdown and "### Sources" not in reply:
-            reply = f"{reply}\n\n{source_markdown}"
-
         update_history(req.session_id, user_message, reply)
 
         return {
             "reply": reply,
             "session_id": req.session_id,
-            "web_intent": web_intent,
             "embedding_provider": "huggingface",
-            "transcripts_excluded": EXCLUDE_TRANSCRIPTS,
+            "transcripts_excluded": EXCLUDE_TRANSCRIPT,
             "collection_count": get_collection_count(),
+            "sources": sources,
+            "source_markdown": source_markdown,
         }
 
     except requests.exceptions.ConnectionError as e:
         print("CONNECTION ERROR:", repr(e))
         return {
             "reply": (
-                "I could not connect to one of the model, embedding, or search services. "
-                "Check Hugging Face, Groq, and Tavily configuration in Render."
+                "I could not connect to one of the model or embedding services. "
+                "Check Hugging Face and Groq configuration in Render."
             ),
         }
 
@@ -808,15 +629,7 @@ def health_check():
         "max_context_chars": MAX_CONTEXT_CHARS,
         "retrieval_candidates": RETRIEVAL_CANDIDATES,
         "final_context_chunks": FINAL_CONTEXT_CHUNKS,
-        "enable_web_search": ENABLE_WEB_SEARCH,
-        "tavily_configured": bool(TAVILY_API_KEY),
-        "exclude_transcripts": EXCLUDE_TRANSCRIPTS,
-        "controlled_web_search": {
-            "course_search": True,
-            "github_repo_search": True,
-            "website_search": True,
-            "generic_web_search": False,
-        },
+        "exclude_transcript": EXCLUDE_TRANSCRIPT,
         "website_base_url": WEBSITE_BASE_URL,
         "github_username": GITHUB_USERNAME,
     }
