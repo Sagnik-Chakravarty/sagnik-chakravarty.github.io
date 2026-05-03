@@ -322,23 +322,26 @@
 
             strickland: {
                 section: "research",
-                title: "Survey Data Analyst",
+                title: "Senior Data Analyst · Legal Narrative Research",
                 org: "Strickland Law Firm",
                 date: "Dec 2024 – Feb 2025",
-                icon: "fa-scale-balanced",
-                tags: ["Sentiment Analysis", "Causal Inference", "Web Scraping", "Topic Modeling"],
+                icon: "fa-gavel",
+                tags: ["Sentiment Analysis", "Causal Inference", "Topic Modeling", "Multi-Platform Scraping", "LLM Pipeline"],
                 metrics: [
-                    ["2M+", "Public discourse data points"],
-                    ["3-person team", "Analysis lead"],
-                    ["LDA", "Topic modeling"],
-                    ["DAGs", "Causal framing"]
+                    ["2M+", "Multi-platform discourse points"],
+                    ["5 platforms", "Reddit, X, Instagram, Facebook, News"],
+                    ["LDA + Sentiment", "Narrative analysis"],
+                    ["Live dashboard", "Narrative Pulse system"]
                 ],
-                result: "Produced evidence of measurable public sentiment shifts linked to social media discourse and influencer-driven narratives.",
+                poster: "assets/poster/NarrativePulsePoster.png",
+                result: "Built Narrative Pulse: a live research system for measuring public sentiment and discourse patterns in legal cases. Delivered actionable intelligence on narrative evolution across social media and news.",
                 question: "Explain Sagnik’s Strickland Law Firm project. Include 2M+ data points, sentiment analysis, topic modeling, causal inference, and public narrative analysis.",
                 details: `
-                    <p>Led a team of three to analyze over 2 million data points from Reddit, X, Instagram, Facebook, news sources, and music platforms.</p>
-                    <p>Used Playwright for web scraping, NLTK/TextBlob for sentiment analysis, LDA for topic modeling, and DAG-based causal reasoning with R's dagitty package.</p>
-                    <p>Delivered analysis connecting discourse patterns with public sentiment shifts surrounding the YSL RICO Trial.</p>
+                    <p><strong>Lead data analyst</strong> for high-stakes legal narrative research analyzing discourse surrounding the YSL RICO Trial.</p>
+                    <p><strong>Data collection:</strong> Built Playwright web scraping pipeline to collect 2M+ data points from Reddit, X/Twitter, Instagram, Facebook, and news sources. Processed and cleaned data from 5 distinct platforms.</p>
+                    <p><strong>Analysis methods:</strong> Sentiment analysis using NLTK/TextBlob, topic modeling with LDA, temporal pattern extraction, and DAG-based causal reasoning (R dagitty). Measured sentiment shifts linked to key events and influencer-driven narratives.</p>
+                    <p><strong>Live system:</strong> Delivered Narrative Pulse (https://narrativepulse.streamlit.app/) — a live Streamlit dashboard enabling legal teams to query, visualize, and analyze discourse in real-time. Dashboard supports multi-platform filtering, sentiment tracking, temporal trends, and topic exploration.</p>
+                    <p><strong>Key insight:</strong> Public sentiment shifts correlate with identifiable discourse patterns and influencer narratives, providing measurable indicators for legal narrative strategy.</p>
                 `
             },
 
@@ -477,15 +480,18 @@
                 date: "2025 – Present",
                 title: "FrameScope: AI Metaphor and Framing Analysis",
                 meta: "LLMs · NLP · Computational Social Science · MASC ALL",
-                paper: "",
+                paper: "assets/papers/Framing AI (1).pdf",
+                slides: "assets/papers/FrameScope_Preliminary_Slides.pdf",
                 github: "https://github.com/Sagnik-Chakravarty/FrameScope",
                 website: "https://framescope.streamlit.app",
                 poster: "assets/poster/FramescopePoster.png",
                 metrics: [
-                    ["19", "AI metaphor categories"],
-                    ["Stance", "Favor / against / neutral labels"],
-                    ["Tone", "Discourse-level affect signal"],
-                    ["Live", "Streamlit dashboard"]
+                    ["19", "AI metaphor categories (tool, threat, force, etc.)"],
+                    ["5 sources", "Reddit, Bluesky, NYT, Washington Post, ProQuest"],
+                    ["2M+", "Posts and articles analyzed"],
+                    ["GPT-4 + Longformer", "Metaphor + stance detection models"],
+                    ["Hand-coded", "Sample for validation & accuracy testing"],
+                    ["Temporal", "Stance tracking over time with key event alignment"]
                 ],
                 summary: "A live LLM-assisted system for metaphor, stance, tone, and framing analysis in AI discourse.",
                 objective: "Build an interpretable pipeline for measuring how AI is framed in public discourse.",
@@ -1212,6 +1218,10 @@
                 ? `<a href="${project.paper}" target="_blank" class="paper-btn">Paper / Report</a>`
                 : "";
 
+            const slidesButton = project.slides
+                ? `<a href="${project.slides}" target="_blank" class="paper-btn secondary-paper-btn">Prelim Slides</a>`
+                : "";
+
             const githubButton = project.github
                 ? `<a href="${project.github}" target="_blank" class="paper-btn secondary-paper-btn">GitHub</a>`
                 : "";
@@ -1279,6 +1289,7 @@
 
                         <div class="project-buttons-v2">
                             ${paperButton}
+                            ${slidesButton}
                             ${githubButton}
                             ${websiteButton}
                             ${posterButton}

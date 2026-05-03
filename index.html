@@ -499,455 +499,222 @@
         const rotatingKpis = [
             [
                 {
-                    source: "FrameScope",
-                    value: "19",
-                    label: "AI metaphor categories used for LLM-assisted frame detection",
-                    actionLabel: "Open dashboard →",
-                    action: () => window.open("https://framescope.streamlit.app/reddit", "_blank")
+                    source: "EV Sentiment",
+                    value: "550,000+",
+                    label: "Reddit comments analyzed",
+                    actionLabel: "Open paper →",
+                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
                 },
                 {
-                    source: "FrameScope",
-                    value: "MASC ALL",
-                    label: "Current AI discourse / metaphor framing research track",
-                    actionLabel: "Open poster →",
-                    action: () => openHomePosterModal("assets/poster/FramescopePoster.png", "FrameScope Poster")
+                    source: "EV Sentiment",
+                    value: "F=28.43",
+                    label: "ANOVA test statistic (platform sentiment differences)",
+                    actionLabel: "Open paper →",
+                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
                 },
                 {
-                    source: "FrameScope",
-                    value: "Stance + Tone",
-                    label: "Pipeline combines metaphor, stance, tone, and framing outputs",
-                    actionLabel: "Open GitHub →",
-                    action: () => window.open("https://github.com/Sagnik-Chakravarty/FrameScope", "_blank")
+                    source: "EV Sentiment",
+                    value: "η²=.094",
+                    label: "Effect size (9.4% sentiment variance explained by platform)",
+                    actionLabel: "Open paper →",
+                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
                 },
                 {
-                    source: "FrameScope",
-                    value: "Dashboard",
-                    label: "Recruiter-visible live research system, not just a static paper",
-                    actionLabel: "Open app →",
-                    action: () => window.open("https://framescope.streamlit.app", "_blank")
+                    source: "EV Sentiment",
+                    value: "p<.001",
+                    label: "Platform differences statistically significant",
+                    actionLabel: "Open paper →",
+                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
                 }
             ],
             [
                 {
                     source: "ASHA Survey",
                     value: "15,000",
-                    label: "ASHA-certified SLPs selected through probability sampling",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                },
-                {
-                    source: "ASHA Survey",
-                    value: "14,496",
-                    label: "Eligible net sample after eligibility adjustment",
+                    label: "SLPs sampled via probability sampling",
                     actionLabel: "Open report →",
                     action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
                 },
                 {
                     source: "ASHA Survey",
                     value: "2,693",
-                    label: "Completed surveys in the 2025 SLP Health Care Survey",
+                    label: "Completed surveys collected",
+                    actionLabel: "Open report →",
+                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
+                },
+                {
+                    source: "ASHA Survey",
+                    value: "+1.26 pp",
+                    label: "Response rate gain from first postcard intervention",
                     actionLabel: "Open report →",
                     action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
                 },
                 {
                     source: "ASHA Survey",
                     value: "18.6%",
-                    label: "Unweighted response rate in the healthcare survey",
+                    label: "Unweighted response rate achieved",
                     actionLabel: "Open report →",
                     action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
                 }
             ],
             [
                 {
-                    source: "ASHA Postcards",
-                    value: "9,947",
-                    label: "Web-survey cases used in the postcard experiment",
+                    source: "Narrative Pulse",
+                    value: "165,565",
+                    label: "Public discourse records processed",
                     actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
+                    action: () => window.open("assets/papers/narrativepulse_thuggerdaily_trial_report.pdf", "_blank")
                 },
                 {
-                    source: "ASHA Postcards",
-                    value: "5,000",
-                    label: "Nonrespondents assigned to receive first postcard",
+                    source: "Narrative Pulse",
+                    value: "15.4B+",
+                    label: "Total engagement tracked across platforms",
                     actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
+                    action: () => window.open("assets/papers/narrativepulse_thuggerdaily_trial_report.pdf", "_blank")
                 },
                 {
-                    source: "ASHA Postcards",
-                    value: "4,947",
-                    label: "Nonrespondents assigned to no first postcard",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
+                    source: "Narrative Pulse",
+                    value: "773",
+                    label: "ThuggerDaily posts analyzed for temporal alignment",
+                    actionLabel: "View dashboard →",
+                    action: () => window.open("https://narrativepulse.streamlit.app/", "_blank")
                 },
                 {
-                    source: "ASHA Postcards",
-                    value: "2,500",
-                    label: "Nonrespondents re-selected for second postcard",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "ASHA Effects",
-                    value: "6.23%",
-                    label: "Pre-randomization response rate before postcard assignment",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                },
-                {
-                    source: "ASHA Effects",
-                    value: "13.5%",
-                    label: "Estimated response rate under no-postcard policy",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                },
-                {
-                    source: "ASHA Effects",
-                    value: "+1.26 pp",
-                    label: "Estimated response gain from first postcard",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                },
-                {
-                    source: "ASHA Effects",
-                    value: "+0.19 pp",
-                    label: "Second postcard added little incremental response gain",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "ASHA Inference",
-                    value: "2,000",
-                    label: "Stratified bootstrap resamples used for uncertainty estimation",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                },
-                {
-                    source: "ASHA Inference",
-                    value: "0.63 pp",
-                    label: "Bootstrap SE for first postcard vs. no postcard contrast",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                },
-                {
-                    source: "ASHA Inference",
-                    value: "0.62 pp",
-                    label: "Bootstrap SE for second postcard vs. one postcard contrast",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                },
-                {
-                    source: "ASHA Inference",
-                    value: "+1.44 pp",
-                    label: "Two-postcard policy gain over no-card policy",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "EV Sentiment",
-                    value: "550K+",
-                    label: "Reddit comments analyzed after post filtering",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Sentiment",
-                    value: "5.5K",
-                    label: "Reddit posts retained after sarcasm-control sentiment filtering",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Sentiment",
-                    value: "40",
-                    label: "Unique New York Times EV articles processed",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Sentiment",
-                    value: "222",
-                    label: "NYT article hits retrieved before deduplication",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "EV Results",
-                    value: "F=28.43",
-                    label: "ANOVA test statistic showing platform sentiment differences",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Results",
-                    value: "p<.001",
-                    label: "Platform sentiment differences were statistically significant",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Results",
-                    value: "η²=.094",
-                    label: "Platform source explained about 9.4% of sentiment variance",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Results",
-                    value: "549 df",
-                    label: "ANOVA denominator degrees of freedom for platform comparison",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "EV Business Insight",
-                    value: "M=-0.23",
-                    label: "NYT EV coverage showed negative average sentiment",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Business Insight",
-                    value: "M=-0.18",
-                    label: "Reddit EV discourse also skewed negative",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Business Insight",
-                    value: "M=0.34",
-                    label: "Groq LLM responses were much more positive than public/media data",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Business Insight",
-                    value: "LLM bias",
-                    label: "LLMs did not accurately reproduce Reddit or NYT sentiment distributions",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "Detroit Sampling",
-                    value: "1,000",
-                    label: "Target completed interviews across four age domains",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Sampling",
-                    value: "250/domain",
-                    label: "Target completed interviews per adult age group",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Sampling",
-                    value: "2,154",
-                    label: "Required selected sample after response-rate inflation",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Sampling",
-                    value: "36%",
-                    label: "Detroit transportation insecurity rate motivating the design",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "Detroit Design",
-                    value: "270",
-                    label: "Census tracts retained as primary sampling units",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Design",
-                    value: "612",
-                    label: "Block groups retained as secondary sampling units",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Design",
-                    value: "40",
-                    label: "Census-tract PSUs selected in Stage 1",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Design",
-                    value: "~54",
-                    label: "Average selected persons per sampled block group",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "Detroit Precision",
-                    value: "0.35",
-                    label: "Expected response rate for age 18–34 domain",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Precision",
-                    value: "0.65",
-                    label: "Expected response rate for age 65+ domain",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Precision",
-                    value: "0.39–0.42",
-                    label: "CV range of base weights within age groups",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Precision",
-                    value: "Self-weighting",
-                    label: "Design goal: approximately constant inclusion probability within domains",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
+                    source: "Narrative Pulse",
+                    value: "124,733",
+                    label: "Young Thug discourse records in corpus",
+                    actionLabel: "View dashboard →",
+                    action: () => window.open("https://narrativepulse.streamlit.app/", "_blank")
                 }
             ],
             [
                 {
                     source: "GNN Thesis",
                     value: "88%",
-                    label: "Precision@10 for personalized travel recommendation",
+                    label: "Precision@10 on travel recommendations",
                     actionLabel: "Open thesis →",
                     action: () => window.open("assets/papers/thesis.pdf", "_blank")
                 },
                 {
                     source: "GNN Thesis",
                     value: "83%",
-                    label: "Recall@10 for personalized travel recommendation",
+                    label: "Recall@10 on travel recommendations",
                     actionLabel: "Open thesis →",
                     action: () => window.open("assets/papers/thesis.pdf", "_blank")
                 },
                 {
                     source: "GNN Thesis",
-                    value: "50",
-                    label: "Key Goa destination nodes used in route modeling",
-                    actionLabel: "Open thesis →",
-                    action: () => window.open("assets/papers/thesis.pdf", "_blank")
-                },
-                {
-                    source: "GNN Thesis",
-                    value: "82 routes",
-                    label: "Reduced travel network used for optimized routing",
-                    actionLabel: "Open thesis →",
-                    action: () => window.open("assets/papers/thesis.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "GNN Business Impact",
                     value: "22%",
-                    label: "Fuel-consumption reduction from optimized travel plans",
-                    actionLabel: "Open resume →",
-                    action: () => window.open("assets/resume/Sagnik_Resume_Full.pdf", "_blank")
+                    label: "Fuel consumption reduction from optimization",
+                    actionLabel: "Open thesis →",
+                    action: () => window.open("assets/papers/thesis.pdf", "_blank")
                 },
                 {
-                    source: "GNN Business Impact",
+                    source: "GNN Thesis",
                     value: "18%",
-                    label: "Travel-time reduction from optimized routing",
-                    actionLabel: "Open resume →",
-                    action: () => window.open("assets/resume/Sagnik_Resume_Full.pdf", "_blank")
-                },
-                {
-                    source: "GNN Business Impact",
-                    value: "35%",
-                    label: "Reported customer-satisfaction increase from recommendation system",
-                    actionLabel: "Open resume →",
-                    action: () => window.open("assets/resume/Sagnik_Resume_Full.pdf", "_blank")
-                },
-                {
-                    source: "GNN Business Impact",
-                    value: "12%",
-                    label: "Reported company profit lift after deployment contribution",
-                    actionLabel: "Open resume →",
-                    action: () => window.open("assets/resume/Sagnik_Resume_Full.pdf", "_blank")
+                    label: "Travel time reduction from optimized routing",
+                    actionLabel: "Open thesis →",
+                    action: () => window.open("assets/papers/thesis.pdf", "_blank")
                 }
             ],
             [
                 {
                     source: "GTI / IISA",
-                    value: "200K+",
-                    label: "GTD terrorist incidents used for country-level modeling",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/GTD.pdf", "_blank")
-                },
-                {
-                    source: "GTI / IISA",
-                    value: "1970–2020",
-                    label: "Historical period covered by GTD event extraction",
+                    value: "200,000+",
+                    label: "Terrorist incidents modeled (1970-2020)",
                     actionLabel: "Open paper →",
                     action: () => window.open("assets/papers/GTD.pdf", "_blank")
                 },
                 {
                     source: "GTI / IISA",
                     value: "1,000",
-                    label: "News articles manually labeled for media framing",
+                    label: "News articles manually labeled for framing bias",
                     actionLabel: "Open paper →",
                     action: () => window.open("assets/papers/GTD.pdf", "_blank")
                 },
                 {
                     source: "GTI / IISA",
                     value: "5",
-                    label: "Framing labels: Terrorism, State Violence, Insurgency, Freedom Fighter, Neutral",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/GTD.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "GTI Model",
-                    value: "80/20",
-                    label: "Train-test split used for article-frame classifier",
+                    label: "Framing labels: Terrorism, State Violence, Insurgency, Fighter, Neutral",
                     actionLabel: "Open paper →",
                     action: () => window.open("assets/papers/GTD.pdf", "_blank")
                 },
                 {
-                    source: "GTI Model",
+                    source: "GTI / IISA",
                     value: "10-fold CV",
-                    label: "Cross-validation used for model assessment",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/GTD.pdf", "_blank")
-                },
-                {
-                    source: "GTI Model",
-                    value: "RF regression",
-                    label: "Random forest used to predict GTI-like score",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/GTD.pdf", "_blank")
-                },
-                {
-                    source: "GTI Insight",
-                    value: "Bias-aware",
-                    label: "Model identifies GTI inflation/suppression from event severity and framing mismatch",
+                    label: "Cross-validation for article-frame classifier",
                     actionLabel: "Open paper →",
                     action: () => window.open("assets/papers/GTD.pdf", "_blank")
                 }
             ],
             [
+                {
+                    source: "Football ML",
+                    value: "7,023",
+                    label: "Player-season observations modeled",
+                    actionLabel: "Open paper →",
+                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
+                },
+                {
+                    source: "Football ML",
+                    value: "2,159",
+                    label: "Unique players in cross-classified model",
+                    actionLabel: "Open paper →",
+                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
+                },
+                {
+                    source: "Football ML",
+                    value: "78%",
+                    label: "Player heterogeneity explains valuation variance",
+                    actionLabel: "Open paper →",
+                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
+                },
+                {
+                    source: "Football ML",
+                    value: "21",
+                    label: "Elite European clubs included in analysis",
+                    actionLabel: "Open paper →",
+                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
+                }
+            ],
+            [
+                {
+                    source: "Detroit Sampling",
+                    value: "1,000",
+                    label: "Target completed interviews across 4 age domains",
+                    actionLabel: "Open report →",
+                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
+                },
+                {
+                    source: "Detroit Sampling",
+                    value: "2,154",
+                    label: "Selected sample after response-rate inflation adjustment",
+                    actionLabel: "Open report →",
+                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
+                },
+                {
+                    source: "Detroit Sampling",
+                    value: "270",
+                    label: "Census tracts as primary sampling units",
+                    actionLabel: "Open report →",
+                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
+                },
+                {
+                    source: "Detroit Sampling",
+                    value: "0.35–0.65",
+                    label: "Expected response rates across age domains",
+                    actionLabel: "Open report →",
+                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
+                }
+            ],
+            [
+                {
+                    source: "Immigration",
+                    value: "r≈0.48",
+                    label: "Lagged correlation between narrative and enforcement signals",
+                    actionLabel: "Open paper →",
+                    action: () => window.open("assets/papers/Immigration.pdf", "_blank")
+                },
                 {
                     source: "Immigration",
                     value: "r≈0.32",
@@ -957,144 +724,17 @@
                 },
                 {
                     source: "Immigration",
-                    value: "r≈0.48",
-                    label: "Stronger lagged association between narrative and enforcement signals",
+                    value: "24+ months",
+                    label: "Time series span for narrative-enforcement analysis",
                     actionLabel: "Open paper →",
                     action: () => window.open("assets/papers/Immigration.pdf", "_blank")
                 },
                 {
                     source: "Immigration",
-                    value: "Monthly",
-                    label: "News, Reddit, CBP, and ICE aligned as monthly time series",
+                    value: "3",
+                    label: "Data sources aligned: News, Reddit, CBP/ICE signals",
                     actionLabel: "Open paper →",
                     action: () => window.open("assets/papers/Immigration.pdf", "_blank")
-                },
-                {
-                    source: "Immigration",
-                    value: "Business Insight",
-                    label: "Narrative signals are noisy measurements, not direct enforcement proxies",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Immigration.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "Football ML",
-                    value: "7,023",
-                    label: "Player-season observations modeled across elite clubs",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                },
-                {
-                    source: "Football ML",
-                    value: "2,159",
-                    label: "Unique players represented in cross-classified models",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                },
-                {
-                    source: "Football ML",
-                    value: "21",
-                    label: "Elite European clubs included",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                },
-                {
-                    source: "Football ML",
-                    value: "441",
-                    label: "Players transferred across clubs, motivating crossed random effects",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "Football Insight",
-                    value: "78%",
-                    label: "Player-level heterogeneity explained most valuation variance",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                },
-                {
-                    source: "Football Insight",
-                    value: "2013–2024",
-                    label: "Player valuation window modeled across seasons",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                },
-                {
-                    source: "Football Insight",
-                    value: "REML",
-                    label: "Mixed-effects estimation strategy for hierarchical valuation model",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                },
-                {
-                    source: "Football Insight",
-                    value: "Minutes",
-                    label: "Minutes played emerged as strongest positive market-value signal",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "PageRank/HITS",
-                    value: "23.3K+",
-                    label: "Citation-network nodes used for ranking comparison",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/PageRank_vs_HIts.pdf", "_blank")
-                },
-                {
-                    source: "PageRank/HITS",
-                    value: "28.1K",
-                    label: "Real citation network size reported for application stage",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/PageRank_vs_HIts.pdf", "_blank")
-                },
-                {
-                    source: "PageRank/HITS",
-                    value: "20",
-                    label: "Synthetic-node network used before real citation-network test",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/PageRank_vs_HIts.pdf", "_blank")
-                },
-                {
-                    source: "PageRank/HITS",
-                    value: "0.85",
-                    label: "PageRank damping factor used in implementation",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/PageRank_vs_HIts.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "Image Recognition",
-                    value: "60,000",
-                    label: "CIFAR-10 images across 10 classes",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Image_Recognition_Factorial_Design .pdf", "_blank")
-                },
-                {
-                    source: "Image Recognition",
-                    value: "50,000",
-                    label: "CIFAR-10 training images",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Image_Recognition_Factorial_Design .pdf", "_blank")
-                },
-                {
-                    source: "Image Recognition",
-                    value: "10,000",
-                    label: "CIFAR-10 test images",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Image_Recognition_Factorial_Design .pdf", "_blank")
-                },
-                {
-                    source: "Image Recognition",
-                    value: "10 classes",
-                    label: "Classification structure used for factorial design analysis",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Image_Recognition_Factorial_Design .pdf", "_blank")
                 }
             ]
         ];
@@ -1133,7 +773,27 @@
             }, 260);
         }
 
+        function initializeKpiCards() {
+            const group = rotatingKpis[currentKpiSet];
+            currentKpiActions = group.map(item => item.action);
+
+            group.forEach((item, index) => {
+                const n = index + 1;
+                const sourceEl = document.getElementById(`kpi-source-${n}`);
+                const valueEl = document.getElementById(`kpi-value-${n}`);
+                const labelEl = document.getElementById(`kpi-label-${n}`);
+                const actionEl = document.getElementById(`kpi-action-${n}`);
+
+                if (sourceEl) sourceEl.textContent = item.source;
+                if (valueEl) valueEl.textContent = item.value;
+                if (labelEl) labelEl.textContent = item.label;
+                if (actionEl) actionEl.textContent = item.actionLabel || "Open project →";
+            });
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
+            initializeKpiCards();
+
             for (let i = 1; i <= 4; i++) {
                 const card = document.getElementById(`kpi-card-${i}`);
 

@@ -767,10 +767,12 @@ nav ul li a.active {
 .metrics-heading span,
 .kpi-source {
   color: var(--eyebrow);
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.7px;
+  letter-spacing: 0.6px;
   font-weight: 900;
+  margin-bottom: 6px;
+  display: block;
 }
 
 .metrics-heading h3 {
@@ -790,8 +792,10 @@ nav ul li a.active {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 20px 18px;
-  min-height: 160px;
+  padding: 16px 14px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
   transition: opacity 0.25s ease, transform 0.25s ease;
   cursor: pointer;
   position: relative;
@@ -805,14 +809,22 @@ nav ul li a.active {
 .rotating-kpi-card h3 {
   color: var(--accent);
   font-size: 31px;
-  margin: 9px 0 6px;
-  line-height: 1;
+  margin: 4px 0 3px 0;
+  line-height: 1.1;
 }
 
 .rotating-kpi-card p {
   color: var(--muted);
   font-size: 13.5px;
-  line-height: 1.45;
+  line-height: 1.35;
+  margin: 0;
+  flex: 1;
+}
+
+.rotating-kpi-card .kpi-action {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 8px;
 }
 
 .home-proof-row,

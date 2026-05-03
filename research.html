@@ -168,22 +168,22 @@
                     <div class="research-metric-strip-v2">
                         <div>
                             <strong>19</strong>
-                            <span>AI metaphor categories</span>
+                            <span>Metaphor categories (tool, threat, force, etc.)</span>
                         </div>
 
                         <div>
-                            <strong>Stance</strong>
-                            <span>Favor / against / neutral labels</span>
+                            <strong>5 sources</strong>
+                            <span>Reddit, Bluesky, NYT, WaPo, ProQuest</span>
                         </div>
 
                         <div>
-                            <strong>Tone</strong>
-                            <span>Discourse-level affect signal</span>
+                            <strong>2M+</strong>
+                            <span>Posts and articles analyzed</span>
                         </div>
 
                         <div>
-                            <strong>Live</strong>
-                            <span>Streamlit dashboard</span>
+                            <strong>GPT-4 + Longformer</strong>
+                            <span>Best-performing detection models</span>
                         </div>
                     </div>
 
@@ -193,8 +193,9 @@
                     </div>
 
                     <div class="compact-link-row">
+                        <a href="assets/papers/Framing AI (1).pdf" target="_blank">Paper →</a>
+                        <a href="assets/papers/FrameScope_Preliminary_Slides.pdf" target="_blank">Prelim Slides →</a>
                         <a href="https://framescope.streamlit.app/reddit" target="_blank">Dashboard →</a>
-                        <a href="https://framescope.streamlit.app" target="_blank">Full App →</a>
                         <a href="https://github.com/Sagnik-Chakravarty/FrameScope" target="_blank">GitHub →</a>
                         <a href="#research-assistant" onclick="usePromptFromLink('Explain FrameScope. Include the research motivation, metaphor categories, LLM annotation pipeline, stance/tone analysis, dashboard, and why it demonstrates applied NLP skill.')">Ask SagnikGPT →</a>
                     </div>
@@ -205,6 +206,86 @@
                         src="assets/poster/FramescopePoster.png"
                         alt="FrameScope poster"
                         onclick="openPosterModal('assets/poster/FramescopePoster.png', 'FrameScope Poster')"
+                        onerror="this.style.display='none'"
+                    >
+                    <p>Click poster to enlarge</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NARRATIVE PULSE LIVE DEMO -->
+        <section class="research-section-v2">
+            <div class="home-section-heading split-heading">
+                <div>
+                    <p class="section-eyebrow">Live Research Systems</p>
+                    <h2>Narrative Pulse</h2>
+                    <p>
+                        Interactive discourse analysis and sentiment measurement for legal narrative research.
+                    </p>
+                </div>
+
+                <a href="https://narrativepulse.streamlit.app/" target="_blank" class="section-text-link">
+                    Open dashboard →
+                </a>
+            </div>
+
+            <div class="featured-research-card-v2">
+                <div class="featured-text-v2">
+                    <div class="featured-icon-row">
+                        <div class="featured-icon">
+                            <i class="fa-solid fa-gavel"></i>
+                        </div>
+
+                        <div>
+                            <span class="demo-label">Sentiment Analysis · Causal Inference · Legal Discourse</span>
+                            <h3>Narrative Pulse</h3>
+                        </div>
+                    </div>
+
+                    <p>
+                        A live system for analyzing public discourse, sentiment, and narrative patterns surrounding high-profile legal cases.
+                        Built for legal research teams to measure how narratives evolve across social media, news, and online discourse platforms.
+                    </p>
+
+                    <div class="research-metric-strip-v2">
+                        <div>
+                            <strong>2M+</strong>
+                            <span>Discourse data points</span>
+                        </div>
+
+                        <div>
+                            <strong>Multi-platform</strong>
+                            <span>Reddit, X, Instagram, Facebook, News</span>
+                        </div>
+
+                        <div>
+                            <strong>Sentiment Tracking</strong>
+                            <span>Temporal trends and shifts</span>
+                        </div>
+
+                        <div>
+                            <strong>Live</strong>
+                            <span>Streamlit dashboard</span>
+                        </div>
+                    </div>
+
+                    <div class="research-result-box-v2">
+                        <strong>Research output:</strong>
+                        A live dashboard enabling legal research teams to query, visualize, and analyze discourse patterns with sentiment and causal inference metrics.
+                    </div>
+
+                    <div class="compact-link-row">
+                        <a href="https://narrativepulse.streamlit.app/" target="_blank">Dashboard →</a>
+                        <a href="assets/papers/narrativepulse_thuggerdaily_trial_report.pdf" target="_blank">Report →</a>
+                        <a href="#research-assistant" onclick="usePromptFromLink('Explain Narrative Pulse. Include the dashboard, 2M+ data points, multi-platform analysis, sentiment tracking, causal inference, and legal narrative research applications.')">Ask SagnikGPT →</a>
+                    </div>
+                </div>
+
+                <div class="featured-poster-v2">
+                    <img
+                        src="assets/poster/NarrativePulsePoster.png"
+                        alt="Narrative Pulse poster"
+                        onclick="openPosterModal('assets/poster/NarrativePulsePoster.png', 'Narrative Pulse Poster')"
                         onerror="this.style.display='none'"
                     >
                     <p>Click poster to enlarge</p>
@@ -438,11 +519,49 @@
 
                 <article>
                     <div class="project-card-top-v2">
-                        <div class="project-icon-v2"><i class="fa-solid fa-envelope-open-text"></i></div>
-                        <span>Survey Methodology</span>
+                        <div class="project-icon-v2"><i class="fa-solid fa-gavel"></i></div>
+                        <span>Legal Analytics</span>
                     </div>
 
-                    <h3>ASHA Survey Methods Project</h3>
+                    <h3>Narrative Pulse: Legal Discourse Analytics</h3>
+                    <p>
+                        Interactive system for analyzing public sentiment and narrative patterns in legal cases using multi-platform discourse data.
+                    </p>
+
+                    <div class="project-metrics-mini-v2">
+                        <div><strong>2M+</strong><span>Data points analyzed</span></div>
+                        <div><strong>5 platforms</strong><span>Multi-source tracking</span></div>
+                    </div>
+
+                    <div class="compact-link-row">
+                        <a href="https://narrativepulse.streamlit.app/" target="_blank">Dashboard →</a>
+                        <a href="assets/papers/narrativepulse_thuggerdaily_trial_report.pdf" target="_blank">Report →</a>
+                        <a href="#research-assistant" onclick="usePromptFromLink('Explain Narrative Pulse. Include 2M+ discourse data points, multi-platform analysis (Reddit, X, Instagram, Facebook, news), sentiment tracking, causal inference, and legal narrative measurement.')">Ask →</a>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="project-card-top-v2">
+                        <div class="project-icon-v2"><i class="fa-solid fa-chart-line"></i></div>
+                        <span>LLMs · NLP · CSS</span>
+                    </div>
+
+                    <h3>FrameScope</h3>
+                    <p>
+                        LLM-assisted metaphor and framing analysis of AI discourse using Reddit, news,
+                        and interactive dashboard infrastructure.
+                    </p>
+
+                    <div class="project-metrics-mini-v2">
+                        <div><strong>19</strong><span>Metaphor categories</span></div>
+                        <div><strong>Live</strong><span>Streamlit dashboard</span></div>
+                    </div>
+
+                    <div class="compact-link-row">
+                        <a href="https://framescope.streamlit.app/reddit" target="_blank">Dashboard →</a>
+                        <a href="https://github.com/Sagnik-Chakravarty/FrameScope" target="_blank">GitHub →</a>
+                    </div>
+                </article>
                     <p>
                         Evaluated postcard reminders and survey-mode effects for ASHA survey response improvement.
                     </p>
