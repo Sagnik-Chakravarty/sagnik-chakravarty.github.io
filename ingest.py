@@ -606,6 +606,6 @@ def ingest():
 
     print(f"Done. Ingested {total_chunks} chunks into ChromaDB.")
 
-
+## Main entry point for script execution
 if __name__ == "__main__":
     ingest()
