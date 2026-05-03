@@ -333,6 +333,8 @@
                     ["LDA + Sentiment", "Narrative analysis"],
                     ["Live dashboard", "Narrative Pulse system"]
                 ],
+                paper: "assets/papers/narrativepulse_thuggerdaily_trial_report.pdf",
+                website: "https://narrativepulse.streamlit.app/",
                 poster: "assets/poster/NarrativePulsePoster.png",
                 result: "Built Narrative Pulse: a live research system for measuring public sentiment and discourse patterns in legal cases. Delivered actionable intelligence on narrative evolution across social media and news.",
                 question: "Explain Sagnik’s Strickland Law Firm project. Include 2M+ data points, sentiment analysis, topic modeling, causal inference, and public narrative analysis.",
@@ -340,7 +342,7 @@
                     <p><strong>Lead data analyst</strong> for high-stakes legal narrative research analyzing discourse surrounding the YSL RICO Trial.</p>
                     <p><strong>Data collection:</strong> Built Playwright web scraping pipeline to collect 2M+ data points from Reddit, X/Twitter, Instagram, Facebook, and news sources. Processed and cleaned data from 5 distinct platforms.</p>
                     <p><strong>Analysis methods:</strong> Sentiment analysis using NLTK/TextBlob, topic modeling with LDA, temporal pattern extraction, and DAG-based causal reasoning (R dagitty). Measured sentiment shifts linked to key events and influencer-driven narratives.</p>
-                    <p><strong>Live system:</strong> Delivered Narrative Pulse (https://narrativepulse.streamlit.app/) — a live Streamlit dashboard enabling legal teams to query, visualize, and analyze discourse in real-time. Dashboard supports multi-platform filtering, sentiment tracking, temporal trends, and topic exploration.</p>
+                    <p><strong>Live system:</strong> Delivered Narrative Pulse (<a href="https://narrativepulse.streamlit.app/" target="_blank">https://narrativepulse.streamlit.app/</a>) — a live Streamlit dashboard enabling legal teams to query, visualize, and analyze discourse in real-time. Dashboard supports multi-platform filtering, sentiment tracking, temporal trends, and topic exploration.</p>
                     <p><strong>Key insight:</strong> Public sentiment shifts correlate with identifiable discourse patterns and influencer narratives, providing measurable indicators for legal narrative strategy.</p>
                 `
             },
@@ -1110,6 +1112,18 @@
             const item = experienceData[id];
             const content = document.getElementById("resume-content");
 
+            const paperButton = item.paper
+                ? `<a href="${item.paper}" target="_blank" class="paper-btn">Paper / Report</a>`
+                : "";
+
+            const websiteButton = item.website
+                ? `<a href="${item.website}" target="_blank" class="paper-btn secondary-paper-btn">Dashboard</a>`
+                : "";
+
+            const posterButton = item.poster
+                ? `<button class="paper-btn secondary-paper-btn" onclick="openPosterModal('${item.poster}', '${item.org}')">Poster</button>`
+                : "";
+
             content.innerHTML = `
                 <button class="back-btn-v2" onclick="renderExperienceTimeline('${item.section}', '${sectionTitle(item.section)}')">← Back</button>
 
@@ -1141,6 +1155,9 @@
                 </div>
 
                 <div class="project-buttons-v2">
+                    ${paperButton}
+                    ${websiteButton}
+                    ${posterButton}
                     <button class="paper-btn secondary-paper-btn" onclick="askSagnikGPT('${item.question}')">
                         Ask SagnikGPT about this role
                     </button>

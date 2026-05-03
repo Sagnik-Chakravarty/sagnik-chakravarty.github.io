@@ -1998,6 +1998,10 @@ body:has(#resume-page-v2) .floating-assistant-cta {
   flex-direction: column;
 }
 
+.selected-project-grid-v2 .compact-link-row {
+  margin-top: 0;
+}
+
 .project-metrics-mini-v2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: auto;
