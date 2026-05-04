@@ -4,7 +4,7 @@ id: gard
 section: research
 title: Research Assistant
 org: Gard Lab, University of Maryland
-date: "Feb 2025 - Sept 2025"
+date: 2025-09-01
 icon: fa-flask
 tags: PsychoPy, Behavioral Data, R, Experiment Pipelines
 metrics: PsychoPy|Stimulus workflow automation; R|ANOVA, t-tests, regression; Dashboard|Participant results workflow; Behavioral Data|Survey + task integration

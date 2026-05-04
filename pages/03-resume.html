@@ -130,10 +130,23 @@
         </a>
     </section>
 
+    <footer id="footer" class="site-footer" aria-label="Page footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-meta">
+                <p>Scroll past the top or bottom edges to move between pages.</p>
+                <p><a href="pages/04-research.html">Research</a> · <a href="pages/04-publications.html">Publications</a> · <a href="pages/05-contact.html">Contact</a></p>
+            </div>
+        </div>
+    </footer>
+
     <a href="pages/04-publications.html#research-assistant" class="floating-assistant-cta">
         Ask SagnikGPT
     </a>
 
+    <script src="assets/js/modules/core.js?v=8"></script>
+    <script>
+        window.SagnikApp?.initCommon?.();
+    </script>
     <script>
         function toggleMenu() {
             document.getElementById("nav-menu").classList.toggle("show-menu");

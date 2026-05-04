@@ -4,7 +4,7 @@ id: agitech
 section: industry
 title: Data Analyst Intern
 org: Agitechavids Pvt Ltd
-date: "June 2019 - July 2019"
+date: 2019-07-01
 icon: fa-cart-shopping
 tags: Recommendation Systems, A/B Testing, XGBoost, Collaborative Filtering
 metrics: KNN|Similarity-based recommender; XGBoost|Predictive modeling; A/B Testing|Recommendation evaluation; Retail|Grocery personalization

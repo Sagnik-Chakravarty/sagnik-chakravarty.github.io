@@ -4,7 +4,7 @@ id: clarkson
 section: research
 title: Research Data Science Intern
 org: Clarkson University
-date: "Sept 2023 - Jan 2024"
+date: 2024-01-01
 icon: fa-bacteria
 tags: Microbiome, Autoencoders, DBSCAN, t-SNE
 metrics: Autoencoders|Normalization; t-SNE|Low-dimensional embeddings; DBSCAN|Unsupervised clustering; Microbiome|Rare strain detection

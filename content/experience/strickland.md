@@ -4,7 +4,7 @@ id: strickland
 section: research
 title: "Senior Data Analyst - Legal Narrative Research"
 org: Strickland Law Firm
-date: "Dec 2024 - Feb 2025"
+date: 2025-02-01
 icon: fa-gavel
 tags: Sentiment Analysis, Causal Inference, Topic Modeling, Multi-Platform Scraping, LLM Pipeline
 metrics: 2M+|Multi-platform discourse points; 5 platforms|Reddit, X, Instagram, Facebook, News; LDA + Sentiment|Narrative analysis; Live dashboard|Narrative Pulse system

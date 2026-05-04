@@ -4,7 +4,7 @@ id: wondervogel
 section: industry
 title: Data Analyst Intern
 org: Wondervogel Pvt Ltd
-date: "Jan 2024 - Apr 2024"
+date: 2024-04-01
 icon: fa-route
 tags: GNN, OSMnx, NetworkX, Travel Recommendation, PSO
 metrics: 88%|Precision@10; 83%|Recall@10; 22%|Fuel-consumption reduction; 18%|Travel-time reduction

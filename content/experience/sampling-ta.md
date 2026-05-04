@@ -4,7 +4,7 @@ id: sampling_ta
 section: teaching
 title: Teaching Assistant, Sampling I
 org: JPSM, University of Maryland
-date: "Sept 2025 - Nov 2025"
+date: 2025-11-01
 icon: fa-chalkboard-user
 tags: Sampling, Survey Weights, Variance Estimation, Design-Based Inference
 metrics: PSUs|Cluster sampling support; Weights|Design/nonresponse adjustment; Variance|Taylor + replication intuition; Inference|Design-based reasoning

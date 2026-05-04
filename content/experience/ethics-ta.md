@@ -4,7 +4,7 @@ id: ethics_ta
 section: teaching
 title: Teaching Assistant, Ethical Considerations for Data Science Research
 org: JPSM, University of Maryland
-date: "Sept 2025"
+date: 2025-09-01
 icon: fa-shield-halved
 tags: Research Ethics, Privacy, Responsible AI, Bias
 metrics: Privacy|Data governance; Bias|Responsible AI; Consent|Ethical research design; Feedback|Case analysis grading

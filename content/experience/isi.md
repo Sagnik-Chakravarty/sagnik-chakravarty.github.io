@@ -4,7 +4,7 @@ id: isi
 section: research
 title: Data Science Research Intern
 org: Indian Statistical Institute, Kolkata
-date: "May 2023 - June 2024"
+date: 2024-06-01
 icon: fa-brain
 tags: GCN, fMRI, LSTM, GRU, Computer Vision
 metrics: GCN|fMRI disease detection; LSTM/GRU|Neural behavior modeling; ConvLSTM|Video sequence analysis; FlowNet2|Optical-flow preprocessing
