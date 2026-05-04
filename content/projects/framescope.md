@@ -1,7 +1,7 @@
 ---
 type: project
 id: framescope
-date: "2025 - Present"
+date_range: "2025 - Present"
 title: "FrameScope: AI Metaphor and Framing Analysis"
 meta: "LLMs | NLP | Computational Social Science | MASC ALL"
 paper: assets/papers/Framing AI (1).pdf

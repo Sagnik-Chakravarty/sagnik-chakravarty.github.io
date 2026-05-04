@@ -1,10 +1,11 @@
 ---
+title: Research Assistant
 type: experience
 id: umd_ra
 section: research
 title: Research Assistant
 org: University of Maryland, College Park
-date: "Sept 2025 - Present"
+date_range: "Sept 2025 - Present"
 icon: fa-comments
 tags: NLP, LLMs, Survey Experiments, AI Discourse
 metrics: AI Discourse|Reddit, news, Bluesky, YouTube; LLM|Metaphor + stance annotation; Survey Experiments|Framing and public attitudes; Output|Dashboard + conference pipeline
