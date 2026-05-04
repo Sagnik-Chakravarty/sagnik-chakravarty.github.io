@@ -1,0 +1,7 @@
+title,icon,description
+Programming,fa-code,"Python, R, JavaScript, SQL"
+Machine Learning,fa-brain,"PyTorch, TensorFlow, Scikit-learn, Hugging Face"
+NLP,fa-comments,"Sentiment, stance, framing, LLM annotation"
+Survey Methods,fa-square-poll-vertical,"Sampling, TSE, nonresponse, measurement error"
+Data Tools,fa-database,"Pandas, dplyr, DuckDB, SQLite"
+Visualization,fa-chart-simple,"ggplot2, Tableau, Power BI, Streamlit"

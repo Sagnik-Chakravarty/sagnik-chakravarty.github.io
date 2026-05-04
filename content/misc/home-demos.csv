@@ -1,0 +1,3 @@
+title,label,icon,previewClass,cardClass,description,links
+FrameScope,Current Research,fa-chart-line,framescope-preview,framescope-demo-card,"Live AI discourse analysis for metaphor, framing, stance, and tone.","Open Dashboard|https://framescope.streamlit.app/reddit; Ask SagnikGPT|#focus-sagnikgpt"
+SagnikGPT,Portfolio Assistant,fa-message,gpt-preview,gpt-demo-card,"Retrieval-augmented assistant for my research, projects, methods, and experience.","Ask SagnikGPT|#focus-sagnikgpt; Open Live Demo|pages/04-publications.html#research-assistant"

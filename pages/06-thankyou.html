@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="../">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
 
     <meta name="description" content="Thank you for contacting Sagnik Chakravarty.">
 
-    <link rel="stylesheet" href="style.css?v=50">
+    <link rel="stylesheet" href="style.css?v=65">
     <link rel="preload" href="style.css" as="style">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
@@ -26,16 +27,17 @@
                 Sagnik Chakravarty
             </a>
 
-            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+            <button class="hamburger" data-nav-toggle aria-label="Toggle navigation menu">
                 ☰
             </button>
 
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="pages/02-about.html">About</a></li>
+                <li><a href="pages/03-resume.html">Resume</a></li>
+                <li><a href="pages/04-publications.html">Publications</a></li>
+                <li><a href="pages/04-research.html">Research</a></li>
+                <li><a href="pages/05-contact.html">Contact</a></li>
             </ul>
         </nav>
     </div>
@@ -67,7 +69,7 @@
                     </div>
                 </a>
 
-                <a href="research.html" class="thankyou-action-card-v2">
+                <a href="pages/04-research.html" class="thankyou-action-card-v2">
                     <i class="fa-solid fa-microscope"></i>
                     <div>
                         <span>Explore</span>
@@ -75,7 +77,7 @@
                     </div>
                 </a>
 
-                <a href="resume.html" class="thankyou-action-card-v2">
+                <a href="pages/03-resume.html" class="thankyou-action-card-v2">
                     <i class="fa-solid fa-file-lines"></i>
                     <div>
                         <span>Profile</span>
@@ -83,7 +85,7 @@
                     </div>
                 </a>
 
-                <a href="research.html#research-assistant" class="thankyou-action-card-v2">
+                <a href="pages/04-publications.html#research-assistant" class="thankyou-action-card-v2">
                     <i class="fa-solid fa-message"></i>
                     <div>
                         <span>Assistant</span>
@@ -119,15 +121,14 @@
     </section>
 
 
-    <a href="research.html#research-assistant" class="floating-assistant-cta">
+    <a href="pages/04-publications.html#research-assistant" class="floating-assistant-cta">
         Ask SagnikGPT
     </a>
 
-    <script>
-        function toggleMenu() {
-            document.getElementById("nav-menu").classList.toggle("show-menu");
-        }
-    </script>
+    <script src="assets/js/content-data.js"></script>
+    <script src="assets/js/content-loader.js"></script>
+    <script src="assets/js/modules/core.js?v=8"></script>
+    <script src="assets/js/pages/thankyou.js"></script>
 
 </body>
 </html>

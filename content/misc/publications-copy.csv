@@ -1,0 +1,14 @@
+key,value
+heroEyebrow,Publications & Live Demos
+heroTitle,Conference outputs, live research systems, and talks.
+heroLead,"A focused view of conference papers, posters, live demos, and talks drawn from the same project records that power the resume and research pages."
+heroCardLabel,Page Sections
+publicationEyebrow,Publications & Presentations
+publicationTitle,Conference papers and research outputs
+publicationLead,"Projects marked as publications in project Markdown appear here automatically, including EV at AAPOR 2025, FrameScope at MASC ALL 2026, GTI at IISA 2025, and the NCSET 2024 Best Paper Award for Topological Data Analysis."
+demosEyebrow,Live Demos
+demosTitle,Interactive research systems
+demosLead,"Live Streamlit systems and research dashboards moved into one page so demos are easier to find and maintain."
+talksEyebrow,Talks
+talksTitle,Conference talks and presentations
+talksLead,"Talk entries are managed from a simple CSV and can point back to the project, paper, poster, or dashboard."

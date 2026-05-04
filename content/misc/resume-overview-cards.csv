@@ -1,0 +1,5 @@
+section,title,icon,description,actionLabel
+education,Education,fa-graduation-cap,"UMD JPSM, VIT Data Science, Amity Statistics, and full clickable coursework.",Open education
+experience,Experience,fa-briefcase,"Research, teaching, and industry experience in survey methods, NLP, ML, and data pipelines.",Open experience
+projects,Projects,fa-diagram-project,"Papers, posters, reports, metrics, results, GitHub links, and SagnikGPT prompts.",Open projects
+skills,Skills,fa-toolbox,"Skills organized by evidence: survey methods, NLP/LLMs, ML, data engineering, and CSS.",Open skills

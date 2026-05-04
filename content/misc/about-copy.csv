@@ -1,0 +1,21 @@
+key,value
+heroImage,images/Sagnikabout.jpeg
+heroEyebrow,About Me
+heroTitle,"I study how data is generated, measured, and modeled."
+heroLead,"I am a graduate student in the Joint Program in Survey Methodology at the University of Maryland, College Park. My work sits at the intersection of survey methodology, machine learning, NLP, LLM-assisted annotation, and computational social science."
+imageCaptionLabel,Current Focus
+imageCaptionText,"Survey Methodology x NLP x LLM-assisted Social Data Analysis"
+narrativeEyebrow,Research Identity
+narrativeTitle,From statistics to data science to survey methodology
+narrativeP1,"My academic path began in statistics, moved through applied data science, and now centers on survey methodology and data-centric AI. Across these stages, the core question has stayed the same: how do we make reliable inferences from imperfect, human-generated data?"
+narrativeP2,"At UMD, I work as a research assistant in the CLIP/CATS research environment with Julia Mendelsohn, studying how people talk about artificial intelligence using computational text methods. This includes metaphor detection, framing analysis, stance classification, and LLM-assisted annotation."
+narrativeP3,"I am especially interested in the idea that many machine learning failures are not simply model failures. They are often failures to understand data generation, measurement error, coverage, nonresponse, sampling, and uncertainty."
+currentWorkEyebrow,Current Work
+currentWorkTitle,Projects I am actively building around
+currentWorkLead,"These projects summarize the direction of my current research profile: AI discourse, survey response behavior, and measurement-aware machine learning."
+backgroundEyebrow,Background
+backgroundTitle,"Skills, education, and experience"
+backgroundLead,A compact overview of the technical and methodological background behind my research work.
+philosophyEyebrow,Research Philosophy
+philosophyTitle,Better models require better understanding of data generation.
+philosophyLead,"I want to build methods and systems that do not treat data as a fixed input. Instead, my work asks how measurement, coverage, sampling, nonresponse, missingness, annotation, and human behavior shape the data before any model sees it."

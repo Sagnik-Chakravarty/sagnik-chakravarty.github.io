@@ -14,7 +14,7 @@
     <title>Sagnik Chakravarty</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="style.css?v=50">
+    <link rel="stylesheet" href="style.css?v=65">
     <link rel="preload" href="style.css" as="style">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
@@ -32,16 +32,17 @@
                 Sagnik Chakravarty
             </a>
 
-            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+            <button class="hamburger" data-nav-toggle aria-label="Toggle navigation menu">
                 ☰
             </button>
 
             <ul id="nav-menu">
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="pages/02-about.html">About</a></li>
+                <li><a href="pages/03-resume.html">Resume</a></li>
+                <li><a href="pages/04-publications.html">Publications</a></li>
+                <li><a href="pages/04-research.html">Research</a></li>
+                <li><a href="pages/05-contact.html">Contact</a></li>
             </ul>
         </nav>
     </div>
@@ -51,27 +52,20 @@
         <div class="header-row roomy-header-row">
 
             <div id="header-text">
-                <p class="hero-kicker">Graduate Student | University of Maryland, College Park</p>
+                <p class="hero-kicker" data-home-hero="kicker"></p>
 
-                <h1>
-                    Hi, I'm <span>Sagnik</span><br>
-                    Chakravarty
-                </h1>
+                <h1 id="home-hero-name"></h1>
 
-                <h3 class="hero-small-title">Graduate student in,</h3>
+                <h3 class="hero-small-title" data-home-hero="rotatingPrefix"></h3>
 
                 <h2 class="rotating-domain">
-                    <span id="domain-text">Survey and Data Science</span>
+                    <span id="domain-text"></span>
                 </h2>
 
-                <p class="hero-subtitle">
-                    I build LLM-assisted systems for measuring public discourse, framing, sentiment,
-                    survey response behavior, and data quality across social media, news, surveys,
-                    and administrative records.
-                </p>
+                <p class="hero-subtitle" data-home-hero="subtitle"></p>
 
                 <div class="hero-buttons">
-                    <a href="research.html" class="paper-btn">
+                    <a href="pages/04-research.html" class="paper-btn">
                         <i class="fa-solid fa-folder-open"></i>
                         View Research
                     </a>
@@ -86,29 +80,28 @@
                     <input
                         type="text"
                         id="hero-search-input"
-                        placeholder="SagnikGPT - Ask about my research, experience, or projects"
-                        onkeydown="handleHeroSearch(event)"
+                        placeholder=""
                     >
-                    <button onclick="submitHeroSearch()">Ask</button>
+                    <button id="hero-search-button">Ask</button>
                 </div>
 
                 <div class="hero-keyword-funnel">
-                    <button onclick="searchFromChip('What is Sagnik’s experience and education with survey methods?')">
+                    <button data-search-chip="What is Sagnik’s experience and education with survey methods?">
                         <i class="fa-solid fa-clipboard-list"></i>
                         Survey Methods
                     </button>
 
-                    <button onclick="searchFromChip('What is Sagnik’s experience and education with LLMs?')">
+                    <button data-search-chip="What is Sagnik’s experience and education with LLMs?">
                         <i class="fa-solid fa-brain"></i>
                         LLMs
                     </button>
 
-                    <button onclick="searchFromChip('What is Sagnik’s experience and education with NLP?')">
+                    <button data-search-chip="What is Sagnik’s experience and education with NLP?">
                         <i class="fa-solid fa-comments"></i>
                         NLP
                     </button>
 
-                    <button onclick="searchFromChip('What is Sagnik’s experience and education with computational social science?')">
+                    <button data-search-chip="What is Sagnik’s experience and education with computational social science?">
                         <i class="fa-solid fa-users-viewfinder"></i>
                         Comp Social Science
                     </button>
@@ -131,257 +124,34 @@
                 <div>
                     <p class="section-eyebrow">Research Interests</p>
                     <h2>Research Areas</h2>
-                    <p>
-                        The core areas connecting my survey methodology, machine learning,
-                        NLP, and computational social science work.
-                    </p>
+                    <p>The core areas connecting my survey methodology, machine learning, NLP, and computational social science work.</p>
                 </div>
 
-                <a href="research.html" class="section-text-link">View full research profile →</a>
+                <a href="pages/04-research.html" class="section-text-link">View full research profile →</a>
             </div>
 
-            <div class="research-area-grid improved-area-grid">
-
-                <article class="research-area-card improved-area-card"
-                    onclick="askSagnikGPT('Explain Sagnik’s survey methodology experience. Include coursework, ASHA, Detroit sampling, applied sampling, response-rate analysis, and design-based inference.')">
-                    <div class="area-icon-block survey-area">
-                        <i class="fa-solid fa-square-poll-vertical"></i>
-                    </div>
-                    <div>
-                        <h3>Survey Methodology</h3>
-                        <p>Sampling, measurement, nonresponse, weighting, survey design, and inference.</p>
-                        <span class="card-action-link">Ask SagnikGPT about this →</span>
-                    </div>
-                </article>
-
-                <article class="research-area-card improved-area-card"
-                    onclick="askSagnikGPT('Explain Sagnik’s NLP and framing experience. Include FrameScope, metaphor detection, stance classification, Reddit/news discourse, EV sentiment, and LLM annotation.')">
-                    <div class="area-icon-block nlp-area">
-                        <i class="fa-solid fa-comments"></i>
-                    </div>
-                    <div>
-                        <h3>NLP & Framing</h3>
-                        <p>Metaphor detection, stance, sentiment, public discourse, and LLM annotation.</p>
-                        <span class="card-action-link">Ask SagnikGPT about this →</span>
-                    </div>
-                </article>
-
-                <article class="research-area-card improved-area-card"
-                    onclick="askSagnikGPT('Explain Sagnik’s data-centric machine learning experience. Include preprocessing, representation learning, graph learning, model evaluation, uncertainty, and projects from ISI, GTI, thesis, and Moneyball.')">
-                    <div class="area-icon-block ml-area">
-                        <i class="fa-solid fa-database"></i>
-                    </div>
-                    <div>
-                        <h3>Data-Centric ML</h3>
-                        <p>Representation learning, preprocessing, uncertainty, and robust predictive modeling.</p>
-                        <span class="card-action-link">Ask SagnikGPT about this →</span>
-                    </div>
-                </article>
-
-                <article class="research-area-card improved-area-card"
-                    onclick="askSagnikGPT('Explain Sagnik’s computational social science and public opinion experience. Include immigration narratives, EV sentiment, AI discourse, Reddit/news data, and survey experiments.')">
-                    <div class="area-icon-block social-area">
-                        <i class="fa-solid fa-people-group"></i>
-                    </div>
-                    <div>
-                        <h3>Public Opinion & Social Data</h3>
-                        <p>Social media, news, narrative measurement, policy discourse, and attitudes.</p>
-                        <span class="card-action-link">Ask SagnikGPT about this →</span>
-                    </div>
-                </article>
-
-            </div>
+            <div class="research-area-grid improved-area-grid" id="home-research-areas"></div>
         </div>
 
         <!-- LIVE DEMOS + METRICS -->
         <div class="home-demo-metrics-section roomy-demo-metrics">
-
-            <!-- LEFT COLUMN -->
             <div class="home-demo-column compact-demo-column">
-
-                <!-- TOP ROW: DEMO CARDS -->
-                <div class="demo-top-row">
-
-                    <article class="compact-demo-card framescope-demo-card visual-demo-card">
-                        <div class="demo-visual-preview framescope-preview">
-                            <div class="preview-overlay">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </div>
-                        </div>
-
-                        <div class="compact-demo-content">
-                            <span class="demo-label">Live Demo</span>
-                            <h3>FrameScope</h3>
-                            <p>
-                                AI metaphor, stance, and framing dashboard across Reddit and news discourse.
-                            </p>
-
-                            <div class="compact-link-row">
-                                <a href="https://framescope.streamlit.app/reddit" target="_blank">
-                                    Dashboard →
-                                </a>
-                                <a href="https://github.com/Sagnik-Chakravarty/FrameScope" target="_blank">
-                                    GitHub →
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="compact-demo-card gpt-demo-card visual-demo-card">
-                        <div class="demo-visual-preview gpt-preview">
-                            <div class="preview-overlay">
-                                <i class="fa-solid fa-message"></i>
-                            </div>
-                        </div>
-
-                        <div class="compact-demo-content">
-                            <span class="demo-label">Portfolio Assistant</span>
-                            <h3>SagnikGPT</h3>
-                            <p>
-                                Retrieval-augmented assistant for my research, projects, methods, and experience.
-                            </p>
-
-                            <div class="compact-link-row">
-                                <a href="#" onclick="focusSagnikGPT(); return false;">Ask SagnikGPT →</a>
-                                <a href="research.html#assistant-architecture">How it Works →</a>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-
-                <!-- SECOND ROW: SKILLS -->
-                <div class="skill-showcase-row improved-skill-row">
-
-                    <article class="skill-showcase-card"
-                        onclick="askSagnikGPT('How is Sagnik capable in survey methods? Explain with specific evidence from coursework, ASHA, Detroit sampling, Michigan sampling, weighting, response rates, and design-based inference.')">
-                        <div class="skill-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-                        <span>01</span>
-                        <h4>Survey Methods</h4>
-                        <p>Sampling, weighting, response rates, TSE, and design-based inference.</p>
-                        <em>Explore evidence →</em>
-                    </article>
-
-                    <article class="skill-showcase-card"
-                        onclick="askSagnikGPT('How is Sagnik capable in LLM and NLP systems? Explain with evidence from FrameScope, EV sentiment, stance classification, metaphor detection, and retrieval-augmented SagnikGPT.')">
-                        <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
-                        <span>02</span>
-                        <h4>LLM/NLP Systems</h4>
-                        <p>Metaphor detection, stance, sentiment, annotation, and framing pipelines.</p>
-                        <em>Explore evidence →</em>
-                    </article>
-
-                    <article class="skill-showcase-card"
-                        onclick="askSagnikGPT('How is Sagnik capable in data engineering? Explain with evidence from Python, R, SQL, APIs, scraping, dashboards, Streamlit, FastAPI, database work, and reproducible workflows.')">
-                        <div class="skill-icon"><i class="fa-solid fa-code-branch"></i></div>
-                        <span>03</span>
-                        <h4>Data Engineering</h4>
-                        <p>Python, R, SQL, APIs, scraping, dashboards, and reproducible workflows.</p>
-                        <em>Explore evidence →</em>
-                    </article>
-
-                    <article class="skill-showcase-card"
-                        onclick="askSagnikGPT('How is Sagnik capable in machine learning? Explain with evidence from graph learning, deep learning, GCNs, fMRI, GNN route recommendation, GTI modeling, Moneyball, and model evaluation.')">
-                        <div class="skill-icon"><i class="fa-solid fa-diagram-project"></i></div>
-                        <span>04</span>
-                        <h4>Machine Learning</h4>
-                        <p>Graph learning, deep learning, classification, evaluation, and model comparison.</p>
-                        <em>Ask evidence →</em>
-                    </article>
-
-                </div>
-
+                <div class="demo-top-row" id="home-demo-row"></div>
+                <div class="skill-showcase-row improved-skill-row" id="home-skill-showcase"></div>
             </div>
 
-            <!-- RIGHT COLUMN: ROTATING METRICS -->
             <div class="home-metrics-column improved-metrics-column">
                 <div class="metrics-heading">
                     <span>Project Metrics</span>
                     <h3>Important indicators from selected papers and projects</h3>
                 </div>
 
-                <div class="rotating-kpi-grid">
-                    <div class="rotating-kpi-card" id="kpi-card-1">
-                        <span class="kpi-source" id="kpi-source-1">FrameScope</span>
-                        <h3 id="kpi-value-1">19</h3>
-                        <p id="kpi-label-1">AI metaphor categories used for frame detection</p>
-                        <span class="kpi-action" id="kpi-action-1">Open project →</span>
-                    </div>
-
-                    <div class="rotating-kpi-card" id="kpi-card-2">
-                        <span class="kpi-source" id="kpi-source-2">ASHA</span>
-                        <h3 id="kpi-value-2">+1.26 pp</h3>
-                        <p id="kpi-label-2">Estimated first-postcard response-rate gain</p>
-                        <span class="kpi-action" id="kpi-action-2">Open project →</span>
-                    </div>
-
-                    <div class="rotating-kpi-card" id="kpi-card-3">
-                        <span class="kpi-source" id="kpi-source-3">EV Sentiment</span>
-                        <h3 id="kpi-value-3">550K+</h3>
-                        <p id="kpi-label-3">Reddit comments analyzed for EV sentiment</p>
-                        <span class="kpi-action" id="kpi-action-3">Open project →</span>
-                    </div>
-
-                    <div class="rotating-kpi-card" id="kpi-card-4">
-                        <span class="kpi-source" id="kpi-source-4">Thesis</span>
-                        <h3 id="kpi-value-4">88%</h3>
-                        <p id="kpi-label-4">Precision@10 for personalized travel recommendation</p>
-                        <span class="kpi-action" id="kpi-action-4">Open project →</span>
-                    </div>
-                </div>
+                <div class="rotating-kpi-grid" id="rotating-kpi-grid"></div>
             </div>
-
         </div>
 
         <!-- PRESENTATION / PROOF ROW -->
-        <div class="home-proof-row improved-proof-row">
-
-            <article class="proof-card"
-                onclick="window.open('assets/papers/EVSentimentAnalysisProjectPaper.pdf', '_blank')">
-                <div class="proof-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
-                <span class="proof-label">Conference</span>
-                <h3>AAPOR 2025</h3>
-                <p>EV sentiment and public perception research presentation.</p>
-                <span class="card-action-link">Open paper →</span>
-            </article>
-
-            <article class="proof-card"
-                onclick="window.open('assets/papers/GTD.pdf', '_blank')">
-                <div class="proof-icon"><i class="fa-solid fa-globe"></i></div>
-                <span class="proof-label">Research Paper</span>
-                <h3>IISA 2025</h3>
-                <p>Media-aware terrorism index using GTD events and framing features.</p>
-                <span class="card-action-link">Open paper →</span>
-            </article>
-
-            <article class="proof-card"
-                onclick="openHomePosterModal('assets/poster/FramescopePoster.png', 'FrameScope / MASC ALL poster')">
-                <div class="proof-icon"><i class="fa-solid fa-language"></i></div>
-                <span class="proof-label">Current Research</span>
-                <h3>MASC ALL 2026</h3>
-                <p>AI discourse, metaphor, stance, and LLM-assisted framing analysis.</p>
-                <span class="card-action-link">Open poster →</span>
-            </article>
-
-            <article class="proof-card emphasis-card"
-                onclick="window.location.href='resume.html'">
-                <div class="proof-icon"><i class="fa-solid fa-layer-group"></i></div>
-                <span class="proof-label">Portfolio</span>
-                <h3>10+ Projects</h3>
-                <p>Survey methods, NLP, ML, geospatial, graph learning, and social data projects.</p>
-                <span class="card-action-link">Open resume projects →</span>
-            </article>
-
-            <article class="proof-card final-card"
-                onclick="askSagnikGPT('Explain Sagnik’s Survey + AI research identity. Why does his background combine survey methodology, machine learning, NLP, LLMs, and computational social science?')">
-                <div class="proof-icon"><i class="fa-solid fa-bridge"></i></div>
-                <span class="proof-label">Research Identity</span>
-                <h3>Survey + AI</h3>
-                <p>Bridging statistical survey methodology with modern machine learning systems.</p>
-                <span class="card-action-link">Ask SagnikGPT →</span>
-            </article>
-
-        </div>
+        <div class="home-proof-row improved-proof-row" id="home-proof-row"></div>
 
     </section>
 
@@ -402,413 +172,22 @@
 
     
 
-    <a href="research.html#research-assistant" class="floating-assistant-cta">
+    <a href="pages/04-publications.html#research-assistant" class="floating-assistant-cta">
         Ask SagnikGPT
     </a>
 
     <!-- POSTER MODAL -->
-    <div id="home-poster-modal" class="poster-modal" onclick="closeHomePosterModal()">
-        <span class="poster-close">&times;</span>
+    <div id="home-poster-modal" class="poster-modal">
+        <span class="poster-close" data-modal-close>&times;</span>
         <img id="home-poster-modal-img" class="poster-modal-img" src="" alt="Expanded poster">
     </div>
 
     <!-- SCRIPTS -->
-    <script>
-        function toggleMenu() {
-            document.getElementById("nav-menu").classList.toggle("show-menu");
-        }
-
-        function submitHeroSearch() {
-            const input = document.getElementById("hero-search-input");
-            const query = input.value.trim();
-
-            if (!query) return;
-
-            sessionStorage.setItem("sagnikgpt_query", query);
-            window.location.href = "research.html#research-assistant";
-        }
-
-        function handleHeroSearch(event) {
-            if (event.key === "Enter") {
-                submitHeroSearch();
-            }
-        }
-
-        function searchFromChip(keyword) {
-            const input = document.getElementById("hero-search-input");
-
-            if (input) {
-                input.value = keyword;
-                input.focus();
-            }
-        }
-
-        function focusSagnikGPT() {
-            const input = document.getElementById("hero-search-input");
-
-            if (input) {
-                input.scrollIntoView({ behavior: "smooth", block: "center" });
-                input.focus();
-            }
-        }
-
-        function askSagnikGPT(question) {
-            sessionStorage.setItem("sagnikgpt_query", question);
-            window.location.href = "research.html#research-assistant";
-        }
-
-        function openHomePosterModal(src, title) {
-            const modal = document.getElementById("home-poster-modal");
-            const modalImg = document.getElementById("home-poster-modal-img");
-
-            if (!modal || !modalImg) return;
-
-            modal.style.display = "flex";
-            modalImg.src = src;
-            modalImg.alt = title;
-        }
-
-        function closeHomePosterModal() {
-            const modal = document.getElementById("home-poster-modal");
-            if (modal) modal.style.display = "none";
-        }
-
-        const domains = [
-            "Survey and Data Science",
-            "Computational Social Science",
-            "Natural Language Processing",
-            "Data-Centric Machine Learning",
-            "LLM-Assisted Survey Research",
-            "Computational Linguistics",
-            "Measurement Error and Inference"
-        ];
-
-        let domainIndex = 0;
-        const domainText = document.getElementById("domain-text");
-
-        setInterval(() => {
-            domainIndex = (domainIndex + 1) % domains.length;
-            domainText.style.opacity = 0;
-
-            setTimeout(() => {
-                domainText.textContent = domains[domainIndex];
-                domainText.style.opacity = 1;
-            }, 250);
-        }, 2200);
-
-        const rotatingKpis = [
-            [
-                {
-                    source: "EV Sentiment",
-                    value: "550,000+",
-                    label: "Reddit comments analyzed",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Sentiment",
-                    value: "F=28.43",
-                    label: "ANOVA test statistic (platform sentiment differences)",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Sentiment",
-                    value: "η²=.094",
-                    label: "Effect size (9.4% sentiment variance explained by platform)",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                },
-                {
-                    source: "EV Sentiment",
-                    value: "p<.001",
-                    label: "Platform differences statistically significant",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/EVSentimentAnalysisProjectPaper.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "ASHA Survey",
-                    value: "15,000",
-                    label: "SLPs sampled via probability sampling",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                },
-                {
-                    source: "ASHA Survey",
-                    value: "2,693",
-                    label: "Completed surveys collected",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                },
-                {
-                    source: "ASHA Survey",
-                    value: "+1.26 pp",
-                    label: "Response rate gain from first postcard intervention",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                },
-                {
-                    source: "ASHA Survey",
-                    value: "18.6%",
-                    label: "Unweighted response rate achieved",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/ASHAFinalReport.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "Narrative Pulse",
-                    value: "165,565",
-                    label: "Public discourse records processed",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/narrativepulse_thuggerdaily_trial_report.pdf", "_blank")
-                },
-                {
-                    source: "Narrative Pulse",
-                    value: "15.4B+",
-                    label: "Total engagement tracked across platforms",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/narrativepulse_thuggerdaily_trial_report.pdf", "_blank")
-                },
-                {
-                    source: "Narrative Pulse",
-                    value: "773",
-                    label: "ThuggerDaily posts analyzed for temporal alignment",
-                    actionLabel: "View dashboard →",
-                    action: () => window.open("https://narrativepulse.streamlit.app/", "_blank")
-                },
-                {
-                    source: "Narrative Pulse",
-                    value: "124,733",
-                    label: "Young Thug discourse records in corpus",
-                    actionLabel: "View dashboard →",
-                    action: () => window.open("https://narrativepulse.streamlit.app/", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "GNN Thesis",
-                    value: "88%",
-                    label: "Precision@10 on travel recommendations",
-                    actionLabel: "Open thesis →",
-                    action: () => window.open("assets/papers/thesis.pdf", "_blank")
-                },
-                {
-                    source: "GNN Thesis",
-                    value: "83%",
-                    label: "Recall@10 on travel recommendations",
-                    actionLabel: "Open thesis →",
-                    action: () => window.open("assets/papers/thesis.pdf", "_blank")
-                },
-                {
-                    source: "GNN Thesis",
-                    value: "22%",
-                    label: "Fuel consumption reduction from optimization",
-                    actionLabel: "Open thesis →",
-                    action: () => window.open("assets/papers/thesis.pdf", "_blank")
-                },
-                {
-                    source: "GNN Thesis",
-                    value: "18%",
-                    label: "Travel time reduction from optimized routing",
-                    actionLabel: "Open thesis →",
-                    action: () => window.open("assets/papers/thesis.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "GTI / IISA",
-                    value: "200,000+",
-                    label: "Terrorist incidents modeled (1970-2020)",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/GTD.pdf", "_blank")
-                },
-                {
-                    source: "GTI / IISA",
-                    value: "1,000",
-                    label: "News articles manually labeled for framing bias",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/GTD.pdf", "_blank")
-                },
-                {
-                    source: "GTI / IISA",
-                    value: "5",
-                    label: "Framing labels: Terrorism, State Violence, Insurgency, Fighter, Neutral",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/GTD.pdf", "_blank")
-                },
-                {
-                    source: "GTI / IISA",
-                    value: "10-fold CV",
-                    label: "Cross-validation for article-frame classifier",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/GTD.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "Football ML",
-                    value: "7,023",
-                    label: "Player-season observations modeled",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                },
-                {
-                    source: "Football ML",
-                    value: "2,159",
-                    label: "Unique players in cross-classified model",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                },
-                {
-                    source: "Football ML",
-                    value: "78%",
-                    label: "Player heterogeneity explains valuation variance",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                },
-                {
-                    source: "Football ML",
-                    value: "21",
-                    label: "Elite European clubs included in analysis",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Moneyball.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "Detroit Sampling",
-                    value: "1,000",
-                    label: "Target completed interviews across 4 age domains",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Sampling",
-                    value: "2,154",
-                    label: "Selected sample after response-rate inflation adjustment",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Sampling",
-                    value: "270",
-                    label: "Census tracts as primary sampling units",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                },
-                {
-                    source: "Detroit Sampling",
-                    value: "0.35–0.65",
-                    label: "Expected response rates across age domains",
-                    actionLabel: "Open report →",
-                    action: () => window.open("assets/papers/MultiStageSampling.pdf", "_blank")
-                }
-            ],
-            [
-                {
-                    source: "Immigration",
-                    value: "r≈0.48",
-                    label: "Lagged correlation between narrative and enforcement signals",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Immigration.pdf", "_blank")
-                },
-                {
-                    source: "Immigration",
-                    value: "r≈0.32",
-                    label: "Contemporaneous narrative-enforcement association",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Immigration.pdf", "_blank")
-                },
-                {
-                    source: "Immigration",
-                    value: "24+ months",
-                    label: "Time series span for narrative-enforcement analysis",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Immigration.pdf", "_blank")
-                },
-                {
-                    source: "Immigration",
-                    value: "3",
-                    label: "Data sources aligned: News, Reddit, CBP/ICE signals",
-                    actionLabel: "Open paper →",
-                    action: () => window.open("assets/papers/Immigration.pdf", "_blank")
-                }
-            ]
-        ];
-
-        let currentKpiSet = 0;
-        let currentKpiActions = rotatingKpis[0].map(item => item.action);
-
-        function updateKpiCards() {
-            const cards = document.querySelectorAll(".rotating-kpi-card");
-
-            if (!cards.length) return;
-
-            cards.forEach(card => card.classList.add("fade-kpi"));
-
-            setTimeout(() => {
-                currentKpiSet = (currentKpiSet + 1) % rotatingKpis.length;
-                const group = rotatingKpis[currentKpiSet];
-
-                currentKpiActions = group.map(item => item.action);
-
-                group.forEach((item, index) => {
-                    const n = index + 1;
-
-                    const sourceEl = document.getElementById(`kpi-source-${n}`);
-                    const valueEl = document.getElementById(`kpi-value-${n}`);
-                    const labelEl = document.getElementById(`kpi-label-${n}`);
-                    const actionEl = document.getElementById(`kpi-action-${n}`);
-
-                    if (sourceEl) sourceEl.textContent = item.source;
-                    if (valueEl) valueEl.textContent = item.value;
-                    if (labelEl) labelEl.textContent = item.label;
-                    if (actionEl) actionEl.textContent = item.actionLabel || "Open project →";
-                });
-
-                cards.forEach(card => card.classList.remove("fade-kpi"));
-            }, 260);
-        }
-
-        function initializeKpiCards() {
-            const group = rotatingKpis[currentKpiSet];
-            currentKpiActions = group.map(item => item.action);
-
-            group.forEach((item, index) => {
-                const n = index + 1;
-                const sourceEl = document.getElementById(`kpi-source-${n}`);
-                const valueEl = document.getElementById(`kpi-value-${n}`);
-                const labelEl = document.getElementById(`kpi-label-${n}`);
-                const actionEl = document.getElementById(`kpi-action-${n}`);
-
-                if (sourceEl) sourceEl.textContent = item.source;
-                if (valueEl) valueEl.textContent = item.value;
-                if (labelEl) labelEl.textContent = item.label;
-                if (actionEl) actionEl.textContent = item.actionLabel || "Open project →";
-            });
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            initializeKpiCards();
-
-            for (let i = 1; i <= 4; i++) {
-                const card = document.getElementById(`kpi-card-${i}`);
-
-                if (card) {
-                    card.addEventListener("click", () => {
-                        if (currentKpiActions[i - 1]) {
-                            currentKpiActions[i - 1]();
-                        }
-                    });
-                }
-            }
-
-            setInterval(updateKpiCards, 4600);
-        });
-    </script>
+    <script src="assets/js/content-data.js"></script>
+    <script src="assets/js/content-loader.js"></script>
+    <script src="assets/js/modules/core.js?v=8"></script>
+    <script src="assets/js/modules/modal.js?v=14"></script>
+    <script src="assets/js/pages/home.js?v=2"></script>
 
 </body>
 </html>

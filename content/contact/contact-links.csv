@@ -1,0 +1,12 @@
+placement,label,value,href,icon,image,order
+directory,University Email,sagnikch@umd.edu,mailto:sagnikch@umd.edu,fa-envelope,images/Sagnikabout.jpeg,1
+directory,Personal Email,sagnik060260@gmail.com,mailto:sagnik060260@gmail.com,fa-envelope-open-text,images/Sagnikabout.jpeg,2
+directory,Phone,240-610-7356,tel:+12406107356,fa-phone,images/Sagnikabout.jpeg,3
+directory,Code,GitHub,https://github.com/Sagnik-Chakravarty,fa-brands fa-github,images/framescope-dashboard-preview.webp,4
+directory,Professional Profile,LinkedIn,https://www.linkedin.com/in/sagnik-chakravarty,fa-brands fa-linkedin,images/Sagnikabout.jpeg,5
+directory,Research,Google Scholar,https://scholar.google.com/citations?user=thxuXDwAAAAJ&hl=en,fa-graduation-cap,images/Sagnikabout.jpeg,6
+directory,Research Identifier,ORCID,https://orcid.org/0009-0009-7996-6468,fa-brands fa-orcid,images/Sagnikabout.jpeg,7
+directory,Document,Curriculum Vitae,assets/resume/Sagnik_Resume_Full.pdf,fa-file-lines,images/Sagnikabout.jpeg,8
+footer,Email Sagnik,,mailto:sagnikch@umd.edu,fa-envelope,,1
+footer,GitHub profile,,https://github.com/Sagnik-Chakravarty,fa-brands fa-github,,2
+footer,LinkedIn profile,,https://www.linkedin.com/in/sagnik-chakravarty,fa-brands fa-linkedin,,3

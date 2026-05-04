@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="../">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Content Studio | Sagnik Chakravarty</title>
+    <meta name="description" content="Content editing studio for maintaining portfolio Markdown and CSV content.">
+
+    <link rel="stylesheet" href="style.css?v=50">
+    <link rel="stylesheet" href="content-editor/studio.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="studio-body">
+    <header class="studio-header">
+        <div>
+            <p class="section-eyebrow">Portfolio Content Studio</p>
+            <h1>Modify every editable part of the website.</h1>
+            <p>
+                Add, edit, remove, and export Markdown or CSV content for projects, experience,
+                education, skill evidence, metrics, navigation, prompts, contact links, and page copy.
+                Project records also control whether that project appears on Resume, Research,
+                Publications, homepage metrics, and showcases, so you do not fill the same project twice.
+                Saves affect only your local working copy; commit and push whenever you want those changes online.
+            </p>
+        </div>
+
+        <div class="studio-header-actions">
+            <div class="studio-status compact-status" id="studio-status">
+                <strong>No content loaded</strong>
+                <span>Open your local content folder or click Enter/Modify to load the bundled snapshot.</span>
+            </div>
+            <button class="paper-btn" id="open-content-folder">
+                <i class="fa-solid fa-folder-open"></i>
+                Open Content Folder
+            </button>
+            <button class="paper-btn secondary-paper-btn" id="load-bundled-content">
+                <i class="fa-solid fa-database"></i>
+                Load Bundled Snapshot
+            </button>
+        </div>
+    </header>
+
+    <main class="guided-studio">
+        <section class="guide-panel" id="guide-panel">
+            <div class="guide-start" id="guide-start">
+                <div class="studio-section-heading">
+                    <p class="section-eyebrow">Start Here</p>
+                    <h2>What do you want to do?</h2>
+                    <p>Use the guided editor for normal updates. The raw file editor has been moved to a separate page for debugging and advanced maintenance.</p>
+                </div>
+
+                <div class="guide-choice-grid">
+                    <button class="guide-choice-card" data-guide-mode="new">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <strong>Enter new content</strong>
+                        <span>Add a project, education entry, experience role, skill, contact link, metric, prompt, or page copy.</span>
+                    </button>
+
+                    <button class="guide-choice-card" data-guide-mode="modify">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <strong>Modify or delete existing content</strong>
+                        <span>Edit fields, untick highlights/showcases/publications, remove metrics, or delete entire records.</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="guide-workspace" id="guide-workspace" hidden>
+                <div class="guide-toolbar">
+                    <div>
+                        <p class="section-eyebrow" id="guide-eyebrow">Guided Editor</p>
+                        <h2 id="guide-title">Choose a section</h2>
+                        <p id="guide-help">Pick the part of the website you want to update.</p>
+                    </div>
+                    <button class="paper-btn secondary-paper-btn" id="guide-back">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Back
+                    </button>
+                </div>
+
+                <div id="guide-content" class="guide-content"></div>
+            </div>
+        </section>
+
+        <section class="advanced-toggle-row">
+            <a class="paper-btn secondary-paper-btn" href="content-editor/advanced.html">
+                <i class="fa-solid fa-code"></i>
+                Advanced File Editor
+            </a>
+        </section>
+    </main>
+
+    <script src="assets/js/content-data.js"></script>
+    <script src="assets/js/content-loader.js"></script>
+    <script src="content-editor/studio.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+key,value
+heroEyebrow,Interactive Resume
+heroTitle,"Research, survey methodology, and machine learning profile."
+heroLead,"A structured, recruiter-readable version of my academic background, research experience, teaching, industry work, technical skills, and project outcomes across survey methodology, NLP, LLM systems, machine learning, and computational social science."
+quickSummaryLabel,Quick Summary
+overviewEyebrow,Welcome
+overviewTitle,Resume Overview
+overviewLead,"Select a section above to open a full timeline or evidence grid. Each card can be expanded, and most entries are connected to SagnikGPT for recruiter-style follow-up questions."
+recruiterEyebrow,30-second recruiter summary
+recruiterTitle,"Survey-trained data scientist with NLP, LLM, and research-system experience."
+recruiterBody,"I combine survey methodology, machine learning, NLP, and computational social science. My strongest work includes FrameScope, a live LLM-assisted AI discourse dashboard; ASHA survey response-rate analysis; EV sentiment analysis presented at AAPOR; GTI/media-framing research presented at IISA; and multistage sampling designs for applied survey problems."
+overviewAskLabel,Ask summary
+overviewAskPrompt,"Summarize Sagnik's resume for a recruiter. Highlight education, research experience, skills, strongest projects, and measurable outcomes."
+recruiterAskSummaryLabel,Ask SagnikGPT for recruiter summary ->
+recruiterAskSummaryPrompt,"Give a 30-second recruiter summary of Sagnik. Highlight his strongest evidence for data science, survey methodology, NLP, LLM systems, and research roles."
+recruiterDataScientistLabel,Evaluate for data scientist ->
+recruiterDataScientistPrompt,"Evaluate Sagnik for a data scientist role. Be specific about strengths, project evidence, tools, and possible gaps."
+recruiterSurveyRoleLabel,Evaluate for survey role ->
+recruiterSurveyRolePrompt,"Evaluate Sagnik for a survey methodologist or survey data scientist role. Use ASHA, Detroit sampling, Michigan sampling, coursework, and TA experience."
+educationEyebrow,Education Timeline
+educationTitle,Academic Background
+educationLead,"Click an institution to open coursework. Click any course to ask SagnikGPT how that subject supports my profile."
+educationAskLabel,Ask academic trajectory
+educationAskPrompt,"Explain Sagnik's academic trajectory from Statistics to Data Science to Survey and Data Science. Connect coursework to his research profile."
+educationBackLabel,<- Back to Education
+educationDetailEyebrow,Education Detail
+academicFocusLabel,Academic focus:
+courseworkTitle,Coursework
+courseworkLead,Click a subject to ask SagnikGPT how it connects to my training and research profile.
+degreeAskLabel,Ask about this degree ->
+degreeAskPromptTemplate,"How did Sagnik perform academically at {institution}? Explain how his coursework in {degree} supports his research and job profile."
+courseAskPromptTemplate,"How did Sagnik use or benefit from the course: {course} at {institution}? Connect it to his research, projects, and technical profile."
+experienceEyebrow,Experience
+experienceTitle,"Research, Teaching, and Industry"
+experienceLead,"Choose a category to open a timeline. Each entry expands into responsibilities, methods, metrics, and end results."
+experienceAskLabel,Ask experience summary
+experienceAskPrompt,"Summarize Sagnik's experience across research, teaching, and industry. Highlight evidence and role fit."
+experienceCategoryActionTemplate,Open {title} timeline ->
+experienceTimelineEyebrow,Experience Timeline
+experienceTimelineLead,"Click any entry to view detailed responsibilities, methods, metrics, and SagnikGPT prompt."
+experienceTimelineAskLabelTemplate,Ask about {heading} ->
+experienceTimelineAskPromptTemplate,"Summarize Sagnik's {heading}. Give specific evidence, methods, metrics, and role fit."
+experienceBackLabel,<- Back to Experience
+experienceBackShortLabel,<- Back
+experienceDetailEyebrow,Experience Detail
+experienceResultLabel,End result:
+experienceAskRoleLabel,Ask SagnikGPT about this role
+sectionTitleResearch,Research Experience
+sectionTitleTeaching,Teaching Experience
+sectionTitleIndustry,Industry Experience
+sectionTitleDefault,Experience
+projectsEyebrow,Projects Timeline
+projectsTitle,"Projects, Papers, Reports, and Posters"
+projectsLead,"Click a project to open objective, abstract, motivation, methods, results, metrics, paper/report, poster, GitHub, and SagnikGPT prompt."
+projectsAskLabel,Ask project fit
+projectsAskPrompt,"Which of Sagnik's projects are strongest for data science, NLP, survey methodology, and ML roles? Rank them using metrics and outcomes."
+projectsBackLabel,<- Back to Projects
+projectDetailEyebrow,Project Detail
+projectObjectiveTitle,Objective
+projectAbstractTitle,Abstract
+projectMotivationTitle,Motivation
+projectMethodsTitle,Methods
+projectResultsTitle,End Results
+projectInsightTitle,Research / Business Insight
+posterHelpLabel,Click poster to enlarge
+paperButtonLabel,Paper / Report
+dashboardButtonLabel,Dashboard
+posterButtonLabel,Poster
+slidesButtonLabel,Prelim Slides
+githubButtonLabel,GitHub
+websiteButtonLabel,Website
+askSagnikButtonLabel,Ask SagnikGPT
+skillsEyebrow,Skills
+skillsTitle,Skills with Evidence
+skillsLead,"Each skill block is connected to project, coursework, or experience evidence. Click any skill to ask SagnikGPT for a recruiter-style explanation."
+skillsAskLabel,Ask skill summary
+skillsAskPrompt,"Summarize Sagnik's strongest skills with evidence from projects, coursework, research experience, and metrics."
+skillAreaHeader,Skill Area
+skillEvidenceHeader,Project Evidence
+skillMethodsHeader,Methods / Tools
+skillActionHeader,Action
+skillEvidenceButtonLabel,Ask evidence ->
+skillCardAskLabel,Ask SagnikGPT for evidence ->

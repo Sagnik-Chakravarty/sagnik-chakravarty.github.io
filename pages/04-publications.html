@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="../">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Publications & Live Demos | Sagnik Chakravarty</title>
+
+    <meta name="description" content="Publications, conference presentations, talks, and live demos by Sagnik Chakravarty.">
+
+    <link rel="stylesheet" href="style.css?v=65">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div id="header-container">
+        <nav>
+            <a href="index.html" class="text-logo" aria-label="Sagnik Chakravarty home">
+                Sagnik Chakravarty
+            </a>
+
+            <button class="hamburger" data-nav-toggle aria-label="Toggle navigation menu">
+                ☰
+            </button>
+
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/02-about.html">About</a></li>
+                <li><a href="pages/03-resume.html">Resume</a></li>
+                <li><a href="pages/04-publications.html" class="active">Publications</a></li>
+                <li><a href="pages/04-research.html">Research</a></li>
+                <li><a href="pages/05-contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main id="publications-page" class="research-page-shell-v2 publications-page-shell">
+
+        <section class="research-hero-v2 publications-hero">
+            <div class="research-hero-text-v2">
+                <p class="section-eyebrow" data-publications-copy="heroEyebrow">Publications & Live Demos</p>
+
+                <h1 data-publications-copy="heroTitle">Conference outputs, live research systems, and talks.</h1>
+
+                <p class="research-lead-v2" data-publications-copy="heroLead">
+                    A focused view of conference papers, posters, live demos, and talks drawn from the same project records that power the resume and research pages.
+                </p>
+
+                <div class="research-hero-actions-v2">
+                    <a href="pages/04-publications.html#live-demos" class="paper-btn">
+                        <i class="fa-solid fa-display"></i>
+                        Live Demos
+                    </a>
+
+                    <a href="pages/04-publications.html#publications-list" class="paper-btn secondary-paper-btn">
+                        <i class="fa-solid fa-file-lines"></i>
+                        Publications
+                    </a>
+
+                    <a href="pages/04-publications.html#talks" class="paper-btn secondary-paper-btn">
+                        <i class="fa-solid fa-person-chalkboard"></i>
+                        Talks
+                    </a>
+                </div>
+            </div>
+
+            <div class="research-hero-card-v2">
+                <span data-publications-copy="heroCardLabel">Page Sections</span>
+
+                <div class="research-hero-kpis-v2 publications-section-kpis">
+                    <a href="pages/04-publications.html#live-demos">
+                        <strong id="demo-count">0</strong>
+                        <p>Live demos</p>
+                    </a>
+
+                    <a href="pages/04-publications.html#publications-list">
+                        <strong id="publication-count">0</strong>
+                        <p>Publications</p>
+                    </a>
+
+                    <a href="pages/04-publications.html#talks">
+                        <strong id="talk-count">0</strong>
+                        <p>Talks</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="research-quick-nav-v2">
+            <a href="pages/04-publications.html#live-demos">
+                <i class="fa-solid fa-display"></i>
+                Live Demos
+            </a>
+
+            <a href="pages/04-publications.html#research-assistant">
+                <i class="fa-solid fa-message"></i>
+                SagnikGPT
+            </a>
+
+            <a href="pages/04-publications.html#publications-list">
+                <i class="fa-solid fa-file-lines"></i>
+                Publications
+            </a>
+
+            <a href="pages/04-publications.html#talks">
+                <i class="fa-solid fa-person-chalkboard"></i>
+                Talks
+            </a>
+        </section>
+
+        <section class="research-section-v2" id="live-demos">
+            <div class="home-section-heading">
+                <p class="section-eyebrow" data-publications-copy="demosEyebrow">Live Demos</p>
+                <h2 data-publications-copy="demosTitle">Interactive research systems</h2>
+                <p data-publications-copy="demosLead">
+                    Live Streamlit systems and research dashboards moved into one page so demos are easier to find and maintain.
+                </p>
+            </div>
+
+            <div class="assistant-shell research-assistant-shell-v2 publication-assistant-shell" id="research-assistant">
+                <div class="assistant-left research-assistant-left-v2">
+                    <p class="assistant-eyebrow">Live demo</p>
+                    <h3>SagnikGPT</h3>
+
+                    <div class="demo-how-grid assistant-how-grid" id="assistant-how-grid"></div>
+
+                    <div class="assistant-prompt-grid" id="assistant-prompt-grid"></div>
+                </div>
+
+                <div class="assistant-chat-card research-chat-card-v2">
+                    <div class="assistant-chat-header">
+                        <div>
+                            <h3>SagnikGPT</h3>
+                            <p>Portfolio assistant · live RAG interface</p>
+                        </div>
+
+                        <span class="status-badge">
+                            <span class="status-dot"></span>
+                            Online
+                        </span>
+                    </div>
+
+                    <div class="assistant-messages" id="assistant-messages">
+                        <div class="assistant-message bot">
+                            Ask me about Sagnik's research, projects, methods, or experience. I can summarize his profile,
+                            explain projects, or compare work across domains.
+                        </div>
+                    </div>
+
+                    <div class="assistant-input-row">
+                        <input
+                            type="text"
+                            id="assistant-input"
+                            placeholder="Ask about my research, resume, or projects..."
+                        >
+                        <button id="assistant-send-btn">Send</button>
+                    </div>
+
+                    <p class="assistant-disclaimer">
+                        Responses are generated from portfolio data and may occasionally be imperfect. Verify key details from source materials.
+                    </p>
+                </div>
+            </div>
+
+            <div class="live-demo-grid" id="live-demo-grid"></div>
+        </section>
+
+        <section class="research-section-v2" id="publications-list">
+            <div class="home-section-heading">
+                <p class="section-eyebrow" data-publications-copy="publicationEyebrow">Publications & Presentations</p>
+                <h2 data-publications-copy="publicationTitle">Conference papers and research outputs</h2>
+                <p data-publications-copy="publicationLead">
+                    Projects marked as publications in project Markdown appear here automatically.
+                </p>
+            </div>
+
+            <div class="publication-card-grid" id="publication-card-grid"></div>
+        </section>
+
+        <section class="research-section-v2" id="talks">
+            <div class="home-section-heading">
+                <p class="section-eyebrow" data-publications-copy="talksEyebrow">Talks</p>
+                <h2 data-publications-copy="talksTitle">Conference talks and presentations</h2>
+                <p data-publications-copy="talksLead">
+                    Talk entries are managed from a simple CSV and can point back to the project, paper, poster, or dashboard.
+                </p>
+            </div>
+
+            <div class="talk-list" id="talk-list"></div>
+        </section>
+
+    </main>
+
+    <div id="poster-modal" class="poster-modal">
+        <span class="poster-close" data-modal-close>&times;</span>
+        <img id="poster-modal-img" class="poster-modal-img" src="" alt="Expanded poster">
+    </div>
+
+    <section class="home-contact-strip" aria-label="Contact links"></section>
+
+    <a href="pages/04-publications.html#research-assistant" class="floating-assistant-cta">
+        Ask SagnikGPT
+    </a>
+
+    <script src="assets/js/content-data.js"></script>
+    <script src="assets/js/content-loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@13.0.2/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+    <script src="assets/js/modules/core.js?v=8"></script>
+    <script src="assets/js/modules/modal.js"></script>
+    <script src="assets/js/modules/assistant.js"></script>
+    <script src="assets/js/pages/publications.js"></script>
+
+</body>
+</html>

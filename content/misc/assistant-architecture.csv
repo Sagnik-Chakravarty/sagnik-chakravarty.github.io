@@ -1,0 +1,5 @@
+step,title,icon,description
+1,Knowledge Base,fa-database,"Resume, papers, posters, transcripts, project notes, and supporting files."
+2,Retrieval Layer,fa-magnifying-glass-chart,"Documents are chunked, embedded, and searched through semantic retrieval."
+3,LLM Backend,fa-brain,"A FastAPI backend retrieves relevant context and generates responses through an LLM."
+4,Web Interface,fa-window-maximize,"The assistant is embedded directly into the portfolio with session memory and markdown rendering."

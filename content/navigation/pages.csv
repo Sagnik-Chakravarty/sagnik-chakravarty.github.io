@@ -1,0 +1,7 @@
+order,title,url,match
+1,Home,index.html,index.html
+2,About,pages/02-about.html,02-about.html
+3,Resume,pages/03-resume.html,03-resume.html
+4,Publications,pages/04-publications.html,04-publications.html
+5,Research,pages/04-research.html,04-research.html
+6,Contact,pages/05-contact.html,05-contact.html

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="../">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | Sagnik Chakravarty</title>
+
+    <meta name="description" content="About Sagnik Chakravarty – Graduate student at UMD JPSM working across survey methodology, machine learning, NLP, LLMs, and computational social science.">
+
+    <link rel="stylesheet" href="style.css?v=65">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div id="header-container">
+        <nav>
+            <a href="index.html" class="text-logo" aria-label="Sagnik Chakravarty home">
+                Sagnik Chakravarty
+            </a>
+
+            <button class="hamburger" data-nav-toggle aria-label="Toggle navigation menu">
+                ☰
+            </button>
+
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/02-about.html" class="active">About</a></li>
+                <li><a href="pages/03-resume.html">Resume</a></li>
+                <li><a href="pages/04-publications.html">Publications</a></li>
+                <li><a href="pages/04-research.html">Research</a></li>
+                <li><a href="pages/05-contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <main id="about-page" class="about-page-shell">
+
+        <!-- HERO -->
+        <section class="about-hero">
+            <div class="about-hero-text">
+                <p class="section-eyebrow" data-about-copy="heroEyebrow">About Me</p>
+
+                <h1 data-about-copy="heroTitle">I study how data is generated, measured, and modeled.</h1>
+
+                <p class="about-lead" data-about-copy="heroLead"></p>
+
+                <div class="about-hero-actions">
+                    <a href="pages/04-research.html" class="paper-btn">
+                        <i class="fa-solid fa-folder-open"></i>
+                        View Research
+                    </a>
+
+                    <a href="pages/03-resume.html" class="paper-btn secondary-paper-btn">
+                        <i class="fa-solid fa-file-lines"></i>
+                        View Resume
+                    </a>
+
+                    <a href="pages/04-publications.html#research-assistant" class="paper-btn secondary-paper-btn">
+                        <i class="fa-solid fa-message"></i>
+                        Ask SagnikGPT
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-hero-image-card">
+                <img src="images/Sagnikabout.jpeg" alt="Sagnik Chakravarty" id="about-hero-image">
+                <div class="about-image-caption">
+                    <span data-about-copy="imageCaptionLabel">Current Focus</span>
+                    <p data-about-copy="imageCaptionText">Survey Methodology x NLP x LLM-assisted Social Data Analysis</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFILE SUMMARY -->
+        <section class="about-section about-summary-grid">
+
+            <article class="about-narrative-card">
+                <p class="section-eyebrow" data-about-copy="narrativeEyebrow">Research Identity</p>
+                <h2 data-about-copy="narrativeTitle">From statistics to data science to survey methodology</h2>
+
+                <p data-about-copy="narrativeP1"></p>
+                <p data-about-copy="narrativeP2"></p>
+                <p data-about-copy="narrativeP3"></p>
+            </article>
+
+            <div class="about-highlight-stack" id="about-highlight-stack"></div>
+
+        </section>
+
+        <!-- CURRENT WORK -->
+        <section class="about-section">
+            <div class="home-section-heading split-heading">
+                <div>
+                    <p class="section-eyebrow" data-about-copy="currentWorkEyebrow">Current Work</p>
+                    <h2 data-about-copy="currentWorkTitle">Projects I am actively building around</h2>
+                    <p data-about-copy="currentWorkLead"></p>
+                </div>
+
+                <a href="pages/03-resume.html#projects" class="section-text-link">View all projects →</a>
+            </div>
+
+            <div class="about-current-work-grid" id="about-current-work-grid"></div>
+        </section>
+
+        <!-- TABS / BACKGROUND -->
+        <section class="about-section about-tabs-section">
+
+            <div class="home-section-heading">
+                <p class="section-eyebrow" data-about-copy="backgroundEyebrow">Background</p>
+                <h2 data-about-copy="backgroundTitle">Skills, education, and experience</h2>
+                <p data-about-copy="backgroundLead"></p>
+            </div>
+
+            <div class="about-tabs-card">
+
+                <div class="tab-titles about-tab-titles">
+                    <button class="tab-links active-link" data-about-tab="Skills">
+                        <i class="fa-solid fa-toolbox"></i>
+                        Skills
+                    </button>
+
+                    <button class="tab-links" data-about-tab="Education">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        Education
+                    </button>
+
+                    <button class="tab-links" data-about-tab="Experience">
+                        <i class="fa-solid fa-briefcase"></i>
+                        Experience
+                    </button>
+                </div>
+
+                <!-- SKILLS -->
+                <div class="tab-contents active-tab" id="Skills">
+                    <div class="about-skill-grid" id="about-skill-grid"></div>
+                </div>
+
+                <!-- EDUCATION -->
+                <div class="tab-contents" id="Education">
+                    <div class="about-timeline" id="about-education-list"></div>
+                </div>
+
+                <!-- EXPERIENCE -->
+                <div class="tab-contents" id="Experience">
+                    <div class="about-timeline" id="about-experience-list"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PHILOSOPHY STRIP -->
+        <section class="about-philosophy-strip">
+            <div>
+                <p class="section-eyebrow" data-about-copy="philosophyEyebrow">Research Philosophy</p>
+                <h2 data-about-copy="philosophyTitle">Better models require better understanding of data generation.</h2>
+                <p data-about-copy="philosophyLead"></p>
+            </div>
+
+            <a href="pages/04-research.html" class="paper-btn">Explore Research</a>
+        </section>
+
+    </main>
+
+    <!-- CONTACT ICONS -->
+    <section class="home-contact-strip" aria-label="Contact links">
+        <a href="mailto:sagnikch@umd.edu" aria-label="Email Sagnik">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <a href="https://github.com/Sagnik-Chakravarty" target="_blank" aria-label="GitHub profile">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/sagnik-chakravarty" target="_blank" aria-label="LinkedIn profile">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+    </section>
+
+    
+
+    <a href="pages/04-publications.html#research-assistant" class="floating-assistant-cta">
+        Ask SagnikGPT
+    </a>
+
+    <script src="assets/js/content-data.js"></script>
+    <script src="assets/js/content-loader.js"></script>
+    <script src="assets/js/modules/core.js?v=8"></script>
+    <script src="assets/js/pages/about.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+placement,type,ref,label,icon,iconClass,titleOverride,descriptionOverride,actionLabel,actionType,target
+homeProof,project,ev,Conference,fa-person-chalkboard,,AAPOR 2025,EV sentiment and public perception research presentation.,Open paper,open,assets/papers/EVSentimentAnalysisProjectPaper.pdf
+homeProof,project,gti,Research Paper,fa-globe,,IISA 2025,Media-aware terrorism index using GTD events and framing features.,Open paper,open,assets/papers/GTD.pdf
+homeProof,project,framescope,Current Research,fa-language,,MASC ALL 2026,"AI discourse, metaphor, stance, and LLM-assisted framing analysis.",Open poster,poster,assets/poster/FramescopePoster.png
+homeProof,custom,,Portfolio,fa-layer-group,,10+ Projects,"Survey methods, NLP, ML, geospatial, graph learning, and social data projects.",Open resume projects,link,pages/03-resume.html#projects
+homeProof,custom,,Research Identity,fa-bridge,,Survey + AI,Bridging statistical survey methodology with modern machine learning systems.,Ask SagnikGPT,ask,survey_ai_identity
+aboutWork,project,framescope,"LLMs | NLP | Framing",fa-chart-line,framescope-work-icon,,,"Dashboard",link,https://framescope.streamlit.app/reddit
+aboutWork,project,asha,"Survey Methods | Client Project",fa-envelope-open-text,asha-work-icon,ASHA Survey Methods Project,,"Report",link,assets/papers/ASHAFinalReport.pdf
+aboutWork,custom,,Research Direction,fa-bridge,ai-survey-work-icon,Survey + AI Systems,"Building a research profile around data-centric AI systems that account for sampling, measurement, bias, uncertainty, and human-centered data generation.",Ask SagnikGPT,link,pages/04-publications.html#research-assistant

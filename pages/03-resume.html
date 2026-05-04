@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="../">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume | Sagnik Chakravarty</title>
+
+    <meta name="description" content="Interactive resume for Sagnik Chakravarty: survey methodology, machine learning, NLP, LLMs, computational social science, and data science research.">
+
+    <link rel="stylesheet" href="style.css?v=65">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div id="header-container">
+        <nav>
+            <a href="index.html" class="text-logo" aria-label="Sagnik Chakravarty home">
+                Sagnik Chakravarty
+            </a>
+
+            <button class="hamburger" data-nav-toggle aria-label="Toggle navigation menu">☰</button>
+
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/02-about.html">About</a></li>
+                <li><a href="pages/03-resume.html" class="active">Resume</a></li>
+                <li><a href="pages/04-publications.html">Publications</a></li>
+                <li><a href="pages/04-research.html">Research</a></li>
+                <li><a href="pages/05-contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- RESUME PAGE -->
+    <main id="resume-page-v2" class="resume-page-shell-v2">
+
+        <!-- HERO -->
+        <section class="resume-hero-v2">
+            <div>
+                <p class="section-eyebrow" data-resume-copy="heroEyebrow"></p>
+                <h1 data-resume-copy="heroTitle"></h1>
+
+                <p class="resume-lead-v2" data-resume-copy="heroLead"></p>
+            </div>
+
+            <div class="resume-hero-side-card">
+                <span data-resume-copy="quickSummaryLabel"></span>
+                <div class="resume-hero-kpis" id="resume-hero-kpis"></div>
+            </div>
+        </section>
+
+        <!-- SCROLLING RESUME -->
+        <section class="resume-scroll-layout">
+
+            <div class="resume-simple-tabs" aria-label="Resume sections">
+                <button type="button" class="active" id="tab-overview" data-resume-nav="overview" onclick="return resumeButton('overview')">
+                    <i class="fa-solid fa-house"></i>
+                    Overview
+                </button>
+
+                <button type="button" id="tab-education" data-resume-nav="education" onclick="return resumeButton('education')">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Education
+                </button>
+
+                <button type="button" id="tab-experience" data-resume-nav="experience" onclick="return resumeButton('experience')">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Experience
+                </button>
+
+                <button type="button" id="tab-projects" data-resume-nav="projects" onclick="return resumeButton('projects')">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    Projects
+                </button>
+
+                <button type="button" id="tab-skills" data-resume-nav="skills" onclick="return resumeButton('skills')">
+                    <i class="fa-solid fa-toolbox"></i>
+                    Skills
+                </button>
+
+                <a href="assets/resume/Sagnik_Resume_Full.pdf" target="_blank">
+                    <i class="fa-solid fa-download"></i>
+                    Download CV
+                </a>
+            </div>
+
+            <section class="resume-dynamic-panel">
+                <div id="resume-content"></div>
+            </section>
+
+        </section>
+    </main>
+
+    <!-- POSTER MODAL -->
+    <div id="poster-modal" class="poster-modal">
+        <span class="poster-close" data-modal-close>&times;</span>
+        <img id="poster-modal-img" class="poster-modal-img" src="" alt="Expanded poster">
+    </div>
+
+    <!-- CONTACT ICONS -->
+    <section class="home-contact-strip" aria-label="Contact links">
+        <a href="mailto:sagnikch@umd.edu" aria-label="Email Sagnik">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <a href="https://github.com/Sagnik-Chakravarty" target="_blank" aria-label="GitHub profile">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/sagnik-chakravarty" target="_blank" aria-label="LinkedIn profile">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+    </section>
+
+
+
+    <a href="pages/04-publications.html#research-assistant" class="floating-assistant-cta">
+        Ask SagnikGPT
+    </a>
+
+    <script src="assets/js/content-data.js"></script>
+    <script src="assets/js/content-loader.js"></script>
+    <script src="assets/js/modules/core.js?v=8"></script>
+    <script src="assets/js/modules/modal.js"></script>
+    <script src="assets/js/pages/resume.js?v=21"></script>
+    <script src="assets/js/pages/resume-buttons.js?v=9"></script>
+
+</body>
+</html>

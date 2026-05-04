@@ -1,0 +1,33 @@
+group,source,value,label,actionLabel,url
+ev,EV Sentiment,550000+,Reddit comments analyzed,Open paper,assets/papers/EVSentimentAnalysisProjectPaper.pdf
+ev,EV Sentiment,F=28.43,ANOVA test statistic for platform sentiment differences,Open paper,assets/papers/EVSentimentAnalysisProjectPaper.pdf
+ev,EV Sentiment,eta2=.094,Effect size for sentiment variance explained by platform,Open paper,assets/papers/EVSentimentAnalysisProjectPaper.pdf
+ev,EV Sentiment,p<.001,Platform differences statistically significant,Open paper,assets/papers/EVSentimentAnalysisProjectPaper.pdf
+asha,ASHA Survey,15000,SLPs sampled via probability sampling,Open report,assets/papers/ASHAFinalReport.pdf
+asha,ASHA Survey,2693,Completed surveys collected,Open report,assets/papers/ASHAFinalReport.pdf
+asha,ASHA Survey,+1.26 pp,Response rate gain from first postcard intervention,Open report,assets/papers/ASHAFinalReport.pdf
+asha,ASHA Survey,18.6%,Unweighted response rate achieved,Open report,assets/papers/ASHAFinalReport.pdf
+narrative,Narrative Pulse,165565,Public discourse records processed,Open report,assets/papers/narrativepulse_thuggerdaily_trial_report.pdf
+narrative,Narrative Pulse,15.4B+,Total engagement tracked across platforms,Open report,assets/papers/narrativepulse_thuggerdaily_trial_report.pdf
+narrative,Narrative Pulse,773,ThuggerDaily posts analyzed for temporal alignment,View dashboard,https://narrativepulse.streamlit.app/
+narrative,Narrative Pulse,124733,Young Thug discourse records in corpus,View dashboard,https://narrativepulse.streamlit.app/
+thesis,GNN Thesis,88%,Precision@10 on travel recommendations,Open thesis,assets/papers/thesis.pdf
+thesis,GNN Thesis,83%,Recall@10 on travel recommendations,Open thesis,assets/papers/thesis.pdf
+thesis,GNN Thesis,22%,Fuel consumption reduction from optimization,Open thesis,assets/papers/thesis.pdf
+thesis,GNN Thesis,18%,Travel time reduction from optimized routing,Open thesis,assets/papers/thesis.pdf
+gti,GTI / IISA,200000+,Terrorist incidents modeled from 1970-2020,Open paper,assets/papers/GTD.pdf
+gti,GTI / IISA,1000,News articles manually labeled for framing bias,Open paper,assets/papers/GTD.pdf
+gti,GTI / IISA,5,Framing labels for article classification,Open paper,assets/papers/GTD.pdf
+gti,GTI / IISA,10-fold CV,Cross-validation for article-frame classifier,Open paper,assets/papers/GTD.pdf
+moneyball,Football ML,7023,Player-season observations modeled,Open paper,assets/papers/Moneyball.pdf
+moneyball,Football ML,2159,Unique players in cross-classified model,Open paper,assets/papers/Moneyball.pdf
+moneyball,Football ML,78%,Player heterogeneity explains valuation variance,Open paper,assets/papers/Moneyball.pdf
+moneyball,Football ML,21,Elite European clubs included in analysis,Open paper,assets/papers/Moneyball.pdf
+detroit,Detroit Sampling,1000,Target completed interviews across age domains,Open report,assets/papers/MultiStageSampling.pdf
+detroit,Detroit Sampling,2154,Selected sample after response-rate inflation adjustment,Open report,assets/papers/MultiStageSampling.pdf
+detroit,Detroit Sampling,270,Census tracts as primary sampling units,Open report,assets/papers/MultiStageSampling.pdf
+detroit,Detroit Sampling,0.35-0.65,Expected response rates across age domains,Open report,assets/papers/MultiStageSampling.pdf
+immigration,Immigration,r approx 0.48,Lagged correlation between narrative and enforcement signals,Open paper,assets/papers/Immigration.pdf
+immigration,Immigration,r approx 0.32,Contemporaneous narrative-enforcement association,Open paper,assets/papers/Immigration.pdf
+immigration,Immigration,24+ months,Time series span for narrative-enforcement analysis,Open paper,assets/papers/Immigration.pdf
+immigration,Immigration,3,Data sources aligned across news Reddit and administrative signals,Open paper,assets/papers/Immigration.pdf

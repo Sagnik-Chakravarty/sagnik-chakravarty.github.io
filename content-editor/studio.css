@@ -1,0 +1,550 @@
+.studio-body {
+    background: #f7f4f0;
+    color: #2f2925;
+}
+
+.studio-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px;
+    align-items: end;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 40px 28px 24px;
+}
+
+.studio-header h1 {
+    font-size: 34px;
+    line-height: 1.12;
+    margin: 8px 0 10px;
+}
+
+.studio-header p {
+    max-width: 760px;
+}
+
+.studio-header-actions,
+.studio-toolbar-actions,
+.studio-sidebar-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.guided-studio,
+.studio-shell {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 28px 28px;
+}
+
+.guide-panel,
+.advanced-toggle-row {
+    background: #fff;
+    border: 1px solid #ded7d0;
+    border-radius: 8px;
+    box-shadow: 0 16px 36px rgba(37, 30, 24, 0.08);
+    padding: 22px;
+}
+
+.guide-choice-grid,
+.guide-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.guide-choice-card,
+.guide-card {
+    text-align: left;
+    border: 1px solid #e3d8ce;
+    background: #fffdfb;
+    border-radius: 8px;
+    padding: 18px;
+    cursor: pointer;
+    display: grid;
+    gap: 9px;
+    color: #312a25;
+}
+
+.guide-choice-card:hover,
+.guide-card:hover {
+    border-color: #b54769;
+    background: #fff7f9;
+}
+
+.guide-choice-card i,
+.guide-card i {
+    color: #9f2447;
+    font-size: 22px;
+}
+
+.guide-choice-card strong,
+.guide-card strong {
+    font-size: 18px;
+}
+
+.guide-choice-card span,
+.guide-card span,
+.guide-help-text {
+    color: #665d55;
+    line-height: 1.5;
+}
+
+.guide-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: start;
+    margin-bottom: 18px;
+}
+
+.guide-content {
+    display: grid;
+    gap: 16px;
+}
+
+.guided-form {
+    display: grid;
+    gap: 16px;
+}
+
+.form-grid-2,
+.form-grid-3 {
+    display: grid;
+    gap: 12px;
+}
+
+.form-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.form-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.guided-form label {
+    display: grid;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.guided-form input,
+.guided-form textarea,
+.guided-form select {
+    width: 100%;
+    border: 1px solid #d8d0c8;
+    border-radius: 7px;
+    padding: 10px 11px;
+    font: inherit;
+    background: #fff;
+    color: #2f2925;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.check-card {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid #e3d8ce;
+    background: #fffdfb;
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.dynamic-list {
+    display: grid;
+    gap: 10px;
+}
+
+.dynamic-list-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 42px;
+    gap: 10px;
+    align-items: end;
+}
+
+.conditional-panel {
+    display: none;
+}
+
+.conditional-panel.show {
+    display: block;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.advanced-toggle-row {
+    margin-top: 16px;
+    padding: 14px 22px;
+}
+
+.studio-shell {
+    display: grid;
+    grid-template-columns: 330px minmax(0, 1fr);
+    gap: 24px;
+    padding-bottom: 44px;
+}
+
+.studio-sidebar,
+.studio-editor-panel,
+.studio-card {
+    background: #fff;
+    border: 1px solid #ded7d0;
+    border-radius: 8px;
+    box-shadow: 0 16px 36px rgba(37, 30, 24, 0.08);
+}
+
+.studio-sidebar {
+    position: sticky;
+    top: 18px;
+    align-self: start;
+    padding: 16px;
+    max-height: calc(100vh - 36px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.studio-status {
+    display: grid;
+    gap: 4px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #f6f1ed;
+    border: 1px solid #e3d9d0;
+}
+
+.compact-status {
+    min-width: 260px;
+    max-width: 360px;
+}
+
+.studio-status span,
+.studio-section-heading p,
+.studio-empty p,
+.studio-header p {
+    color: #665d55;
+    line-height: 1.55;
+}
+
+.studio-filter {
+    display: grid;
+    gap: 7px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.studio-sidebar-actions {
+    justify-content: stretch;
+}
+
+.studio-sidebar-actions .paper-btn {
+    flex: 1 1 130px;
+    padding: 9px 10px;
+}
+
+.studio-filter input,
+.field-row input,
+.field-row textarea,
+.markdown-section-row input,
+.markdown-section-row textarea,
+.raw-preview,
+.studio-csv-table input {
+    width: 100%;
+    border: 1px solid #d8d0c8;
+    border-radius: 7px;
+    padding: 10px 11px;
+    font: inherit;
+    background: #fff;
+    color: #2f2925;
+}
+
+.studio-file-nav {
+    overflow: auto;
+    display: grid;
+    gap: 6px;
+    padding-right: 4px;
+}
+
+.file-group {
+    display: grid;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.file-group-title {
+    font-size: 12px;
+    font-weight: 800;
+    color: #8a2d47;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 7px 6px 2px;
+}
+
+.file-button {
+    text-align: left;
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 9px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    color: #332d28;
+    display: grid;
+    gap: 2px;
+}
+
+.file-button:hover,
+.file-button.active {
+    background: #f7f1ed;
+    border-color: #e1d4ca;
+}
+
+.file-button strong {
+    font-size: 13px;
+}
+
+.file-button span {
+    font-size: 12px;
+    color: #7a7068;
+    word-break: break-all;
+}
+
+.studio-editor-panel {
+    min-height: 720px;
+    padding: 22px;
+}
+
+.studio-empty {
+    min-height: 650px;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.studio-empty i {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #9f2447;
+    color: #fff;
+    font-size: 24px;
+}
+
+.studio-editor {
+    display: grid;
+    gap: 18px;
+}
+
+.studio-editor-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: end;
+}
+
+.studio-editor-toolbar h2 {
+    margin: 3px 0;
+}
+
+#editor-path {
+    color: #756b64;
+    font-size: 13px;
+    word-break: break-all;
+}
+
+.studio-toolbar-actions .paper-btn {
+    padding: 9px 12px;
+}
+
+.danger-button {
+    color: #8a1f35;
+    border-color: #e0bbc3;
+    background: #fff4f6;
+}
+
+.plus-action-button {
+    width: fit-content;
+}
+
+.studio-notice {
+    display: none;
+    padding: 10px 12px;
+    border-radius: 7px;
+    border: 1px solid #dfd2c7;
+    background: #fff8ef;
+    color: #5a4533;
+}
+
+.studio-notice.show {
+    display: block;
+}
+
+.studio-card {
+    padding: 18px;
+}
+
+.studio-section-heading {
+    margin-bottom: 16px;
+}
+
+.studio-section-heading h3 {
+    margin-bottom: 4px;
+}
+
+.field-grid,
+.section-stack {
+    display: grid;
+    gap: 12px;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: minmax(130px, 220px) minmax(0, 1fr) 42px;
+    gap: 10px;
+    align-items: end;
+    padding: 12px;
+    border: 1px solid #ece4dc;
+    border-radius: 8px;
+    background: #fffdfb;
+}
+
+.field-row label,
+.markdown-section-row label {
+    display: grid;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+    border: 1px solid #dfd2c7;
+    background: #fff;
+    color: #8a2d47;
+    cursor: pointer;
+}
+
+.icon-button:hover {
+    background: #fff0f3;
+}
+
+.markdown-section-row {
+    display: grid;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #ece4dc;
+    border-radius: 8px;
+    background: #fffdfb;
+}
+
+.section-title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 42px;
+    gap: 10px;
+    align-items: end;
+}
+
+.csv-table-wrap {
+    overflow: auto;
+    border: 1px solid #e5dbd2;
+    border-radius: 8px;
+}
+
+.studio-csv-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.studio-csv-table th,
+.studio-csv-table td {
+    border-bottom: 1px solid #eadfd6;
+    border-right: 1px solid #eadfd6;
+    padding: 8px;
+    vertical-align: top;
+}
+
+.studio-csv-table th {
+    background: #f7f1ed;
+    min-width: 170px;
+}
+
+.studio-csv-table th input {
+    font-weight: 800;
+}
+
+.studio-csv-table td input {
+    min-width: 210px;
+}
+
+.studio-csv-table .row-actions,
+.studio-csv-table .column-actions {
+    min-width: 46px;
+    width: 46px;
+    text-align: center;
+}
+
+.raw-preview {
+    min-height: 260px;
+    margin-top: 12px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 13px;
+}
+
+@media (max-width: 980px) {
+    .studio-header,
+    .studio-shell,
+    .studio-editor-toolbar,
+    .guide-toolbar,
+    .guide-choice-grid,
+    .guide-card-grid,
+    .form-grid-2,
+    .form-grid-3,
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .studio-sidebar {
+        position: static;
+        max-height: none;
+    }
+
+    .studio-header-actions,
+    .studio-toolbar-actions {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 640px) {
+    .studio-header,
+    .studio-shell {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .field-row {
+        grid-template-columns: 1fr;
+    }
+}

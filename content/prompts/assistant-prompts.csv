@@ -1,0 +1,9 @@
+key,label,prompt
+data_scientist_summary,Data scientist summary,Summarize Sagnik for a data scientist role.
+llm_nlp_projects,LLM/NLP projects,What projects involve LLMs and NLP?
+survey_experience,Survey experience,Explain Sagnik's survey methodology experience.
+survey_research_fit,Survey research fit,Which projects are strongest for survey research roles?
+political_sentiment,Political sentiment research,Summarize Sagnik's research on political sentiment and public discourse.
+ml_role_fit,ML role fit,Which projects are most relevant for machine learning roles?
+survey_ml_comparison,Survey + ML comparison,Compare Sagnik's work in survey methodology and machine learning.
+unique_profile,Unique profile,What makes Sagnik's background different from a typical data scientist?

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="../">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Advanced Content Editor | Sagnik Chakravarty</title>
+    <meta name="description" content="Advanced raw file editor for portfolio Markdown and CSV content.">
+
+    <link rel="stylesheet" href="style.css?v=50">
+    <link rel="stylesheet" href="content-editor/studio.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="studio-body">
+    <header class="studio-header">
+        <div>
+            <p class="section-eyebrow">Advanced File Editor</p>
+            <h1>Edit content files directly.</h1>
+            <p>
+                This page is for raw Markdown, CSV, and JSON editing. Use the main Content Studio for guided forms.
+                README files and hidden system files are intentionally excluded from the editable list.
+            </p>
+        </div>
+
+        <div class="studio-header-actions">
+            <a class="paper-btn secondary-paper-btn" href="content-editor/index.html">
+                <i class="fa-solid fa-arrow-left"></i>
+                Guided Editor
+            </a>
+            <button class="paper-btn" id="open-content-folder">
+                <i class="fa-solid fa-folder-open"></i>
+                Open Content Folder
+            </button>
+            <button class="paper-btn secondary-paper-btn" id="load-bundled-content">
+                <i class="fa-solid fa-database"></i>
+                Load Bundled Snapshot
+            </button>
+        </div>
+    </header>
+
+    <main class="studio-shell" id="advanced-shell">
+        <aside class="studio-sidebar">
+            <div class="studio-status" id="studio-status">
+                <strong>No folder connected</strong>
+                <span>Open your local content folder or load the bundled snapshot.</span>
+            </div>
+
+            <label class="studio-filter">
+                <span>Search files</span>
+                <input id="file-search" type="search" placeholder="project, resume, contact...">
+            </label>
+
+            <div class="studio-sidebar-actions">
+                <button class="paper-btn secondary-paper-btn" id="new-markdown-file">
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                    New Markdown
+                </button>
+                <button class="paper-btn secondary-paper-btn" id="new-csv-file">
+                    <i class="fa-solid fa-table"></i>
+                    New CSV
+                </button>
+            </div>
+
+            <nav class="studio-file-nav" id="file-nav" aria-label="Content files"></nav>
+        </aside>
+
+        <section class="studio-editor-panel">
+            <div class="studio-empty" id="empty-state">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <h2>Select a content file to edit.</h2>
+                <p>
+                    Markdown files open as structured records with frontmatter fields and editable
+                    Markdown sections. CSV files open as editable tables where rows and columns can be added or removed.
+                </p>
+            </div>
+
+            <div class="studio-editor" id="editor" hidden>
+                <div class="studio-editor-toolbar">
+                    <div>
+                        <p class="section-eyebrow" id="editor-type">Content File</p>
+                        <h2 id="editor-title">No file selected</h2>
+                        <span id="editor-path"></span>
+                    </div>
+
+                    <div class="studio-toolbar-actions">
+                        <button class="paper-btn secondary-paper-btn" id="add-record-field">
+                            <i class="fa-solid fa-plus"></i>
+                            Add Field
+                        </button>
+                        <button class="paper-btn secondary-paper-btn" id="add-section">
+                            <i class="fa-solid fa-heading"></i>
+                            Add Section
+                        </button>
+                        <button class="paper-btn secondary-paper-btn" id="add-row">
+                            <i class="fa-solid fa-table-list"></i>
+                            Add Row
+                        </button>
+                        <button class="paper-btn secondary-paper-btn" id="add-column">
+                            <i class="fa-solid fa-table-columns"></i>
+                            Add Column
+                        </button>
+                        <button class="paper-btn" id="save-file">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Save
+                        </button>
+                        <button class="paper-btn secondary-paper-btn" id="download-file">
+                            <i class="fa-solid fa-download"></i>
+                            Download
+                        </button>
+                        <button class="paper-btn secondary-paper-btn danger-button" id="delete-file">
+                            <i class="fa-solid fa-trash"></i>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="studio-notice" id="editor-notice"></div>
+
+                <div id="markdown-editor" class="markdown-editor" hidden>
+                    <section class="studio-card">
+                        <div class="studio-section-heading">
+                            <h3>Frontmatter Fields</h3>
+                            <p>Use these for titles, IDs, dates, links, image paths, booleans, ordering, and other structured metadata.</p>
+                        </div>
+                        <div class="field-grid" id="frontmatter-fields"></div>
+                    </section>
+
+                    <section class="studio-card">
+                        <div class="studio-section-heading">
+                            <h3>Markdown Sections</h3>
+                            <p>Use these for longer descriptive writing. Section headers are saved as <code>## Header</code>.</p>
+                        </div>
+                        <div class="section-stack" id="markdown-sections"></div>
+                    </section>
+                </div>
+
+                <div id="csv-editor" class="csv-editor" hidden>
+                    <section class="studio-card">
+                        <div class="studio-section-heading">
+                            <h3>CSV Table</h3>
+                            <p>Add or remove rows for cards, links, metrics, prompts, page copy, navigation, and other tabular content.</p>
+                        </div>
+                        <div class="csv-table-wrap">
+                            <table class="studio-csv-table" id="csv-table"></table>
+                        </div>
+                    </section>
+                </div>
+
+                <section class="studio-card">
+                    <details>
+                        <summary>Raw file preview</summary>
+                        <textarea id="raw-preview" class="raw-preview" spellcheck="false"></textarea>
+                    </details>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <template id="field-template">
+        <article class="field-row">
+            <label>
+                <span>Field</span>
+                <input class="field-key" type="text" placeholder="title">
+            </label>
+            <label>
+                <span>Value</span>
+                <textarea class="field-value" rows="2" placeholder="Field value"></textarea>
+            </label>
+            <button class="icon-button remove-field" type="button" aria-label="Remove field">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </article>
+    </template>
+
+    <template id="section-template">
+        <article class="markdown-section-row">
+            <div class="section-title-row">
+                <label>
+                    <span>Markdown Header</span>
+                    <input class="section-title" type="text" placeholder="Summary">
+                </label>
+                <button class="icon-button remove-section" type="button" aria-label="Remove section">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+            <textarea class="section-body" rows="8" placeholder="Write Markdown here..."></textarea>
+        </article>
+    </template>
+
+    <script src="assets/js/content-data.js"></script>
+    <script src="assets/js/content-loader.js"></script>
+    <script src="content-editor/studio.js"></script>
+</body>
+</html>

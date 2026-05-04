@@ -1,0 +1,5 @@
+order,ref,label,focus,description
+1,framescope,Current project,"AI discourse, metaphor, and framing","Connects computational social science with LLM-assisted annotation, stance, metaphor categories, and public-facing research systems. Poster was presented at MASC ALL 2026."
+2,gti,Research paper,"ML, LLM-assisted labeling, and public opinion","Shows how event data, media framing, and machine learning can be combined to question how public risk indices are constructed and interpreted."
+3,asha,Unpublished applied research,"Survey methodology and response behavior","A strong client-facing survey methods project using response-rate estimands, bootstrap inference, and operational recommendations for contact strategy."
+4,immigration,Unpublished research,"Narratives, administrative data, and measurement error","Tests whether news and Reddit narratives behave like noisy social indicators when compared against CBP and ICE administrative enforcement series."

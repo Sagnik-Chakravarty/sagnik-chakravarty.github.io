@@ -1,0 +1,3 @@
+event,location,date,title,projectRef,description,links
+IISA,"Lincoln, Nebraska",2025,GTI media framing research,gti,"Talk on constructing a media-aware terrorism index using GTD event records, news framing labels, and machine-learning comparisons.","Paper|assets/papers/GTD.pdf; Poster|assets/poster/GTDPoster.png"
+AAPOR,St Louis,2025,EV sentiment and public opinion proxies,ev,"Presentation on comparing Reddit, New York Times, and LLM-generated EV sentiment as evidence for validating public-opinion proxies.","Paper|assets/papers/EVSentimentAnalysisProjectPaper.pdf; Poster|assets/poster/EVSentimentAnalysisPoster.png"
