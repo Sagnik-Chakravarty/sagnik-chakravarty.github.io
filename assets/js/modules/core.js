@@ -169,9 +169,9 @@
                     <strong class="page-arrival-to">${escapeHtml(toLabel)}</strong>
                 </div>
             `;
-                document.body.appendChild(clock);
-                window.setTimeout(() => clock.classList.add("is-turning"), 40);
-                window.setTimeout(() => clock.remove(), 2050);
+            document.body.appendChild(clock);
+            window.setTimeout(() => clock.classList.add("is-turning"), 40);
+            window.setTimeout(() => clock.remove(), 2050);
         };
 
         if (arrival?.to === currentPage?.match) {

@@ -10,7 +10,7 @@
     let resumeSkillMatrix = [];
     let resumeCopy = {};
     let resumeHeroKpis = [];
-    let longResumeMode = false;
+    let longResumeMode = true;
     let removeScrollSpy;
 
     function panel() {
@@ -19,12 +19,19 @@
 
     function setActiveTab(section) {
         document.querySelectorAll(".resume-tab").forEach(button => button.classList.remove("active"));
-        const legacyTab = document.getElementById(`tab-${section}`);
-        if (legacyTab) legacyTab.classList.add("active");
+        document.querySelector(`.resume-scroll-rail a[href="#${section}"]`)?.classList.add("active");
+    }
 
-        document.querySelectorAll(".resume-simple-tabs [data-resume-nav]").forEach(button => {
-            button.classList.toggle("active", button.dataset.resumeNav === section);
-        });
+    function pulseResumeControl(control) {
+        if (!control) return;
+
+        control.classList.remove("resume-control-pulse");
+        void control.offsetWidth;
+        control.classList.add("resume-control-pulse");
+        window.clearTimeout(control._resumePulseTimer);
+        control._resumePulseTimer = window.setTimeout(() => {
+            control.classList.remove("resume-control-pulse");
+        }, 420);
     }
 
     function applyResumeCopy() {
@@ -36,14 +43,6 @@
                 <div><strong>${app.escapeHtml(item.value)}</strong><p>${app.escapeHtml(item.label)}</p></div>
             `).join("");
         }
-    }
-
-    function copyText(key, fallback = "") {
-        return resumeCopy[key] || fallback;
-    }
-
-    function formatText(template, values = {}) {
-        return String(template || "").replace(/\{([a-zA-Z0-9_]+)\}/g, (_, key) => values[key] ?? "");
     }
 
     async function hydrateResumeContent() {
@@ -164,19 +163,10 @@
         window.scrollTo({ top: Math.max(0, top), behavior: smooth ? "smooth" : "auto" });
     }
 
-    function updateResumeHash(section) {
-        const nextUrl = `${window.location.pathname}${window.location.search}#${section}`;
-        try {
-            history.replaceState(null, "", nextUrl);
-        } catch (error) {
-            window.location.hash = section;
-        }
-    }
-
     function navigateResumeSection(section, smooth = true, animate = true) {
         if (!section) return;
 
-        updateResumeHash(section);
+        history.replaceState(null, "", `#${section}`);
         if (longResumeMode) {
             scrollToResumeSection(section, smooth, animate);
             return;
@@ -224,11 +214,11 @@
             <div class="resume-welcome-screen">
                 <div class="resume-section-header-v2">
                     <div>
-                        <p class="section-eyebrow">${app.escapeHtml(copyText("overviewEyebrow"))}</p>
-                        <h2>${app.escapeHtml(copyText("overviewTitle"))}</h2>
-                        <p class="welcome-intro">${app.escapeHtml(copyText("overviewLead"))}</p>
+                        <p class="section-eyebrow">${app.escapeHtml(resumeCopy.overviewEyebrow || "Welcome")}</p>
+                        <h2>${app.escapeHtml(resumeCopy.overviewTitle || "Resume Overview")}</h2>
+                        <p class="welcome-intro">${app.escapeHtml(resumeCopy.overviewLead || "")}</p>
                     </div>
-                    ${askButton(copyText("overviewAskPrompt"), copyText("overviewAskLabel"))}
+                    ${askButton("Summarize Sagnik's resume for a recruiter. Highlight education, research experience, skills, strongest projects, and measurable outcomes.", "Ask summary")}
                 </div>
 
                 <div class="recruiter-summary-card-v2">
@@ -237,14 +227,14 @@
                     </div>
 
                     <div>
-                        <p class="section-eyebrow">${app.escapeHtml(copyText("recruiterEyebrow"))}</p>
-                        <h3>${app.escapeHtml(copyText("recruiterTitle"))}</h3>
-                        <p>${app.escapeHtml(copyText("recruiterBody"))}</p>
+                        <p class="section-eyebrow">${app.escapeHtml(resumeCopy.recruiterEyebrow || "30-second recruiter summary")}</p>
+                        <h3>${app.escapeHtml(resumeCopy.recruiterTitle || "")}</h3>
+                        <p>${app.escapeHtml(resumeCopy.recruiterBody || "")}</p>
 
                         <div class="recruiter-summary-actions-v2">
-                            <button data-ask-sagnik="${app.escapeHtml(copyText("recruiterAskSummaryPrompt"))}">${app.escapeHtml(copyText("recruiterAskSummaryLabel"))}</button>
-                            <button data-ask-sagnik="${app.escapeHtml(copyText("recruiterDataScientistPrompt"))}">${app.escapeHtml(copyText("recruiterDataScientistLabel"))}</button>
-                            <button data-ask-sagnik="${app.escapeHtml(copyText("recruiterSurveyRolePrompt"))}">${app.escapeHtml(copyText("recruiterSurveyRoleLabel"))}</button>
+                            <button data-ask-sagnik="Give a 30-second recruiter summary of Sagnik. Highlight his strongest evidence for data science, survey methodology, NLP, LLM systems, and research roles.">Ask SagnikGPT for recruiter summary -></button>
+                            <button data-ask-sagnik="Evaluate Sagnik for a data scientist role. Be specific about strengths, project evidence, tools, and possible gaps.">Evaluate for data scientist -></button>
+                            <button data-ask-sagnik="Evaluate Sagnik for a survey methodologist or survey data scientist role. Use ASHA, Detroit sampling, Michigan sampling, coursework, and TA experience.">Evaluate for survey role -></button>
                         </div>
                     </div>
                 </div>
@@ -255,7 +245,7 @@
                             <i class="fa-solid ${app.escapeHtml(card.icon)}"></i>
                             <h3>${app.escapeHtml(card.title)}</h3>
                             <p>${app.escapeHtml(card.description)}</p>
-                            <span>${app.escapeHtml(card.actionLabel)}</span>
+                            <span>${app.escapeHtml(card.actionLabel)} -></span>
                         </a>
                     `).join("")}
                 </div>
@@ -267,11 +257,11 @@
         panel().innerHTML = `
             <div class="resume-section-header-v2">
                 <div>
-                    <p class="section-eyebrow">${app.escapeHtml(copyText("educationEyebrow"))}</p>
-                    <h2>${app.escapeHtml(copyText("educationTitle"))}</h2>
-                    <p class="welcome-intro">${app.escapeHtml(copyText("educationLead"))}</p>
+                    <p class="section-eyebrow">Education Timeline</p>
+                    <h2>Academic Background</h2>
+                    <p class="welcome-intro">Click an institution to open coursework. Click any course to ask SagnikGPT how that subject supports my profile.</p>
                 </div>
-                ${askButton(copyText("educationAskPrompt"), copyText("educationAskLabel"))}
+                ${askButton("Explain Sagnik's academic trajectory from Statistics to Data Science to Survey and Data Science. Connect coursework to his research profile.", "Ask academic trajectory")}
             </div>
 
             <div class="red-divider"></div>
@@ -302,11 +292,11 @@
         if (!edu) return;
 
         panel().innerHTML = `
-            <button class="back-btn-v2" data-resume-section="education">${app.escapeHtml(copyText("educationBackLabel"))}</button>
+            <button class="back-btn-v2" data-resume-section="education">← Back to Education</button>
 
             <div class="detail-header-v2">
                 <div>
-                    <p class="section-eyebrow">${app.escapeHtml(copyText("educationDetailEyebrow"))}</p>
+                    <p class="section-eyebrow">Education Detail</p>
                     <h2>${app.escapeHtml(edu.institution)}</h2>
                     <p class="detail-subtitle">${app.escapeHtml(edu.degree)}</p>
                 </div>
@@ -320,20 +310,20 @@
             </div>
 
             <div class="resume-result-box-v2">
-                <strong>${app.escapeHtml(copyText("academicFocusLabel"))}</strong> ${app.escapeHtml(edu.focus)}
+                <strong>Academic focus:</strong> ${app.escapeHtml(edu.focus)}
             </div>
 
             <div class="resume-section-header-v2 course-header-row">
                 <div>
-                    <h3>${app.escapeHtml(copyText("courseworkTitle"))}</h3>
-                    <p>${app.escapeHtml(copyText("courseworkLead"))}</p>
+                    <h3>Coursework</h3>
+                    <p>Click a subject to ask SagnikGPT how it connects to my training and research profile.</p>
                 </div>
-                ${askButton(formatText(copyText("degreeAskPromptTemplate"), { institution: edu.institution, degree: edu.degree }), copyText("degreeAskLabel"))}
+                ${askButton(`How did Sagnik perform academically at ${edu.institution}? Explain how his coursework in ${edu.degree} supports his research and job profile.`, "Ask about this degree ->")}
             </div>
 
             <div class="course-grid-v2">
                 ${edu.courses.map(course => `
-                    <button data-ask-sagnik="${app.escapeHtml(formatText(copyText("courseAskPromptTemplate"), { course, institution: edu.institution }))}">
+                    <button data-ask-sagnik="${app.escapeHtml(`How did Sagnik use or benefit from the course: ${course} at ${edu.institution}? Connect it to his research, projects, and technical profile.`)}">
                         ${app.escapeHtml(course)}
                     </button>
                 `).join("")}
@@ -345,11 +335,11 @@
         panel().innerHTML = `
             <div class="resume-section-header-v2">
                 <div>
-                    <p class="section-eyebrow">${app.escapeHtml(copyText("experienceEyebrow"))}</p>
-                    <h2>${app.escapeHtml(copyText("experienceTitle"))}</h2>
-                    <p class="welcome-intro">${app.escapeHtml(copyText("experienceLead"))}</p>
+                    <p class="section-eyebrow">Experience</p>
+                    <h2>Research, Teaching, and Industry</h2>
+                    <p class="welcome-intro">Choose a category to open a timeline. Each entry expands into responsibilities, methods, metrics, and end results.</p>
                 </div>
-                ${askButton(copyText("experienceAskPrompt"), copyText("experienceAskLabel"))}
+                ${askButton("Summarize Sagnik's experience across research, teaching, and industry. Highlight evidence and role fit.", "Ask experience summary")}
             </div>
 
             <div class="red-divider"></div>
@@ -360,7 +350,7 @@
                         <i class="fa-solid ${app.escapeHtml(category.icon)}"></i>
                         <h3>${app.escapeHtml(category.title)}</h3>
                         <p>${app.escapeHtml(category.description)}</p>
-                        <span>${app.escapeHtml(formatText(copyText("experienceCategoryActionTemplate"), { title: category.title.toLowerCase() }))}</span>
+                        <span>Open ${app.escapeHtml(category.title.toLowerCase())} timeline -></span>
                     </article>
                 `).join("")}
             </div>
@@ -371,15 +361,15 @@
         const entries = Object.entries(experienceData).filter(([, item]) => item.section === sectionName);
 
         panel().innerHTML = `
-            <button class="back-btn-v2" data-resume-section="experience">${app.escapeHtml(copyText("experienceBackLabel"))}</button>
+            <button class="back-btn-v2" data-resume-section="experience">← Back to Experience</button>
 
             <div class="resume-section-header-v2">
                 <div>
-                    <p class="section-eyebrow">${app.escapeHtml(copyText("experienceTimelineEyebrow"))}</p>
+                    <p class="section-eyebrow">Experience Timeline</p>
                     <h2>${app.escapeHtml(heading)}</h2>
-                    <p class="welcome-intro">${app.escapeHtml(copyText("experienceTimelineLead"))}</p>
+                    <p class="welcome-intro">Click any entry to view detailed responsibilities, methods, metrics, and SagnikGPT prompt.</p>
                 </div>
-                ${askButton(formatText(copyText("experienceTimelineAskPromptTemplate"), { heading }), formatText(copyText("experienceTimelineAskLabelTemplate"), { heading }))}
+                ${askButton(`Summarize Sagnik's ${heading}. Give specific evidence, methods, metrics, and role fit.`, `Ask about ${heading} ->`)}
             </div>
 
             <div class="red-divider"></div>
@@ -409,16 +399,16 @@
         const item = experienceData[id];
         if (!item) return;
 
-        const paperButton = item.paper ? `<a href="${app.escapeHtml(item.paper)}" target="_blank" class="paper-btn">${app.escapeHtml(copyText("paperButtonLabel"))}</a>` : "";
-        const websiteButton = item.website ? `<a href="${app.escapeHtml(item.website)}" target="_blank" class="paper-btn secondary-paper-btn">${app.escapeHtml(copyText("dashboardButtonLabel"))}</a>` : "";
-        const posterButton = item.poster ? `<button class="paper-btn secondary-paper-btn" data-poster-src="${app.escapeHtml(item.poster)}" data-poster-title="${app.escapeHtml(item.org)}">${app.escapeHtml(copyText("posterButtonLabel"))}</button>` : "";
+        const paperButton = item.paper ? `<a href="${app.escapeHtml(item.paper)}" target="_blank" class="paper-btn">Paper / Report</a>` : "";
+        const websiteButton = item.website ? `<a href="${app.escapeHtml(item.website)}" target="_blank" class="paper-btn secondary-paper-btn">Dashboard</a>` : "";
+        const posterButton = item.poster ? `<button class="paper-btn secondary-paper-btn" data-poster-src="${app.escapeHtml(item.poster)}" data-poster-title="${app.escapeHtml(item.org)}">Poster</button>` : "";
 
         panel().innerHTML = `
-            <button class="back-btn-v2" data-experience-section="${app.escapeHtml(item.section)}" data-experience-heading="${app.escapeHtml(sectionTitle(item.section))}">${app.escapeHtml(copyText("experienceBackShortLabel"))}</button>
+            <button class="back-btn-v2" data-experience-section="${app.escapeHtml(item.section)}" data-experience-heading="${app.escapeHtml(sectionTitle(item.section))}">← Back</button>
 
             <div class="detail-header-v2">
                 <div>
-                    <p class="section-eyebrow">${app.escapeHtml(copyText("experienceDetailEyebrow"))}</p>
+                    <p class="section-eyebrow">Experience Detail</p>
                     <h2>${app.escapeHtml(item.org)}</h2>
                     <p class="detail-subtitle">${app.escapeHtml(item.title)}</p>
                 </div>
@@ -436,7 +426,7 @@
             </div>
 
             <div class="resume-result-box-v2">
-                <strong>${app.escapeHtml(copyText("experienceResultLabel"))}</strong> ${app.escapeHtml(item.result)}
+                <strong>End result:</strong> ${app.escapeHtml(item.result)}
             </div>
 
             <div class="detail-body-v2">
@@ -447,16 +437,16 @@
                 ${paperButton}
                 ${websiteButton}
                 ${posterButton}
-                <button class="paper-btn secondary-paper-btn" data-ask-sagnik="${app.escapeHtml(item.question)}">${app.escapeHtml(copyText("experienceAskRoleLabel"))}</button>
+                <button class="paper-btn secondary-paper-btn" data-ask-sagnik="${app.escapeHtml(item.question)}">Ask SagnikGPT about this role</button>
             </div>
         `;
     }
 
     function sectionTitle(section) {
-        if (section === "research") return copyText("sectionTitleResearch");
-        if (section === "teaching") return copyText("sectionTitleTeaching");
-        if (section === "industry") return copyText("sectionTitleIndustry");
-        return copyText("sectionTitleDefault");
+        if (section === "research") return "Research Experience";
+        if (section === "teaching") return "Teaching Experience";
+        if (section === "industry") return "Industry Experience";
+        return "Experience";
     }
 
     function showProjects() {
@@ -469,11 +459,11 @@
         panel().innerHTML = `
             <div class="resume-section-header-v2">
                 <div>
-                    <p class="section-eyebrow">${app.escapeHtml(copyText("projectsEyebrow"))}</p>
-                    <h2>${app.escapeHtml(copyText("projectsTitle"))}</h2>
-                    <p class="welcome-intro">${app.escapeHtml(copyText("projectsLead"))}</p>
+                    <p class="section-eyebrow">Projects Timeline</p>
+                    <h2>Projects, Papers, Reports, and Posters</h2>
+                    <p class="welcome-intro">Click a project to open objective, abstract, motivation, methods, results, metrics, paper/report, poster, GitHub, and SagnikGPT prompt.</p>
                 </div>
-                ${askButton(copyText("projectsAskPrompt"), copyText("projectsAskLabel"))}
+                ${askButton("Which of Sagnik's projects are strongest for data science, NLP, survey methodology, and ML roles? Rank them using metrics and outcomes.", "Ask project fit")}
             </div>
 
             <div class="red-divider"></div>
@@ -506,18 +496,18 @@
         const project = projectData[id];
         if (!project) return;
 
-        const paperButton = project.paper ? `<a href="${app.escapeHtml(project.paper)}" target="_blank" class="paper-btn">${app.escapeHtml(copyText("paperButtonLabel"))}</a>` : "";
-        const slidesButton = project.slides ? `<a href="${app.escapeHtml(project.slides)}" target="_blank" class="paper-btn secondary-paper-btn">${app.escapeHtml(copyText("slidesButtonLabel"))}</a>` : "";
-        const githubButton = project.github ? `<a href="${app.escapeHtml(project.github)}" target="_blank" class="paper-btn secondary-paper-btn">${app.escapeHtml(copyText("githubButtonLabel"))}</a>` : "";
-        const websiteButton = project.website ? `<a href="${app.escapeHtml(project.website)}" target="_blank" class="paper-btn secondary-paper-btn">${app.escapeHtml(copyText("websiteButtonLabel"))}</a>` : "";
-        const posterButton = project.poster ? `<button class="paper-btn secondary-paper-btn" data-poster-src="${app.escapeHtml(project.poster)}" data-poster-title="${app.escapeHtml(project.title)}">${app.escapeHtml(copyText("posterButtonLabel"))}</button>` : "";
+        const paperButton = project.paper ? `<a href="${app.escapeHtml(project.paper)}" target="_blank" class="paper-btn">Paper / Report</a>` : "";
+        const slidesButton = project.slides ? `<a href="${app.escapeHtml(project.slides)}" target="_blank" class="paper-btn secondary-paper-btn">Prelim Slides</a>` : "";
+        const githubButton = project.github ? `<a href="${app.escapeHtml(project.github)}" target="_blank" class="paper-btn secondary-paper-btn">GitHub</a>` : "";
+        const websiteButton = project.website ? `<a href="${app.escapeHtml(project.website)}" target="_blank" class="paper-btn secondary-paper-btn">Website</a>` : "";
+        const posterButton = project.poster ? `<button class="paper-btn secondary-paper-btn" data-poster-src="${app.escapeHtml(project.poster)}" data-poster-title="${app.escapeHtml(project.title)}">Poster</button>` : "";
 
         panel().innerHTML = `
-            <button class="back-btn-v2" data-resume-section="projects">${app.escapeHtml(copyText("projectsBackLabel"))}</button>
+            <button class="back-btn-v2" data-resume-section="projects">← Back to Projects</button>
 
             <div class="detail-header-v2">
                 <div>
-                    <p class="section-eyebrow">${app.escapeHtml(copyText("projectDetailEyebrow"))}</p>
+                    <p class="section-eyebrow">Project Detail</p>
                     <h2>${app.escapeHtml(project.title)}</h2>
                     <p class="detail-subtitle">${app.escapeHtml(project.meta)}</p>
                 </div>
@@ -533,12 +523,12 @@
                     </div>
 
                     <div class="project-writing-grid">
-                        ${detailSection(copyText("projectObjectiveTitle"), project.objective)}
-                        ${detailSection(copyText("projectAbstractTitle"), project.abstract)}
-                        ${detailSection(copyText("projectMotivationTitle"), project.motivation)}
-                        ${detailSection(copyText("projectMethodsTitle"), project.methods)}
-                        ${detailSection(copyText("projectResultsTitle"), project.results)}
-                        ${detailSection(copyText("projectInsightTitle"), project.insight)}
+                        ${detailSection("Objective", project.objective)}
+                        ${detailSection("Abstract", project.abstract)}
+                        ${detailSection("Motivation", project.motivation)}
+                        ${detailSection("Methods", project.methods)}
+                        ${detailSection("End Results", project.results)}
+                        ${detailSection("Research / Business Insight", project.insight)}
                     </div>
 
                     <div class="project-buttons-v2">
@@ -547,13 +537,13 @@
                         ${githubButton}
                         ${websiteButton}
                         ${posterButton}
-                        <button class="paper-btn secondary-paper-btn" data-ask-sagnik="${app.escapeHtml(project.question)}">${app.escapeHtml(copyText("askSagnikButtonLabel"))}</button>
+                        <button class="paper-btn secondary-paper-btn" data-ask-sagnik="${app.escapeHtml(project.question)}">Ask SagnikGPT</button>
                     </div>
                 </div>
 
                 <aside class="project-detail-poster-v2">
                     <img src="${app.escapeHtml(project.poster)}" alt="${app.escapeHtml(project.title)} poster" data-hide-on-error="true" data-poster-src="${app.escapeHtml(project.poster)}" data-poster-title="${app.escapeHtml(project.title)}">
-                    <p>${app.escapeHtml(copyText("posterHelpLabel"))}</p>
+                    <p>Click poster to enlarge</p>
                 </aside>
             </div>
         `;
@@ -572,20 +562,20 @@
         panel().innerHTML = `
             <div class="resume-section-header-v2">
                 <div>
-                    <p class="section-eyebrow">${app.escapeHtml(copyText("skillsEyebrow"))}</p>
-                    <h2>${app.escapeHtml(copyText("skillsTitle"))}</h2>
-                    <p class="welcome-intro">${app.escapeHtml(copyText("skillsLead"))}</p>
+                    <p class="section-eyebrow">Skills</p>
+                    <h2>Skills with Evidence</h2>
+                    <p class="welcome-intro">Each skill block is connected to project, coursework, or experience evidence. Click any skill to ask SagnikGPT for a recruiter-style explanation.</p>
                 </div>
-                ${askButton(copyText("skillsAskPrompt"), copyText("skillsAskLabel"))}
+                ${askButton("Summarize Sagnik's strongest skills with evidence from projects, coursework, research experience, and metrics.", "Ask skill summary")}
             </div>
 
             <div class="red-divider"></div>
             <div class="skill-project-matrix-v2">
                 <div class="matrix-header-v2">
-                    <span>${app.escapeHtml(copyText("skillAreaHeader"))}</span>
-                    <span>${app.escapeHtml(copyText("skillEvidenceHeader"))}</span>
-                    <span>${app.escapeHtml(copyText("skillMethodsHeader"))}</span>
-                    <span>${app.escapeHtml(copyText("skillActionHeader"))}</span>
+                    <span>Skill Area</span>
+                    <span>Project Evidence</span>
+                    <span>Methods / Tools</span>
+                    <span>Action</span>
                 </div>
 
                 ${resumeSkillMatrix.map(row => `
@@ -596,7 +586,7 @@
                         </div>
                         <div>${app.escapeHtml(row.evidence).replaceAll("|", "·")}</div>
                         <div>${app.escapeHtml(row.methods).replaceAll("|", "·")}</div>
-                        <button data-ask-sagnik="${app.escapeHtml(row.prompt)}">${app.escapeHtml(copyText("skillEvidenceButtonLabel"))}</button>
+                        <button data-ask-sagnik="${app.escapeHtml(row.prompt)}">Ask evidence -></button>
                     </div>
                 `).join("")}
             </div>
@@ -610,7 +600,7 @@
                         <div class="tag-row-v2">
                             ${skill.evidence.map(item => `<span>${app.escapeHtml(item)}</span>`).join("")}
                         </div>
-                        <em>${app.escapeHtml(copyText("skillCardAskLabel"))}</em>
+                        <em>Ask SagnikGPT for evidence -></em>
                     </article>
                 `).join("")}
             </div>
@@ -618,6 +608,20 @@
     }
 
     function bindEvents() {
+        document.addEventListener("click", event => {
+            const control = event.target.closest("[data-resume-nav], [data-resume-section]");
+            if (!control) return;
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            pulseResumeControl(control);
+
+            const section = control.dataset.resumeNav || control.dataset.resumeSection || "";
+            if (!section) return;
+
+            navigateResumeSection(section, true, true);
+        }, true);
+
         document.addEventListener("click", event => {
             const poster = event.target.closest("[data-poster-src]");
             if (poster) {
@@ -658,22 +662,8 @@
     }
 
     window.SagnikResume = {
-        navigateSection: navigateResumeSection,
-        showSection,
-        showEducationDetail,
-        showExperienceLanding,
-        renderExperienceTimeline,
-        showExperienceDetail,
-        showProjects,
-        showProjectDetail
+        navigateSection: navigateResumeSection
     };
-
-    window.showSection = section => navigateResumeSection(section, true, true);
-    window.showEducation = showEducation;
-    window.showExperienceLanding = showExperienceLanding;
-    window.renderExperienceTimeline = renderExperienceTimeline;
-    window.showProjects = showProjects;
-    window.showSkills = showSkills;
 
     document.addEventListener("DOMContentLoaded", async () => {
         app.initCommon();

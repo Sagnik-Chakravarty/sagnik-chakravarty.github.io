@@ -3266,20 +3266,19 @@ body:has(#contact-page-v2) .home-contact-strip {
 .page-arrival-clock {
   position: fixed;
   right: 32px;
-  top: 50%;
-  bottom: auto;
+  bottom: 32px;
   z-index: 1001;
   width: 158px;
   height: 158px;
   pointer-events: none;
   opacity: 0;
-  transform: translateY(-50%) scale(0.96);
+  transform: translateY(10px) scale(0.96);
   transition: opacity 0.24s ease, transform 0.24s ease;
 }
 
 .page-arrival-clock.is-turning {
   opacity: 1;
-  transform: translateY(-50%) scale(1);
+  transform: translateY(0) scale(1);
 }
 
 .page-arrival-clock-ring {
