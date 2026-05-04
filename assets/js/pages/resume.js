@@ -569,7 +569,6 @@
                 ${askButton("Summarize Sagnik's strongest skills with evidence from projects, coursework, research experience, and metrics.", "Ask skill summary")}
             </div>
 
-            <div class="red-divider"></div>
             <div class="skill-project-matrix-v2">
                 <div class="matrix-header-v2">
                     <span>Skill Area</span>
