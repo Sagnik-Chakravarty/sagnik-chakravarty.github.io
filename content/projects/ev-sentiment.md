@@ -1,7 +1,7 @@
 ---
 type: project
 id: ev
-date_range: "2024 - 2025"
+date: "2024 - 2025"
 title: "EV Sentiment Analysis using LLMs"
 meta: "AAPOR 2025 | NLP | Public Opinion"
 paper: assets/papers/EVSentimentAnalysisProjectPaper.pdf
