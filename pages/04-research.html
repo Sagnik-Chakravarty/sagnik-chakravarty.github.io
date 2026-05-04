@@ -109,7 +109,7 @@
 
         <!-- LAB + REFERENCES -->
         <section class="research-section-v2" id="research-lab">
-            <div id="research-lab-card"></div>
+            <div id="research-lab-card" class="research-lab-card"></div>
             <div class="reference-carousel" id="reference-carousel" aria-live="polite"></div>
         </section>
 
@@ -193,6 +193,216 @@
     <script src="assets/js/modules/core.js?v=4"></script>
     <script src="assets/js/modules/modal.js"></script>
     <script src="assets/js/pages/research.js"></script>
+    <script>
+        (function () {
+            function escapeHtml(value) {
+                return String(value || "")
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/\"/g, "&quot;")
+                    .replace(/'/g, "&#39;");
+            }
+
+            function linksHtml(links) {
+                return links.map(link => `<a href="${escapeHtml(link.url)}" ${String(link.url).startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${escapeHtml(link.label)} →</a>`).join("");
+            }
+
+            function metricsHtml(pairs) {
+                return pairs.map(pair => `<div><strong>${escapeHtml(pair[0])}</strong><span>${escapeHtml(pair[1])}</span></div>`).join("");
+            }
+
+            function posterLinkMarkup(url, title) {
+                return `<button class="section-text-link button-link" data-poster-src="${escapeHtml(url)}" data-poster-title="${escapeHtml(title)}">Poster →</button>`;
+            }
+
+            function hasContent(node) {
+                return node && node.children && node.children.length > 0;
+            }
+
+            function populateFallback() {
+                const kpis = document.getElementById("research-hero-kpis");
+                const labCard = document.getElementById("research-lab-card");
+                const references = document.getElementById("reference-carousel");
+                const focusGrid = document.getElementById("research-focus-grid");
+                const agendaGrid = document.getElementById("research-agenda-grid");
+                const selectedGrid = document.getElementById("selected-project-grid");
+
+                if (hasContent(focusGrid) || hasContent(references) || hasContent(selectedGrid)) return;
+
+                if (kpis) {
+                    kpis.innerHTML = [
+                        ["Survey + AI", "Data generation, measurement, and modeling"],
+                        ["NLP/LLMs", "Metaphor, stance, sentiment, and framing"],
+                        ["Survey Methods", "Sampling, response behavior, and inference"],
+                        ["Measurement Error", "Narratives, platforms, and administrative data"]
+                    ].map(pair => `<div><strong>${escapeHtml(pair[0])}</strong><p>${escapeHtml(pair[1])}</p></div>`).join("");
+                }
+
+                if (labCard) {
+                    labCard.innerHTML = `
+                        <div>
+                            <p class="section-eyebrow">Lab &amp; Collaboration</p>
+                            <h2>Computational approaches to text and survey research</h2>
+                            <p>I currently work as a Research Assistant at the University of Maryland on projects involving AI discourse, metaphor framing, NLP, LLM-assisted annotation, and survey experiments. This work connects computational text analysis with survey methodology and public opinion research.</p>
+                        </div>
+                        <div class="compact-link-row">
+                            <a href="https://cats-group.github.io/" target="_blank" rel="noopener">Lab Website →</a>
+                            <a href="https://framescope.streamlit.app" target="_blank" rel="noopener">FrameScope →</a>
+                        </div>
+                    `;
+                }
+
+                if (references) {
+                    const referenceData = [
+                        { name: "Julia Mendelsohn", relation: "PI for my CLIP/CATS research assistant work", department: "College of Information and Department of Government and Politics; UMIACS/CLIP Lab", link: "https://ischool.umd.edu/directory/julia-mendelsohn/", image: "images/JuliaRef.webp" },
+                        { name: "Brian Kim", relation: "Academic advisor and professor for SURV727 and SURV640", department: "JPSM; Co-Director, Social Data Science Major", link: "https://jpsm.umd.edu/facultyprofile/kim/brian", image: "images/briankimRef.webp" },
+                        { name: "Raphael Nishimura", relation: "Sampling I professor under whom I served as TA", department: "Survey Research Operations, University of Michigan ISR", link: "https://src.isr.umich.edu/research/staff/profiles/nishimuraraphael/", image: "images/RaphaelRef.webp" }
+                    ];
+
+                    references.innerHTML = referenceData.map((person, index) => `
+                        <article class="reference-card${index === 0 ? " active" : ""}" data-reference-index="${index}">
+                            <div class="reference-info-panel">
+                                <p class="section-eyebrow">Reference</p>
+                                <h3>${escapeHtml(person.name)}</h3>
+
+                                <div class="reference-meta-row">
+                                    <span>Where they are from</span>
+                                    <strong>${escapeHtml(person.department)}</strong>
+                                </div>
+
+                                <div class="reference-meta-row">
+                                    <span>My relationship</span>
+                                    <strong>${escapeHtml(person.relation)}</strong>
+                                </div>
+
+                                <a class="section-text-link" href="${escapeHtml(person.link)}" target="_blank" rel="noopener">Webpage →</a>
+                            </div>
+
+                            <div class="reference-photo-wrap">
+                                <img src="${escapeHtml(person.image)}" alt="${escapeHtml(person.name)}">
+                            </div>
+                        </article>
+                    `).join("");
+
+                    let activeReference = 0;
+                    const cards = Array.from(references.querySelectorAll(".reference-card"));
+                    const showReference = nextIndex => {
+                        activeReference = nextIndex % cards.length;
+                        cards.forEach((card, index) => {
+                            card.classList.toggle("active", index === activeReference);
+                        });
+                    };
+
+                    showReference(0);
+                    if (cards.length > 1) {
+                        window.setInterval(() => showReference(activeReference + 1), 5200);
+                    }
+                }
+
+                if (focusGrid) {
+                    focusGrid.innerHTML = [
+                        {
+                            eyebrow: "Current project",
+                            title: "FrameScope: AI Metaphor and Framing Analysis",
+                            description: "Connects computational social science with LLM-assisted annotation, stance, metaphor categories, and public-facing research systems. Poster was presented at MASC ALL 2026.",
+                            metrics: [["19", "Metaphor categories"], ["23.6%", "Helper/tool metaphor share"]],
+                            links: [["Dashboard →", "https://framescope.streamlit.app/reddit"], ["GitHub →", "https://github.com/Sagnik-Chakravarty/FrameScope"], ["Paper →", "assets/papers/Framing AI (1).pdf"], ["Ask →", "pages/04-publications.html#research-assistant"]],
+                            focus: "AI discourse, metaphor, and framing"
+                        },
+                        {
+                            eyebrow: "Research paper",
+                            title: "GTI Rankings Through Event Data and Media Framing",
+                            description: "Shows how event data, media framing, and machine learning can be combined to question how public risk indices are constructed and interpreted.",
+                            metrics: [["200K+", "GTD terrorist incidents"], ["1970-2020", "Historical event period"]],
+                            links: [["Paper →", "assets/papers/GTD.pdf"], ["GitHub →", "https://github.com/Sagnik-Chakravarty/Media-Aware-GTI-ML"], ["Ask →", "pages/04-publications.html#research-assistant"]],
+                            focus: "ML, LLM-assisted labeling, and public opinion"
+                        },
+                        {
+                            eyebrow: "Unpublished applied research",
+                            title: "ASHA Healthcare Survey Response Interventions",
+                            description: "A strong client-facing survey methods project using response-rate estimands, bootstrap inference, and operational recommendations for contact strategy.",
+                            metrics: [["15,000", "ASHA-certified SLP sample"], ["9,947", "Web-survey cases"]],
+                            links: [["Report →", "assets/papers/ASHAFinalReport.pdf"], ["GitHub →", "https://github.com/Sagnik-Chakravarty/ASHA"], ["Ask →", "pages/04-publications.html#research-assistant"]],
+                            focus: "Survey methodology and response behavior"
+                        },
+                        {
+                            eyebrow: "Unpublished research",
+                            title: "Immigration Narratives vs Enforcement Data",
+                            description: "Tests whether news and Reddit narratives behave like noisy social indicators when compared against CBP and ICE administrative enforcement series.",
+                            metrics: [["Monthly", "Aligned time series"], ["GDELT", "News narrative signal"]],
+                            links: [["Paper →", "assets/papers/Immigration.pdf"], ["GitHub →", "https://github.com/Sagnik-Chakravarty/Immigration-Narrative-Vs-Enforcement"], ["Ask →", "pages/04-publications.html#research-assistant"]],
+                            focus: "Narratives, administrative data, and measurement error"
+                        }
+                    ].map((card, index) => `
+                        <article class="research-focus-card ${index === 0 ? "current-focus-card" : ""}">
+                            <div class="research-focus-main">
+                                <div class="project-card-top-v2">
+                                    <div class="project-icon-v2"><i class="fa-solid ${index === 0 ? "fa-chart-line" : index === 1 ? "fa-globe" : index === 2 ? "fa-envelope-open-text" : "fa-scale-balanced"}"></i></div>
+                                    <span>${escapeHtml(card.eyebrow)}</span>
+                                </div>
+
+                                <h3>${escapeHtml(card.title)}</h3>
+                                <p>${escapeHtml(card.description)}</p>
+                                <p><strong>Research focus:</strong> ${escapeHtml(card.focus)}</p>
+                            </div>
+
+                            <div class="project-metrics-mini-v2">${metricsHtml(card.metrics)}</div>
+
+                            <div class="compact-link-row">${linksHtml(card.links.map(pair => ({ label: pair[0], url: pair[1] })))}</div>
+                        </article>
+                    `).join("");
+                }
+
+                if (agendaGrid) {
+                    agendaGrid.innerHTML = [
+                        ["01", "Data as a measurement process", "I treat survey responses, social media posts, news articles, and LLM annotations as outputs of measurement systems rather than neutral data points. This connects ASHA response behavior, immigration narratives, AI discourse, and public sentiment."],
+                        ["02", "Survey methodology as infrastructure for AI", "My survey training gives structure to problems that ML systems often ignore: who is represented, who is missing, how labels are generated, how measurement error enters, and how uncertainty should be carried into downstream inference."],
+                        ["03", "Narratives as social indicators", "Projects such as FrameScope, Immigration Narratives, GTI/media framing, and EV sentiment ask how public narratives can be measured, compared, and interpreted without treating them as direct substitutes for reality."],
+                        ["04", "Research systems, not just static analyses", "I am increasingly interested in building reusable systems: dashboards, retrieval-augmented assistants, annotation workflows, and reproducible pipelines that make research outputs easier to inspect, update, and communicate."]
+                    ].map(item => `
+                        <article class="research-agenda-card">
+                            <div class="agenda-number">${escapeHtml(item[0])}</div>
+                            <h3>${escapeHtml(item[1])}</h3>
+                            <p>${escapeHtml(item[2])}</p>
+                            <span>Ask SagnikGPT →</span>
+                        </article>
+                    `).join("");
+                }
+
+                if (selectedGrid) {
+                    selectedGrid.innerHTML = [
+                        { eyebrow: "AAPOR 2025", title: "EV Sentiment Analysis using LLMs", description: "Compared public EV sentiment across Reddit, The New York Times, and LLM-generated responses.", interest: "Computational social science and public opinion proxies", paper: "assets/papers/EVSentimentAnalysisProjectPaper.pdf", poster: "assets/poster/EVSentimentAnalysisPoster.png" },
+                        { eyebrow: "NCSET 2024 Best Paper", title: "Topological Data Analysis on DNA and RNA Structures", description: "Applied topological data analysis to biomolecular structure representation and received the Best Paper Award at NCSET 2024.", interest: "Mathematical data analysis and structure discovery", paper: "assets/papers/Topological_Data_Analysis.pdf", poster: "assets/poster/TDAPoster.png" }
+                    ].map(card => `
+                        <article class="publication-card research-selected-card">
+                            <div class="publication-card-main">
+                                <span>${escapeHtml(card.eyebrow)}</span>
+                                <a href="${escapeHtml(card.poster)}" data-poster-src="${escapeHtml(card.poster)}" data-poster-title="${escapeHtml(card.title)} Poster" class="research-selected-thumb-link">
+                                    <img class="research-selected-thumb" src="${escapeHtml(card.poster)}" alt="${escapeHtml(card.title)} poster thumbnail">
+                                </a>
+
+                                <h3>${escapeHtml(card.title)}</h3>
+                                <p>${escapeHtml(card.description)}</p>
+                                <p><strong>Tied to my research interest:</strong> ${escapeHtml(card.interest)}</p>
+                            </div>
+
+                            <div class="compact-link-row">
+                                <a href="${escapeHtml(card.paper)}">Paper →</a>
+                                ${posterLinkMarkup(card.poster, card.title)}
+                            </div>
+                        </article>
+                    `).join("");
+                }
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", populateFallback, { once: true });
+            } else {
+                populateFallback();
+            }
+        })();
+    </script>
 
 </body>
 </html>

@@ -2274,6 +2274,66 @@ body:has(#resume-page-v2) .floating-assistant-cta {
   align-items: stretch;
 }
 
+.research-reference-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.research-reference-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--accent);
+  border-radius: 8px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow-md);
+  transition: 0.25s ease;
+}
+
+.research-reference-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.research-reference-card h3 {
+  color: var(--ink-soft);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.research-reference-card .project-card-top-v2 {
+  margin-bottom: 0;
+}
+
+.research-reference-card .reference-meta-row {
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.research-reference-card .reference-meta-row span {
+  display: block;
+  color: var(--eyebrow);
+  font-size: 10.5px;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.research-reference-card .reference-meta-row strong {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  line-height: 1.45;
+  display: block;
+}
+
+.research-reference-card .compact-link-row {
+  margin-top: auto;
+}
+
 .reference-card {
   background: #fff;
   border: 1px solid var(--line);
@@ -2377,6 +2437,21 @@ body:has(#resume-page-v2) .floating-assistant-cta {
 
 .selected-project-grid-v2 .compact-link-row {
   margin-top: 0;
+}
+
+.research-selected-card .research-selected-thumb-link {
+  display: block;
+  margin: 6px 0 14px;
+}
+
+.research-selected-card .research-selected-thumb {
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10);
+  display: block;
 }
 
 .project-metrics-mini-v2 {
@@ -3594,6 +3669,7 @@ body.page-scroll-resisting.page-scroll-up main {
   .featured-research-card-v2,
   .resume-scroll-layout,
   .research-two-column-v2,
+  .research-reference-grid,
   .research-lab-card,
   .research-hero-v2,
   .contact-hero-v2,
